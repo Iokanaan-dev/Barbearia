@@ -9,5 +9,5 @@ package com.mycompany.barbearia.individuo;
  * @author italo
  */
 public class Cliente extends Individuo{
-    
+    //bora bill receba luva de pedreiro melhor do mundo
 }
