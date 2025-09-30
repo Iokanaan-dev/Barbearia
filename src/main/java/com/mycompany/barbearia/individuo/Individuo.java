@@ -16,25 +16,49 @@ public class Individuo {
     private int id;
     
     public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento){
-        if (cpf == null || cpf.length() != 11){
-            throw new IllegalArgumentException("CPF inválido!");
-        }
-        
-        if (telefone == null || telefone.length() != 8) {
-            throw new IllegalArgumentException("Telefone Inválido!");
-        }
-        
+        validarNome(nome);
+        validarCpf(cpf);
+        validarTelefone(telefone);
+        validarDataNascimento(data_nascimento);
+
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
     }
 
+    
+    private void validarNome(String nome) {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Campo Vazio!");
+        }
+    }
+
+    private void validarCpf(String cpf) {
+        if (cpf == null || cpf.length() != 11) {
+            throw new IllegalArgumentException("CPF inválido!");
+        }
+    }
+
+    private void validarTelefone(String telefone) {
+        if (telefone == null || telefone.length() < 8 || telefone.length() > 11) {
+            throw new IllegalArgumentException("Telefone inválido!");
+        }
+    }
+
+    private void validarDataNascimento(LocalDate data) {
+        if (data == null || data.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Data de nascimento inválida!");
+        }
+    }
+
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
+        validarNome(nome);
         this.nome = nome;
     }
 
@@ -43,9 +67,7 @@ public class Individuo {
     }
 
     public void setCpf(String cpf) {
-        if (cpf == null || cpf.length() != 11){
-            throw new IllegalArgumentException("CPF inválido!");
-        }
+        validarCpf(cpf);
         this.cpf = cpf;
     }
 
@@ -54,9 +76,7 @@ public class Individuo {
     }
 
     public void setTelefone(String telefone) {
-         if (telefone == null || telefone.length() != 8) {
-            throw new IllegalArgumentException("Telefone Inválido!");
-        }
+        validarTelefone(telefone);
         this.telefone = telefone;
     }
 
@@ -65,6 +85,7 @@ public class Individuo {
     }
 
     public void setData_nascimento(LocalDate data_nascimento) {
+        validarDataNascimento(data_nascimento);
         this.data_nascimento = data_nascimento;
     }
 
@@ -73,8 +94,10 @@ public class Individuo {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID deve ser positivo!");
+        }
         this.id = id;
     }
-    
-    
 }
+
