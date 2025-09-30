@@ -3,16 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.individuo;
-
 import java.time.LocalDate;
-
 /**
  *
  * @author italo
  */
-public class Cliente extends Individuo{
-                                                                                        
-    public Cliente(String nome, String cpf, String telefone, LocalDate data_nascimento) {
-        super(nome, cpf, telefone, data_nascimento);
+public class Atendente extends Funcionario{
+
+    public Atendente(String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
+        super(senha, nome, cpf, telefone, data_nascimento);
     }
+    
 }
