@@ -9,9 +9,14 @@ import java.time.LocalDate;
  * @author italo
  */
 public class Atendente extends Funcionario{
-
+    private static int contador = 0;
+    
     public Atendente(String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(senha, nome, cpf, telefone, data_nascimento);
     }
     
+    @Override
+    protected String gerarId() {
+        return "A" + (++contador);
+    }
 }

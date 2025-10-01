@@ -30,4 +30,6 @@ public class ListaClientes { // [OBS: Isso pode ser um abstracao de lista para q
     }
     
     // [OBS: COLOCAR AS BUSCAS AQUI]
+   
+    //[OBS: Criei a classe generica de listas como vc falou, nela existem os metodos que utilizam as listas, para ver um exemplo de como implementar dessa forma é só ir na classe gestãodeclientes]
 }

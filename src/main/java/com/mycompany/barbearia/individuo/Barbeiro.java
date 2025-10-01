@@ -9,9 +9,15 @@ import java.time.LocalDate;
  * @author italo
  */
 public class Barbeiro extends Funcionario{
-
+    private static int contador = 0;
+     
     public Barbeiro(String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(senha, nome, cpf, telefone, data_nascimento);
+    }
+    
+    @Override
+    protected String gerarId() {
+        return "B" + (++contador);
     }
     
 }

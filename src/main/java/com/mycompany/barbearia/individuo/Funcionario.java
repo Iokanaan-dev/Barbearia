@@ -8,13 +8,13 @@ import java.time.LocalDate;
  *
  * @author italo
  */
-public class Funcionario extends Individuo{
+public abstract class Funcionario extends Individuo{
+    
+    protected String usuario;
     private String senha;
 
     public Funcionario(String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(nome, cpf, telefone, data_nascimento);
         this.senha = senha;
     }
-    
-
 }

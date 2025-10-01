@@ -8,14 +8,12 @@ import java.time.LocalDate;
  *
  * @author italo
  */
-public class Individuo {
+public abstract class Individuo {
     private String nome;
     private String cpf;
     private String telefone;
     private LocalDate data_nascimento;
-    private int id;
- 
-    private static int count; // contador para gerar o id
+    private final String id;
     
     public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento){
         validarNome(nome);
@@ -27,9 +25,10 @@ public class Individuo {
         this.cpf = cpf;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
-        this.id = ++count; //incrementa o id
+        this.id = gerarId(); 
     }
 
+    protected abstract String gerarId();
     
     private void validarNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
@@ -92,22 +91,13 @@ public class Individuo {
         this.data_nascimento = data_nascimento;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
-
-    public void setId(int id) {
-        if (id <= 0) {
-            throw new IllegalArgumentException("ID deve ser positivo!");
-        }
-        this.id = id;
-    }
-
+    
     @Override
     public String toString() {
         return "Individuo{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + ", id=" + id + '}';
     }
-    
-    
 }
 
