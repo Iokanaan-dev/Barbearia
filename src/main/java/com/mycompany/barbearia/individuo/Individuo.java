@@ -14,6 +14,8 @@ public class Individuo {
     private String telefone;
     private LocalDate data_nascimento;
     private int id;
+ 
+    private static int count; // contador para gerar o id
     
     public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento){
         validarNome(nome);
@@ -25,6 +27,7 @@ public class Individuo {
         this.cpf = cpf;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
+        this.id = ++count; //incrementa o id
     }
 
     
@@ -99,5 +102,12 @@ public class Individuo {
         }
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Individuo{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + ", id=" + id + '}';
+    }
+    
+    
 }
 
