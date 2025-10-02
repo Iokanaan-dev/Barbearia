@@ -21,7 +21,7 @@ public class Barbearia {
     public static void main(String[] args) {
         
         GestaoClientes gestaoC = new GestaoClientes();
-        GestaoDeUsuarios gestaoU = new GestaoDeUsuarios(); 
+        GestaoUsuarios gestaoU = new GestaoUsuarios(); 
 // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
 //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
         

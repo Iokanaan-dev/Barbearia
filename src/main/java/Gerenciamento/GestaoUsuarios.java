@@ -15,7 +15,7 @@ import Listas.ListaGenerica;
  *
  * @author italo
  */
-public class GestaoDeUsuarios {
+public class GestaoUsuarios {
     private ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
     
     
