@@ -4,12 +4,12 @@
  */
 package Listas;
 
-import com.mycompany.barbearia.individuo.Individuo; // Importa a classe pai
+import com.mycompany.barbearia.modelos.Individuo; 
 import java.util.ArrayList;
 
 /**
  * Uma classe genérica para gerenciar listas de qualquer tipo que herde de Individuo.
- * Usa Generics (<T>) para ser reutilizável com Clientes, Funcionarios, etc.
+ * Usa Generics (<T>) para ser reutilizável com Clientes, Usuarios, etc.
  * @param <T> O tipo de indivíduo que a lista irá armazenar.
  */
 public class ListaGenerica<T extends Individuo> {

@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.barbearia.individuo;
+package com.mycompany.barbearia.modelos;
+
 import java.time.LocalDate;
+
 /**
  *
  * @author italo
  */
-public class Barbeiro extends Funcionario{
+public class Cliente extends Individuo{
     private static int contador = 0;
-     
-    public Barbeiro(String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
-        super(senha, nome, cpf, telefone, data_nascimento);
+    
+    public Cliente(String nome, String cpf, String telefone, LocalDate data_nascimento) {
+        super(nome, cpf, telefone, data_nascimento);
     }
     
     @Override
     protected String gerarId() {
-        return "B" + (++contador);
+        return "C" + (++contador);
     }
-    
 }

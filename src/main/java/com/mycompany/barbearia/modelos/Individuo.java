@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.barbearia.individuo;
+package com.mycompany.barbearia.modelos;
 import java.time.LocalDate;
 /**
  *
@@ -94,7 +94,7 @@ public abstract class Individuo {
     public String getId() {
         return id;
     }
-    
+
     @Override
     public String toString() {
         return "Individuo{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + ", id=" + id + '}';

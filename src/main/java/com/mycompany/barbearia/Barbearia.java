@@ -3,7 +3,11 @@
  */
 
 package com.mycompany.barbearia;
-import com.mycompany.barbearia.individuo.*;
+import com.mycompany.barbearia.modelos.Gerente;
+import com.mycompany.barbearia.modelos.Cliente;
+import com.mycompany.barbearia.modelos.Barbeiro;
+import com.mycompany.barbearia.modelos.Atendente;
+import com.mycompany.barbearia.modelos.Usuario;
 import Gerenciamento.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,7 +20,8 @@ public class Barbearia {
 
     public static void main(String[] args) {
         
-        GestaoClientes gestaoC = new GestaoClientes(); 
+        GestaoClientes gestaoC = new GestaoClientes();
+        GestaoDeUsuarios gestaoU = new GestaoDeUsuarios(); 
 // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
 //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
         
@@ -25,18 +30,27 @@ public class Barbearia {
         LocalDate data1 = LocalDate.of(1991, 12, 31);
 
         // instancia 4 clientes para testes
-        
+        try {
         gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1);
         gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1);
         gestaoC.cadastrarCliente("Joao", "33333333333", "387382389", data1);
         gestaoC.cadastrarCliente("Italo", "44444444444", "000820483", data1);
+        
+        
+        Usuario novoUsuario = new Barbeiro("italod3ad", "123456789", "italo", "33333333333", "38998090957", data1);
+        Usuario novoUsuario1 = new Atendente("italod3a", "123456789", "italo", "33333333333", "38998090957", data1);
+        Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "italo", "33333333333", "38998090957", data1, "8181");
+        gestaoU.cadastrarUsuario(novoUsuario);
+        gestaoU.cadastrarUsuario(novoUsuario1);
+        gestaoU.cadastrarUsuario(novoUsuario2);
+        gestaoU.removerUser(novoUsuario.getId());
         
         //Exibindo todos os clientes
         
         System.out.println("\n lista de clientes");
         ArrayList<Cliente> todosClientes = gestaoC.exibirListaClientes();
         for (Cliente cliente : todosClientes) {
-            System.out.println(cliente);
+            System.out.println(cliente);    
         }
 
         // GestaoClientes: teste para metodo de busca via nome ====================
@@ -67,6 +81,11 @@ public class Barbearia {
         for (Cliente cliente : todosClientes) {
             System.out.println(cliente);
         }
-     
+        
+        }
+        catch (Exception m){
+                m.printStackTrace();
+        }
+        
     }   
 }

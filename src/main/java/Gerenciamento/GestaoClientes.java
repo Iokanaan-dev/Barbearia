@@ -5,7 +5,7 @@
 package Gerenciamento;
 
 import java.util.ArrayList;
-import com.mycompany.barbearia.individuo.Cliente;
+import com.mycompany.barbearia.modelos.Cliente;
 import java.time.LocalDate;
 import Listas.ListaGenerica;
 
@@ -27,8 +27,7 @@ public class GestaoClientes {
      */
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
-    public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento)
-    {
+    public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento){
         Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento);
         this.listaClientes.adicionar(novoCliente);
     }
