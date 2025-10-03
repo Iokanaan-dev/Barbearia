@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Gerente extends Usuario{
     private static int contador = 0;
     
-    private String pin_segunraca; //usar depois no cadastro de novos usuarios
+    private final String pin_segunraca; //usar depois no cadastro de novos usuarios
     
     public Gerente(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento, String pin_seguranca) {
         super(username,senha, nome, cpf, telefone, data_nascimento);

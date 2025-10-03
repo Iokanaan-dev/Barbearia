@@ -4,11 +4,22 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author italo
  */
 public class Estoque {
-    private ArrayList<Produto> estoque = new ArrayList();
+    private final Map<String, Integer> estoque = new HashMap(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
+    
+    public void adicionarAoEstoque(Produto produto, int quantidade){
+        if (quantidade < 0){
+            throw new IllegalArgumentException("A quantidade não pode ser negativa!");
+        }
+        
+        int quantidadeAtual = estoque.getOrDefault(produto.getId(), 0); // getOrDefault busca o valor atual. Se não existir, retorna 0.
+        estoque.put(produto.getId(), quantidade + quantidadeAtual);
+    }   
 }

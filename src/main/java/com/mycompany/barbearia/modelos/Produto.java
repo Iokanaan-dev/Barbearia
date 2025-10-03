@@ -12,17 +12,23 @@ public class Produto {
     private String nome;
     private String id;
     private double preco;
+    private static int cont;
 
-    public Produto(String nome, String id, int preco){
-        if (id == null || id.trim().isEmpty()){
-            throw new IllegalArgumentException("O id não pode ser nulo");
+    /**
+     *
+     * @param nome
+     * @param preco
+     */
+    public Produto(String nome, int preco){
+        if (nome == null || nome.trim().isEmpty()){
+            throw new IllegalArgumentException("O nome não pode ser nulo");
         }
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
         
         this.nome = nome;
-        this.id = id;
+        this.id = ("PROD-" + ++cont);
         this.preco = preco;
     }
 

@@ -16,14 +16,15 @@ import Listas.ListaGenerica;
 public class GestaoClientes {   
     
     // cria uma lista de clientes que sera gerenciada
-    private ListaGenerica<Cliente> listaClientes = new ListaGenerica();
+    private final ListaGenerica<Cliente> listaClientes = new ListaGenerica();
     
     /**
      * Utiliza ArrayList para alocaçao dinamica dos clientes. Testa cada cliente passado para ver se seu nome corresponde ao buscado.
      * 
-     * @param clientes
-     * @param nome
-     * @return 
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param nome 
      */
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente

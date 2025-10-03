@@ -16,7 +16,7 @@ import Listas.ListaGenerica;
  * @author italo
  */
 public class GestaoUsuarios {
-    private ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
+    private final ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
     
     
     public void cadastrarUsuario(Usuario novoUsuario){
@@ -54,8 +54,8 @@ public class GestaoUsuarios {
     public ArrayList<Barbeiro> exibirListaBarbeiro(){
         ArrayList<Barbeiro> barbeiros = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getItens()) {
-            if(usuarios instanceof Barbeiro) {
-                barbeiros.add((Barbeiro) usuarios);
+            if(usuarios instanceof Barbeiro barbeiro) {
+                barbeiros.add(barbeiro);
             }
         }
         return barbeiros;
@@ -64,8 +64,8 @@ public class GestaoUsuarios {
     public ArrayList<Gerente> exibirListGerente(){
         ArrayList<Gerente> gerentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getItens()){
-            if (usuarios instanceof Gerente) {
-                gerentes.add((Gerente) usuarios);
+            if (usuarios instanceof Gerente gerente) {
+                gerentes.add(gerente);
             }
         }
         return gerentes;
@@ -74,8 +74,8 @@ public class GestaoUsuarios {
     public ArrayList exibirListaAtendentes(){
         ArrayList<Atendente> atendentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getItens()){
-            if (usuarios instanceof Atendente){
-                atendentes.add((Atendente) usuarios);
+            if (usuarios instanceof Atendente atendente){
+                atendentes.add(atendente);
             }
         }
         return atendentes;

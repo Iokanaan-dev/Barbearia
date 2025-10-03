@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public abstract class Usuario extends Individuo{
     
     private String username;
-    private String senha;
+    private final String senha;
 
     public Usuario(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(nome, cpf, telefone, data_nascimento);
