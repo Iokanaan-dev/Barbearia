@@ -55,6 +55,10 @@ public class GestaoClientes {
     public boolean removerCliente(String idCliente){
         return this.listaClientes.remover(idCliente);
     }
-    
+
+    @Override
+    public String toString() {
+        return "GestaoClientes{" + "listaClientes=" + listaClientes + '}';
+    }
 }
 

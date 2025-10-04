@@ -50,4 +50,10 @@ public class ListaGenerica<G extends Individuo> {
     public ArrayList<G> getLista() {
         return new ArrayList<>(this.lista);
     }
+
+    @Override
+    public String toString() {
+        return "ListaGenerica{" + "lista=" + lista + '}';
+    }
+    
 }

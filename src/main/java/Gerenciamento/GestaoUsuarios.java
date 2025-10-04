@@ -114,4 +114,10 @@ public class GestaoUsuarios {
         }
         return atendentes;
     }
+
+    @Override
+    public String toString() {
+        return "GestaoUsuarios{" + "listaUsuario=" + listaUsuario + '}';
+    }
+    
 } //talvez criar um metodo para filtrar o tipo 
