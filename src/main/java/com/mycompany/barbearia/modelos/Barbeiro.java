@@ -14,7 +14,7 @@ public class Barbeiro extends Usuario{
     public Barbeiro(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(username,senha, nome, cpf, telefone, data_nascimento);
     }
-    
+ 
     @Override
     protected String gerarId() {
         return "B" + (++contador);

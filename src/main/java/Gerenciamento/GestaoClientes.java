@@ -25,7 +25,7 @@ public class GestaoClientes {
      * @param telefone
      * @param dataNascimento
      * @param nome 
-     */
+     */ 
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
     public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento){
@@ -33,17 +33,23 @@ public class GestaoClientes {
         this.listaClientes.adicionar(novoCliente);
     }
     
-    public ArrayList<Cliente> buscaPorNome(String nome){
+    public ArrayList<Cliente> verificarClienteCadastrado(String nome){
       return this.listaClientes.buscaPorNome(nome);
     }
     
-    public Cliente buscaPorId(String idCliente){
-        return this.listaClientes.buscaPorId(idCliente);
-    }    
+    public Cliente buscarID(String ID){
+       return this.listaClientes.buscaPorId(ID);
+    }
     
+    public void editarCliente(Cliente objeto, String nome, String cpf, String telefone, LocalDate dataNascimento){
+      objeto.setNome(nome);
+      objeto.setCpf(cpf);
+      objeto.setTelefone(telefone);
+      objeto.setData_nascimento(dataNascimento);
+    }
     
     public ArrayList<Cliente> exibirListaClientes(){
-        return this.listaClientes.getItens();
+        return this.listaClientes.getLista();
     }
 
     public boolean removerCliente(String idCliente){

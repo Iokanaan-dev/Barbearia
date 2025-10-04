@@ -97,7 +97,7 @@ public abstract class Individuo {
 
     @Override
     public String toString() {
-        return "Individuo{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + ", id=" + id + '}';
+        return " nome: " + nome + ", cpf: " + cpf + ", telefone: " + telefone + ", data_nascimento: " + data_nascimento + ", id: " + id + '}';
     }
 }
 

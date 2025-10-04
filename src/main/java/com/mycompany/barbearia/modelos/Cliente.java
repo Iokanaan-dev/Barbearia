@@ -16,7 +16,7 @@ public class Cliente extends Individuo{
     public Cliente(String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(nome, cpf, telefone, data_nascimento);
     }
-    
+
     @Override
     protected String gerarId() {
         return "C" + (++contador);

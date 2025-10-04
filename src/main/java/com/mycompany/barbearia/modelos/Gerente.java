@@ -25,6 +25,10 @@ public class Gerente extends Usuario{
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
         }
     }
+     
+    public boolean verficarPinADM(String pin){
+        return this.pin_segunraca.equals(pin);
+    }
     
     @Override
     protected String gerarId() {

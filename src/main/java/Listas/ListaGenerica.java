@@ -6,46 +6,48 @@ package Listas;
 
 import com.mycompany.barbearia.modelos.Individuo; 
 import java.util.ArrayList;
+import java.util.Objects;
+
 
 /**
  * Uma classe genérica para gerenciar listas de qualquer tipo que herde de Individuo.
- * Usa Generics (<T>) para ser reutilizável com Clientes, Usuarios, etc.
- * @param <T> O tipo de indivíduo que a lista irá armazenar.
+ * Usa Generics (<G>) para ser reutilizável com Clientes, Usuarios, etc.
+ * @param <G> O tipo de indivíduo que a lista irá armazenar.
  */
-public class ListaGenerica<T extends Individuo> {
+public class ListaGenerica<G extends Individuo> {
 
-    private final ArrayList<T> itens = new ArrayList<>();
+    private final ArrayList<G> lista = new ArrayList();
 
-    public void adicionar(T item) {
-        this.itens.add(item);
+    public void adicionar(G objeto) {
+        this.lista.add(objeto);
     }
 
     public boolean remover(String id) {
-        // Se o id for o mesmo de algum item na nossa lista, remova
-        return this.itens.removeIf(item -> item.getId().equals(id));
+        // Se o id for o mesmo de algum objeto na nossa lista, remova
+        return this.lista.removeIf(objeto -> Objects.equals(objeto.getId(), id)); //removeIf vai passar por cada elemento da nossa lista fazendo uma verificação: o id desse objeto é igual ao id que eu passei na função? se for ele remove esse objeto.
     }
 
-    public T buscaPorId(String id) {
-        for (T item : this.itens) {
-            if (item.getId().equals(id)) {
-                return item;
+    public G buscaPorId(String id) {
+        for (G objeto : lista) {
+            if (objeto.getId().equals(id)) {
+                return objeto;
             }
         }
-        return null;
+        return null;    
     }
 
-    public ArrayList<T> buscaPorNome(String parteDoNome) {
-        ArrayList<T> encontrados = new ArrayList<>();
-        for (T item : this.itens) {
-            if (item.getNome().toLowerCase().contains(parteDoNome.toLowerCase())) {
-                encontrados.add(item);
+    public ArrayList<G> buscaPorNome(String Nome) {
+        ArrayList<G> encontrados = new ArrayList<>();
+        for (G objeto : lista) {
+            if (objeto.getNome().toLowerCase().contains(Nome.toLowerCase())) {
+                encontrados.add(objeto);
             }
         }
         return encontrados;
     }
 
     // Retorna uma cópia da lista para manter o encapsulamento.
-    public ArrayList<T> getItens() {
-        return new ArrayList<>(this.itens);
+    public ArrayList<G> getLista() {
+        return new ArrayList<>(this.lista);
     }
 }

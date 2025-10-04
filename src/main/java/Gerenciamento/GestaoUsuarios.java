@@ -10,6 +10,9 @@ import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
 import Listas.ListaGenerica;
+import java.time.LocalDate;
+import java.util.Scanner;
+
 
 /**
  *
@@ -27,7 +30,7 @@ public class GestaoUsuarios {
     }
     
     public Usuario buscarUsuario(String userName){
-        for(Usuario user : listaUsuario.getItens()){
+        for(Usuario user : listaUsuario.getLista()){
             if (user.getUsername().equalsIgnoreCase(userName)){
                 return user;
             }
@@ -47,13 +50,44 @@ public class GestaoUsuarios {
         return this.listaUsuario.buscaPorId(id);
     }
     
+    public void editarUsuarioAtributos(Usuario objeto, String nome, String cpf, String telefone, LocalDate dataNascimento){
+      if(objeto instanceof Gerente gerente){
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("Digite o pin: ");
+            String pin = entrada.nextLine();
+        
+        if(!gerente.verficarPinADM(pin)) {
+           throw new IllegalArgumentException("PIN incorreto!"); 
+      }
+      objeto.setNome(nome);
+      objeto.setCpf(cpf);
+      objeto.setTelefone(telefone);
+      objeto.setData_nascimento(dataNascimento);
+        }
+    } 
+    
+    public void editarUsuarioLogin(Usuario objeto, String username, String senha, String usernameNovo ,String senhaNova){
+      if(objeto instanceof Gerente gerente){
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("Digite o pin: ");
+            String pin = entrada.nextLine();
+        
+        if(!gerente.verficarPinADM(pin)) {
+           throw new IllegalArgumentException("PIN incorreto!"); 
+      }
+      objeto.mudarUsername(username, usernameNovo);
+      objeto.mudarSenha(senha, senhaNova);
+        }
+    }  
+    
+    
     public ArrayList<Usuario> exibirListaUsuarios(){
-        return this.listaUsuario.getItens();
+        return this.listaUsuario.getLista();
     }
     
     public ArrayList<Barbeiro> exibirListaBarbeiro(){
         ArrayList<Barbeiro> barbeiros = new ArrayList();
-        for (Usuario usuarios : this.listaUsuario.getItens()) {
+        for (Usuario usuarios : this.listaUsuario.getLista()) {
             if(usuarios instanceof Barbeiro barbeiro) {
                 barbeiros.add(barbeiro);
             }
@@ -63,7 +97,7 @@ public class GestaoUsuarios {
     
     public ArrayList<Gerente> exibirListGerente(){
         ArrayList<Gerente> gerentes = new ArrayList();
-        for (Usuario usuarios : this.listaUsuario.getItens()){
+        for (Usuario usuarios : this.listaUsuario.getLista()){
             if (usuarios instanceof Gerente gerente) {
                 gerentes.add(gerente);
             }
@@ -73,7 +107,7 @@ public class GestaoUsuarios {
     
     public ArrayList exibirListaAtendentes(){
         ArrayList<Atendente> atendentes = new ArrayList();
-        for (Usuario usuarios : this.listaUsuario.getItens()){
+        for (Usuario usuarios : this.listaUsuario.getLista()){
             if (usuarios instanceof Atendente atendente){
                 atendentes.add(atendente);
             }
