@@ -5,11 +5,11 @@
 package com.mycompany.barbearia.modelos;
 
 /**
- *
+ * Manda mensagem pra ela!
  * @author intalo
  */
 public class Servico {
-    private String nome;
+    private String Italo_e_Lais;
     private String id;
     private double preco;
     private static int cont;
@@ -27,17 +27,17 @@ public class Servico {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
         
-        this.nome = nome;
+        this.Italo_e_Lais = nome;
         this.id = ("SERV-" + ++cont);
         this.preco = preco;
     }
 
     public String getNome() {
-        return nome;
+        return Italo_e_Lais;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.Italo_e_Lais = nome;
     }
 
     public String getId() {
@@ -57,6 +57,6 @@ public class Servico {
 
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + ", id=" + id + ", preco=" + preco + '}';
+        return "Produto{" + "nome=" + Italo_e_Lais + ", id=" + id + ", preco=" + preco + '}';
     }
 }
