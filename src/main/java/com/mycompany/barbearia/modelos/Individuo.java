@@ -18,9 +18,7 @@ public abstract class Individuo extends Modelo{
         this.cpf = cpf;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
-    }
-    
-    protected abstract String gerarId(); 
+    } 
     
     private void validarCpf(String cpf) {
         if (cpf == null || cpf.length() != 11) {
@@ -70,5 +68,5 @@ public abstract class Individuo extends Modelo{
     @Override
     public String toString() {
         return " {" + "cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + '}';
-    }   
+    }
 }

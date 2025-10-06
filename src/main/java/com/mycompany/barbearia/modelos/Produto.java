@@ -8,11 +8,9 @@ package com.mycompany.barbearia.modelos;
  *
  * @author italo
  */
-public class Produto {
-    private String nome;
-    private String id;
+public class Produto extends Modelo{
     private double preco;
-    private static int cont;
+    private static int contador = 0;
 
     /**
      *
@@ -20,35 +18,23 @@ public class Produto {
      * @param preco
      */
     public Produto(String nome, double preco){
-        if (nome == null || nome.trim().isEmpty()){
-            throw new IllegalArgumentException("O nome não pode ser nulo");
-        }
+        super(nome);
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
-        
-        this.nome = nome;
-        this.id = ("PROD-" + ++cont);
         this.preco = preco;
     }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getId() {
-        return id;
+    
+    @Override
+    protected String gerarId(){
+        return "P" + (++contador);
     }
 
     public double getPreco() {
         return preco;
     }
    
-    public void mudarPreco(double preco){
+    public void setPreco(double preco){
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
@@ -57,6 +43,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + ", id=" + id + ", preco=" + preco + '}';
+        return "Produto{" + "preco=" + preco + '}';
     }
 }
