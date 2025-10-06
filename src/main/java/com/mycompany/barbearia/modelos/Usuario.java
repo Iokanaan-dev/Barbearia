@@ -29,6 +29,7 @@ public abstract class Usuario extends Individuo{
         }
     }
     
+    // suponho que possa se tornar private
     public void validarSenha(String senha){
         if(senha == null || senha.trim().length() < 8){
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
