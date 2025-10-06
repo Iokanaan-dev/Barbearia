@@ -8,11 +8,9 @@ package com.mycompany.barbearia.modelos;
  * Manda mensagem pra ela!
  * @author intalo
  */
-public class Servico {
-    private String Italo_e_Lais;
-    private String id;
+public class Servico extends Modelo{
     private double preco;
-    private static int cont;
+    private static int contador;
 
     /**
      *
@@ -20,6 +18,8 @@ public class Servico {
      * @param preco
      */
     public Servico(String nome, double preco){
+        super(nome);
+        
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome não pode ser nulo");
         }
@@ -27,21 +27,7 @@ public class Servico {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
         
-        this.Italo_e_Lais = nome;
-        this.id = ("SERV-" + ++cont);
         this.preco = preco;
-    }
-
-    public String getNome() {
-        return Italo_e_Lais;
-    }
-
-    public void setNome(String nome) {
-        this.Italo_e_Lais = nome;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public double getPreco() {
@@ -54,9 +40,14 @@ public class Servico {
         }
         this.preco = preco;
     }
+    
+    @Override
+    protected String gerarId() {
+        return "SE" + (++contador);
+    }
 
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + Italo_e_Lais + ", id=" + id + ", preco=" + preco + '}';
+        return "Produto{" + "nome=" + super.getNome() + ", id=" + super.getId() + ", preco=" + preco + '}';
     }
 }
