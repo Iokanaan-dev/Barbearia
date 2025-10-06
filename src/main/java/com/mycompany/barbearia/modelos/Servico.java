@@ -6,9 +6,9 @@ package com.mycompany.barbearia.modelos;
 
 /**
  *
- * @author italo
+ * @author intalo
  */
-public class Produto {
+public class Servico {
     private String nome;
     private String id;
     private double preco;
@@ -19,7 +19,7 @@ public class Produto {
      * @param nome
      * @param preco
      */
-    public Produto(String nome, double preco){
+    public Servico(String nome, double preco){
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome não pode ser nulo");
         }
@@ -28,7 +28,7 @@ public class Produto {
         }
         
         this.nome = nome;
-        this.id = ("PROD-" + ++cont);
+        this.id = ("SERV-" + ++cont);
         this.preco = preco;
     }
 
