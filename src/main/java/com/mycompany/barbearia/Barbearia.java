@@ -3,11 +3,7 @@
  */
 
 package com.mycompany.barbearia;
-import com.mycompany.barbearia.modelos.Gerente;
-import com.mycompany.barbearia.modelos.Cliente;
-import com.mycompany.barbearia.modelos.Barbeiro;
-import com.mycompany.barbearia.modelos.Atendente;
-import com.mycompany.barbearia.modelos.Usuario;
+import com.mycompany.barbearia.modelos.*;
 import Gerenciamento.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,6 +27,9 @@ public class Barbearia {
 
         // instancia 4 clientes para testes
         try {
+            
+       /*
+            
         gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1);
         gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1);
         gestaoC.cadastrarCliente("Joao", "33333333333", "387382389", data1);
@@ -91,8 +90,17 @@ public class Barbearia {
         ArrayList<Usuario> todosUsuarios = gestaoU.exibirListaUsuarios();
         for (Usuario usuarios : todosUsuarios){
             System.out.println(usuarios);
-        }
+        } */
         
+        // Testes para produtos e serviços
+        
+        Produto produto1 = new Produto("Balm", 10.34);
+        Servico servico1= new Servico("Corte", 35.00);
+        Servico servico2= new Servico("Escova", 45.00);
+        
+        System.out.println(produto1);
+        System.out.println(servico1);
+        System.out.println(servico2);
         
         }
         catch (Exception m){

@@ -12,7 +12,7 @@ public class Barbeiro extends Usuario{
     private static int contador = 0;
      
     public Barbeiro(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
-        super(username,senha, nome, cpf, telefone, data_nascimento);
+        super(username, senha, nome, cpf, telefone, data_nascimento);
     }
  
     @Override
