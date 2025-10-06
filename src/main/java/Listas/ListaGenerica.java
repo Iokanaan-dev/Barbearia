@@ -4,7 +4,7 @@
  */
 package Listas;
 
-import com.mycompany.barbearia.modelos.Individuo; 
+import com.mycompany.barbearia.modelos.Modelo; 
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ import java.util.Objects;
  * Usa Generics (<G>) para ser reutilizável com Clientes, Usuarios, etc.
  * @param <G> O tipo de indivíduo que a lista irá armazenar.
  */
-public class ListaGenerica<G extends Individuo> {
+public class ListaGenerica<G extends Modelo> {
 
     private final ArrayList<G> lista = new ArrayList();
 
@@ -55,5 +55,4 @@ public class ListaGenerica<G extends Individuo> {
     public String toString() {
         return "ListaGenerica{" + "lista=" + lista + '}';
     }
-    
 }

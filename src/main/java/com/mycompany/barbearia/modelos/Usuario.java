@@ -23,7 +23,9 @@ public abstract class Usuario extends Individuo{
         this.senha = senha;
     }
     
-    private void validarUsername(String userName){
+    protected abstract String gerarId(); 
+    
+    public void validarUsername(String userName){
         if (userName == null || userName.trim().length() < 6){
             throw new IllegalArgumentException("Username invalido!");
         }
