@@ -11,10 +11,23 @@ import java.time.LocalDate;
 public class Barbeiro extends Usuario{
     private static int contador = 0;
      
+    /**
+     *
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param data_nascimento
+     */
     public Barbeiro(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
  
+    /**
+     *
+     * @return
+     */
     @Override
     protected String gerarId() {
         return "B" + (++contador);

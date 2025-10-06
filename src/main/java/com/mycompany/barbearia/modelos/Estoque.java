@@ -14,6 +14,11 @@ import java.util.Map;
 public class Estoque {
     private final Map<String, Integer> estoque = new HashMap(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
     
+    /**
+     *
+     * @param produto
+     * @param quantidade
+     */
     public void adicionarAoEstoque(Produto produto, int quantidade){
         if (quantidade < 0){
             throw new IllegalArgumentException("A quantidade não pode ser negativa!");

@@ -21,7 +21,10 @@ import java.util.Scanner;
 public class GestaoUsuarios {
     private final ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
     
-    
+    /**
+     *
+     * @param novoUsuario
+     */
     public void cadastrarUsuario(Usuario novoUsuario){
         if (buscarUsuario(novoUsuario.getUsername()) != null){
             throw new IllegalArgumentException("usuario existente!");
@@ -29,6 +32,11 @@ public class GestaoUsuarios {
         this.listaUsuario.adicionar(novoUsuario);
     }
     
+    /**
+     *
+     * @param userName
+     * @return
+     */
     public Usuario buscarUsuario(String userName){
         for(Usuario user : listaUsuario.getLista()){
             if (user.getUsername().equalsIgnoreCase(userName)){
@@ -38,18 +46,41 @@ public class GestaoUsuarios {
         return null;
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public boolean removerUser(String id){
        return listaUsuario.remover(id);
     }
     
+    /**
+     *
+     * @param nome
+     * @return
+     */
     public ArrayList<Usuario> buscaPorNome(String nome){
         return this.listaUsuario.buscaPorNome(nome);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Usuario buscaPorId(String id){
         return this.listaUsuario.buscaPorId(id);
     }
     
+    /**
+     *
+     * @param objeto
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     */
     public void editarUsuarioAtributos(Usuario objeto, String nome, String cpf, String telefone, LocalDate dataNascimento){
       if(objeto instanceof Gerente gerente){
             Scanner entrada = new Scanner(System.in);
@@ -66,6 +97,14 @@ public class GestaoUsuarios {
         }
     } 
     
+    /**
+     *
+     * @param objeto
+     * @param username
+     * @param senha
+     * @param usernameNovo
+     * @param senhaNova
+     */
     public void editarUsuarioLogin(Usuario objeto, String username, String senha, String usernameNovo ,String senhaNova){
       if(objeto instanceof Gerente gerente){
             Scanner entrada = new Scanner(System.in);
@@ -80,11 +119,18 @@ public class GestaoUsuarios {
         }
     }  
     
-    
+    /**
+     *
+     * @return
+     */
     public ArrayList<Usuario> exibirListaUsuarios(){
         return this.listaUsuario.getLista();
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Barbeiro> exibirListaBarbeiro(){
         ArrayList<Barbeiro> barbeiros = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()) {
@@ -95,6 +141,10 @@ public class GestaoUsuarios {
         return barbeiros;
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Gerente> exibirListGerente(){
         ArrayList<Gerente> gerentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()){
@@ -105,6 +155,10 @@ public class GestaoUsuarios {
         return gerentes;
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList exibirListaAtendentes(){
         ArrayList<Atendente> atendentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()){
@@ -115,6 +169,10 @@ public class GestaoUsuarios {
         return atendentes;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "GestaoUsuarios{" + "listaUsuario=" + listaUsuario + '}';

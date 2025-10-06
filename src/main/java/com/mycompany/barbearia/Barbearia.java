@@ -14,6 +14,10 @@ import java.util.ArrayList;
  */
 public class Barbearia {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         
         GestaoClientes gestaoC = new GestaoClientes();
@@ -25,17 +29,16 @@ public class Barbearia {
         
         LocalDate data1 = LocalDate.of(1991, 12, 31);
 
-        // instancia 4 clientes para testes
         try {
             
-       /*
-            
-        gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1);
-        gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1);
-        gestaoC.cadastrarCliente("Joao", "33333333333", "387382389", data1);
-        gestaoC.cadastrarCliente("Italo", "44444444444", "000820483", data1);
+      
+        // instancia 4 clientes para testes
+        gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1, "italo@picles.com");
+        gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
+        gestaoC.cadastrarCliente("Joao", "33333333333", "387382389", data1, "receba@melhordomundo.com");
+        gestaoC.cadastrarCliente("Italo", "44444444444", "000820483", data1, "borabill@gmail.com");
         
-        
+        /*
         Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
         Usuario novoUsuario1 = new Atendente("italod3ad", "123456789", "pedro", "33333333333", "38998090957", data1);
         Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
@@ -43,10 +46,11 @@ public class Barbearia {
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
         //gestaoU.removerUser(novoUsuario.getId());
+        */
         
         //Exibindo todos os clientes
         
-        System.out.println("\n lista de clientes");
+        System.out.println("\n Lista de clientes");
         ArrayList<Cliente> todosClientes = gestaoC.exibirListaClientes();
         for (Cliente cliente : todosClientes) {
             System.out.println(cliente);    
@@ -55,7 +59,7 @@ public class Barbearia {
         // GestaoClientes: teste para metodo de busca via nome ====================
         
         //instancia um ArrayList para ser usado nos testes de buscas
-        System.out.println("\n Busncando cliente \n");
+        System.out.println("\n Buscando cliente \n");
         ArrayList<Cliente> clientesSelecionados = gestaoC.verificarClienteCadastrado("Italo");
         for (Cliente cliente : clientesSelecionados) {
             System.out.println(cliente);
@@ -81,7 +85,7 @@ public class Barbearia {
         for (Cliente clientes : todosClientes) {
             System.out.println(clientes);
         }
-        
+        /*
         gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
         
@@ -95,8 +99,8 @@ public class Barbearia {
         // Testes para produtos e serviços
         
         Produto produto1 = new Produto("Balm", 10.34);
-        Servico servico1= new Servico("Corte", 35.00);
-        Servico servico2= new Servico("Escova", 45.00);
+        Servico servico1 = new Servico("Corte", 35.00);
+        Servico servico2 = new Servico("Escova", 45.00);
         
         System.out.println(produto1);
         System.out.println(servico1);

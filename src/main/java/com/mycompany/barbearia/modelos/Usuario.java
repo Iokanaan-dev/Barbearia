@@ -14,6 +14,15 @@ public abstract class Usuario extends Individuo{
     private String username;
     private String senha;
 
+    /**
+     *
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param data_nascimento
+     */
     public Usuario(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(nome, cpf, telefone, data_nascimento);
         
@@ -23,8 +32,16 @@ public abstract class Usuario extends Individuo{
         this.senha = senha;
     }
     
+    /**
+     *
+     * @return
+     */
     protected abstract String gerarId(); 
     
+    /**
+     *
+     * @param userName
+     */
     public void validarUsername(String userName){
         if (userName == null || userName.trim().length() < 6){
             throw new IllegalArgumentException("Username invalido!");
@@ -32,26 +49,48 @@ public abstract class Usuario extends Individuo{
     }
     
     // suponho que possa se tornar private
+
+    /**
+     *
+     * @param senha
+     */
     public void validarSenha(String senha){
         if(senha == null || senha.trim().length() < 8){
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
     
+    /**
+     *
+     * @param username
+     * @return
+     */
     public boolean verificarUsername(String username){
         return username != null && this.username.equals(username);
     }
     
+    /**
+     *
+     * @param senha
+     * @return
+     */
     public boolean verificarSenha(String senha){
         return senha != null && this.senha.equals(senha);
     }
     
-    
-    
+    /**
+     *
+     * @param usernameAtual
+     * @param usernameNovo
+     */
     public void mudarUsername(String usernameAtual, String usernameNovo) {
         if(usernameAtual == null || !verificarUsername(usernameAtual)){
             throw new IllegalArgumentException("usuario invalido!");
@@ -60,7 +99,11 @@ public abstract class Usuario extends Individuo{
         this.username = usernameNovo;
     }
     
-
+    /**
+     *
+     * @param senhaAtual
+     * @param senhaNova
+     */
     public void mudarSenha(String senhaAtual, String senhaNova) {
         if(senhaAtual == null || !verificarSenha(senhaAtual)){
            throw new IllegalArgumentException("Sennha invalido!");
@@ -69,6 +112,10 @@ public abstract class Usuario extends Individuo{
         this.senha = senhaNova;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return String.format(" Username: " + this.username) + super.toString(); 

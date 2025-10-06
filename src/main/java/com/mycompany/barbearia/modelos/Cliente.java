@@ -11,14 +11,50 @@ import java.time.LocalDate;
  * @author italo
  */
 public class Cliente extends Individuo{
+    private String email;
     private static int contador = 0;
     
-    public Cliente(String nome, String cpf, String telefone, LocalDate data_nascimento) {
+    /**
+     *
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param data_nascimento
+     * @param email
+     */
+    
+    public Cliente(String nome, String cpf, String telefone, LocalDate data_nascimento, String email) {
         super(nome, cpf, telefone, data_nascimento);
+        this.validarEmail(email);
+        this.email = email;
+    }
+    
+   private void validarEmail(String email) {
+        if (email == null || email.length() < 8 || !(email.contains("@")) || !(email.contains(".com")))
+            throw new IllegalArgumentException("Email inválido!");
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+      
+    /**
+     *
+     * @return
+     */
     @Override
     protected String gerarId() {
         return "C" + (++contador);
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + super.toString() + "email=" + email + '}';
+    }
+    
+    
 }

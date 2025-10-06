@@ -30,10 +30,18 @@ public class Servico extends Modelo{
         this.preco = preco;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPreco() {
         return preco;
     }
    
+    /**
+     *
+     * @param preco
+     */
     public void mudarPreco(double preco){
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
@@ -41,13 +49,21 @@ public class Servico extends Modelo{
         this.preco = preco;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     protected String gerarId() {
         return "SE" + (++contador);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + super.getNome() + ", id=" + super.getId() + ", preco=" + preco + '}';
+        return "Servico" + super.toString() + ", preco=" + this.getPreco() + "}";
     }
 }

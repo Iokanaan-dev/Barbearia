@@ -25,15 +25,27 @@ public class Produto extends Modelo{
         this.preco = preco;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     protected String gerarId(){
         return "P" + (++contador);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPreco() {
         return preco;
     }
    
+    /**
+     *
+     * @param preco
+     */
     public void setPreco(double preco){
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
@@ -41,8 +53,12 @@ public class Produto extends Modelo{
         this.preco = preco;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
-        return "Produto{" + "preco=" + preco + '}';
+        return "Produto" + super.toString() + ", preco=" + this.getPreco() + "}";
     }
 }

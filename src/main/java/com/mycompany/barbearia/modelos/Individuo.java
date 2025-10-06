@@ -67,6 +67,6 @@ public abstract class Individuo extends Modelo{
 
     @Override
     public String toString() {
-        return " {" + "cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + '}';
+        return "cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + '}';
     }
 }

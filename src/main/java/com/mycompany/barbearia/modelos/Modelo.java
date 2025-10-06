@@ -12,6 +12,10 @@ public abstract class Modelo {
     private String nome;
     private final String id;
 
+    /**
+     *
+     * @param nome
+     */
     public Modelo(String nome) {
         validarNome(nome);
         this.nome = nome;
@@ -24,23 +28,43 @@ public abstract class Modelo {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     protected abstract String gerarId();    
         
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     } 
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
-        return "Modelo{" + "nome=" + nome + ", id=" + id + '}';
+        return "nome=" + nome + ", id=" + id;
     }
 }
 

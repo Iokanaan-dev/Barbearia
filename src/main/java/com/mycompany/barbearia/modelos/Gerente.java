@@ -13,6 +13,16 @@ public class Gerente extends Usuario{
     
     private final String pin_segunraca; //usar depois no cadastro de novos usuarios
     
+    /**
+     *
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param data_nascimento
+     * @param pin_seguranca
+     */
     public Gerente(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento, String pin_seguranca) {
         super(username,senha, nome, cpf, telefone, data_nascimento);
         
@@ -26,10 +36,19 @@ public class Gerente extends Usuario{
         }
     }
      
+    /**
+     *
+     * @param pin
+     * @return
+     */
     public boolean verficarPinADM(String pin){
         return this.pin_segunraca.equals(pin);
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     protected String gerarId() {
         return "G" + (++contador);

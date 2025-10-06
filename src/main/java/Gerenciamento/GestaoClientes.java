@@ -18,29 +18,38 @@ public class GestaoClientes {
     // cria uma lista de clientes que sera gerenciada
     private final ListaGenerica<Cliente> listaClientes = new ListaGenerica();
     
-    /**
-     * Utiliza ArrayList para alocaçao dinamica dos clientes. Testa cada cliente passado para ver se seu nome corresponde ao buscado.
-     * 
-     * @param cpf
-     * @param telefone
-     * @param dataNascimento
-     * @param nome 
-     */ 
-    
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
-    public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento){
-        Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento);
+    public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
+        Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
         this.listaClientes.adicionar(novoCliente);
     }
     
+    /**
+     *
+     * @param nome
+     * @return
+     */
     public ArrayList<Cliente> verificarClienteCadastrado(String nome){
       return this.listaClientes.buscaPorNome(nome);
     }
     
+    /**
+     *
+     * @param ID
+     * @return
+     */
     public Cliente buscarID(String ID){
        return this.listaClientes.buscaPorId(ID);
     }
     
+    /**
+     *
+     * @param objeto
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     */
     public void editarCliente(Cliente objeto, String nome, String cpf, String telefone, LocalDate dataNascimento){
       objeto.setNome(nome);
       objeto.setCpf(cpf);
@@ -48,14 +57,27 @@ public class GestaoClientes {
       objeto.setData_nascimento(dataNascimento);
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Cliente> exibirListaClientes(){
         return this.listaClientes.getLista();
     }
 
+    /**
+     *
+     * @param idCliente
+     * @return
+     */
     public boolean removerCliente(String idCliente){
         return this.listaClientes.remover(idCliente);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "GestaoClientes{" + "listaClientes=" + listaClientes + '}';
