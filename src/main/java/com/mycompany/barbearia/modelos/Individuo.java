@@ -8,34 +8,20 @@ import java.time.LocalDate;
  *
  * @author italo
  */
-public abstract class Individuo {
-    private String nome;
+public abstract class Individuo extends Modelo{
     private String cpf;
     private String telefone;
     private LocalDate data_nascimento;
-    private final String id;
-    
-    public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento){
-        validarNome(nome);
-        validarCpf(cpf);
-        validarTelefone(telefone);
-        validarDataNascimento(data_nascimento);
 
-        this.nome = nome;
+    public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento) {
+        super(nome);
         this.cpf = cpf;
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
-        this.id = gerarId(); 
     }
-
-    protected abstract String gerarId();
     
-    private void validarNome(String nome) {
-        if (nome == null || nome.trim().isEmpty()) {
-            throw new IllegalArgumentException("Campo Vazio!");
-        }
-    }
-
+    protected abstract String gerarId(); 
+    
     private void validarCpf(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             throw new IllegalArgumentException("CPF inválido!");
@@ -52,16 +38,6 @@ public abstract class Individuo {
         if (data == null || data.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("Data de nascimento inválida!");
         }
-    }
-
-    
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        validarNome(nome);
-        this.nome = nome;
     }
 
     public String getCpf() {
@@ -91,13 +67,8 @@ public abstract class Individuo {
         this.data_nascimento = data_nascimento;
     }
 
-    public String getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
-        return " nome: " + nome + ", cpf: " + cpf + ", telefone: " + telefone + ", data_nascimento: " + data_nascimento + ", id: " + id + '}';
-    }
+        return " {" + "cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + '}';
+    }   
 }
-

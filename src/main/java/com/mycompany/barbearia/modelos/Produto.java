@@ -19,7 +19,7 @@ public class Produto {
      * @param nome
      * @param preco
      */
-    public Produto(String nome, int preco){
+    public Produto(String nome, double preco){
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome não pode ser nulo");
         }
