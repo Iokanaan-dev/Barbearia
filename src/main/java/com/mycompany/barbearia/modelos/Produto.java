@@ -59,6 +59,6 @@ public class Produto extends Modelo{
      */
     @Override
     public String toString() {
-        return "Produto" + super.toString() + ", preco=" + this.getPreco() + "}";
+        return String.format("%sPreco: %s", super.toString(),preco);
     }
 }

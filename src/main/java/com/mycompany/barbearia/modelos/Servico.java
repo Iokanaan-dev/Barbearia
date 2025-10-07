@@ -64,6 +64,6 @@ public class Servico extends Modelo{
      */
     @Override
     public String toString() {
-        return "Servico" + super.toString() + ", preco=" + this.getPreco() + "}";
+        return String.format("%sPreco: %s", super.toString(),preco);
     }
 }

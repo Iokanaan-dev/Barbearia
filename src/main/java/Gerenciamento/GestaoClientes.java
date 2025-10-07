@@ -61,7 +61,7 @@ public class GestaoClientes {
      *
      * @return
      */
-    public ArrayList<Cliente> exibirListaClientes(){
+    public ArrayList<Cliente> getListaClientes(){
         return this.listaClientes.getLista();
     }
 

@@ -11,13 +11,13 @@ import java.time.LocalDate;
 public abstract class Individuo extends Modelo{
     private String cpf;
     private String telefone;
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
-    public Individuo(String nome, String cpf, String telefone, LocalDate data_nascimento) {
+    public Individuo(String nome, String cpf, String telefone, LocalDate dataNascimento) {
         super(nome);
         this.cpf = cpf;
         this.telefone = telefone;
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = dataNascimento;
     } 
     
     private void validarCpf(String cpf) {
@@ -57,16 +57,16 @@ public abstract class Individuo extends Modelo{
     }
 
     public LocalDate getData_nascimento() {
-        return data_nascimento;
+        return dataNascimento;
     }
 
     public void setData_nascimento(LocalDate data_nascimento) {
         validarDataNascimento(data_nascimento);
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = data_nascimento;
     }
 
     @Override
     public String toString() {
-        return "cpf=" + cpf + ", telefone=" + telefone + ", data_nascimento=" + data_nascimento + '}';
+        return String.format("%sCPF: %s%nTelefone:%s%nData de Nascimento: %s%n", super.toString(), cpf, telefone, dataNascimento);
     }
 }

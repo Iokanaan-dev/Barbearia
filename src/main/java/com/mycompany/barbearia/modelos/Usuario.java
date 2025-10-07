@@ -118,7 +118,7 @@ public abstract class Usuario extends Individuo{
      */
     @Override
     public String toString() {
-        return String.format(" Username: " + this.username) + super.toString(); 
+        return String.format("%sUsename: %s",super.toString(), username); 
     }
 }
     

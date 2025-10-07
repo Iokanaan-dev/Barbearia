@@ -51,20 +51,19 @@ public class Barbearia {
         //Exibindo todos os clientes
         
         System.out.println("\n Lista de clientes");
-        ArrayList<Cliente> todosClientes = gestaoC.exibirListaClientes();
-        for (Cliente cliente : todosClientes) {
-            System.out.println(cliente);    
-        }
+        ArrayList<Cliente> todosClientes = gestaoC.getListaClientes();
+        printArrayList(todosClientes);
 
         // GestaoClientes: teste para metodo de busca via nome ====================
-        
+     /*    
+        System.out.println("\n Buscando cliente chamado 'Italo' \n");
+       
         //instancia um ArrayList para ser usado nos testes de buscas
-        System.out.println("\n Buscando cliente \n");
         ArrayList<Cliente> clientesSelecionados = gestaoC.verificarClienteCadastrado("Italo");
-        for (Cliente cliente : clientesSelecionados) {
-            System.out.println(cliente);
-        }
+        printArrayList(clientesSelecionados);
+        */
         
+        /*
         System.out.println("\n--- Removendo cliente");
         boolean removeu = gestaoC.removerCliente("C1");
         if (removeu) {
@@ -72,6 +71,10 @@ public class Barbearia {
         } else {
             System.out.println("Não foi possivel remover");
         }
+        
+        */
+        
+        /*
         
         System.out.println("\nTentando editar um cliente\n");
         System.out.println("\nDigite o ID do usuario\n");
@@ -81,11 +84,11 @@ public class Barbearia {
         
         
         System.out.println("\n--- Lista Final de Clientes");
-        todosClientes = gestaoC.exibirListaClientes();
+        todosClientes = gestaoC.getListaClientes();
         for (Cliente clientes : todosClientes) {
             System.out.println(clientes);
         }
-        /*
+        
         gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
         
@@ -94,7 +97,7 @@ public class Barbearia {
         ArrayList<Usuario> todosUsuarios = gestaoU.exibirListaUsuarios();
         for (Usuario usuarios : todosUsuarios){
             System.out.println(usuarios);
-        } */
+        } 
         
         // Testes para produtos e serviços
         
@@ -106,10 +109,21 @@ public class Barbearia {
         System.out.println(servico1);
         System.out.println(servico2);
         
+        */
+        
         }
         catch (Exception m){
                 m.printStackTrace();
         }
         
-    }   
+    }  
+    
+    // metodo para imprimir ArrayLists do tipo Modelo, serve para ajudar a testar
+    public static void printArrayList(ArrayList< ? extends Modelo> Modelos)
+    {
+        for (Modelo m : Modelos)
+            System.out.println(m);
+    }
+
+        
 }

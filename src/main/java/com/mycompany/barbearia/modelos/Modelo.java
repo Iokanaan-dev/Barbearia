@@ -64,7 +64,7 @@ public abstract class Modelo {
      */
     @Override
     public String toString() {
-        return "nome=" + nome + ", id=" + id;
+        return String.format("%nNome: %s%nID:%s%n", nome, id);
     }
 }
 
