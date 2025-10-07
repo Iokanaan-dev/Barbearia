@@ -29,8 +29,14 @@ public class GestaoClientes {
      * @param nome
      * @return
      */
-    public ArrayList<Cliente> verificarClienteCadastrado(String nome){
-      return this.listaClientes.buscaPorNome(nome);
+    public ArrayList<Cliente> buscarNome(String nome){
+      ArrayList<Cliente> clientesSelecionados;
+      
+      clientesSelecionados = this.listaClientes.buscaPorNome(nome);
+      
+      if (clientesSelecionados.isEmpty()) // se a lista retornada eh vazia o imprime uma mensagem de avisoé
+              System.out.println("Nenhum cliente encontrado.");
+      return clientesSelecionados;
     }
     
     /**
@@ -39,22 +45,31 @@ public class GestaoClientes {
      * @return
      */
     public Cliente buscarID(String ID){
-       return this.listaClientes.buscaPorId(ID);
+       Cliente clienteSelecionado;
+       clienteSelecionado = this.listaClientes.buscaPorId(ID);
+       
+       if(clienteSelecionado == null)
+              System.out.println("Nenhum cliente encontrado.");
+       return clienteSelecionado;
     }
     
     /**
      *
-     * @param objeto
+     * @param cliente
      * @param nome
      * @param cpf
      * @param telefone
      * @param dataNascimento
      */
-    public void editarCliente(Cliente objeto, String nome, String cpf, String telefone, LocalDate dataNascimento){
-      objeto.setNome(nome);
-      objeto.setCpf(cpf);
-      objeto.setTelefone(telefone);
-      objeto.setData_nascimento(dataNascimento);
+    public void editarCliente(Cliente cliente, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
+      // poder ser interessante validar isso antes de usar os metodos set
+        
+      cliente.setNome(nome);
+      cliente.setCpf(cpf);
+      cliente.setTelefone(telefone);
+      cliente.setDataNascimento(dataNascimento);
+      cliente.setEmail(email);
+      
     }
     
     /**
@@ -70,8 +85,14 @@ public class GestaoClientes {
      * @param idCliente
      * @return
      */
-    public boolean removerCliente(String idCliente){
-        return this.listaClientes.remover(idCliente);
+    public void removerCliente(String idCliente){
+        // armazena o retorno do metodo remover, remover() retorna true apenas se um objeto foi encontrado e removido
+        boolean removeu = this.listaClientes.remover(idCliente);
+  
+        if(removeu)
+            System.out.println("Remoção bem-sucedida.");
+        else
+            System.out.println("Não foi possivel remover");
     }
 
     /**

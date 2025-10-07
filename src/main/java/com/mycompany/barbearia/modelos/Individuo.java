@@ -15,6 +15,13 @@ public abstract class Individuo extends Modelo{
 
     public Individuo(String nome, String cpf, String telefone, LocalDate dataNascimento) {
         super(nome);
+        
+        validarCpf(cpf);
+        validarTelefone(telefone);
+        validarDataNascimento(dataNascimento);
+        
+
+        
         this.cpf = cpf;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
@@ -56,11 +63,11 @@ public abstract class Individuo extends Modelo{
         this.telefone = telefone;
     }
 
-    public LocalDate getData_nascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setData_nascimento(LocalDate data_nascimento) {
+    public void setDataNascimento(LocalDate data_nascimento) {
         validarDataNascimento(data_nascimento);
         this.dataNascimento = data_nascimento;
     }

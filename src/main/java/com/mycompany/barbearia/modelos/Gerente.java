@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Gerente extends Usuario{
     private static int contador = 0;
     
-    private final String pin_segunraca; //usar depois no cadastro de novos usuarios
+    private final String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
     
     /**
      *
@@ -20,14 +20,13 @@ public class Gerente extends Usuario{
      * @param nome
      * @param cpf
      * @param telefone
-     * @param data_nascimento
-     * @param pin_seguranca
+     * @param dataNascimento
      */
-    public Gerente(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento, String pin_seguranca) {
-        super(username,senha, nome, cpf, telefone, data_nascimento);
+    public Gerente(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String pinSeguranca) {
+        super(username,senha, nome, cpf, telefone, dataNascimento);
         
-        validarPIN(pin_seguranca);
-        this.pin_segunraca = pin_seguranca;
+        validarPIN(pinSeguranca);
+        this.PIN_SEGURANCA = pinSeguranca;
     }
     
      private void validarPIN(String pin_seguranca){
@@ -42,7 +41,7 @@ public class Gerente extends Usuario{
      * @return
      */
     public boolean verficarPinADM(String pin){
-        return this.pin_segunraca.equals(pin);
+        return this.PIN_SEGURANCA.equals(pin);
     }
     
     /**

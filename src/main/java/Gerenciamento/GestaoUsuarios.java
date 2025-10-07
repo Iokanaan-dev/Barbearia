@@ -93,7 +93,7 @@ public class GestaoUsuarios {
       objeto.setNome(nome);
       objeto.setCpf(cpf);
       objeto.setTelefone(telefone);
-      objeto.setData_nascimento(dataNascimento);
+      objeto.setDataNascimento(dataNascimento);
         }
     } 
     

@@ -7,6 +7,8 @@ package Listas;
 import com.mycompany.barbearia.modelos.Modelo; 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.NoSuchElementException;
+
 
 
 /**
@@ -47,9 +49,8 @@ public class ListaGenerica<G extends Modelo> {
         for (G objeto : lista) {
             if (objeto.getId().equals(id))
                 return objeto;
-            
         }
-        return null;    
+        return null; // retorna null se nao encontra elememento como ID
     }
 
     /**
