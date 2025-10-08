@@ -55,6 +55,4 @@ public class Cliente extends Individuo{
     public String toString() {
         return String.format("%sE-mail: %s", super.toString(), email);
     }
-    
-    
 }

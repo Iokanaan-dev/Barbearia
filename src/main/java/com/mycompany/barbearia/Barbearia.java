@@ -80,10 +80,12 @@ public class Barbearia {
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
        */ 
+        
      
-        System.out.println("Tentando editar cliente C2");
-        gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
+        System.out.println("Tentando editar cliente CL2");
+        gestaoC.editarCliente(gestaoC.buscarID("CL2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
+        System.out.println();
         
         // TESTES USUARIOS---------------------------------------------------
         /*
@@ -144,7 +146,5 @@ public class Barbearia {
     {
         for (Modelo m : Modelos)
             System.out.println(m);
-    }
-
-        
+    }   
 }

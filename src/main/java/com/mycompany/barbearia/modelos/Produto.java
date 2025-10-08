@@ -57,6 +57,9 @@ public class Produto extends Modelo{
      *
      * @return
      */
-        
+    @Override
+    public String toString() {
+        return String.format("%sPreco: %s", super.toString(),preco);
+    }        
     
 }
