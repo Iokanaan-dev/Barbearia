@@ -48,7 +48,7 @@ public class Cliente extends Individuo{
      */
     @Override
     protected String gerarId() {
-        return "C" + (++contador);
+        return "CL" + (++contador);
     }
 
     @Override

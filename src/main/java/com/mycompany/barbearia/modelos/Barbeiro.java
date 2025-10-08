@@ -30,7 +30,7 @@ public class Barbeiro extends Usuario{
      */
     @Override
     protected String gerarId() {
-        return "B" + (++contador);
+        return "BA" + (++contador);
     }
     
 }

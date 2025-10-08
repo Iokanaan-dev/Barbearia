@@ -27,4 +27,4 @@ public class Estoque {
         int quantidadeAtual = estoque.getOrDefault(produto.getId(), 0); // getOrDefault busca o valor atual. Se não existir, retorna 0.
         estoque.put(produto.getId(), quantidade + quantidadeAtual);
     }   
-}
+}   

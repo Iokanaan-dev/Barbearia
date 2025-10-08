@@ -8,50 +8,16 @@ package com.mycompany.barbearia.modelos;
  *
  * @author italo
  */
-public class Estacao {
-    private String tipo;
-    private String ID;
+public class Estacao extends Modelo{
+    private static int cont;
     
-    /**
-     *
-     * @param tipo
-     * @param ID
-     */
-    public Estacao(String tipo, String ID){
-     this.tipo = tipo;
-     this.ID = ID;
+    public Estacao(String nome){
+        super(nome);
     }
+    
+    protected String gerarId(){
+        return "ES" + (++cont);
 
-    /**
-     *
-     * @return
-     */
-    public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     *
-     * @param tipo
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getID() {
-        return ID;
-    }
-
-    /**
-     *
-     * @param ID
-     */
-    public void setID(String ID) {
-        this.ID = ID;
     }
 
     /**
@@ -60,6 +26,6 @@ public class Estacao {
      */
     @Override
     public String toString() {
-        return "Estacao{" + "tipo=" + tipo + ", ID=" + ID + '}';
-    }
+        return super.toString();
+    } 
 }
