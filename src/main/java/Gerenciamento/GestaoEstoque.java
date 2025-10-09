@@ -7,7 +7,7 @@ import com.mycompany.barbearia.modelos.Estoque;
 import com.mycompany.barbearia.modelos.Produto;
 import Listas.ListaGenerica;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -64,7 +64,32 @@ public class GestaoEstoque {
         this.estoque.setQuantidade(id, quantidadeAtual - quantidade);
     }
     
-    
+    public Map<Produto, Integer> getPrdouto_Quantidade(){
+        Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
+        Map<String, Integer> itens = estoque.getEstoque();
+        
+        if(itens == null){
+            return mapa;
+        }
+        
+        for(Map.Entry<String, Integer> pares : itens.entrySet()){ //Map.Entry vai fazer com que cada "pares" seja um par de <string e Integer>. itens.entrySet vai nos dar o nosso atual estoque em formato de pares também. Assim o for vai passar de par em par. 
+            String id = pares.getKey(); //Retonra o id do par atual 
+            Integer quantidade = pares.getValue(); // retorna a quantidade do par atual
+            
+            if(quantidade == null || quantidade <= 0){
+                continue;
+            }
+            
+            Produto produto = this.buscarProdutoID(id);
+            
+            if(produto != null){
+                mapa.put(produto, quantidade); //adicionamos ao nosso mapa, o produto e a sua quantidade caso ele exista na nossa lista de produtos (pode ser que ele exista no estoque, mas não exista na lista de produtos)
+            } else {
+                System.err.println("O produto com id: " + id + " não existe!");
+            }
+        }
+        return mapa;
+    }
 
     @Override
     public String toString() {

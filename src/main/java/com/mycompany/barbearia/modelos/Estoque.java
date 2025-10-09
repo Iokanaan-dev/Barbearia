@@ -31,7 +31,7 @@ public class Estoque {
     }
     
     public Map<String, Integer> getEstoque(){
-            return new HashMap<>(this.estoque);
+        return new HashMap<>(this.estoque);
     }
     
     public boolean isEmpty(){
