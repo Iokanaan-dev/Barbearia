@@ -31,7 +31,7 @@ public class Produto extends Modelo{
      */
     @Override
     protected String gerarId(){
-        return "P" + (++contador);
+        return "PO" + (++contador);
     }
 
     /**
@@ -57,8 +57,9 @@ public class Produto extends Modelo{
      *
      * @return
      */
+    
     @Override
     public String toString() {
         return String.format("%sPreco: %s", super.toString(),preco);
-    }
+    }        
 }

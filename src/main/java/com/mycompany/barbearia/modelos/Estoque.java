@@ -19,12 +19,22 @@ public class Estoque {
      * @param produto
      * @param quantidade
      */
-    public void adicionarAoEstoque(Produto produto, int quantidade){
-        if (quantidade < 0){
-            throw new IllegalArgumentException("A quantidade não pode ser negativa!");
-        }
-        
-        int quantidadeAtual = estoque.getOrDefault(produto.getId(), 0); // getOrDefault busca o valor atual. Se não existir, retorna 0.
-        estoque.put(produto.getId(), quantidade + quantidadeAtual);
-    }   
-}
+    
+    //retorna a quatidade de um produto X no estoque atualmente
+    public int getQuantidade(String produtoID){
+        return estoque.getOrDefault(produtoID, 0);
+    }
+    
+    //Define a quantidade de um produto 
+    public void setQuantidade(String produtoID, int quantidade){
+        estoque.put(produtoID, quantidade);
+    }
+    
+    public Map<String, Integer> getEstoque(){
+        return new HashMap<>(this.estoque);
+    }
+    
+    public boolean isEmpty(){
+        return this.estoque.isEmpty();
+    }
+}   

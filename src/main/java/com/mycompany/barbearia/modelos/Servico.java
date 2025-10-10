@@ -42,7 +42,7 @@ public class Servico extends Modelo{
      *
      * @param preco
      */
-    public void mudarPreco(double preco){
+    public void setPreco(double preco){
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }

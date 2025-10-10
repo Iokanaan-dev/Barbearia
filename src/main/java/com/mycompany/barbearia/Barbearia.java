@@ -79,11 +79,22 @@ public class Barbearia {
         System.out.println("\n Lista de clientes apos remocao do cliente com ID C1");
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
+<<<<<<< HEAD
         
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
      */   
+=======
+       */ 
+        
+     
+        System.out.println("Tentando editar cliente CL2");
+        gestaoC.editarCliente(gestaoC.buscarID("CL2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
+        printArrayList(todosClientes);
+        System.out.println();
+        
+>>>>>>> 76149e340a67c3ffe7380ccde77f7753c652077d
         // TESTES USUARIOS---------------------------------------------------
         /*
         Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
@@ -132,7 +143,5 @@ public class Barbearia {
     {
         for (Modelo m : Modelos)
             System.out.println(m);
-    }
-
-        
+    }   
 }

@@ -48,13 +48,11 @@ public class Cliente extends Individuo{
      */
     @Override
     protected String gerarId() {
-        return "C" + (++contador);
+        return "CL" + (++contador);
     }
 
     @Override
     public String toString() {
         return String.format("%sE-mail: %s", super.toString(), email);
     }
-    
-    
 }

@@ -50,6 +50,6 @@ public class Gerente extends Usuario{
      */
     @Override
     protected String gerarId() {
-        return "G" + (++contador);
+        return "GE" + (++contador);
     }
 }

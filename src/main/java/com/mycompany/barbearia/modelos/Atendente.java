@@ -30,6 +30,6 @@ public class Atendente extends Usuario{
      */
     @Override
     protected String gerarId() {
-        return "A" + (++contador);
+        return "AT" + (++contador);
     }
 }

@@ -60,6 +60,7 @@ public class GestaoClientes {
      * @param cpf
      * @param telefone
      * @param dataNascimento
+     * @param email
      */
     public void editarCliente(Cliente cliente, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
       // poder ser interessante validar isso antes de usar os metodos set
@@ -83,7 +84,6 @@ public class GestaoClientes {
     /**
      *
      * @param idCliente
-     * @return
      */
     public void removerCliente(String idCliente){
         // armazena o retorno do metodo remover, remover() retorna true apenas se um objeto foi encontrado e removido
