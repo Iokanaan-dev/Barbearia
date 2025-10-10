@@ -79,12 +79,11 @@ public class Barbearia {
         System.out.println("\n Lista de clientes apos remocao do cliente com ID C1");
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
-       */ 
-     
+        
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
-        
+     */   
         // TESTES USUARIOS---------------------------------------------------
         /*
         Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
@@ -95,17 +94,6 @@ public class Barbearia {
         gestaoU.cadastrarUsuario(novoUsuario2);
         //gestaoU.removerUser(novoUsuario.getId());
         System.out.println("\nDigite o ID do usuario\n");
-
-        
-
-        
-        
-        
-        System.out.println("\n--- Lista Final de Clientes");
-        todosClientes = gestaoC.getListaClientes();
-        for (Cliente clientes : todosClientes) {
-            System.out.println(clientes);
-        }
         
         gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
@@ -128,8 +116,7 @@ public class Barbearia {
         System.out.println(servico1);
         System.out.println(servico2);
         */
-        
-        
+      
         }
         
         catch (Exception m)
@@ -140,6 +127,7 @@ public class Barbearia {
     }  
     
     // metodo para imprimir ArrayLists do tipo Modelo, serve para ajudar a testar
+    // passe aqui qualquer arrayList que voce queira imprimir
     public static void printArrayList(ArrayList< ? extends Modelo> Modelos)
     {
         for (Modelo m : Modelos)
