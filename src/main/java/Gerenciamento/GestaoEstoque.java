@@ -64,6 +64,23 @@ public class GestaoEstoque {
         this.estoque.setQuantidade(id, quantidadeAtual - quantidade);
     }
     
+    public void removendoProduto(String ID){
+        
+        Produto produtoRemovivel = this.buscarProdutoID(ID);
+        
+        if(produtoRemovivel == null){
+            System.out.println("O produto não foi encontrado!");
+        }
+        
+        int quantidade = this.estoque.getQuantidade(ID);
+        if(quantidade >= 0) {
+            System.out.println("O produto atual ainda tem unidades no estoque!");
+        }
+        
+        this.estoque.remover(ID); //removendo do estoque 
+        this.produtos.remover(ID); //removendo da lista de produtos
+    }
+    
     public Map<Produto, Integer> getPrdouto_Quantidade(){
         Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
         Map<String, Integer> itens = estoque.getEstoque();

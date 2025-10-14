@@ -34,6 +34,10 @@ public class Estoque {
         return new HashMap<>(this.estoque);
     }
     
+    public void remover(String ID){
+        estoque.remove(ID);
+    }
+    
     public boolean isEmpty(){
         return this.estoque.isEmpty();
     }
