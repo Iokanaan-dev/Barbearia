@@ -18,13 +18,13 @@ public class GestaoEstoque {
     private final Estoque estoque = new Estoque();
     private final ListaGenerica<Produto> produtos = new ListaGenerica();
     
-    public void cadastrarNovoProduto(String nome, double preco){    
+    public void cadastrarNovoProduto(String nome, double preco, String descricao){    
         for (Produto p : this.produtos.getLista()) {
             if (p.getNome().equalsIgnoreCase(nome)) {
                 System.out.println("O produto já existe!");
             }
         }
-        Produto novoProduto = new Produto(nome, preco);
+        Produto novoProduto = new Produto(nome, preco, descricao);
         this.produtos.adicionar(novoProduto);
         this.estoque.setQuantidade(novoProduto.getId(), 0);        
     }

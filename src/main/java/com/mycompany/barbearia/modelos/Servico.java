@@ -10,14 +10,15 @@ package com.mycompany.barbearia.modelos;
  */
 public class Servico extends Modelo{
     private double preco;
-    private static int contador;
+    private String descricao;
+    private static int contador = 0;
 
     /**
      *
      * @param nome
      * @param preco
      */
-    public Servico(String nome, double preco){
+    public Servico(String nome, double preco, String descricao){
         super(nome);
         
         if (nome == null || nome.trim().isEmpty()){
@@ -28,6 +29,7 @@ public class Servico extends Modelo{
         }
         
         this.preco = preco;
+        this.descricao = descricao;
     }
 
     /**
@@ -36,6 +38,14 @@ public class Servico extends Modelo{
      */
     public double getPreco() {
         return preco;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
    
     /**

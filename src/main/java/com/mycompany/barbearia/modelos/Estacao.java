@@ -15,6 +15,7 @@ public class Estacao extends Modelo{
         super(nome);
     }
     
+    @Override
     protected String gerarId(){
         return "ES" + (++cont);
 

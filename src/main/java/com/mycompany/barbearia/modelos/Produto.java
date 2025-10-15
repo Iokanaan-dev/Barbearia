@@ -11,18 +11,20 @@ package com.mycompany.barbearia.modelos;
 public class Produto extends Modelo{
     private double preco;
     private static int contador = 0;
+    private String descricao;
 
     /**
      *
      * @param nome
      * @param preco
      */
-    public Produto(String nome, double preco){
+    public Produto(String nome, double preco, String descricao){
         super(nome);
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
         this.preco = preco;
+        this.descricao = descricao;
     }
     
     /**
