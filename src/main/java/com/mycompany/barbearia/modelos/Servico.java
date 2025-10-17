@@ -5,12 +5,13 @@
 package com.mycompany.barbearia.modelos;
 
 /**
- * Manda mensagem pra ela!
+ * A duração é medida em slots que duram 30 minutos. EX: 2 slots 1 hora
  * @author intalo
  */
 public class Servico extends Modelo{
     private double preco;
     private String descricao;
+    private  int tempoSlots;
     private static int contador = 0;
 
     /**
@@ -18,18 +19,24 @@ public class Servico extends Modelo{
      * @param nome
      * @param preco
      */
-    public Servico(String nome, double preco, String descricao){
+    public Servico(String nome, double preco, String descricao, int temp){
         super(nome);
         
         if (nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("O nome não pode ser nulo");
         }
+        
         if(preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
         
+        if(temp <= 0){
+            throw new IllegalArgumentException("O tempo definido é invalido!");
+        }
+        
         this.preco = preco;
         this.descricao = descricao;
+        this.tempoSlots = temp;
     }
 
     /**
@@ -46,6 +53,17 @@ public class Servico extends Modelo{
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getTempoEmMinutos() {
+        return tempoSlots;
+    }
+
+    public void setTempoEmMinutos(int temp) {
+        if(temp <= 0){
+            throw new IllegalArgumentException("O tempo definido é invalido!");
+        }        
+        this.tempoSlots = temp;
     }
    
     /**
