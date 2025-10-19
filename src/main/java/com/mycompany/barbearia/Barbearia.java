@@ -84,7 +84,7 @@ public class Barbearia {
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
-     */   
+        
 =======
        */ 
         
@@ -94,7 +94,7 @@ public class Barbearia {
         printArrayList(todosClientes);
         System.out.println();
         
->>>>>>> 76149e340a67c3ffe7380ccde77f7753c652077d
+// >>>>>>> 76149e340a67c3ffe7380ccde77f7753c652077d
         // TESTES USUARIOS---------------------------------------------------
         /*
         Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
