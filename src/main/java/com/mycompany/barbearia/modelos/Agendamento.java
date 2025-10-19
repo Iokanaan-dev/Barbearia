@@ -4,7 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Listas.ListaGenerica;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 
 /**
@@ -12,9 +13,29 @@ import Listas.ListaGenerica;
  * @author italo
  */
 public class Agendamento extends Modelo{
-    private Cliente cliente;
-    private Barbeiro barbeiro;
-    private Atendente atendente;
-    private ListaGenerica<Servico> servico;
-    private LocalDateTime = dataHoraInicioAgendamento;
+    
+    private static int contador = 0;
+    
+    private final Cliente cliente;
+    private final Barbeiro barbeiro;
+    private final Atendente atendente;
+    private final Estacao estacao;
+    private final ArrayList<Servico> servico;
+    
+    private final LocalDateTime dataHoraInicioAgendamento;
+    private final LocalDateTime dataHoraFimAgendameto;
+    
+    private StatusAgendamento status;
+    private final double valorTotal;
+    private final double valorRetido;
+
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ArrayList<Servico> servico, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido, String nome, StatusAgendamento status) {
+        
+        
+    }
+    
+    @Override
+    protected String gerarId() {
+        return "AGE" + (++contador);
+    }
 }

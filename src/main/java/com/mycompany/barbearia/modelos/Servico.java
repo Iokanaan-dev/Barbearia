@@ -31,7 +31,7 @@ public class Servico extends Modelo{
         }
         
         if(temp <= 0){
-            throw new IllegalArgumentException("O tempo definido é invalido!");
+            throw new IllegalArgumentException("O tempo deve ser maior que 0");
         }
         
         this.preco = preco;
@@ -56,7 +56,7 @@ public class Servico extends Modelo{
     }
 
     public int getTempoEmMinutos() {
-        return tempoSlots;
+        return tempoSlots * 30;
     }
 
     public void setTempoEmMinutos(int temp) {

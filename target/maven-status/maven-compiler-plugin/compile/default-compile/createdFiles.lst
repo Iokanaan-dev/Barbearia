@@ -1,5 +1,9 @@
 Gerenciamento\GestaoEstoque.class
+com\mycompany\barbearia\modelos\StatusAgendamento.class
+Gerenciamento\GestaoAgendamento.class
+Gerenciamento\GestaoServico.class
 Gerenciamento\GestaoEstacao.class
 com\mycompany\barbearia\modelos\Servico.class
 com\mycompany\barbearia\modelos\Modelo.class
+com\mycompany\barbearia\modelos\Agendamento.class
 Gerenciamento\GestaoUsuarios.class

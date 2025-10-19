@@ -1,5 +1,6 @@
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Modelo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Individuo.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoAgendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Gerente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\Barbearia.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Usuario.java
@@ -8,10 +9,13 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Atend
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Cliente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoEstoque.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Listas\ListaGenerica.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\StatusAgendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Barbeiro.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Servico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoEstacao.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoClientes.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Estacao.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoServico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoUsuarios.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Produto.java
