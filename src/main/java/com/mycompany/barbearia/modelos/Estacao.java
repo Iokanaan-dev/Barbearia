@@ -9,23 +9,33 @@ package com.mycompany.barbearia.modelos;
  * @author italo
  */
 public class Estacao extends Modelo{
+    private String discricao;
     private static int cont;
     
-    public Estacao(String nome){
+    public Estacao(String nome, String discricao){
         super(nome);
+        this.discricao = discricao;
     }
     
+    @Override
     protected String gerarId(){
         return "ES" + (++cont);
 
     }
 
-    /**
-     *
-     * @return
-     */
+    public String getDiscricao() {
+        return discricao;
+    }
+
+    public void setDiscricao(String discricao) {
+        this.discricao = discricao;
+    }
+
     @Override
     public String toString() {
-        return super.toString();
-    } 
+        return "Estacao{" + super.toString() + "discricao=" + discricao + '}';
+    }
+    
+    
+
 }

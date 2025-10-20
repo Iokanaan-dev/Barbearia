@@ -27,12 +27,12 @@ public class GestaoUsuarios {
      */
     public void cadastrarUsuario(Usuario novoUsuario){
         if (buscarUsuario(novoUsuario.getUsername()) != null){
-            throw new IllegalArgumentException("usuario existente!");
+            System.out.println("Usuario existente!");
         }
         this.listaUsuario.adicionar(novoUsuario);
     }
     
-    /**
+    /*
      *
      * @param userName
      * @return

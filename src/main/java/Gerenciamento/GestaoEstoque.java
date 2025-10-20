@@ -18,13 +18,13 @@ public class GestaoEstoque {
     private final Estoque estoque = new Estoque();
     private final ListaGenerica<Produto> produtos = new ListaGenerica();
     
-    public void cadastrarNovoProduto(String nome, double preco){    
+    public void cadastrarNovoProduto(String nome, double preco, String descricao){    
         for (Produto p : this.produtos.getLista()) {
             if (p.getNome().equalsIgnoreCase(nome)) {
                 System.out.println("O produto já existe!");
             }
         }
-        Produto novoProduto = new Produto(nome, preco);
+        Produto novoProduto = new Produto(nome, preco, descricao);
         this.produtos.adicionar(novoProduto);
         this.estoque.setQuantidade(novoProduto.getId(), 0);        
     }
@@ -62,6 +62,23 @@ public class GestaoEstoque {
             System.out.println("Não há produtos o suficiente");
         }        
         this.estoque.setQuantidade(id, quantidadeAtual - quantidade);
+    }
+    
+    public void removendoProduto(String ID){
+        
+        Produto produtoRemovivel = this.buscarProdutoID(ID);
+        
+        if(produtoRemovivel == null){
+            System.out.println("O produto não foi encontrado!");
+        }
+        
+        int quantidade = this.estoque.getQuantidade(ID);
+        if(quantidade >= 0) {
+            System.out.println("O produto atual ainda tem unidades no estoque!");
+        }
+        
+        this.estoque.remover(ID); //removendo do estoque 
+        this.produtos.remover(ID); //removendo da lista de produtos
     }
     
     public Map<Produto, Integer> getPrdouto_Quantidade(){
