@@ -6,21 +6,24 @@ package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import Utilidades.IdGerador;
 
 
 /**
  *
  * @author italo
  */
-public class Agendamento extends Modelo{
+
+/*
+public class Agendamento implements IdGerador{
     
     private static int contador = 0;
     
-    private final Cliente cliente;
-    private final Barbeiro barbeiro;
-    private final Atendente atendente;
-    private final Estacao estacao;
-    private final ArrayList<Servico> servico;
+    private final String idCliente;
+    private final String idBarbeiro;
+    private final String idAtendente;
+    private final Estacao idEstacao;
+    private final ArrayList<String> idServicos;
     
     private final LocalDateTime dataHoraInicioAgendamento;
     private final LocalDateTime dataHoraFimAgendameto;
@@ -29,13 +32,13 @@ public class Agendamento extends Modelo{
     private final double valorTotal;
     private final double valorRetido;
 
-    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ArrayList<Servico> servico, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido, String nome, StatusAgendamento status) {
-        
-        
+    Agendamento(String idCliente, String idBarbeiro, String idAtendente, String idEstacao, ArrayList<String> idServicos, LocalDateTime dataHoraInicioAgendamento, dataHoraFimAgendameto){
+    
     }
     
     @Override
-    protected String gerarId() {
+    public String gerarId() {
         return "AGE" + (++contador);
-    }
+    } 
 }
+*/

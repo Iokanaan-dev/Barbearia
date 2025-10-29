@@ -88,10 +88,7 @@ public class Barbearia {
         
 =======
        */ 
-=======
-     */   
-       
->>>>>>> a21b133997b46a830e53213251cb42f35ff5cffc
+
         
      
         System.out.println("Tentando editar cliente CL2");
@@ -99,23 +96,23 @@ public class Barbearia {
         printArrayList(todosClientes);
         System.out.println();
         
-<<<<<<< HEAD
 // >>>>>>> 76149e340a67c3ffe7380ccde77f7753c652077d
-=======
 
->>>>>>> a21b133997b46a830e53213251cb42f35ff5cffc
         // TESTES USUARIOS---------------------------------------------------
-        /*
-        Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
+        
+        Usuario novoUsuario0 = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
         Usuario novoUsuario1 = new Atendente("italod3ad", "123456789", "pedro", "33333333333", "38998090957", data1);
         Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
-        gestaoU.cadastrarUsuario(novoUsuario);
+        
+        gestaoU.cadastrarUsuario(novoUsuario0);
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
-        //gestaoU.removerUser(novoUsuario.getId());
+        
+        gestaoU.removerUser(novoUsuario0.getId());
+        
         System.out.println("\nDigite o ID do usuario\n");
         
-        gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
+        gestaoU.editarUsuarioAtributos(novoUsuario0, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
         
         
@@ -124,7 +121,7 @@ public class Barbearia {
         for (Usuario usuarios : todosUsuarios){
             System.out.println(usuarios);
         } 
-        */
+        
         
       // TESTES PRODUTOS E SERVICOS---------------------------------------------------
       /*
