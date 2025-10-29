@@ -6,7 +6,7 @@ package com.mycompany.barbearia.modelos;
 import Utilidades.IdGerador;
 
 /**
- * coisa de bobo
+ *
  * @author italo
  */
 public abstract class Modelo implements IdGerador {

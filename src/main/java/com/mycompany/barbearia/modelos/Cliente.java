@@ -53,6 +53,6 @@ public class Cliente extends Individuo{
 
     @Override
     public String toString() {
-        return String.format("%sE-mail: %s", super.toString(), email);
+        return String.format("%nCliente %s%n%sE-mail: %s", getId(), super.toString(), getEmail());
     }
 }

@@ -16,7 +16,7 @@ import Utilidades.IdGerador;
 
 
 public class Agendamento implements IdGerador{
-    
+     
     private static int contador = 0;
     
     private final Cliente cliente;
@@ -24,7 +24,7 @@ public class Agendamento implements IdGerador{
     private final Atendente atendente;
     private final Estacao estacao;
     private final ArrayList<Servico> servicos;
-
+    
     private final LocalDateTime dataHoraInicioAgendamento;
     private final LocalDateTime dataHoraFimAgendameto;
 
@@ -41,11 +41,12 @@ public class Agendamento implements IdGerador{
         this.dataHoraInicioAgendamento = dataHoraInicioAgendamento;
         this.dataHoraFimAgendameto = dataHoraFimAgendameto;
         this.valorTotal = valorTotal;
-        this.valorRetido = valorRetido;
+        this.valorRetido = valorRetido;        
+        
     }
 
     @Override
     public String gerarId() {
         return "AGE" + (++contador);
-    } 
+    }
 }

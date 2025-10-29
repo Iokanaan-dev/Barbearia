@@ -80,26 +80,37 @@ public class Barbearia {
         System.out.println("\n Lista de clientes apos remocao do cliente com ID C1");
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c52bd77139eb3ec92d85a34333bdd13d88578940
         
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
+<<<<<<< HEAD
+=======
+
+        
+   
+>>>>>>> c52bd77139eb3ec92d85a34333bdd13d88578940
      
         System.out.println("Tentando editar cliente CL2");
         gestaoC.editarCliente(gestaoC.buscarID("CL2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
         
+<<<<<<< HEAD
         */ 
      
         // TESTES USUARIOS---------------------------------------------------
-        
-        Usuario novoUsuario0 = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
+        /*
+        Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
         Usuario novoUsuario1 = new Atendente("italod3ad", "123456789", "pedro", "33333333333", "38998090957", data1);
         Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
-        
-        gestaoU.cadastrarUsuario(novoUsuario0);
+        gestaoU.cadastrarUsuario(novoUsuario);
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
+<<<<<<< HEAD
         
         //gestaoU.removerUser(novoUsuario0.getId());
         
@@ -113,6 +124,20 @@ public class Barbearia {
         ArrayList<Usuario> todosUsuarios = gestaoU.getListaUsuarios();
         printArrayList(todosUsuarios);
         
+=======
+        //gestaoU.removerUser(novoUsuario.getId());
+        System.out.println("\nDigite o ID do usuario\n");
+        
+        gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
+        //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
+        
+        
+        System.out.println("\nLista usuarios\n");
+        ArrayList<Usuario> todosUsuarios = gestaoU.exibirListaUsuarios();
+        for (Usuario usuarios : todosUsuarios){
+            System.out.println(usuarios);
+        } 
+        */
         
       // TESTES PRODUTOS E SERVICOS---------------------------------------------------
       /*

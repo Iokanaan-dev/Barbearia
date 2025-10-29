@@ -7,7 +7,6 @@ package Listas;
 import com.mycompany.barbearia.modelos.Modelo; 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.NoSuchElementException;
 
 
 
