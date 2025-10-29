@@ -5,7 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 /**
- * coisa de bobo
+ *
  * @author italo
  */
 public abstract class Modelo {
