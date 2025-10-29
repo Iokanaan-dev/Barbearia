@@ -6,7 +6,7 @@ package com.mycompany.barbearia.modelos;
 import java.time.LocalDate;
 
 /**
- *
+ * // classe que representa um usuario do sistema, um funcionario padrao ou adm
  * @author italo
  */
 public abstract class Usuario extends Individuo{
@@ -34,27 +34,19 @@ public abstract class Usuario extends Individuo{
     
     /**
      *
-     * @return
-     */
-    public abstract String gerarId(); 
-    
-    /**
-     *
      * @param userName
      */
-    public void validarUsername(String userName){
+    private static void validarUsername(String userName){
         if (userName == null || userName.trim().length() < 6){
             throw new IllegalArgumentException("Username invalido!");
         }
     }
     
-    // suponho que possa se tornar private
-
     /**
      *
      * @param senha
      */
-    public void validarSenha(String senha){
+    private static void validarSenha(String senha){
         if(senha == null || senha.trim().length() < 8){
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
         }
@@ -66,6 +58,16 @@ public abstract class Usuario extends Individuo{
      */
     public String getUsername() {
         return username;
+    }
+   
+   // private para nao ser acessivel fora dessa classe
+   private void setUsername(String username) {
+        this.username = username;
+    }
+   
+   // private para nao ser acessivel fora dessa classe
+   private void setSenha(String senha) {
+        this.senha = senha;
     }
     
     /**
@@ -96,7 +98,7 @@ public abstract class Usuario extends Individuo{
             throw new IllegalArgumentException("usuario invalido!");
         }
         validarUsername(usernameNovo);
-        this.username = usernameNovo;
+        setUsername(usernameNovo);
     }
     
     /**
@@ -109,7 +111,7 @@ public abstract class Usuario extends Individuo{
            throw new IllegalArgumentException("Sennha invalido!");
         }
         validarSenha(senhaNova);
-        this.senha = senhaNova;
+        setSenha(senhaNova);
     }
     
     /**
@@ -118,7 +120,7 @@ public abstract class Usuario extends Individuo{
      */
     @Override
     public String toString() {
-        return String.format("%sUsename: %s",super.toString(), username); 
+        return String.format("%sUsername: %s",super.toString(), getUsername()); 
     }
 }
     

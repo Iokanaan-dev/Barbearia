@@ -42,6 +42,7 @@ public class Barbearia {
         System.out.print("Lista de clientes inicial");
         ArrayList<Cliente> todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);
+        
 
      /*
       // GestaoClientes: teste para metodo de busca via nome ====================
@@ -79,25 +80,17 @@ public class Barbearia {
         System.out.println("\n Lista de clientes apos remocao do cliente com ID C1");
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
-<<<<<<< HEAD
         
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
-<<<<<<< HEAD
-        
-=======
-       */ 
-
-        
      
         System.out.println("Tentando editar cliente CL2");
         gestaoC.editarCliente(gestaoC.buscarID("CL2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
-        System.out.println();
         
-// >>>>>>> 76149e340a67c3ffe7380ccde77f7753c652077d
-
+        */ 
+     
         // TESTES USUARIOS---------------------------------------------------
         
         Usuario novoUsuario0 = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
@@ -108,19 +101,17 @@ public class Barbearia {
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
         
-        gestaoU.removerUser(novoUsuario0.getId());
+        //gestaoU.removerUser(novoUsuario0.getId());
         
-        System.out.println("\nDigite o ID do usuario\n");
+        //System.out.println("\nDigite o ID do usuario\n");
         
-        gestaoU.editarUsuarioAtributos(novoUsuario0, "calabreso", "12755050667", "38998909068", data1);
+        //gestaoU.editarUsuarioAtributos(novoUsuario0, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
         
         
-        System.out.println("\nLista usuarios\n");
-        ArrayList<Usuario> todosUsuarios = gestaoU.exibirListaUsuarios();
-        for (Usuario usuarios : todosUsuarios){
-            System.out.println(usuarios);
-        } 
+        System.out.print("Lista de usuarios inicial");
+        ArrayList<Usuario> todosUsuarios = gestaoU.getListaUsuarios();
+        printArrayList(todosUsuarios);
         
         
       // TESTES PRODUTOS E SERVICOS---------------------------------------------------
@@ -149,5 +140,6 @@ public class Barbearia {
     {
         for (Modelo m : Modelos)
             System.out.println(m);
+        System.out.println();
     }   
 }

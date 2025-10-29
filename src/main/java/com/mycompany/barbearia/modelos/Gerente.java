@@ -52,4 +52,9 @@ public class Gerente extends Usuario{
     public String gerarId() {
         return "GE" + (++contador);
     }
+    
+        @Override
+    public String toString(){
+        return String.format("%nGerente %s%n%s", getId(), super.toString()); 
+    }
 }

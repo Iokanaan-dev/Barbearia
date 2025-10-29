@@ -33,4 +33,9 @@ public class Barbeiro extends Usuario{
         return "BA" + (++contador);
     }
     
+    @Override
+    public String toString(){
+        return String.format("%nBarbeiro %s%n%s", getId(), super.toString()); 
+    }
+    
 }

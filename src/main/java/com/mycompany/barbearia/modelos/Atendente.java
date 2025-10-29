@@ -21,7 +21,7 @@ public class Atendente extends Usuario{
      * @param data_nascimento
      */
     public Atendente(String username,String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
-        super(username,senha, nome, cpf, telefone, data_nascimento);
+        super(username, senha, nome, cpf, telefone, data_nascimento);
     }
     
     /**
@@ -31,5 +31,10 @@ public class Atendente extends Usuario{
     @Override
     public String gerarId() {
         return "AT" + (++contador);
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("%nAtendente %s%n%s", getId(), super.toString()); 
     }
 }

@@ -12,20 +12,19 @@ import java.util.NoSuchElementException;
 
 
 /**
- * Uma classe genérica para gerenciar listas de qualquer tipo que herde de Modelo.
- * Usa Generics (<G>) para ser reutilizável com Clientes, Usuarios, Produtos, etc.
- * @param <G> O tipo de indivíduo que a lista irá armazenar.
+ * Uma classe genérica para gerenciar listas de qualquer tipo que herde de Modelo.Usa Generics (<G>) para ser reutilizável com Clientes, Usuarios, Produtos, etc.
+ * @param <M> O tipo de indivíduo que a lista irá armazenar.
  */
-public class ListaGenerica<G extends Modelo> {
+public class ListaGenerica<M extends Modelo> {
 
-    private final ArrayList<G> lista = new ArrayList();
+    private final ArrayList<M> lista = new ArrayList();
 
     /**
      *
-     * @param objeto
+     * @param modelo
      */
-    public void adicionar(G objeto) {
-        this.lista.add(objeto);
+    public void adicionar(M modelo) {
+        this.lista.add(modelo);
     }
 
     /**
@@ -35,8 +34,8 @@ public class ListaGenerica<G extends Modelo> {
      * @return
      */
     public boolean remover(String id) {
-        // Se o id for o mesmo de algum objeto na nossa lista, remova
-        return this.lista.removeIf(objeto -> Objects.equals(objeto.getId(), id)); //removeIf vai passar por cada elemento da nossa lista fazendo uma verificação: o id desse objeto é igual ao id que eu passei na função? se for ele remove esse objeto.
+        // Se o id for o mesmo de algum modelo na nossa lista, remova
+        return this.lista.removeIf(modelo -> Objects.equals(modelo.getId(), id)); //removeIf vai passar por cada elemento da nossa lista fazendo uma verificação: o id desse modelo é igual ao id que eu passei na função? se for ele remove esse modelo.
     }
 
     /**
@@ -45,10 +44,10 @@ public class ListaGenerica<G extends Modelo> {
      * @param id
      * @return
      */
-    public G buscaPorId(String id) {
-        for (G objeto : lista) {
-            if (objeto.getId().equals(id))
-                return objeto;
+    public M buscaPorId(String id) {
+        for (M modelo : lista) {
+            if (modelo.getId().equals(id))
+                return modelo;
         }
         return null; // retorna null se nao encontra elememento como ID
     }
@@ -59,11 +58,11 @@ public class ListaGenerica<G extends Modelo> {
      * @param Nome
      * @return
      */
-    public ArrayList<G> buscaPorNome(String Nome) {
-        ArrayList<G> encontrados = new ArrayList<>();
-        for (G objeto : lista) {
-            if (objeto.getNome().toLowerCase().contains(Nome.toLowerCase())) {
-                encontrados.add(objeto);
+    public ArrayList<M> buscaPorNome(String Nome) {
+        ArrayList<M> encontrados = new ArrayList<>();
+        for (M modelo : lista) {
+            if (modelo.getNome().toLowerCase().contains(Nome.toLowerCase())) {
+                encontrados.add(modelo);
             }
         }
         return encontrados;
@@ -73,7 +72,7 @@ public class ListaGenerica<G extends Modelo> {
      *
      * @return
      */
-    public ArrayList<G> getLista() {
+    public ArrayList<M> getLista() {
         return new ArrayList<>(this.lista);
     }
 

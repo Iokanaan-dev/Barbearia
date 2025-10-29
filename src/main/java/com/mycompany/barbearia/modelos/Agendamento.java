@@ -14,31 +14,38 @@ import Utilidades.IdGerador;
  * @author italo
  */
 
-/*
+
 public class Agendamento implements IdGerador{
     
     private static int contador = 0;
     
-    private final String idCliente;
-    private final String idBarbeiro;
-    private final String idAtendente;
-    private final Estacao idEstacao;
-    private final ArrayList<String> idServicos;
-    
+    private final Cliente cliente;
+    private final Barbeiro barbeiro;
+    private final Atendente atendente;
+    private final Estacao estacao;
+    private final ArrayList<Servico> servicos;
+
     private final LocalDateTime dataHoraInicioAgendamento;
     private final LocalDateTime dataHoraFimAgendameto;
-    
-    private StatusAgendamento status;
+
+    private StatusAgendamento status = StatusAgendamento.PRE_AGENDADO;
     private final double valorTotal;
     private final double valorRetido;
 
-    Agendamento(String idCliente, String idBarbeiro, String idAtendente, String idEstacao, ArrayList<String> idServicos, LocalDateTime dataHoraInicioAgendamento, dataHoraFimAgendameto){
-    
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido) {
+        this.cliente = cliente;
+        this.barbeiro = barbeiro;
+        this.atendente = atendente;
+        this.estacao = estacao;
+        this.servicos = servicos;
+        this.dataHoraInicioAgendamento = dataHoraInicioAgendamento;
+        this.dataHoraFimAgendameto = dataHoraFimAgendameto;
+        this.valorTotal = valorTotal;
+        this.valorRetido = valorRetido;
     }
-    
+
     @Override
     public String gerarId() {
         return "AGE" + (++contador);
     } 
 }
-*/

@@ -14,28 +14,26 @@ public abstract class Individuo extends Modelo{
     private LocalDate dataNascimento;
 
     public Individuo(String nome, String cpf, String telefone, LocalDate dataNascimento) {
-        super(nome);
+        super(nome); // chama o construtor de Modelo para inicializar a variavel nome
         
         validarCpf(cpf);
         validarTelefone(telefone);
         validarDataNascimento(dataNascimento);
         
-
-        
         this.cpf = cpf;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
     }
-    @Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
-    public abstract String gerarId();
+    //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
+    //public abstract String gerarId();
     
-    private void validarCpf(String cpf) {
+    private static void validarCpf(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             throw new IllegalArgumentException("CPF inválido!");
         }
     }
 
-    private void validarTelefone(String telefone) {
+    private static void validarTelefone(String telefone) {
         if (telefone == null || telefone.length() < 8 || telefone.length() > 11) {
             throw new IllegalArgumentException("Telefone inválido!");
         }
@@ -48,7 +46,7 @@ public abstract class Individuo extends Modelo{
     }
 
     public String getCpf() {
-        return cpf;
+        return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
     }
 
     public void setCpf(String cpf) {
@@ -76,6 +74,6 @@ public abstract class Individuo extends Modelo{
 
     @Override
     public String toString() {
-        return String.format("%sCPF: %s%nTelefone:%s%nData de Nascimento: %s%n", super.toString(), cpf, telefone, dataNascimento);
+        return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpf(), getTelefone(), getDataNascimento());
     }
 }

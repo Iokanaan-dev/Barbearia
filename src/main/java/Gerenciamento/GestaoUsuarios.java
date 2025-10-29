@@ -123,7 +123,7 @@ public class GestaoUsuarios {
      *
      * @return
      */
-    public ArrayList<Usuario> exibirListaUsuarios(){
+    public ArrayList<Usuario> getListaUsuarios(){
         return this.listaUsuario.getLista();
     }
     

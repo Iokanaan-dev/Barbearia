@@ -9,5 +9,5 @@ package Utilidades;
  * @author intalo
  */
 public interface IdGerador {
-    String gerarId();
+    String gerarId(); // força todas as classes concretas que precisam ter ID a implementar sua propria logica de gerar ID
 }

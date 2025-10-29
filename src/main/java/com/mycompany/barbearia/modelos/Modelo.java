@@ -23,10 +23,9 @@ public abstract class Modelo implements IdGerador {
         this.id = this.gerarId();
     }
     
-        private void validarNome(String nome) {
-        if (nome == null || nome.trim().isEmpty()) {
+    private static void validarNome(String nome) {
+        if (nome == null || nome.trim().isEmpty())
             throw new IllegalArgumentException("Campo Vazio!");
-        }
     }
     
     /**
@@ -65,7 +64,7 @@ public abstract class Modelo implements IdGerador {
      */
     @Override
     public String toString() {
-        return String.format("%nNome: %s%nID:%s%n", nome, id);
+        return String.format("Nome: %s%nID:%s%n", getNome(), getId());
     }
 }
 

@@ -1,4 +1,5 @@
 com/mycompany/barbearia/modelos/StatusAgendamento.class
+com/mycompany/barbearia/modelos/Agendamento.class
 Gerenciamento/GestaoAgendamento.class
 Utilidades/IdGerador.class
 Gerenciamento/GestaoServico.class
