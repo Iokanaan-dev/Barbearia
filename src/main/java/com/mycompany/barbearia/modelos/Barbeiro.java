@@ -29,7 +29,7 @@ public class Barbeiro extends Usuario{
      * @return
      */
     @Override
-    protected String gerarId() {
+    public String gerarId() {
         return "BA" + (++contador);
     }
     

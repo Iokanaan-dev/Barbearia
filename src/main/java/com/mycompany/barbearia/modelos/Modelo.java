@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import Utilidades.IdGerador;
 
 /**
  *
  * @author italo
  */
-public abstract class Modelo {
+public abstract class Modelo implements IdGerador {
     private String nome;
     private final String id;
 
@@ -32,7 +33,7 @@ public abstract class Modelo {
      *
      * @return
      */
-    protected abstract String gerarId();    
+    //protected abstract String gerarId();    
         
     /**
      *

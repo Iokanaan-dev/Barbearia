@@ -82,7 +82,7 @@ public class Servico extends Modelo{
      * @return
      */
     @Override
-    protected String gerarId() {
+    public String gerarId() {
         return "SE" + (++contador);
     }
 

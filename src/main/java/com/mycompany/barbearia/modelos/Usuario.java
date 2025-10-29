@@ -36,7 +36,7 @@ public abstract class Usuario extends Individuo{
      *
      * @return
      */
-    protected abstract String gerarId(); 
+    public abstract String gerarId(); 
     
     /**
      *
