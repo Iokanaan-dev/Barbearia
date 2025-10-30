@@ -7,6 +7,7 @@ package com.mycompany.barbearia.modelos;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import Utilidades.IdGerador;
+import Listas.ListaGenerica;
 
 
 /**
@@ -19,20 +20,21 @@ public class Agendamento implements IdGerador{
      
     private static int contador = 0;
     
+    // todos final pois nada podera ser alterado apos entrar no sistema, exceto pelo status, serviços e valor
     private final Cliente cliente;
     private final Barbeiro barbeiro;
     private final Atendente atendente;
     private final Estacao estacao;
-    private final ArrayList<Servico> servicos;
+    private ListaGenerica<Servico> servicos; // pode ser alterado para adicionar serviços
     
     private final LocalDateTime dataHoraInicioAgendamento;
-    private final LocalDateTime dataHoraFimAgendameto;
+    private LocalDateTime dataHoraFimAgendameto; // se um serviço for adicionado o horario final muda
 
     private StatusAgendamento status = StatusAgendamento.PRE_AGENDADO;
-    private final double valorTotal;
-    private final double valorRetido;
+    private double valorTotal; // como eh calculado baseado nos servicos, se um servico for adcionado o valor ira alterar
+    private double valorRetido; // como eh calculado baseado nos servicos, se um servico for adcionado o valor ira alterar
 
-    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido) {
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ListaGenerica<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido) {
         this.cliente = cliente;
         this.barbeiro = barbeiro;
         this.atendente = atendente;
@@ -44,6 +46,8 @@ public class Agendamento implements IdGerador{
         this.valorRetido = valorRetido;        
         
     }
+    
+    
 
     @Override
     public String gerarId() {

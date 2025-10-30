@@ -23,6 +23,7 @@ public class Barbearia {
         // Instanciando gestoes
         GestaoClientes gestaoC = new GestaoClientes();
         GestaoUsuarios gestaoU = new GestaoUsuarios(); 
+        GestaoServico gestaoS = new GestaoServico();
         // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
         //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
         
@@ -31,7 +32,7 @@ public class Barbearia {
         try {
         
         // TESTES CLIENTES---------------------------------------------------
-        
+        /*
         // instancia 4 clientes para testes
         gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1, "italo@picles.com");
         gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
@@ -42,7 +43,7 @@ public class Barbearia {
         System.out.print("Lista de clientes inicial");
         ArrayList<Cliente> todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);
-        
+        */
 
      /*
       // GestaoClientes: teste para metodo de busca via nome ====================
@@ -139,16 +140,16 @@ public class Barbearia {
         } 
         */
         
-      // TESTES PRODUTOS E SERVICOS---------------------------------------------------
-      /*
-        Produto produto1 = new Produto("Balm", 10.34);
-        Servico servico1 = new Servico("Corte", 35.00);
-        Servico servico2 = new Servico("Escova", 45.00);
+      // TESTES SERVICOS------------------------------------------------------
+      
+        Servico servico0 = new Servico("Pintada", 99, "Uma bela de uma pintada", 70);
+        Servico servico1 = new Servico("Corte", 35.00, "Corte geral", 30);
+        Servico servico2 = new Servico("Escova", 45.00, "Escova feminina", 10);
         
-        System.out.println(produto1);
+        System.out.println(servico0);
         System.out.println(servico1);
         System.out.println(servico2);
-        */
+        
       
         }
         
