@@ -13,41 +13,46 @@ import java.time.LocalDate;
 public class OrdemServico extends Modelo implements Utilidades.IdGerador {
     private static int contador = 0;
     
-    private String nomeCliente;
-    private String nomeBarbeiro;
-    private ListaGenerica<Produto> produtosUtilizados;
-    private ListaGenerica<Servico> servicosRealizados;    
-    private String observacoes;
+    private String idCliente;
+    private String idBarbeiro;
+    private ListaGenerica<Produto> produtosUtilizados = new ListaGenerica<>();
+    private String observacoes;    
+    private ListaGenerica<Servico> servicosRealizados = new ListaGenerica<>();    
     private LocalDate dataExecucao;
 
-    public OrdemServico(String nomeCliente, String nomeBarbeiro, ListaGenerica<Produto> produtosUtilizados, ListaGenerica<Servico> servicosRealizados, String observacoes, LocalDate dataExecucao) {
-        this.nomeCliente = nomeCliente;
-        this.nomeBarbeiro = nomeBarbeiro;
-        this.produtosUtilizados = produtosUtilizados;
-        this.servicosRealizados = servicosRealizados;
+    public OrdemServico(String nomeCliente, String nomeBarbeiro, String observacoes, LocalDate dataExecucao) {
+        this.idCliente = nomeCliente;
+        this.idBarbeiro = nomeBarbeiro;
         this.observacoes = observacoes;
         this.dataExecucao = dataExecucao;
     }
-
-    public String getNomeCliente() {
-        return nomeCliente;
+    
+    // torna as observacoes opcionais
+    public OrdemServico(String nomeCliente, String nomeBarbeiro, LocalDate dataExecucao) {
+        // chama o construtor de quatro parametros, economizando linhas de codigo
+        this(nomeCliente, nomeBarbeiro, null, dataExecucao);
+    }
+    
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setIdCliente(String nomeCliente) {
+        this.idCliente = nomeCliente;
     }
 
-    public String getNomeBarbeiro() {
-        return nomeBarbeiro;
+    public String getIdBarbeiro() {
+        return idBarbeiro;
     }
 
-    public void setNomeBarbeiro(String nomeBarbeiro) {
-        this.nomeBarbeiro = nomeBarbeiro;
+    public void setIdBarbeiro(String nomeBarbeiro) {
+        this.idBarbeiro = nomeBarbeiro;
     }
 
     public ListaGenerica<Produto> getProdutosUtilizados() {
         return produtosUtilizados;
     }
+    
 
     public void setProdutosUtilizados(ListaGenerica<Produto> produtosUtilizados) {
         this.produtosUtilizados = produtosUtilizados;
@@ -77,6 +82,16 @@ public class OrdemServico extends Modelo implements Utilidades.IdGerador {
         this.dataExecucao = dataExecucao;
     }
     
+    // retorna uma String com a lista dos servicos realizados
+    public String getListaServicos(){
+        return this.servicosRealizados.toString();
+    }
+    
+    // retorna uma String com a lista dos servicos realizados
+    public String getListaProdutos(){
+        return this.produtosUtilizados.toString();
+    }
+    
     // adiciona servicos
     public void adicionarServico(Servico servico){
         this.servicosRealizados.adicionar(servico);
@@ -91,5 +106,10 @@ public class OrdemServico extends Modelo implements Utilidades.IdGerador {
     public String gerarId()
     {
         return "SO" + ++contador;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%nOrdem de Servico %s%n%sCliente: %s%nBarbeiro: %s%nServicos: %s%nProdutos: %s%nObservacoes: %s", getId(), super.toString(), getIdCliente(), getIdBarbeiro(), getListaServicos(), getListaProdutos(), getObservacoes());
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author intalo
  */
-
+//IDEIA PARA DEPOIS QUE AS COISAS ESTIVEREM FUNCIONANDO!
 /*
 // acho que todos os metodos de buscar, cadastrar adicionar, remover e etc podem ter origem aqui, so precisamos deixar nas subclasses dessa classe os metodos de cadastrar (que ainda assim pode ser abstract)
 public abstract class Gestao { 

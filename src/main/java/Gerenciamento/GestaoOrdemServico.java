@@ -21,10 +21,16 @@ public class GestaoOrdemServico {
     private final ListaGenerica<OrdemServico> listaOS = new ListaGenerica();
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
-    public void cadastrarOS(String nomeCliente, String nomeBarbeiro, ListaGenerica<Produto> produtosUtilizados, ListaGenerica<Servico> servicosRealizados, String observacoes, LocalDate dataExecucao){
-        OrdemServico novaOrdemServico = new OrdemServico(nomeCliente, nomeBarbeiro, produtosUtilizados, servicosRealizados, observacoes, dataExecucao);
+    public void cadastrar(String idCliente, String idBarbeiro, String observacoes, LocalDate dataExecucao){
+        OrdemServico novaOrdemServico = new OrdemServico(idCliente, idBarbeiro, observacoes, dataExecucao);
         this.listaOS.adicionar(novaOrdemServico);
     }
+    
+    // essa sobrecarga em cadastrar torna o campo de observacoes opcional
+    public void cadastrar(String idCliente, String idBarbeiro, LocalDate dataExecucao){
+        OrdemServico novaOrdemServico = new OrdemServico(idCliente, idBarbeiro, dataExecucao);
+        this.listaOS.adicionar(novaOrdemServico);
+    }    
     
     /**
      *

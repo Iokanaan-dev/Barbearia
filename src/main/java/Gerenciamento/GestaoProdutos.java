@@ -30,6 +30,14 @@ public class GestaoProdutos{
         produto.setDescricao(descricao);
     }
     
+    public Produto buscarId(String ID){
+        Produto produtoSelecionado = this.listaProdutos.buscaPorId(ID);
+        
+        if(produtoSelecionado == null)
+            System.out.println("Nenhum produto encontrado.");
+        return produtoSelecionado;
+    }    
+    
     public ArrayList<Produto> getLista()
     {
         return this.listaProdutos.getLista();

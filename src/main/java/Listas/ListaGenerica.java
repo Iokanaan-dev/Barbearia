@@ -81,6 +81,15 @@ public class ListaGenerica<M extends Modelo> {
      */
     @Override
     public String toString() {
-        return "ListaGenerica{" + "lista=" + lista + '}';
+        String itensLista = null;
+        
+        // se a lista estiver vazia toString retorna uma indicacao
+        if(this.lista.isEmpty())
+            return "---";
+     
+        for(Modelo item: this.lista)
+            itensLista += item.toString();
+        
+        return itensLista;
     }
 }

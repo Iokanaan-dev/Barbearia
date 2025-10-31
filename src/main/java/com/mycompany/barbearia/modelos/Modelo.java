@@ -71,6 +71,10 @@ public abstract class Modelo implements IdGerador {
      */
     @Override
     public String toString() {
+        // lida com nome Modelos com nomes nulos
+        if (nome == null)
+            return String.format("ID:%s%n", getId());
+        
         return String.format("Nome: %s%nID:%s%n", getNome(), getId());
     }
 }

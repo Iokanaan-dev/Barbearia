@@ -149,9 +149,17 @@ public class Barbearia {
         
         
       //TESTES ORDENS DE SERVICO
-      
+        // NAO ESQUECER DE IMPLEMENTAR A BUSCA POR ID NA CLASSE GESTAOPRODUTOS PARA CONSEGUIR ACESSAR OS PRODUTOS CADASTRADOS PARA TERMINAR ESSA PARTE
+        gestaoOS.cadastrar("CL01", "BA01", "Corte de Cabelo + Barba", data1);
+        gestaoOS.cadastrar("CL02", "BA01", "Sombrancelha + Barba", data1);
         
-      
+        System.out.print("Lista de servicos inicial");
+        ArrayList<OrdemServico> todasOS = gestaoOS.getListaOS();
+        printArrayList(todasOS);
+        
+        
+        
+        
         }
         
         catch (Exception m)
