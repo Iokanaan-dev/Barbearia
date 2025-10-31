@@ -55,6 +55,14 @@ public class Produto extends Modelo{
         this.preco = preco;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     /**
      *
      * @return

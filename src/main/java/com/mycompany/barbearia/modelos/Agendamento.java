@@ -6,7 +6,6 @@ package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import Utilidades.IdGerador;
 
 
 /**
@@ -15,38 +14,118 @@ import Utilidades.IdGerador;
  */
 
 
-public class Agendamento implements IdGerador{
+public class Agendamento extends Modelo{
      
     private static int contador = 0;
+    //String nomeAgendamento;
     
     private final Cliente cliente;
     private final Barbeiro barbeiro;
-    private final Atendente atendente;
+    private final Usuario atendente;
     private final Estacao estacao;
     private final ArrayList<Servico> servicos;
     
     private final LocalDateTime dataHoraInicioAgendamento;
     private final LocalDateTime dataHoraFimAgendameto;
 
-    private StatusAgendamento status = StatusAgendamento.PRE_AGENDADO;
+    private StatusAgendamento status;
     private final double valorTotal;
-    private final double valorRetido;
+    private double valorRetido;
 
-    public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido) {
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status) {
+        super(cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
+        
         this.cliente = cliente;
         this.barbeiro = barbeiro;
+        //this.nomeAgendamento = (cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
         this.atendente = atendente;
         this.estacao = estacao;
         this.servicos = servicos;
         this.dataHoraInicioAgendamento = dataHoraInicioAgendamento;
-        this.dataHoraFimAgendameto = dataHoraFimAgendameto;
-        this.valorTotal = valorTotal;
-        this.valorRetido = valorRetido;        
+        this.status = status;
         
+        int duracaoTotal = calcularDuracaoTotal();
+        this.dataHoraFimAgendameto =  dataHoraInicioAgendamento.plusMinutes(duracaoTotal);
+        
+        this.valorTotal = calcularValorTotal();
+        this.valorRetido = 0.0;        
+    }
+    
+    private double calcularValorTotal(){
+        double total = 0.0;
+        for(Servico s : this.servicos){
+            total += s.getPreco();
+        }
+        return total;
+    }
+    
+    private int calcularDuracaoTotal(){
+        int total = 0;
+        for(Servico s : this.servicos){
+            total += s.getTempoEmMinutos();
+        }
+        return total;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+    
+
+    public Barbeiro getBarbeiro() {
+        return barbeiro;
+    }
+
+    public Usuario getAtendente() {
+        return atendente;
+    }
+
+    public Estacao getEstacao() {
+        return estacao;
+    }
+
+    public ArrayList<Servico> getServicos() {
+        return servicos;
+    }
+
+    public LocalDateTime getDataHoraInicioAgendamento() {
+        return dataHoraInicioAgendamento;
+    }
+
+    public LocalDateTime getDataHoraFimAgendameto() {
+        return dataHoraFimAgendameto;
+    }
+
+    public StatusAgendamento getStatus() {
+        return status;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public double getValorRetido() {
+        return valorRetido;
+    }
+
+    public void setStatus(StatusAgendamento status) {
+        this.status = status;
+    }
+
+    public void setValorRetido(double valorRetido) {
+        this.valorRetido = valorRetido;
+    }
+    
+    /*
+    public String getNome(){
+        return nomeAgendamento;
+    }
+    */
+    
     @Override
     public String gerarId() {
         return "AGE" + (++contador);
     }
+
+    
 }
