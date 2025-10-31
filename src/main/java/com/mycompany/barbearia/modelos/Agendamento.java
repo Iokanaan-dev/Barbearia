@@ -92,7 +92,7 @@ public class Agendamento extends Modelo{
         return dataHoraInicioAgendamento;
     }
 
-    public LocalDateTime getDataHoraFimAgendameto() {
+    public LocalDateTime getDataHoraFimAgendamento() {
         return dataHoraFimAgendameto;
     }
 

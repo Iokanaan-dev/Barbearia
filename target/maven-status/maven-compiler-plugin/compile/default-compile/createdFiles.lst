@@ -1,2 +1,7 @@
+com\mycompany\barbearia\modelos\StatusAgendamento.class
 com\mycompany\barbearia\modelos\TipoEstacao.class
+Gerenciamento\GestaoAgendamento.class
+Gerenciamento\GestaoServico.class
+com\mycompany\barbearia\modelos\Agenda.class
 Utilidades\IdGerador.class
+com\mycompany\barbearia\modelos\Agendamento.class

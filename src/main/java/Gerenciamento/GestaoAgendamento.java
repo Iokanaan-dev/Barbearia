@@ -19,6 +19,9 @@ public class GestaoAgendamento {
     
     private final ListaGenerica<Agendamento> agendamentos = new ListaGenerica();
     
+    private final GestaoUsuarios gestaoUsuarios;
+    private final GestaoEstacao gestaoEstacao;
+    
     private static final int PRE_AGENDAMENTO = 14;
     private static final int CANCELAMENTO_SEM_TAXA = 7;
     private static final double TAXA_CANCELAMENTO = 0.35;
@@ -27,6 +30,11 @@ public class GestaoAgendamento {
     private static final LocalTime HORA_INICIO_ESPEDIENTE = LocalTime.of(8, 0);
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 0); 
     private static final int SLOT_MINUTOS = 10;
+    
+    public GestaoAgendamento(GestaoUsuarios gestaoU, GestaoEstacao gestaoE) {
+        this.gestaoUsuarios = gestaoU;
+        this.gestaoEstacao = gestaoE;
+    }
     
     private boolean horarioOcupado(Modelo recurso, LocalDateTime inicio, LocalDateTime fim) {
         for (Agendamento agendamentoExistente : this.agendamentos.getLista()) {
@@ -41,7 +49,7 @@ public class GestaoAgendamento {
             }
             if (colisaoRecurso) {
                 LocalDateTime inicio_agendamento_existente = agendamentoExistente.getDataHoraInicioAgendamento();
-                LocalDateTime fim_agendamento_existente = agendamentoExistente.getDataHoraFimAgendameto();
+                LocalDateTime fim_agendamento_existente = agendamentoExistente.getDataHoraFimAgendamento();
                 
                 if (inicio.isBefore(fim_agendamento_existente) && fim.isAfter(inicio_agendamento_existente)) {
                     return true;
@@ -121,12 +129,110 @@ public class GestaoAgendamento {
         agendamento.setStatus(StatusAgendamento.CANCELADO);
     }
     
-    public ArrayList<Agendamento> buscarbarbeiroAgendamento(Barbeiro barbeiro, LocalDate data){
+    public void atualizarStatusAgendamento(){
+        LocalDateTime agora = LocalDateTime.now();
         
+        for(Agendamento ag : this.agendamentos.getLista()) {
+            StatusAgendamento statusAtual = ag.getStatus();
+            
+            if (statusAtual == StatusAgendamento.PRE_AGENDADO) {
+                long diasDeAntecedencia = ChronoUnit.DAYS.between(agora.toLocalDate(), ag.getDataHoraInicioAgendamento().toLocalDate());
+                if (diasDeAntecedencia < PRE_AGENDAMENTO) {
+                    ag.setStatus(StatusAgendamento.CONFIRMADO);
+                    statusAtual = StatusAgendamento.CONFIRMADO;
+                }
+            }
+            
+            if (statusAtual ==  StatusAgendamento.CONFIRMADO) {
+                if (agora.toLocalDate().isEqual(ag.getDataHoraInicioAgendamento().toLocalDate()) && agora.isBefore(ag.getDataHoraInicioAgendamento())) {
+                    ag.setStatus(StatusAgendamento.EM_ESPERA);
+                    statusAtual = StatusAgendamento.EM_ESPERA;
+                }
+            }
+            
+            if (statusAtual == StatusAgendamento.EM_ESPERA) {
+                if(agora.isAfter(ag.getDataHoraInicioAgendamento()) || agora.isEqual(ag.getDataHoraInicioAgendamento())) {
+                    ag.setStatus(StatusAgendamento.EM_ANDAMENTO);
+                    statusAtual = StatusAgendamento.EM_ANDAMENTO;
+                }
+            }
+            
+            if (statusAtual == StatusAgendamento.EM_ANDAMENTO) {
+                if(agora.isAfter(ag.getDataHoraFimAgendamento()) || agora.isEqual(ag.getDataHoraFimAgendamento())) {
+                    ag.setStatus(StatusAgendamento.FINALIZADO);
+                }
+            }
+        }
     }
+    
+    public ArrayList<Agenda> buscarHorarioVagoAgendamento(ArrayList<Servico> servicos, LocalDate data){
+        ArrayList<Agenda> agenda = new ArrayList();
+        
+        if (servicos == null || servicos.isEmpty()) return agenda;
+        
+        ArrayList<Barbeiro> todosBarbeiros = this.gestaoUsuarios.listaBarbeiro();
+        Estacao[] todasEstacao = this.gestaoEstacao.getEstacoes();
+        
+        TipoEstacao tipoRequerido = servicos.get(0).getTipoEstacaoRequerido();
+        
+        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico -> Servico.getTempoEmMinutos10()).sum();
+        boolean tiposMisturados = false;
+        for (Servico s : servicos) {
+            if (s.getTipoEstacaoRequerido() != tipoRequerido) {
+                tiposMisturados = true;
+                break;
+            }
+        }
+        
+        if(tiposMisturados) {
+            return agenda;
+        }
+        
+        LocalDateTime slotAtual = data.atTime(HORA_INICIO_ESPEDIENTE);
+        while (slotAtual.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE)) {
+            
+            LocalDateTime inicio = slotAtual;
+            LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
+            
+            if(fim.toLocalTime().isAfter(HORA_FINAL_ESPEDIENTE) || inicio.isBefore(LocalDateTime.now())) {
+                slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
+                continue;
+            }
+            
+            for(Barbeiro barbeiro : todosBarbeiros) {
+                if(!horarioOcupado(barbeiro, inicio, fim)) {
+                    for(Estacao estacao : todasEstacao) {
+                        if (estacao.getTipo() == tipoRequerido) {
+                            if (!horarioOcupado(estacao, inicio, fim)) {
+                                agenda.add(new Agenda(inicio, barbeiro, estacao));
+                            }
+                        }
+                    }
+                }
+            }
+            slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
+        }
+        return agenda;
+    } 
     
     public ArrayList<Agendamento> getAgendamentos(){
         return this.agendamentos.getLista();
     }
+    
+    public Agendamento buscarAgendamentoID(String ID){
+        return this.agendamentos.buscaPorId(ID);
+    }
+    
+    public ArrayList<Agendamento> buscarAgendamentoBarbeiro(Barbeiro barbeiro, LocalDate data) {
+        ArrayList<Agendamento> resultados = new ArrayList();
+        for (Agendamento ag : this.agendamentos.getLista()) {
+            if(ag.getBarbeiro().getId().equals(barbeiro.getId()) && ag.getDataHoraInicioAgendamento().toLocalDate().isEqual(data)) {
+                resultados.add(ag);
+            }
+        }
+        return resultados;
+    }
+    
+    //fazer um metodo para buscar agendamentos via clientes
     
 }
