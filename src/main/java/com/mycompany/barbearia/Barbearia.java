@@ -7,6 +7,7 @@ import com.mycompany.barbearia.modelos.*;
 import Gerenciamento.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import Listas.ListaGenerica;
 
 /**
  *
@@ -24,6 +25,9 @@ public class Barbearia {
         GestaoClientes gestaoC = new GestaoClientes();
         GestaoUsuarios gestaoU = new GestaoUsuarios(); 
         GestaoServico gestaoS = new GestaoServico();
+        GestaoProdutos gestaoP = new GestaoProdutos();
+        GestaoOrdemServico gestaoOS = new GestaoOrdemServico();
+        
         // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
         //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
         
@@ -32,7 +36,7 @@ public class Barbearia {
         try {
         
         // TESTES CLIENTES---------------------------------------------------
-        /*
+        
         // instancia 4 clientes para testes
         gestaoC.cadastrarCliente("Italo", "11111111111", "99999999", data1, "italo@picles.com");
         gestaoC.cadastrarCliente("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
@@ -43,7 +47,6 @@ public class Barbearia {
         System.out.print("Lista de clientes inicial");
         ArrayList<Cliente> todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);
-        */
 
      /*
       // GestaoClientes: teste para metodo de busca via nome ====================
@@ -81,37 +84,28 @@ public class Barbearia {
         System.out.println("\n Lista de clientes apos remocao do cliente com ID C1");
         todosClientes = gestaoC.getListaClientes();
         printArrayList(todosClientes);                 
-<<<<<<< HEAD
-=======
 
->>>>>>> c52bd77139eb3ec92d85a34333bdd13d88578940
+
         
         System.out.println("Tentando editar cliente C2");
         gestaoC.editarCliente(gestaoC.buscarID("C2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
-<<<<<<< HEAD
-=======
-
         
-   
->>>>>>> c52bd77139eb3ec92d85a34333bdd13d88578940
-     
         System.out.println("Tentando editar cliente CL2");
         gestaoC.editarCliente(gestaoC.buscarID("CL2"), "Cabuloso", "33333333333","38998090957", data1, "perebinha@gmail");
         printArrayList(todosClientes);
         
-<<<<<<< HEAD
         */ 
      
         // TESTES USUARIOS---------------------------------------------------
-        /*
-        Usuario novoUsuario = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
+        
+        Usuario novoUsuario0 = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
         Usuario novoUsuario1 = new Atendente("italod3ad", "123456789", "pedro", "33333333333", "38998090957", data1);
         Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
-        gestaoU.cadastrarUsuario(novoUsuario);
+        
+        gestaoU.cadastrarUsuario(novoUsuario0);
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
-<<<<<<< HEAD
         
         //gestaoU.removerUser(novoUsuario0.getId());
         
@@ -125,30 +119,37 @@ public class Barbearia {
         ArrayList<Usuario> todosUsuarios = gestaoU.getListaUsuarios();
         printArrayList(todosUsuarios);
         
-=======
         //gestaoU.removerUser(novoUsuario.getId());
         System.out.println("\nDigite o ID do usuario\n");
         
-        gestaoU.editarUsuarioAtributos(novoUsuario, "calabreso", "12755050667", "38998909068", data1);
+        //gestaoU.editarUsuarioAtributos(novoUsuario0, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
         
         
-        System.out.println("\nLista usuarios\n");
-        ArrayList<Usuario> todosUsuarios = gestaoU.exibirListaUsuarios();
-        for (Usuario usuarios : todosUsuarios){
-            System.out.println(usuarios);
-        } 
-        */
         
       // TESTES SERVICOS------------------------------------------------------
-      
-        Servico servico0 = new Servico("Pintada", 99, "Uma bela de uma pintada", 70);
-        Servico servico1 = new Servico("Corte", 35.00, "Corte geral", 30);
-        Servico servico2 = new Servico("Escova", 45.00, "Escova feminina", 10);
         
-        System.out.println(servico0);
-        System.out.println(servico1);
-        System.out.println(servico2);
+        gestaoS.cadastrarNovoServico("Pintada", 99, "Uma bela de uma pintada", 70);
+        gestaoS.cadastrarNovoServico("Corte", 35.00, "Corte geral", 30);
+        gestaoS.cadastrarNovoServico("Escova", 45.00, "Escova feminina", 10);
+
+        System.out.print("Lista de servicos inicial");
+        ArrayList<Servico> todosServicos = gestaoS.getServicos();
+        printArrayList(todosServicos);
+        
+      // TESTES PRODUTOS------------------------------------------------------
+        
+        gestaoP.cadastrarProduto("Balm Madeira", 25.55, "Um Balm");
+        gestaoP.cadastrarProduto("Pomada Cobre", 15.55, "Uma pomada");
+        
+
+        System.out.print("Lista de produtos inicial");
+        ArrayList<Produto> todosProdutos = gestaoP.getLista();
+        printArrayList(todosProdutos);        
+        
+        
+      //TESTES ORDENS DE SERVICO
+      
         
       
         }
@@ -167,5 +168,6 @@ public class Barbearia {
         for (Modelo m : Modelos)
             System.out.println(m);
         System.out.println();
-    }   
+    } 
+    
 }

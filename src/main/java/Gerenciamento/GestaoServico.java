@@ -17,12 +17,12 @@ public class GestaoServico {
     
     private final ListaGenerica<Servico> Listaservicos = new ListaGenerica();
     
-    private void cadastrarNovoServico(String nome, double preco, String descricao, int temp){
+    public void cadastrarNovoServico(String nome, double preco, String descricao, int temp){
         Servico servico = new Servico(nome, preco, descricao, temp);
         this.Listaservicos.adicionar(servico);
     }
     
-    private Servico buscarServicoID(String ID){
+    public Servico buscarServicoID(String ID){
         Servico servicoSelecionado = this.Listaservicos.buscaPorId(ID);
         
         if(servicoSelecionado == null)
@@ -30,15 +30,15 @@ public class GestaoServico {
         return servicoSelecionado;
     }
     
-    private ArrayList<Servico> getServicos(){
+    public ArrayList<Servico> getServicos(){
         return this.Listaservicos.getLista();
     }
     
-    private void removerServico(String ID){
+    public void removerServico(String ID){
         this.Listaservicos.remover(ID);
     }
     
-    private void editarServico(Servico servico, String nome, double preco, String descricao, int temp ){
+    public void editarServico(Servico servico, String nome, double preco, String descricao, int temp ){
         //fazer verificação futuramente
         servico.setNome(nome);
         servico.setPreco(preco);

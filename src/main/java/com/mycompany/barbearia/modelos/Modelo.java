@@ -22,6 +22,13 @@ public abstract class Modelo implements IdGerador {
         this.nome = nome;
         this.id = this.gerarId();
     }
+
+    // construtor para classes que herdam de Modelo mas nao tem nome, como OrdemServico ou Agendamento
+    public Modelo() {
+         this.id = this.gerarId();
+    }
+    
+    
     
     private static void validarNome(String nome) {
         if (nome == null || nome.trim().isEmpty())
