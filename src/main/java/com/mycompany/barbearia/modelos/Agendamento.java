@@ -62,7 +62,7 @@ public class Agendamento extends Modelo{
     private int calcularDuracaoTotal(){
         int total = 0;
         for(Servico s : this.servicos){
-            total += s.getTempoEmMinutos();
+            total += s.getTempoEmMinutos10();
         }
         return total;
     }

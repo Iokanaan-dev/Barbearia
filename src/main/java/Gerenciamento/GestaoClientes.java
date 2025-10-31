@@ -53,6 +53,17 @@ public class GestaoClientes {
        return clienteSelecionado;
     }
     
+    public Cliente buscarCPF(String CPF) {
+        ArrayList<Cliente> clientes = this.listaClientes.getLista();
+        
+        for(Cliente c : clientes) {
+            if (c.getCpf().equals(CPF)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    
     /**
      *
      * @param cliente

@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 import java.time.LocalDate;
+
+
 /**
  *
  * @author italo
@@ -12,6 +14,7 @@ public abstract class Individuo extends Modelo{
     private String cpf;
     private String telefone;
     private LocalDate dataNascimento;
+   
 
     public Individuo(String nome, String cpf, String telefone, LocalDate dataNascimento) {
         super(nome); // chama o construtor de Modelo para inicializar a variavel nome
@@ -57,6 +60,7 @@ public abstract class Individuo extends Modelo{
     public String getTelefone() {
         return telefone;
     }
+     
 
     public void setTelefone(String telefone) {
         validarTelefone(telefone);

@@ -5,6 +5,7 @@
 package Gerenciamento;
 
 import com.mycompany.barbearia.modelos.Estacao;
+import com.mycompany.barbearia.modelos.TipoEstacao;
 
 /**
  *
@@ -15,9 +16,9 @@ public class GestaoEstacao {
     private final Estacao[] estacoes = new Estacao[num];
     
     public GestaoEstacao(){
-        estacoes[0] = new Estacao("Lavar e sacar", "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!");
-        estacoes[1] = new Estacao("Corriqueira 1", "Estação destinada apenas para atividades corriqueiras da barbearia");
-        estacoes[2] = new Estacao("Corriqueira 2", "Estação destinada apenas para atividades corriqueiras da barbearia");
+        estacoes[0] = new Estacao("Lavar e sacar", "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!", TipoEstacao.LAVAGEM);
+        estacoes[1] = new Estacao("Corriqueira 1", "Estação destinada apenas para atividades corriqueiras da barbearia", TipoEstacao.CORRIQUEIRA);
+        estacoes[2] = new Estacao("Corriqueira 2", "Estação destinada apenas para atividades corriqueiras da barbearia", TipoEstacao.CORRIQUEIRA);
     }
 
     public Estacao[] getEstacoes() {

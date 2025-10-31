@@ -41,7 +41,7 @@ public class Cliente extends Individuo{
     public void setEmail(String email) {
         this.email = email;
     }
-      
+    
     /**
      *
      * @return

@@ -13,13 +13,14 @@ public class Servico extends Modelo{
     private String descricao;
     private  int tempoSlots;
     private static int contador = 0;
+    private TipoEstacao tipoEstacaoRequerido;
 
     /**
      *
      * @param nome
      * @param preco
      */
-    public Servico(String nome, double preco, String descricao, int temp){
+    public Servico(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){
         super(nome);
         
         if (nome == null || nome.trim().isEmpty()){
@@ -37,6 +38,7 @@ public class Servico extends Modelo{
         this.preco = preco;
         this.descricao = descricao;
         this.tempoSlots = temp;
+        this.tipoEstacaoRequerido = tipoRequerido;
     }
 
     /**
@@ -47,6 +49,14 @@ public class Servico extends Modelo{
         return preco;
     }
 
+    public TipoEstacao getTipoEstacaoRequerido() {
+        return tipoEstacaoRequerido;
+    }
+
+    public void setTipoEstacaoRequerido(TipoEstacao tipoEstacaoRequerido) {
+        this.tipoEstacaoRequerido = tipoEstacaoRequerido;
+    }
+    
     public String getDescricao() {
         return descricao;
     }
@@ -55,10 +65,10 @@ public class Servico extends Modelo{
         this.descricao = descricao;
     }
 
-    public int getTempoEmMinutos() {
-        return tempoSlots * 30;
+    public int getTempoEmMinutos10() {
+        return tempoSlots * 10;
     }
-
+    
     public void setTempoEmMinutos(int temp) {
         if(temp <= 0){
             throw new IllegalArgumentException("O tempo definido é invalido!");
