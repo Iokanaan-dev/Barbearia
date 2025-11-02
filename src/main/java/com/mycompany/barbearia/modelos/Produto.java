@@ -71,6 +71,6 @@ public class Produto extends Modelo{
     
     @Override
     public String toString() {
-        return String.format("%nProduto %s%n%sPreço: %s%nDescriçao: %s%n", getId(), super.toString(), getPreco(), getDescricao());
+        return String.format("%nProduto %s%n%sPreço: %s%nDescriçao: %s", getId(), super.toString(), getPreco(), getDescricao());
     }        
 }

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import Gerenciamento.GestaoUsuarios;
+import Gerenciamento.GestaoClientes;
 import Listas.ListaGenerica;
 import java.time.LocalDate;
 
@@ -82,15 +84,35 @@ public class OrdemServico extends Modelo implements Utilidades.IdGerador {
         this.dataExecucao = dataExecucao;
     }
     
-    // retorna uma String com a lista dos servicos realizados
+    // retorna uma String com a lista dos nomes dos servicos realizados
     public String getListaServicos(){
-        return this.servicosRealizados.toString();
+        return this.servicosRealizados.getNomesItens();
     }
     
-    // retorna uma String com a lista dos servicos realizados
+    // retorna uma String com a lista dos nomes dos produtos utilizados
     public String getListaProdutos(){
-        return this.produtosUtilizados.toString();
+        return this.produtosUtilizados.getNomesItens();
     }
+   
+    
+    public String getNomeBarbeiro(String id)
+    {
+        ListaGenerica<Usuario> barbeiroSelecionado = GestaoUsuarios.getListaUsuario();
+                
+        return barbeiroSelecionado.getNomeItem(id);
+        //PERGUNTAR SE POSSO DEIXAR O ARRAY LIST DENTRO DE GESTAO BARBEIRO COMO STATIC
+        //POIS ACHO QUE ISSO ME PERMITIRIA REFERENCIAR ELE AQUI DENTRO VISTO QUE EH DA CLASSE.
+        //OUTRA DUVIDA: NO TEXTO, SER DINAMICO EH SER EM TEMPO DE EXECUCAO, 
+        //O ARRAY SER STATIC DENTRO DA GESTAO O TORNA NAO DINAMICO?
+    }
+    
+    public String getNomeCliente(String id)
+    {
+        ListaGenerica<Cliente> clienteSelecionado = GestaoClientes.getListaCliente();
+                
+        return clienteSelecionado.getNomeItem(id);   
+    }    
+    
     
     // adiciona servicos
     public void adicionarServico(Servico servico){
@@ -105,11 +127,11 @@ public class OrdemServico extends Modelo implements Utilidades.IdGerador {
     @Override
     public String gerarId()
     {
-        return "SO" + ++contador;
+        return "OS" + ++contador;
     }
     
     @Override
     public String toString() {
-        return String.format("%nOrdem de Servico %s%n%sCliente: %s%nBarbeiro: %s%nServicos: %s%nProdutos: %s%nObservacoes: %s", getId(), super.toString(), getIdCliente(), getIdBarbeiro(), getListaServicos(), getListaProdutos(), getObservacoes());
+        return String.format("%nOrdem de Servico %s%n%sCliente: %s%nBarbeiro: %s%nServicos: %sProdutos: %sObservacoes: %s", getId(), super.toString(), getNomeCliente(this.idCliente), getNomeBarbeiro(this.idBarbeiro), getListaServicos(), getListaProdutos(), getObservacoes());
     }
 }

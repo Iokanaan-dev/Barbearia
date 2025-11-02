@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class GestaoOrdemServico {
     
     // cria uma lista de OSs que sera gerenciada
-    private final ListaGenerica<OrdemServico> listaOS = new ListaGenerica();
+    private final ListaGenerica<OrdemServico> listaOS = new ListaGenerica<>();
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
     public void cadastrar(String idCliente, String idBarbeiro, String observacoes, LocalDate dataExecucao){
@@ -102,6 +102,18 @@ public class GestaoOrdemServico {
             System.out.println("Remoção bem-sucedida.");
         else
             System.out.println("Não foi possivel remover");
+    }
+    
+    // metodo que busca as OS associadas a um dado cliente
+    public ListaGenerica<OrdemServico> buscarOS(String id){
+ ListaGenerica<OrdemServico> osSelecionadas = new ListaGenerica<>();
+
+    for (OrdemServico os : this.listaOS) {
+        if (os.getIdCliente().equals(id)) 
+            osSelecionadas.adicionar(os);  
+    }
+
+    return osSelecionadas;
     }
 
 }

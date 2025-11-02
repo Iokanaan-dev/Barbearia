@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author italo
  */
 public class GestaoUsuarios {
-    private final ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
+    private static final ListaGenerica<Usuario> listaUsuario = new ListaGenerica();
     
     /**
      *
@@ -30,6 +30,11 @@ public class GestaoUsuarios {
             System.out.println("Usuario existente!");
         }
         this.listaUsuario.adicionar(novoUsuario);
+    }
+    
+    // para tornar possivel a busca por id em outras classes de gestao
+    public static ListaGenerica<Usuario> getListaUsuario() {
+        return listaUsuario;
     }
     
     /*

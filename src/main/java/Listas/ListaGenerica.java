@@ -14,7 +14,7 @@ import java.util.Objects;
  * Uma classe genérica para gerenciar listas de qualquer tipo que herde de Modelo.Usa Generics (<G>) para ser reutilizável com Clientes, Usuarios, Produtos, etc.
  * @param <M> O tipo de indivíduo que a lista irá armazenar.
  */
-public class ListaGenerica<M extends Modelo> {
+public class ListaGenerica<M extends Modelo> implements Iterable<M>{
 
     private final ArrayList<M> lista = new ArrayList();
 
@@ -48,7 +48,7 @@ public class ListaGenerica<M extends Modelo> {
             if (modelo.getId().equals(id))
                 return modelo;
         }
-        return null; // retorna null se nao encontra elememento como ID
+        return null; // retorna null se nao encontra elememento com o ID
     }
 
     /**
@@ -70,10 +70,12 @@ public class ListaGenerica<M extends Modelo> {
     /**
      *
      * @return
-     */
+ */   
     public ArrayList<M> getLista() {
         return new ArrayList<>(this.lista);
     }
+     
+    
 
     /**
      *
@@ -81,7 +83,7 @@ public class ListaGenerica<M extends Modelo> {
      */
     @Override
     public String toString() {
-        String itensLista = null;
+        String itensLista = "";
         
         // se a lista estiver vazia toString retorna uma indicacao
         if(this.lista.isEmpty())
@@ -92,4 +94,30 @@ public class ListaGenerica<M extends Modelo> {
         
         return itensLista;
     }
+    
+    // metodo que retorna uma lista com os nomes de todos os itens Modelo a serem listados
+    public String getNomesItens() {
+        String nomesItensLista = String.format("%n");
+        
+        // se a lista estiver vazia toString retorna uma indicacao
+        if(this.lista.isEmpty())
+            return String.format("---%n");
+     
+        for(Modelo item: this.lista)
+            nomesItensLista += String.format("%s%n", item.getNome());
+        
+        return nomesItensLista;    
+    }
+    
+    public String getNomeItem(String Id) 
+    {
+        return buscaPorId(Id).getNome();
+    }
+    
+    // permite o foreach ser usado
+    @Override
+    public java.util.Iterator<M> iterator() {
+        return lista.iterator();
+    }
+
 }

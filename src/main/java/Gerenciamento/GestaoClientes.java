@@ -16,12 +16,17 @@ import Listas.ListaGenerica;
 public class GestaoClientes {   
     
     // cria uma lista de clientes que sera gerenciada
-    private final ListaGenerica<Cliente> listaClientes = new ListaGenerica();
+    private static final ListaGenerica<Cliente> listaClientes = new ListaGenerica();
     
     // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
     public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
         Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
-        this.listaClientes.adicionar(novoCliente);
+        listaClientes.adicionar(novoCliente);
+    }
+    
+    // para tornar possivel a busca por id em outras classes de gestao
+    public static ListaGenerica<Cliente> getListaCliente() {
+        return listaClientes;
     }
     
     /**

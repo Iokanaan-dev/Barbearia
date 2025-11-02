@@ -99,13 +99,15 @@ public class Barbearia {
      
         // TESTES USUARIOS---------------------------------------------------
         
-        Usuario novoUsuario0 = new Barbeiro("italod1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
-        Usuario novoUsuario1 = new Atendente("italod3ad", "123456789", "pedro", "33333333333", "38998090957", data1);
-        Usuario novoUsuario2 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
+        Usuario novoUsuario0 = new Barbeiro("italof1ad", "123456789", "marcos", "33333333333", "38998090957", data1);
+        Usuario novoUsuario1 = new Barbeiro("italod1ad", "123456789", "antonio", "33333333333", "38998090957", data1);        
+        Usuario novoUsuario2 = new Atendente("italod3cd", "123456789", "pedro", "33333333333", "38998090957", data1);
+        Usuario novoUsuario3 = new Gerente("italod3ab", "123456789", "joão", "33333333333", "38998090957", data1, "8181");
         
         gestaoU.cadastrarUsuario(novoUsuario0);
         gestaoU.cadastrarUsuario(novoUsuario1);
         gestaoU.cadastrarUsuario(novoUsuario2);
+        gestaoU.cadastrarUsuario(novoUsuario3);
         
         //gestaoU.removerUser(novoUsuario0.getId());
         
@@ -120,7 +122,7 @@ public class Barbearia {
         printArrayList(todosUsuarios);
         
         //gestaoU.removerUser(novoUsuario.getId());
-        System.out.println("\nDigite o ID do usuario\n");
+        //System.out.println("\nDigite o ID do usuario\n");
         
         //gestaoU.editarUsuarioAtributos(novoUsuario0, "calabreso", "12755050667", "38998909068", data1);
         //gestaoU.editarUsuarioLogin(novoUsuario2, "italod3ab", "123456789", "carinhafeliz", "00000000");
@@ -132,6 +134,8 @@ public class Barbearia {
         gestaoS.cadastrarNovoServico("Pintada", 99, "Uma bela de uma pintada", 70);
         gestaoS.cadastrarNovoServico("Corte", 35.00, "Corte geral", 30);
         gestaoS.cadastrarNovoServico("Escova", 45.00, "Escova feminina", 10);
+        gestaoS.cadastrarNovoServico("Descoloracao", 80.00, "Tira a cor do cabelo", 90);
+        
 
         System.out.print("Lista de servicos inicial");
         ArrayList<Servico> todosServicos = gestaoS.getServicos();
@@ -141,6 +145,8 @@ public class Barbearia {
         
         gestaoP.cadastrarProduto("Balm Madeira", 25.55, "Um Balm");
         gestaoP.cadastrarProduto("Pomada Cobre", 15.55, "Uma pomada");
+        gestaoP.cadastrarProduto("Po descolorante", 10.99, "Uma pomada");
+        gestaoP.cadastrarProduto("Agua Oxigenada", 5.50, "Uma pomada");
         
 
         System.out.print("Lista de produtos inicial");
@@ -150,15 +156,35 @@ public class Barbearia {
         
       //TESTES ORDENS DE SERVICO
         // NAO ESQUECER DE IMPLEMENTAR A BUSCA POR ID NA CLASSE GESTAOPRODUTOS PARA CONSEGUIR ACESSAR OS PRODUTOS CADASTRADOS PARA TERMINAR ESSA PARTE
-        gestaoOS.cadastrar("CL01", "BA01", "Corte de Cabelo + Barba", data1);
-        gestaoOS.cadastrar("CL02", "BA01", "Sombrancelha + Barba", data1);
+        gestaoOS.cadastrar("CL1", "BA1", "Corte de Cabelo + Barba", data1);
+        gestaoOS.cadastrar("CL1", "BA1", "Sombrancelha + Barba", data1);
+        gestaoOS.cadastrar("CL3", "BA2", "Corte de Cabelo Desgrade + Descoloracao", data1);
         
-        System.out.print("Lista de servicos inicial");
+        System.out.print("Lista de ordens de servico inicial");
         ArrayList<OrdemServico> todasOS = gestaoOS.getListaOS();
         printArrayList(todasOS);
         
+        // Teste adicao de produtos a OS OS3
+        gestaoOS.adcionarProduto("OS3", gestaoP.buscarId("PO3"));
+        gestaoOS.adcionarProduto("OS3", gestaoP.buscarId("PO4"));
         
+        // Teste adicao de servicos a OS OS3
+        gestaoOS.adcionarServico("OS3", gestaoS.buscarServicoID("SE2"));
+        gestaoOS.adcionarServico("OS3", gestaoS.buscarServicoID("SE4"));    
         
+        System.out.print("Lista de ordens se servico apos mudancas em OS3");
+        todasOS = gestaoOS.getListaOS();
+        printArrayList(todasOS);  
+        
+        // Testa a associacao de OSs ao cliente CL01 e CL03
+        
+        System.out.print("Lista de ordens de servico associadas a CL1");
+        ListaGenerica<OrdemServico> osSelecionadas = gestaoOS.buscarOS("CL1");
+        printArrayList(osSelecionadas);
+        
+        System.out.print("Lista de ordens de servico associadas a CL3");
+        osSelecionadas = gestaoOS.buscarOS("CL3");
+        printArrayList(osSelecionadas);        
         
         }
         
@@ -172,6 +198,13 @@ public class Barbearia {
     // metodo para imprimir ArrayLists do tipo Modelo, serve para ajudar a testar
     // passe aqui qualquer arrayList que voce queira imprimir
     public static void printArrayList(ArrayList< ? extends Modelo> Modelos)
+    {
+        for (Modelo m : Modelos)
+            System.out.println(m);
+        System.out.println();
+    } 
+    
+    public static void printArrayList(ListaGenerica< ? extends Modelo> Modelos)
     {
         for (Modelo m : Modelos)
             System.out.println(m);
