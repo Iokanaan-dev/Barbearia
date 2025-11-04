@@ -51,7 +51,7 @@ public class GestaoAgendamento {
                 LocalDateTime inicio_agendamento_existente = agendamentoExistente.getDataHoraInicioAgendamento();
                 LocalDateTime fim_agendamento_existente = agendamentoExistente.getDataHoraFimAgendamento();
                 
-                if (inicio.isBefore(fim_agendamento_existente) && fim.isAfter(inicio_agendamento_existente)) {
+                if (inicio.isBefore(fim_agendamento_existente) && fim.isAfter(inicio_agendamento_existente)) {   
                     return true;
                 }
             }
