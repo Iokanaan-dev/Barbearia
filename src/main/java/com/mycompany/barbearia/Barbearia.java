@@ -6,6 +6,8 @@ package com.mycompany.barbearia;
 import com.mycompany.barbearia.modelos.*;
 import Gerenciamento.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -29,11 +31,13 @@ public class Barbearia {
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
         GestaoAtendimento gestaoATE = GestaoAtendimento.getInstancia();
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
+        GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
         
         // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
         //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
         
         LocalDate data1 = LocalDate.of(1991, 12, 31);
+
 
         try {
         
@@ -108,9 +112,13 @@ public class Barbearia {
         gestaoU.printLista();
         
 //       // Gestao de Usuarios: teste para busca por ID=============================
+        
         System.out.println("\nUsuario com ID AT1");
-        gestaoU.printListaFuncao("AT1");
+        gestaoU.printPorId("AT1"); 
 
+        
+        System.out.println("\nLista de Atendentes");
+        gestaoU.printListaFuncao("Atendente");
         
         
 //       // Gestao de Usuarios: teste para ediçao=============================
@@ -146,12 +154,12 @@ public class Barbearia {
 //        
 //      // TESTES SERVICOS------------------------------------------------------
 //        
-        gestaoS.cadastrar("Pintar", 99, "Uma bela de uma pintada", 70, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Lavar", 99, "Uma bela de uma pintada", 10, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Corte de cabelo", 35.00, "Corte geral", 30, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Corte de barba", 15.00, "Corte geral", 30, TipoEstacao.CORRIQUEIRA);        
-        gestaoS.cadastrar("Escova", 45.00, "Escova feminina", 10, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Descoloracao", 80.00, "Tira a cor do cabelo", 90, TipoEstacao.CORRIQUEIRA);        
+        gestaoS.cadastrar("Pintar", 99, "Uma bela de uma pintada", 7, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Lavar", 99, "Uma bela de uma pintada", 1, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Corte de cabelo", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Corte de barba", 15.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);        
+        gestaoS.cadastrar("Escova", 45.00, "Escova feminina", 1, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Descoloracao", 80.00, "Tira a cor do cabelo", 9, TipoEstacao.CORRIQUEIRA);        
 //
         System.out.println("\nLista de servicos inicial");
         gestaoS.printLista();
@@ -225,10 +233,157 @@ public class Barbearia {
 
 // GESTAO DE ESTOQUE AINDA NAO ESTA TESTADA!!!
         
-        Atendimento novoAtendimento = gestaoC.buscar
+//TESTE DE AGENDAMENTO
+
+        //Usuario atendeteana = gestaoU.buscarPorNome("marcos").get(0); // é possível fazer assim tbm
+        Atendente atendente = (Atendente) gestaoU.buscarPorId("AT1");
+        Barbeiro barbeiro = (Barbeiro) gestaoU.buscarPorId("BA1");
+        Cliente cliente = gestaoC.buscarPorNome("Italo").get(0);
+        Estacao estacaoCorte = gestaoE.getEstacao(1); // "Corriqueira 1"
+        Servico servicoCorte = gestaoS.buscarPorNome("Corte").get(0);
+        ArrayList<Servico> servicosParaCorte = new ArrayList<>();
+        servicosParaCorte.add(servicoCorte);
         
+// --- CENÁRIO 1: AGENDAMENTO BEM-SUCEDIDO ("Happy Path") ---
+        System.out.println("\n--- Teste 1: Agendamento 'Feliz' ---");
+        try {
+            // Marcar para amanhã às 10:00
+            LocalDateTime horario1 = LocalDateTime.now().plusDays(1).withHour(10).withMinute(0).withSecond(0).withNano(0);
+            
+            Agendamento ag1 = gestaoAGE.criarAgendamento(
+                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario1
+            );
+            
+            System.out.println("SUCESSO: Agendamento criado!");
+            System.out.println(ag1);
+            
+        } catch (Exception e) {
+            System.err.println("TESTE 1 FALHOU: " + e.getMessage());
+        }
+
+        // --- CENÁRIO 2: AGENDAMENTO CONFLITANTE (Barbeiro Ocupado) ---
+        System.out.println("\n--- Teste 2: Conflito de Agendamento (Barbeiro) ---");
+        try {
+            // Tentar marcar no MESMO horário, MESMO barbeiro
+            LocalDateTime horario2 = LocalDateTime.now().plusDays(1).withHour(10).withMinute(0).withSecond(0).withNano(0);
+            
+            gestaoAGE.criarAgendamento(
+                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario2
+            );
+            System.err.println("TESTE 2 FALHOU: O sistema permitiu um agendamento conflitante.");
+            
+        } catch (Exception e) {
+            System.out.println("SUCESSO: Sistema bloqueou agendamento conflitante.");
+            System.out.println("   -> Mensagem: " + e.getMessage());
         }
         
+        // --- CENÁRIO 3: BUSCA DE HORÁRIOS (Verificando o "Motor da Agenda") ---
+        System.out.println("\n--- Teste 3: Buscar Vagas (Deve excluir 10:00) ---");
+        try {
+            LocalDate amanha = LocalDate.now().plusDays(1);
+            // Busca vagas para o serviço "Corte" (30 min)
+            ArrayList<Agenda> vagas = gestaoAGE.buscarHorarioVagoAgendamento(servicosParaCorte, amanha);
+            
+            System.out.println("Verificando vagas para " + amanha + "...");
+            boolean horarioOcupadoFoiListado = false;
+            for (Agenda vaga : vagas) {
+                // O horário de conflito é 10:00. 
+                // Um corte de 30 min (3 slots) não pode começar 9:40 ou 9:50.
+                if (vaga.horario().getHour() == 10 && vaga.horario().getMinute() == 0) {
+                    horarioOcupadoFoiListado = true;
+                }
+                if (vaga.horario().getHour() == 9 && vaga.horario().getMinute() >= 40) {
+                    horarioOcupadoFoiListado = true;
+                }
+            }
+            
+            if (!horarioOcupadoFoiListado) {
+                System.err.println("TESTE 3 FALHOU: O horário ocupado (10:00) foi listado como vago.");
+            } else {
+                System.out.println("SUCESSO: Motor da agenda filtrou o horário ocupado.");
+                System.out.println("   -> Total de vagas encontradas: " + vagas.size());
+            }
+            
+        } catch (Exception e) {
+            System.err.println("TESTE 3 FALHOU: " + e.getMessage());
+        }
+
+        // --- CENÁRIO 4: LÓGICA FINANCEIRA E DE STATUS ---
+        System.out.println("\n--- Teste 4: Status e Cancelamento ---");
+        try {
+            // A. Agendamento Longo (PRE_AGENDADO, sem taxa)
+            LocalDateTime horarioLongo = LocalDateTime.now().plusDays(20).withHour(14).withMinute(0);
+            Agendamento agLongo = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioLongo);
+            System.out.println("Status Agend. Longo (20 dias): " + agLongo.getStatus()); // Deve ser PRE_AGENDADO
+
+            // B. Agendamento Curto (CONFIRMADO, com taxa)
+            LocalDateTime horarioCurto = LocalDateTime.now().plusDays(5).withHour(15).withMinute(0);
+            Agendamento agCurto = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioCurto);
+            System.out.println("Status Agend. Curto (5 dias): " + agCurto.getStatus()); // Deve ser CONFIRMADO
+            
+            // C. Cancelar agendamento longo (sem taxa)
+            gestaoAGE.cancelarAgendamento(agLongo.getId());
+            Agendamento agLongoCancelado = gestaoAGE.buscarAgendamentoID(agLongo.getId());
+            System.out.println("Cancelamento Longo (Status): " + agLongoCancelado.getStatus()); // CANCELADO
+            //System.out.println("Cancelamento Longo (Taxa): " + agLongoCancelado.getValorRetido()); // 0.0
+
+            // D. Cancelar agendamento curto (com taxa)
+            gestaoAGE.cancelarAgendamento(agCurto.getId());
+            Agendamento agCurtoCancelado = gestaoAGE.buscarAgendamentoID(agCurto.getId());
+            System.out.println("Cancelamento Curto (Status): " + agCurtoCancelado.getStatus()); // CANCELADO
+            //System.out.println("Cancelamento Curto (Taxa): " + agCurtoCancelado.getValorRetido()); // 14.0 (35% de 40.0)
+
+        } catch (Exception e) {
+            System.err.println("TESTE 4 FALHOU: " + e.getMessage());
+        }
+        
+        System.out.println("\n--- FIM DOS TESTES ---");
+ 
+        System.out.println("\n--- Teste 3b: Imprimindo Vagas Disponíveis ---");
+    try {
+    // 1. DEFINIR A BUSCA
+    // Para qual dia? Amanhã.
+    LocalDate dataDaBusca = LocalDate.now().plusDays(1);
+    
+    // Para quais serviços? Apenas "Corte" (30 min)
+    ArrayList<Servico> servicosBusca = new ArrayList<>();
+    servicosBusca.add(servicoCorte);
+
+    // 2. CHAMAR O "MOTOR DA AGENDA"
+    // Pedimos à GestaoAgendamento todas as opções válidas
+    ArrayList<Agenda> vagasEncontradas = gestaoAGE.buscarHorarioVagoAgendamento(
+        servicosBusca, 
+        dataDaBusca
+    );
+
+    // 3. IMPRIMIR O RESULTADO 
+    System.out.println("--- Vagas Encontradas para 'Corte' em " + dataDaBusca + " ---");
+    
+    if (vagasEncontradas.isEmpty()) {
+        System.out.println("Nenhuma vaga (combinação de barbeiro/estação) foi encontrada.");
+    } else {
+        // Criamos um formatador para mostrar a hora de forma amigável
+        DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm");
+        
+        int i = 1;
+        for (Agenda vaga : vagasEncontradas) {
+            System.out.printf(
+                "%d. Horário: %s | Barbeiro: %s | Estação: %s%n",
+                i++,
+                vaga.horario().format(formatadorHora), // Pega o LocalDateTime e formata
+                vaga.barbeiro().getNome(),            // Pega o nome do Barbeiro
+                vaga.estacao().getNome()              // Pega o nome da Estação
+            );
+        }
+    }
+         System.out.println("-------------------------------------------------");
+
+        } catch (Exception e) {
+            System.err.println("TESTE 3b FALHOU: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        }
         catch (Exception m)
         {
                 m.printStackTrace();

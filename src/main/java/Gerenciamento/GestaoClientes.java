@@ -85,6 +85,16 @@ public class GestaoClientes extends Gestao<Cliente> {
      */
     public void printPorId(String id){
         super.printItem(buscarPorId(id));
+    }
+    public Cliente buscarCPF(String CPF) {
+       
+        
+        for(Cliente c : this.listaClientes) {
+            if (c.getCpf().equals(CPF)) {
+                return c;
+            }
+        }
+        return null;
     }    
 
     /**

@@ -21,7 +21,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private static final int CANCELAMENTO_SEM_TAXA = 7;
     private static final double TAXA_CANCELAMENTO = 0.35;
     private static final LocalTime HORA_INICIO_ESPEDIENTE = LocalTime.of(8, 0);
-    private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 0);
+    private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
 
     /**

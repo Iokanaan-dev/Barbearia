@@ -47,7 +47,7 @@ public class GestaoServico extends Gestao <Servico>{
      * @return
      */
     public ArrayList<Servico> getLista(){
-        return listaServicos;
+        return new ArrayList(this.listaServicos);
     }
     
     /**
@@ -92,9 +92,13 @@ public class GestaoServico extends Gestao <Servico>{
      * @param descricao
      * @param temp
      */
-    public void editar(String id, String nome, double preco, String descricao, int temp ){
+    public void editar(String id, String nome, double preco, String descricao, int temp ) throws Exception{
         
         Servico servico = this.buscarPorId(id);
+        
+        if(servico == null){
+            throw new Exception("Serviço nulo!");
+        }
         
         servico.setNome(nome);
         servico.setPreco(preco);

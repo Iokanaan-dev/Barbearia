@@ -47,7 +47,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao){
         // se ja existe um usuario com o username cadastrado retorna uma indicaçao de erro
-        if (buscarPorUsername(username) != null)
+        if (buscarUsername(username) != null)
             System.out.println("Usuario existente!");
         
         Usuario novoUsuario;
@@ -134,7 +134,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     public void editar(String nameuserGerente, String senhaGerente, String id, String nome, String cpf, String telefone, LocalDate dataNascimento){
         
         if(login(nameuserGerente, senhaGerente)){
-            Usuario gerente = buscarPorUsername(nameuserGerente);
+            Usuario gerente = buscarUsername(nameuserGerente);
             
             if(gerente instanceof Gerente){
         /*
@@ -177,7 +177,8 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @param userName
      * @return
      */
-    private Usuario buscarPorUsername(String userName){ // private pois so sera usado aqui dentro da classe
+    
+    public Usuario buscarUsername(String userName){ 
         for(Usuario usuario : listaUsuarios){
             if (usuario.getUsername().equalsIgnoreCase(userName))
                 return usuario;
@@ -294,7 +295,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     @Override
     public boolean login(String username, String senha){
-        Usuario usuario = buscarPorUsername(username);
+        Usuario usuario = buscarUsername(username);
         
         return (usuario.verificarUsername(username) && usuario.verificarSenha(senha));
     }   

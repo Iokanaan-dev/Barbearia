@@ -18,7 +18,6 @@ public abstract class Gestao<M extends Modelo>{
      */
     public void adicionar(ArrayList<M> lista, M modelo) {
         lista.add(modelo);
-        System.out.printf("Adicionado com sucesso %nID: %s%n", modelo.getId());
     }
 
     /**
