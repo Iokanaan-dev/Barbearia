@@ -37,12 +37,10 @@ public class Servico extends Modelo{
         
         this.preco = preco;
         this.descricao = descricao;
-<<<<<<< HEAD
         this.tempoSlots = (int)(Math.ceil(temp/30.0)); // como pegamos o tempo em minutos do usuario devemos converte-lo para slots para uso no sistema
-=======
         this.tempoSlots = temp;
         this.tipoEstacaoRequerido = tipoRequerido;
->>>>>>> feature/Gestao
+
     }
 
     /**

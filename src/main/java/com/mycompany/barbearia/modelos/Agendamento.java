@@ -6,11 +6,9 @@ package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-<<<<<<< HEAD
-import Utilidades.IdGerador;
+//import Utilidades.IdGerador;
 import Listas.ListaGenerica;
-=======
->>>>>>> feature/Gestao
+
 
 
 /**
@@ -34,13 +32,13 @@ public class Agendamento extends Modelo{
     private final LocalDateTime dataHoraInicioAgendamento;
     private LocalDateTime dataHoraFimAgendameto; // se um serviço for adicionado o horario final muda
 
-<<<<<<< HEAD
+
     private StatusAgendamento status = StatusAgendamento.PRE_AGENDADO;
     private double valorTotal; // como eh calculado baseado nos servicos, se um servico for adcionado o valor ira alterar
     private double valorRetido; // como eh calculado baseado nos servicos, se um servico for adcionado o valor ira alterar
 
     public Agendamento(Cliente cliente, Barbeiro barbeiro, Atendente atendente, Estacao estacao, ListaGenerica<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, LocalDateTime dataHoraFimAgendameto, double valorTotal, double valorRetido) {
-=======
+
     private StatusAgendamento status;
     private final double valorTotal;
     private double valorRetido;
@@ -48,7 +46,7 @@ public class Agendamento extends Modelo{
     public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status) {
         super(cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
         
->>>>>>> feature/Gestao
+
         this.cliente = cliente;
         this.barbeiro = barbeiro;
         //this.nomeAgendamento = (cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
