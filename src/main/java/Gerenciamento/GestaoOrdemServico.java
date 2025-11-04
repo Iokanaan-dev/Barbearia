@@ -72,7 +72,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @return Cliente
      */
     public OrdemServico buscarPorId(String id){
-        return super.buscarPorId(listaOS, id);
+        return super.procurandoID(listaOS, id);
     }  
     
     /**

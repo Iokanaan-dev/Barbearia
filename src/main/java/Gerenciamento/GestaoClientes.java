@@ -58,7 +58,7 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @return ArrayList<>
     */
     public ArrayList<Cliente> buscarPorNome(String nome){
-        return super.buscarPorNome(listaClientes, nome);
+        return super.procurandoNome(listaClientes, nome);
     }
      
     /**
@@ -76,7 +76,7 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @return Cliente
      */
     public Cliente buscarPorId(String id){
-        return super.buscarPorId(listaClientes, id);
+        return super.procurandoID(listaClientes, id);
     }
     
     /**

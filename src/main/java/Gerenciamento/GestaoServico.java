@@ -56,7 +56,7 @@ public class GestaoServico extends Gestao <Servico>{
      * @return
      */
     public ArrayList<Servico> buscarPorNome(String nome){
-        return super.buscarPorNome(listaServicos, nome);
+        return super.procurandoNome(listaServicos, nome);
     }
     
     /**
@@ -73,7 +73,7 @@ public class GestaoServico extends Gestao <Servico>{
      * @return
      */
     public Servico buscarPorId(String id){
-        return super.buscarPorId(listaServicos, id);
+        return super.procurandoID(listaServicos, id);
     }
     
     /**

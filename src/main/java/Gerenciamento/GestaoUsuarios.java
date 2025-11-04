@@ -93,7 +93,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @return
      */
     public ArrayList<Usuario> buscarPorNome(String nome){
-        return super.buscarPorNome(listaUsuarios, nome);
+        return super.procurandoNome(listaUsuarios, nome);
     } 
     
     /**
@@ -110,7 +110,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @return
      */
     public Usuario buscarPorId(String id){
-        return super.buscarPorId(listaUsuarios, id);
+        return super.procurandoID(listaUsuarios, id);
     } 
     
     /**

@@ -27,6 +27,8 @@ public class Barbearia {
         GestaoServico gestaoS = GestaoServico.getInstancia(); // usa singleton para obter instancia 
         GestaoProdutos gestaoP = GestaoProdutos.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
+        GestaoAtendimento gestaoATE = GestaoAtendimento.getInstancia();
+        GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         
         // talvez valha a pena criar uma classe com nome de Sistema (acho que vale muito kkkkkkkkkkkk)
         //para ser instanciada ao inves de instanciar item a item do pacote gestao (tudo é instanciado por meio do metodo de cadastro agora)
@@ -222,6 +224,8 @@ public class Barbearia {
 //        printArrayList(osSelecionadas);    
 
 // GESTAO DE ESTOQUE AINDA NAO ESTA TESTADA!!!
+        
+        Atendimento novoAtendimento = gestaoC.buscar
         
         }
         

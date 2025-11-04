@@ -29,13 +29,13 @@ public class GestaoAtendimento extends Gestao<Atendimento> {
     }
     
     public void adicionarAgendamentoAoAtendimento(String atendimentoId, Agendamento agendamento) {
-        Atendimento atd = super.buscarPorId(this.atendimentosAbertos, atendimentoId);
+        Atendimento atd = super.procurandoID(this.atendimentosAbertos, atendimentoId);
         if (atd != null) {
             atd.adicionarAgendamento(agendamento);
         }
     }
     
     public Atendimento buscarAtendimentoPorId(String id) {
-        return super.buscarPorId(this.atendimentosAbertos, id);
+        return super.procurandoID(this.atendimentosAbertos, id);
     }
 }

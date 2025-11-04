@@ -27,7 +27,7 @@ public abstract class Gestao<M extends Modelo>{
      * @param id
      * @return M
      */
-    public M buscarPorId(ArrayList<M> lista, String id) {
+    public M procurandoID(ArrayList<M> lista, String id) {
         for (M modelo : lista) {
             if (modelo.getId().equals(id)) {
                 return modelo;
@@ -42,7 +42,7 @@ public abstract class Gestao<M extends Modelo>{
      * @param nome
      * @return ArrayList<>
      */
-    public ArrayList<M> buscarPorNome(ArrayList<M> lista, String nome) {
+    public ArrayList<M> procurandoNome(ArrayList<M> lista, String nome) {
         ArrayList<M> encontrados = new ArrayList<>();
 
         for (M modelo : lista) {
@@ -66,7 +66,7 @@ public abstract class Gestao<M extends Modelo>{
      */
     public String getNomeItem(ArrayList<M> lista, String Id) 
     {
-        return buscarPorId(lista, Id).getNome();
+        return procurandoID(lista, Id).getNome();
     }
 
     /**
