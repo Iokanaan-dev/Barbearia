@@ -6,6 +6,7 @@ package Gerenciamento;
 
 import Listas.ListaGenerica;
 import com.mycompany.barbearia.modelos.Servico;
+import com.mycompany.barbearia.modelos.TipoEstacao;
 import java.util.ArrayList;
 
         
@@ -17,8 +18,8 @@ public class GestaoServico {
     
     private final ListaGenerica<Servico> Listaservicos = new ListaGenerica();
     
-    private void cadastrarNovoServico(String nome, double preco, String descricao, int temp){
-        Servico servico = new Servico(nome, preco, descricao, temp);
+    private void cadastrarNovoServico(String nome, double preco, String descricao, int temp, TipoEstacao tipo){
+        Servico servico = new Servico(nome, preco, descricao, temp, tipo);
         this.Listaservicos.adicionar(servico);
     }
     
@@ -38,11 +39,12 @@ public class GestaoServico {
         this.Listaservicos.remover(ID);
     }
     
-    private void editarServico(Servico servico, String nome, double preco, String descricao, int temp ){
+    private void editarServico(Servico servico, String nome, double preco, String descricao, int temp, TipoEstacao tipo){
         //fazer verificação futuramente
         servico.setNome(nome);
         servico.setPreco(preco);
         servico.setDescricao(descricao);
         servico.setTempoEmMinutos(temp);
+        servico.setTipoEstacaoRequerido(tipo);
     }
 }

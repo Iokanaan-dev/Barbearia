@@ -11,16 +11,22 @@ package com.mycompany.barbearia.modelos;
 public class Estacao extends Modelo{
     private String descricao;
     private static int cont;
+    private TipoEstacao tipo;
     
-    public Estacao(String nome, String descricao){
+    public Estacao(String nome, String descricao, TipoEstacao tipo){
         super(nome);
         this.descricao = descricao;
+        this.tipo = tipo;
     }
     
     @Override
     public String gerarId(){
         return "ES" + (++cont);
 
+    }
+
+    public TipoEstacao getTipo() {
+        return tipo;
     }
 
     public String getDiscricao() {

@@ -131,7 +131,7 @@ public class GestaoUsuarios {
      *
      * @return
      */
-    public ArrayList<Barbeiro> exibirListaBarbeiro(){
+    public ArrayList<Barbeiro> listaBarbeiro(){
         ArrayList<Barbeiro> barbeiros = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()) {
             if(usuarios instanceof Barbeiro barbeiro) {
@@ -145,7 +145,7 @@ public class GestaoUsuarios {
      *
      * @return
      */
-    public ArrayList<Gerente> exibirListGerente(){
+    public ArrayList<Gerente> listGerente(){
         ArrayList<Gerente> gerentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()){
             if (usuarios instanceof Gerente gerente) {
@@ -159,7 +159,7 @@ public class GestaoUsuarios {
      *
      * @return
      */
-    public ArrayList exibirListaAtendentes(){
+    public ArrayList listaAtendentes(){
         ArrayList<Atendente> atendentes = new ArrayList();
         for (Usuario usuarios : this.listaUsuario.getLista()){
             if (usuarios instanceof Atendente atendente){
