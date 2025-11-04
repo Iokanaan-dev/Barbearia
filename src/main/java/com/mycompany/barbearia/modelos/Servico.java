@@ -37,10 +37,8 @@ public class Servico extends Modelo{
         
         this.preco = preco;
         this.descricao = descricao;
-        this.tempoSlots = (int)(Math.ceil(temp/30.0)); // como pegamos o tempo em minutos do usuario devemos converte-lo para slots para uso no sistema
         this.tempoSlots = temp;
         this.tipoEstacaoRequerido = tipoRequerido;
-
     }
 
     /**
@@ -75,7 +73,7 @@ public class Servico extends Modelo{
         if(temp <= 0){
             throw new IllegalArgumentException("O tempo definido é invalido!");
         }        
-        this.tempoSlots = (int)(Math.ceil(temp/30.0)); // como pegamos o tempo em minutos do usuario devemos converte-lo para slots para uso no sistema
+        this.tempoSlots = temp;
     }
    
     /**
@@ -104,6 +102,6 @@ public class Servico extends Modelo{
      */
     @Override
     public String toString() {
-        return String.format("%nServiço %s%n%sPreço: %s%nDescriçao: %s%nTempo: %s", getId(), super.toString(), getPreco(), getDescricao(), getTempoEmMinutos());
+        return String.format("%sPreco: %s", super.toString(),preco);
     }
 }

@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Gerenciamento;
-
-import Listas.ListaGenerica;
 import com.mycompany.barbearia.modelos.Servico;
 import com.mycompany.barbearia.modelos.TipoEstacao;
 import java.util.ArrayList;
@@ -14,37 +12,109 @@ import java.util.ArrayList;
  *
  * @author italo
  */
-public class GestaoServico {
+public class GestaoServico extends Gestao <Servico>{
     
-    private final ListaGenerica<Servico> Listaservicos = new ListaGenerica();
+    private final ArrayList<Servico> listaServicos = new ArrayList();
     
-    private void cadastrarNovoServico(String nome, double preco, String descricao, int temp, TipoEstacao tipo){
-        Servico servico = new Servico(nome, preco, descricao, temp, tipo);
-        this.Listaservicos.adicionar(servico);
-    }
+    private static GestaoServico instancia;
     
-    private Servico buscarServicoID(String ID){
-        Servico servicoSelecionado = this.Listaservicos.buscaPorId(ID);
+    /**
+     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
+     * @return GestaoClientes
+     */
+    public static GestaoServico getInstancia()
+    {
+        if(instancia == null)
+            instancia = new GestaoServico();
         
-        if(servicoSelecionado == null)
-            System.out.println("Nenhum Serviço encontrado.");
-        return servicoSelecionado;
+        return instancia;
     }
     
-    private ArrayList<Servico> getServicos(){
-        return this.Listaservicos.getLista();
+    /**
+     * Cadastra um novo servico na lista de servicos
+     * @param nome
+     * @param preco
+     * @param descricao
+     * @param temp
+     */
+    public void cadastrar(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){
+        Servico servico = new Servico(nome, preco, descricao, temp, tipoRequerido);
+        super.adicionar(listaServicos, servico);
     }
     
-    private void removerServico(String ID){
-        this.Listaservicos.remover(ID);
+    /**
+     * Torna possivel a busca por id em outras classes, como as de gestao
+     * @return
+     */
+    public ArrayList<Servico> getLista(){
+        return listaServicos;
     }
     
-    private void editarServico(Servico servico, String nome, double preco, String descricao, int temp, TipoEstacao tipo){
-        //fazer verificação futuramente
+    /**
+     * Busca servicos na lista de clientes usando o nome
+     * @param nome
+     * @return
+     */
+    public ArrayList<Servico> buscarPorNome(String nome){
+        return super.buscarPorNome(listaServicos, nome);
+    }
+    
+    /**
+     * Imprime todos os servicos com um certo nome
+     * @param nome
+     */
+    public void printPorNome(String nome){
+        super.printLista(buscarPorNome(nome));
+    }     
+
+    /**
+     * Busca um cliente na lista de clientes usando o id
+     * @param id
+     * @return
+     */
+    public Servico buscarPorId(String id){
+        return super.buscarPorId(listaServicos, id);
+    }
+    
+    /**
+     * Imprime o servico com um certo ID
+     * @param id
+     */
+    public void printPorId(String id){
+        super.printItem(buscarPorId(id));
+    }     
+
+    /**
+     * Permite a edicao de informacoes de um servico
+     * @param id
+     * @param nome
+     * @param preco
+     * @param descricao
+     * @param temp
+     */
+    public void editar(String id, String nome, double preco, String descricao, int temp ){
+        
+        Servico servico = this.buscarPorId(id);
+        
         servico.setNome(nome);
         servico.setPreco(preco);
         servico.setDescricao(descricao);
         servico.setTempoEmMinutos(temp);
-        servico.setTipoEstacaoRequerido(tipo);
+    }    
+    
+    /**
+     * Remove um servico com base no Id informado
+     * @param Id
+     */
+    public void remover(String Id){
+        super.remover(listaServicos, Id);
     }
+    
+    /**
+     * Imprime a lista de servicos atual
+     */
+    public void printLista(){
+        super.printLista(listaServicos);
+    }    
+    
 }

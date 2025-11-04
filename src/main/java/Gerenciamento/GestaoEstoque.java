@@ -5,7 +5,6 @@
 package Gerenciamento;
 import com.mycompany.barbearia.modelos.Estoque;
 import com.mycompany.barbearia.modelos.Produto;
-import Listas.ListaGenerica;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,102 +13,156 @@ import java.util.Map;
  *
  * @author italo
  */
-public class GestaoEstoque {
+public class GestaoEstoque extends Gestao<Produto> {
     private final Estoque estoque = new Estoque();
-    private final ListaGenerica<Produto> produtos = new ListaGenerica();
+    private final ArrayList<Produto> listaProdutosEstoque = new ArrayList();
     
-    public void cadastrarNovoProduto(String nome, double preco, String descricao){    
-        for (Produto p : this.produtos.getLista()) {
-            if (p.getNome().equalsIgnoreCase(nome)) {
-                System.out.println("O produto já existe!");
-            }
-        }
-        Produto novoProduto = new Produto(nome, preco, descricao);
-        this.produtos.adicionar(novoProduto);
-        this.estoque.setQuantidade(novoProduto.getId(), 0);        
-    }
+    private static GestaoEstoque instancia;
     
-    public void adicionarProdutoEstoque(String id, int quantidade){
-
-        if (buscarProdutoID(id) == null) {
-            System.out.println("Esse produto não existe");
-        }
-        if (quantidade <= 0) {
-            System.out.println("Não é possível adicionar 0 produtos");
-        }
-        int quantidadeAtual = this.estoque.getQuantidade(id);
-        this.estoque.setQuantidade(id, quantidadeAtual + quantidade);
-    }
-    
-    public Produto buscarProdutoID(String ID){
-        return this.produtos.buscaPorId(ID);
-    }
-    
-    public ArrayList<Produto> buscaProdutoNome(String nome){
-        ArrayList<Produto> selecionados = this.produtos.buscaPorNome(nome);
-        return selecionados;
+    /**
+     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
+     * @return GestaoEstoque
+     */
+    public static GestaoEstoque getInstancia()
+    {
+        if(instancia == null)
+            instancia = new GestaoEstoque();
+        
+        return instancia;
     }   
     
-    public void removerProdutoEstoque(String id, int quantidade){
-        if (buscarProdutoID(id) == null) {
-            System.out.println("Esse produto não existe");
+    public void cadastrar(String id, int quantidade) {  
+        Produto novoProduto = GestaoProdutos.getInstancia().buscarPorId(id);
+
+        if (null == novoProduto) {
+            System.out.println("Cadastre o produto antes de adicionar ao estoque.");
+            return;
         }
-        if (quantidade <= 0) {
-            System.out.println("Não é possível adicionar 0 produtos");
+
+        // verifica se o produto já está no estoque
+        if (estoque.contemProduto(id)) {
+            System.out.println("O produto já existe no estoque.");
+            return;
         }
-        int quantidadeAtual = this.estoque.getQuantidade(id);
-        if(quantidadeAtual < quantidade){
-            System.out.println("Não há produtos o suficiente");
-        }        
-        this.estoque.setQuantidade(id, quantidadeAtual - quantidade);
+
+        listaProdutosEstoque.add(novoProduto);
+        estoque.setQuantidade(id, quantidade);
     }
     
-    public void removendoProduto(String ID){
-        
-        Produto produtoRemovivel = this.buscarProdutoID(ID);
-        
-        if(produtoRemovivel == null){
-            System.out.println("O produto não foi encontrado!");
-        }
-        
-        int quantidade = this.estoque.getQuantidade(ID);
-        if(quantidade >= 0) {
-            System.out.println("O produto atual ainda tem unidades no estoque!");
-        }
-        
-        this.estoque.remover(ID); //removendo do estoque 
-        this.produtos.remover(ID); //removendo da lista de produtos
+    /**
+     * Torna possivel a busca por id em outras classes, como as de gestao
+     * @return ArrayList<>
+     */
+    public ArrayList<Produto> getLista() {
+        return listaProdutosEstoque;
+    }     
+    
+    /**
+     * Busca produtos na lista de produtos do estoque usando o nome
+     * @param nome
+     * @return ArrayList<>
+    */
+    public ArrayList<Produto> buscarPorNome(String nome){
+        return super.buscarPorNome(this.listaProdutosEstoque, nome);
+    }
+     
+    /**
+     * Imprime todos os produtos em estoque com um certo nome
+     * @param nome
+     */
+    public void printPorNome(String nome){
+        super.printLista(buscarPorNome(nome));
+    }  
+    
+    /**
+     * Busca um prdtudo na lista do estoque de clientes usando o id
+     * @param id
+     * 
+     * @return Cliente
+     */
+    public Produto buscarPorId(String id){
+        return super.buscarPorId(listaProdutosEstoque, id);
     }
     
-    public Map<Produto, Integer> getPrdouto_Quantidade(){
+    /**
+     * Imprime o clientes com um certo ID
+     * @param id
+     */
+    public void printPorId(String id){
+        super.printItem(buscarPorId(id));
+    }
+    
+    /**
+      Remove um produto  do estoque com base no ID informado
+     * @param id
+     */
+    public void remover(String id){
+        super.remover(listaProdutosEstoque, id);
+    }
+            
+    public boolean verificacaoQuantidade(String id, int quantidade){
+         if(estoque.contemProduto(id) && quantidade > 0)
+             return true;
+         
+         System.out.println("Dados invalidos");
+         return false;
+    }
+    
+    public void aumentarQuantidade(String id, int quantidade){
+
+        if (verificacaoQuantidade(id, quantidade)) {
+            int quantidadeAtual = estoque.getQuantidade(id);
+            estoque.setQuantidade(id, quantidadeAtual + quantidade); 
+        }
+    }    
+    
+    public void reduzirQuantidade(String id, int quantidade){
+        
+        if (verificacaoQuantidade(id, quantidade)) {
+            int quantidadeAtual = estoque.getQuantidade(id);
+            
+            if(quantidadeAtual < quantidade){
+                System.out.println("Não há produtos o suficiente");
+                return;
+            }  
+            
+        estoque.setQuantidade(id, quantidadeAtual - quantidade);
+        }
+    }
+    
+    public Map<Produto, Integer> getListaQuantidades(){
         Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
-        Map<String, Integer> itens = estoque.getEstoque();
+        Map<String, Integer> itens = estoque.getTabelaEstoque();
         
         if(itens == null){
             return mapa;
         }
         
         for(Map.Entry<String, Integer> pares : itens.entrySet()){ //Map.Entry vai fazer com que cada "pares" seja um par de <string e Integer>. itens.entrySet vai nos dar o nosso atual estoque em formato de pares também. Assim o for vai passar de par em par. 
-            String id = pares.getKey(); //Retonra o id do par atual 
+            String id = pares.getKey(); // retorna o id do par atual 
             Integer quantidade = pares.getValue(); // retorna a quantidade do par atual
             
-            if(quantidade == null || quantidade <= 0){
+            if(quantidade == null || quantidade <= 0)
                 continue;
-            }
             
-            Produto produto = this.buscarProdutoID(id);
+            Produto produto = buscarPorId(id);
             
             if(produto != null){
-                mapa.put(produto, quantidade); //adicionamos ao nosso mapa, o produto e a sua quantidade caso ele exista na nossa lista de produtos (pode ser que ele exista no estoque, mas não exista na lista de produtos)
+                mapa.put(produto, quantidade); //adicionamos ao nosso mapa, o produto e a sua quantidade caso ele exista na nossa lista de listaProdutosEstoque (pode ser que ele exista no estoque, mas não exista na lista de listaProdutosEstoque)
             } else {
                 System.err.println("O produto com id: " + id + " não existe!");
             }
         }
         return mapa;
     }
+    
+    public void printListaQuantidade() {
+        Map<Produto, Integer> mapa = getListaQuantidades(); // pega o mapa produto→quantidade
 
-    @Override
-    public String toString() {
-        return "GestaoEstoque{" + "estoque=" + estoque + ", produtos=" + produtos + '}';
+        for (Map.Entry<Produto, Integer> par : mapa.entrySet()) {
+            Produto produto = par.getKey();
+            Integer quantidade = par.getValue();
+            System.out.println(produto.getNome() + " — Quantidade: " + quantidade);
+        }
     }
 }

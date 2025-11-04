@@ -12,33 +12,33 @@ import java.util.Map;
  * @author italo
  */
 public class Estoque {
-    private final Map<String, Integer> estoque = new HashMap(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
+    private final Map<String, Integer> tabelaEstoque = new HashMap(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
     
     /**
      *
      * @param produto
      * @param quantidade
      */
-    
-    //retorna a quatidade de um produto X no estoque atualmente
-    public int getQuantidade(String produtoID){
-        return estoque.getOrDefault(produtoID, 0);
+    //retorna a quatidade de um produto X na tabelaEstoque atualmente
+    public int getQuantidade(String id){
+        return tabelaEstoque.getOrDefault(id, 0);
     }
     
     //Define a quantidade de um produto 
     public void setQuantidade(String produtoID, int quantidade){
-        estoque.put(produtoID, quantidade);
+        tabelaEstoque.put(produtoID, quantidade);
     }
     
-    public Map<String, Integer> getEstoque(){
-        return new HashMap<>(this.estoque);
+    public Map<String, Integer> getTabelaEstoque(){
+        return new HashMap<>(tabelaEstoque);
     }
     
     public void remover(String ID){
-        estoque.remove(ID);
+        tabelaEstoque.remove(ID);
     }
     
-    public boolean isEmpty(){
-        return this.estoque.isEmpty();
-    }
+    public boolean contemProduto(String id) {
+        return tabelaEstoque.containsKey(id);
+}
+    
 }   

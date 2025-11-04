@@ -43,7 +43,7 @@ public class Gerente extends Usuario{
     public boolean verficarPinADM(String pin){
         return this.PIN_SEGURANCA.equals(pin);
     }
-    
+        
     /**
      *
      * @return

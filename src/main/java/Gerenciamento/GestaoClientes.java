@@ -7,74 +7,100 @@ package Gerenciamento;
 import java.util.ArrayList;
 import com.mycompany.barbearia.modelos.Cliente;
 import java.time.LocalDate;
-import Listas.ListaGenerica;
 
 /**
- *
+ * Essa classe cria uma lista de Clientes e a gerencia.
  * @author italo
  */
-public class GestaoClientes {   
+public class GestaoClientes extends Gestao<Cliente> {   
     
-    // cria uma lista de clientes que sera gerenciada
-    private final ListaGenerica<Cliente> listaClientes = new ListaGenerica();
+    // cria uma lista de clientes que sera gerenciada (por enquanto static para ser acessivel por outras gestoes, mas quem sabe usemos singleton em breve)
+    private final ArrayList<Cliente> listaClientes = new ArrayList();
     
-    // metodo que coleta os dados do cliente para o construtor e passa para adicionar cliente
-    public void cadastrarCliente(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
-        Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
-        this.listaClientes.adicionar(novoCliente);
-    }
+    private static GestaoClientes instancia;
     
     /**
-     *
-     * @param nome
-     * @return
+     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
+     * @return GestaoClientes
      */
-    public ArrayList<Cliente> buscarNome(String nome){
-      ArrayList<Cliente> clientesSelecionados;
-      
-      clientesSelecionados = this.listaClientes.buscaPorNome(nome);
-      
-      if (clientesSelecionados.isEmpty()) // se a lista retornada eh vazia o imprime uma mensagem de avisoé
-              System.out.println("Nenhum cliente encontrado.");
-      return clientesSelecionados;
-    }
-    
-    /**
-     *
-     * @param ID
-     * @return
-     */
-    public Cliente buscarID(String ID){
-       Cliente clienteSelecionado;
-       clienteSelecionado = this.listaClientes.buscaPorId(ID);
-       
-       if(clienteSelecionado == null)
-              System.out.println("Nenhum cliente encontrado.");
-       return clienteSelecionado;
-    }
-    
-    public Cliente buscarCPF(String CPF) {
-        ArrayList<Cliente> clientes = this.listaClientes.getLista();
+    public static GestaoClientes getInstancia()
+    {
+        if(instancia == null)
+            instancia = new GestaoClientes();
         
-        for(Cliente c : clientes) {
-            if (c.getCpf().equals(CPF)) {
-                return c;
-            }
-        }
-        return null;
+        return instancia;
     }
-    
+  
     /**
-     *
-     * @param cliente
+     * Cadastra um novo cliente na lista de clientes
      * @param nome
      * @param cpf
      * @param telefone
      * @param dataNascimento
      * @param email
      */
-    public void editarCliente(Cliente cliente, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
-      // poder ser interessante validar isso antes de usar os metodos set
+    public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
+        Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
+        super.adicionar(listaClientes, novoCliente);
+    }
+    
+    /**
+     * Torna possivel a busca por id em outras classes, como as de gestao
+     * @return ArrayList<>
+     */
+    public ArrayList<Cliente> getLista() {
+        return listaClientes;
+    }
+    
+    /**
+     * Busca clientes na lista de clientes usando o nome
+     * @param nome
+     * @return ArrayList<>
+    */
+    public ArrayList<Cliente> buscarPorNome(String nome){
+        return super.buscarPorNome(listaClientes, nome);
+    }
+     
+    /**
+     * Imprime todos os clientes com um certo nome
+     * @param nome
+     */
+    public void printPorNome(String nome){
+        super.printLista(buscarPorNome(nome));
+    }
+    
+    /**
+     * Busca um cliente na lista de clientes usando o id
+     * @param id
+     * 
+     * @return Cliente
+     */
+    public Cliente buscarPorId(String id){
+        return super.buscarPorId(listaClientes, id);
+    }
+    
+    /**
+     * Imprime o clientes com um certo ID
+     * @param id
+     */
+    public void printPorId(String id){
+        super.printItem(buscarPorId(id));
+    }    
+
+    /**
+     * Permite a edicao de informacoes do cliente
+     * @param id
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param email
+     */
+    public void editar(String id, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
+      
+        //verifcar id nulo
+        
+      Cliente cliente = this.buscarPorId(id);
         
       cliente.setNome(nome);
       cliente.setCpf(cpf);
@@ -83,36 +109,20 @@ public class GestaoClientes {
       cliente.setEmail(email);
       
     }
+
+    /**
+      Remove um cliente com base no ID informado
+     * @param id
+     */
+    public void remover(String id){
+        super.remover(listaClientes, id);
+    }
     
     /**
-     *
-     * @return
+     * Imprime a lista de clientes atual
      */
-    public ArrayList<Cliente> getListaClientes(){
-        return this.listaClientes.getLista();
-    }
-
-    /**
-     *
-     * @param idCliente
-     */
-    public void removerCliente(String idCliente){
-        // armazena o retorno do metodo remover, remover() retorna true apenas se um objeto foi encontrado e removido
-        boolean removeu = this.listaClientes.remover(idCliente);
-  
-        if(removeu)
-            System.out.println("Remoção bem-sucedida.");
-        else
-            System.out.println("Não foi possivel remover");
-    }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "GestaoClientes{" + "listaClientes=" + listaClientes + '}';
+    public void printLista(){
+        super.printLista(listaClientes);
     }
 }
 

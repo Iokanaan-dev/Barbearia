@@ -63,6 +63,7 @@ public class Produto extends Modelo{
         this.descricao = descricao;
     }
     
+
     /**
      *
      * @return
@@ -70,6 +71,6 @@ public class Produto extends Modelo{
     
     @Override
     public String toString() {
-        return String.format("%sPreco: %s", super.toString(),preco);
+        return String.format("%nProduto %s%n%sPreço: %s%nDescriçao: %s", getId(), super.toString(), getPreco(), getDescricao());
     }        
 }
