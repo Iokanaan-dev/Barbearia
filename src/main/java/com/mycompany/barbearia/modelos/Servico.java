@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import Utilidades.TipoEstacao;
+
 /**
  * A duração é medida em slots que duram 30 minutos. EX: 2 slots 1 hora
  * @author intalo

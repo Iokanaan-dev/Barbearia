@@ -4,10 +4,48 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import Utilidades.TipoDespesa;
+import java.time.LocalDate;
+
 /**
  *
  * @author italo
  */
-public class Despesa {
+public class Despesa extends Modelo{
     
+    private int contador = 0;
+    
+    private double valor;
+    private LocalDate dataPagamento;
+    private TipoDespesa tipo;
+    private String observacoes;
+    
+    public Despesa(String nome, double valor, TipoDespesa tipo, String observacoes) {
+        super(nome);
+        
+        this.valor = valor;
+        this.tipo = tipo;
+        this.observacoes = observacoes;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public LocalDate getDataPagamento() {
+        return dataPagamento;
+    }
+
+    public TipoDespesa getTipo() {
+        return tipo;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+    
+    @Override
+    public String gerarId() {
+        return "DESP" + (++contador);
+    }
 }

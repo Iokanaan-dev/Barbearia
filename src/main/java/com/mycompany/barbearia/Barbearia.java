@@ -1,5 +1,6 @@
 package com.mycompany.barbearia;
 
+import Utilidades.TipoEstacao;
 import com.mycompany.barbearia.modelos.*;
 import Gerenciamento.*;
 import java.time.LocalDate;

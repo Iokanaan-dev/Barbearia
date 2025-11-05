@@ -4,7 +4,7 @@
  */
 package Gerenciamento;
 import com.mycompany.barbearia.modelos.Estacao;
-import com.mycompany.barbearia.modelos.TipoEstacao;
+import Utilidades.TipoEstacao;
 
 
 /**

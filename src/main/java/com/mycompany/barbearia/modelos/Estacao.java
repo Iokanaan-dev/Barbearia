@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import Utilidades.TipoEstacao;
+
 /**
  *
  * @author italo

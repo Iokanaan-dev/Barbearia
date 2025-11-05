@@ -1,5 +1,7 @@
 package Gerenciamento;
 
+import Utilidades.TipoEstacao;
+import Utilidades.StatusAgendamento;
 import com.mycompany.barbearia.modelos.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

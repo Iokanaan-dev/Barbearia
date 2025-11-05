@@ -4,7 +4,7 @@
  */
 package Gerenciamento;
 import com.mycompany.barbearia.modelos.Servico;
-import com.mycompany.barbearia.modelos.TipoEstacao;
+import Utilidades.TipoEstacao;
 import java.util.ArrayList;
 
         

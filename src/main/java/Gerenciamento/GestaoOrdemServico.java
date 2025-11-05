@@ -1,5 +1,7 @@
 package Gerenciamento;
 
+import Utilidades.StatusAtendimento;
+import Utilidades.StatusAgendamento;
 import com.mycompany.barbearia.modelos.*; // Importa todos os modelos
 import java.time.LocalDate;
 import java.time.LocalDateTime;
