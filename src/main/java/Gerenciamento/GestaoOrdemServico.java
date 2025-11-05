@@ -10,7 +10,6 @@ import java.util.Map;
 /**
  * SERVIÇO FINANCEIRO. Gerencia as "Contas" (Ordens de Serviço).
  * Calcula taxas, processa pagamentos e cancelamentos.
- * (Versão Refatorada)
  * @author italo
  */
 public class GestaoOrdemServico extends Gestao<OrdemServico> {
@@ -33,9 +32,6 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     } 
 
-    /**
-     * Ponto de acesso global Singleton.
-     */
     public static GestaoOrdemServico getInstancia() {
         if (instancia == null) {
             instancia = new GestaoOrdemServico();
@@ -44,7 +40,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     }
 
     /**
-     * Retorna uma CÓPIA segura da lista.
+     * Retorna uma CÓPIA segura
      */
     public ArrayList<OrdemServico> getLista() {
         return new ArrayList<>(this.listaOS);
@@ -77,15 +73,14 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
             }
         }
         
-        // --- 2. Calcular Produtos ---
+        // Calcular Produtos ---
         double totalProdutos = 0.0;
         
-        // Itera pelo "carrinho de compras" (o Map)
+        // Itera pelo Map
         for (Map.Entry<String, Integer> itemVendido : os.getProdutosVendidos().entrySet()) {
             String produtoId = itemVendido.getKey();
             int quantidade = itemVendido.getValue();
             
-            // O SERVIÇO (GestaoOS) chama OUTRO SERVIÇO (GestaoProdutos)
             Produto produto = this.gestaoProdutos.buscarPorId(produtoId); 
             
             if (produto != null) {
@@ -93,7 +88,6 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
             }
         }
         
-        // --- 3. Atualizar o Modelo "burro" ---
         os.setValorTotalServicos(totalBaseServicos);
         os.setValorTaxaEncaixe(totalTaxaEncaixe);
         os.setValorTotalProdutos(totalProdutos);
@@ -101,7 +95,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
         public void adicionarProdutoVendido(String osID, String produtoID, int quantidade) throws Exception {
         
-        // 1. Validar as entradas (Seu código aqui está perfeito)
+
         OrdemServico os = this.buscarPorId(osID);
         if (os == null) throw new Exception("OS não encontrada.");
         
@@ -110,23 +104,15 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         
         if (quantidade <= 0) throw new IllegalArgumentException("Quantidade deve ser positiva.");
 
-        // 2. AÇÃO LOGÍSTICA (Dar baixa no Estoque)
-        // (Seu código aqui está perfeito)
+
+
         try {
-            // (Assumindo que o nome do seu método em GestaoEstoque é 'darBaixa')
+
             this.gestaoEstoque.reduzirQuantidade(produtoID, quantidade); 
         } catch (Exception e) {
             throw new Exception("Falha ao adicionar produto à conta: " + e.getMessage());
         }
-
-        // 3. AÇÃO FINANCEIRA (Adicionar à Conta)
-        
-        // A. Adiciona o item ao "carrinho" (o Map) dentro da OS
         os.adicionarProdutoVendido(produto, quantidade);
-        
-        // B. [A CORREÇÃO]
-        // O "Caixa" (GestaoOS) agora chama o "Motor" de Cálculo.
-        // Em vez de fazer a matemática aqui, nós delegamos.
         this.recalcularValoresTotais(os);
         
         System.out.println("Produto " + produto.getNome() + " (x" + quantidade + ") adicionado à OS " + os.getId());
