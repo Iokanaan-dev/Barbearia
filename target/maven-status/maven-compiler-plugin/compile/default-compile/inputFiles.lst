@@ -4,6 +4,7 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agend
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoProdutos.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\StatusAgendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\Gestao.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoListaEspera.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Servico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Utilidades\IdGerador.java
@@ -12,18 +13,17 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Estac
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\TipoEstacao.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoUsuarios.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Produto.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\ListaEspera.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoAgendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Gerente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\StatusAtendimento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\Barbearia.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Usuario.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoAtendimento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoOrdemServico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Estoque.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Atendente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Cliente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoEstoque.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Atendimento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Barbeiro.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\Gerenciamento\GestaoEstacao.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\OrdemServico.java

@@ -1,7 +1,7 @@
-com\mycompany\barbearia\modelos\Atendimento.class
 Utilidades\Login.class
-Gerenciamento\GestaoAtendimento.class
+com\mycompany\barbearia\modelos\ListaEspera.class
 com\mycompany\barbearia\modelos\OrdemServico.class
 com\mycompany\barbearia\modelos\StatusAtendimento.class
 Gerenciamento\GestaoOrdemServico.class
 Gerenciamento\GestaoProdutos.class
+Gerenciamento\GestaoListaEspera.class

@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
-import Gerenciamento.GestaoUsuarios;
-import Gerenciamento.GestaoClientes;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,56 +17,117 @@ public class OrdemServico extends Modelo{
     
     private String idCliente;
     private String idBarbeiro;
-    private ArrayList<Modelo> produtosUtilizados = new ArrayList<>();
-    private String observacoes;    
-    private ArrayList<Modelo> servicosRealizados = new ArrayList<>();    
+    private StatusAtendimento status;
     private LocalDate dataExecucao;
+    private String observacoes;   
+    
+    private final ArrayList<Modelo> produtosUtilizados = new ArrayList();
+    private final ArrayList<Agendamento> agendamentos = new ArrayList();
+    private final Map<String, Integer> produtosVendidos = new HashMap();
+    
+    private double valorTotalProdutos;
+    private double valorTotalServicos;
+    private double valorTaxaEncaixe;
+    private double valorAdiantado_50pct;
+    private double valorTaxaCancelamento_35pct;
 
-    public OrdemServico(String nomeCliente, String nomeBarbeiro, String observacoes, LocalDate dataExecucao) {
-        this.idCliente = nomeCliente;
-        this.idBarbeiro = nomeBarbeiro;
-        this.observacoes = observacoes;
+public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, String observacoes) {
+        
+        this.idCliente = cliente.getId();
+        this.idBarbeiro = barbeiro.getId();
         this.dataExecucao = dataExecucao;
+        this.observacoes = observacoes;
+        
+        this.status = StatusAtendimento.ABERTO;
+        this.valorTotalProdutos = 0.0;
+        this.valorTotalServicos = 0.0;
+        this.valorTaxaEncaixe = 0.0;
+        this.valorAdiantado_50pct = 0.0;
+        this.valorTaxaCancelamento_35pct = 0.0;
     }
     
-    public OrdemServico(String nomeCliente, String nomeBarbeiro, LocalDate dataExecucao)
-    {
-        this(nomeCliente, nomeBarbeiro, "---", dataExecucao); // sobrecarrega o construtor para ser possivel criar OS sem observaçoes
+    public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao) {
+            this(cliente, barbeiro, dataExecucao, "---");
     }
     
+    public void adicionarProdutoVendido(Produto produto, int quantidade) {
+        String produtoId = produto.getId();
+        int qtdAtual = this.produtosVendidos.getOrDefault(produtoId, 0);
+        this.produtosVendidos.put(produtoId, qtdAtual + quantidade);
+    }
+    
+    public Map<String, Integer> getProdutosVendidos() {
+        return this.produtosVendidos;
+    }
+    public void setValorTotalProdutos(double valor) {
+        this.valorTotalProdutos = valor;
+    }
+
+    public void setValorTotalServicos(double valorTotalServicos) {
+        this.valorTotalServicos = valorTotalServicos;
+    }
+
+    public void setValorTaxaEncaixe(double valorTaxaEncaixe) {
+        this.valorTaxaEncaixe = valorTaxaEncaixe;
+    }
+    
+    public void adicionarAgendamento(Agendamento ag) {
+        this.agendamentos.add(ag);
+    }
+    
+    public void adicionarProdutoUtilizado(Produto produto) {
+        this.produtosUtilizados.add(produto);
+    }
+  
+
     public String getIdCliente() {
         return idCliente;
-    }
-
-    public void setIdCliente(String nomeCliente) {
-        this.idCliente = nomeCliente;
     }
 
     public String getIdBarbeiro() {
         return idBarbeiro;
     }
 
-    public void setIdBarbeiro(String nomeBarbeiro) {
-        this.idBarbeiro = nomeBarbeiro;
+    public ArrayList<Agendamento> getAgendamentos() {
+        return agendamentos;
     }
 
+    public StatusAtendimento getStatus() {
+        return status;
+    }
+
+    public double getValorTotalServicos() {
+        return valorTotalServicos;
+    }
+
+    public double getValorTaxaEncaixe() {
+        return valorTaxaEncaixe;
+    }
+
+    public double getValorAdiantado_50pct() {
+        return valorAdiantado_50pct;
+    }
+
+    public double getValorTaxaCancelamento_35pct() {
+        return valorTaxaCancelamento_35pct;
+    }
+    
     public ArrayList<Modelo> getProdutosUtilizados() {
         return produtosUtilizados;
     }
+
+    public void setStatus(StatusAtendimento status) {
+        this.status = status;
+    }
+
+    public void setValorAdiantado_50pct(double valorAdiantado_50pct) {
+        this.valorAdiantado_50pct = valorAdiantado_50pct;
+    }
+
+    public void setValorTaxaCancelamento_35pct(double valorTaxaCancelamento_35pct) {
+        this.valorTaxaCancelamento_35pct = valorTaxaCancelamento_35pct;
+    }
     
-
-    public void setProdutosUtilizados(ArrayList<Modelo> produtosUtilizados) {
-        this.produtosUtilizados = produtosUtilizados;
-    }
-
-    public ArrayList<Modelo> getServicosRealizados() {
-        return servicosRealizados;
-    }
-
-    public void setServicosRealizados(ArrayList<Modelo> servicosRealizados) {
-        this.servicosRealizados = servicosRealizados;
-    }
-
     public String getObservacoes() {
         return observacoes;
     }
@@ -82,55 +143,22 @@ public class OrdemServico extends Modelo{
     public void setDataExecucao(LocalDate dataExecucao) {
         this.dataExecucao = dataExecucao;
     }
-    
-    // retorna uma String com a lista dos nomes dos servicos realizados
-    public String getListaServicos(){
-        return getNomesItens(this.servicosRealizados);
+
+    public double getValorTotalProdutos() {
+        return valorTotalProdutos;
     }
     
-    // retorna uma String com a lista dos nomes dos produtos utilizados
-    public String getListaProdutos(){
-        return getNomesItens(this.produtosUtilizados);
+    public double getValorTotalAPagar() {
+        return this.valorTotalServicos + this.valorTaxaEncaixe + this.valorTotalProdutos;
     }
     
-    // COLOCAR ESSE METODO NA CLASSE MODELO!
-    public String getNomesItens(ArrayList<Modelo> lista) {
-        String nomesItensLista = String.format("%n");
-        
-        // se a lista estiver vazia toString retorna uma indicacao
-        if(lista.isEmpty())
-            return String.format("---%n");
-     
-        for(Modelo item: lista)
-            nomesItensLista += String.format("%s%n", item.getNome());
-        
-        return nomesItensLista;
-    }    
+    public double getValorPendente() {
+        return getValorTotalAPagar() - this.valorAdiantado_50pct + this.valorTaxaCancelamento_35pct;
+    }
    
-    
-    public String getNomeBarbeiro(String id){
-        // usa o padrao singleton para acessar a lista de clientes e procurar o nome do cliente como id especificado        
-        ArrayList<Usuario> listaBarbeiros = GestaoUsuarios.getInstancia().getLista();
-                
-        return GestaoUsuarios.getInstancia().getNomeItem(listaBarbeiros, id);
-    }
-    
-    public String getNomeCliente(String id){
-        // usa o padrao singleton para acessar a lista de clientes e procurar o nome do cliente como id especificado
-        ArrayList<Cliente> listaClientes = GestaoClientes.getInstancia().getLista();
-                
-        return GestaoClientes.getInstancia().getNomeItem(listaClientes, id);
-    }    
-
-    // adiciona servicos
-    public void adicionarServico(Servico servico){
-        super.adicionar(servicosRealizados, servico);
-    }
-    
-
     // adiciona produtos
     public void adicionarProduto(Produto produto){
-        super.adicionar(produtosUtilizados, produto);
+        this.produtosUtilizados.add(produto);
     }
 
     @Override
@@ -138,9 +166,12 @@ public class OrdemServico extends Modelo{
     {
         return "OS" + ++contador;
     }
-    
+
     @Override
     public String toString() {
-        return String.format("%nOrdem de Servico %s%n%sCliente: %s%nBarbeiro: %s%nServicos: %sProdutos: %sObservacoes: %s", getId(), super.toString(), getNomeCliente(this.idCliente), getNomeBarbeiro(this.idBarbeiro), getListaServicos(), getListaProdutos(), getObservacoes());
+        return "OrdemServico{" + "idCliente=" + idCliente + ", idBarbeiro=" + idBarbeiro + ", status=" + status + ", dataExecucao=" + dataExecucao + ", observacoes=" + observacoes + ", produtosUtilizados=" + produtosUtilizados + ", agendamentos=" + agendamentos + ", valorTotalServicos=" + valorTotalServicos + ", valorTaxaEncaixe=" + valorTaxaEncaixe + ", valorAdiantado_50pct=" + valorAdiantado_50pct + ", valorTaxaCancelamento_35pct=" + valorTaxaCancelamento_35pct + '}';
     }
+
+    
+    
 }

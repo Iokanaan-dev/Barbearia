@@ -29,7 +29,7 @@ public class Barbearia {
         GestaoServico gestaoS = GestaoServico.getInstancia(); // usa singleton para obter instancia 
         GestaoProdutos gestaoP = GestaoProdutos.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
-        GestaoAtendimento gestaoATE = GestaoAtendimento.getInstancia();
+        //GestaoAtendimento gestaoATE = GestaoAtendimento.getInstancia();
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
         
@@ -114,7 +114,7 @@ public class Barbearia {
 //       // Gestao de Usuarios: teste para busca por ID=============================
         
         System.out.println("\nUsuario com ID AT1");
-        gestaoU.printPorId("AT1"); 
+        //gestaoU.printPorId("AT1"); 
 
         
         System.out.println("\nLista de Atendentes");
@@ -198,33 +198,33 @@ public class Barbearia {
 //        
 //        
 //      //TESTES ORDENS DE SERVICO
-        gestaoOS.cadastrar("CL1", "BA1", "Corte de Cabelo e Barba", data1);
-        gestaoOS.cadastrar("CL1", "BA1", "Sombrancelha e Barba", data1);
-        gestaoOS.cadastrar("CL3", "BA2", data1);
-        gestaoOS.cadastrar("CL1", "BA1", data1);
-        gestaoOS.cadastrar("CL2", "BA2", data1);
-        gestaoOS.cadastrar("CL2", "BA1", data1);
-        gestaoOS.cadastrar("CL1", "BA2", data1);        
+        //gestaoOS.cadastrar("CL1", "BA1", "Corte de Cabelo e Barba", data1);
+       // gestaoOS.cadastrar("CL1", "BA1", "Sombrancelha e Barba", data1);
+        //gestaoOS.cadastrar("CL3", "BA2", data1);
+        //gestaoOS.cadastrar("CL1", "BA1", data1);
+       // gestaoOS.cadastrar("CL2", "BA2", data1);
+       // gestaoOS.cadastrar("CL2", "BA1", data1);
+       // gestaoOS.cadastrar("CL1", "BA2", data1);        
         
-        System.out.println("Lista de ordens de servico inicial");
-        gestaoOS.printLista();
+        //System.out.println("Lista de ordens de servico inicial");
+        //gestaoOS.printLista();
 
 //        // Teste adicao de servicos a OS OS3
-       gestaoOS.adcionarServico("OS1", "SE2");
-       gestaoOS.adcionarServico("OS1", "SE3");
-       System.out.println("Lista de ordens de servico apos adiçao de servicos em 'OS1'");       
-       gestaoOS.printLista();
+       //gestaoOS.adcionarServico("OS1", "SE2");
+      // gestaoOS.adcionarServico("OS1", "SE3");
+      // System.out.println("Lista de ordens de servico apos adiçao de servicos em 'OS1'");       
+       //gestaoOS.printLista();
        
 //        // Teste adicao de produtos a OS OS3       
-       gestaoOS.adcionarProduto("OS3", "PO3");
-       gestaoOS.adcionarProduto("OS3", "PO4");
-       gestaoOS.editar("OS3", "Descoloraçao de cabelo, sombrancelha e barba");       
-       System.out.println("Lista de ordens de servico apos adiçao de produtos e observacoes em 'OS3'");       
-       gestaoOS.printLista();         
+       //gestaoOS.adcionarProduto("OS3", "PO3");
+       //gestaoOS.adcionarProduto("OS3", "PO4");
+       //gestaoOS.editar("OS3", "Descoloraçao de cabelo, sombrancelha e barba");       
+       //System.out.println("Lista de ordens de servico apos adiçao de produtos e observacoes em 'OS3'");       
+       //gestaoOS.printLista();         
 //        
 //        // Testa a associacao de OSs ao cliente CL1 e CL2        
-       System.out.println("Lista de ordens de servico associadas a CL1");
-       gestaoOS.printListaOSCliente("CL1");
+       //System.out.println("Lista de ordens de servico associadas a CL1");
+       //gestaoOS.printListaOSCliente("CL1");
 //        printArrayList(osSelecionadas);
 //        
 //        System.out.print("Lista de ordens de servico associadas a CL3");
@@ -243,7 +243,9 @@ public class Barbearia {
         Servico servicoCorte = gestaoS.buscarPorNome("Corte").get(0);
         ArrayList<Servico> servicosParaCorte = new ArrayList<>();
         servicosParaCorte.add(servicoCorte);
+        boolean taxaDeEncaixe = true;
         
+                
 // --- CENÁRIO 1: AGENDAMENTO BEM-SUCEDIDO ("Happy Path") ---
         System.out.println("\n--- Teste 1: Agendamento 'Feliz' ---");
         try {
@@ -251,7 +253,7 @@ public class Barbearia {
             LocalDateTime horario1 = LocalDateTime.now().plusDays(1).withHour(10).withMinute(0).withSecond(0).withNano(0);
             
             Agendamento ag1 = gestaoAGE.criarAgendamento(
-                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario1
+                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario1, taxaDeEncaixe
             );
             
             System.out.println("SUCESSO: Agendamento criado!");
@@ -268,7 +270,7 @@ public class Barbearia {
             LocalDateTime horario2 = LocalDateTime.now().plusDays(1).withHour(10).withMinute(0).withSecond(0).withNano(0);
             
             gestaoAGE.criarAgendamento(
-                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario2
+                cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horario2, false
             );
             System.err.println("TESTE 2 FALHOU: O sistema permitiu um agendamento conflitante.");
             
@@ -297,8 +299,8 @@ public class Barbearia {
                 }
             }
             
-            if (!horarioOcupadoFoiListado) {
-                System.err.println("TESTE 3 FALHOU: O horário ocupado (10:00) foi listado como vago.");
+            if (horarioOcupadoFoiListado) {
+                System.err.println("TESTE 3 FALHOU: O horário ocupado (10:00) foi listado como vago."); 
             } else {
                 System.out.println("SUCESSO: Motor da agenda filtrou o horário ocupado.");
                 System.out.println("   -> Total de vagas encontradas: " + vagas.size());
@@ -308,30 +310,30 @@ public class Barbearia {
             System.err.println("TESTE 3 FALHOU: " + e.getMessage());
         }
 
-        // --- CENÁRIO 4: LÓGICA FINANCEIRA E DE STATUS ---
+        // --- CENÁRIO 4: STATUS ---
         System.out.println("\n--- Teste 4: Status e Cancelamento ---");
         try {
-            // A. Agendamento Longo (PRE_AGENDADO, sem taxa)
+            // A. Agendamento Longo PRE_AGENDADO
             LocalDateTime horarioLongo = LocalDateTime.now().plusDays(20).withHour(14).withMinute(0);
-            Agendamento agLongo = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioLongo);
+            Agendamento agLongo = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioLongo, false);
             System.out.println("Status Agend. Longo (20 dias): " + agLongo.getStatus()); // Deve ser PRE_AGENDADO
 
-            // B. Agendamento Curto (CONFIRMADO, com taxa)
+            // B. Agendamento Curto 
             LocalDateTime horarioCurto = LocalDateTime.now().plusDays(5).withHour(15).withMinute(0);
-            Agendamento agCurto = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioCurto);
+            Agendamento agCurto = gestaoAGE.criarAgendamento(cliente, barbeiro, estacaoCorte, atendente, servicosParaCorte, horarioCurto, false);
             System.out.println("Status Agend. Curto (5 dias): " + agCurto.getStatus()); // Deve ser CONFIRMADO
             
-            // C. Cancelar agendamento longo (sem taxa)
+            // C. Cancelar agendamento longo 
             gestaoAGE.cancelarAgendamento(agLongo.getId());
             Agendamento agLongoCancelado = gestaoAGE.buscarAgendamentoID(agLongo.getId());
             System.out.println("Cancelamento Longo (Status): " + agLongoCancelado.getStatus()); // CANCELADO
-            //System.out.println("Cancelamento Longo (Taxa): " + agLongoCancelado.getValorRetido()); // 0.0
 
-            // D. Cancelar agendamento curto (com taxa)
+
+            // D. Cancelar agendamento curto 
             gestaoAGE.cancelarAgendamento(agCurto.getId());
             Agendamento agCurtoCancelado = gestaoAGE.buscarAgendamentoID(agCurto.getId());
             System.out.println("Cancelamento Curto (Status): " + agCurtoCancelado.getStatus()); // CANCELADO
-            //System.out.println("Cancelamento Curto (Taxa): " + agCurtoCancelado.getValorRetido()); // 14.0 (35% de 40.0)
+   
 
         } catch (Exception e) {
             System.err.println("TESTE 4 FALHOU: " + e.getMessage());

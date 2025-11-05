@@ -18,8 +18,6 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
 
     // --- Constantes ---
     private static final int PRE_AGENDAMENTO = 14;
-    private static final int CANCELAMENTO_SEM_TAXA = 7;
-    private static final double TAXA_CANCELAMENTO = 0.35;
     private static final LocalTime HORA_INICIO_ESPEDIENTE = LocalTime.of(8, 0);
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
@@ -78,7 +76,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return false;
     }
     
-    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio) throws Exception {
+    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe) throws Exception {
         
         if (servicos == null || servicos.isEmpty()) { throw new Exception("Sem serviço"); }
         if (dataInicio.isBefore(LocalDateTime.now())) { throw new Exception("Não pode voltar no tempo"); }
@@ -106,7 +104,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         }
         
      
-        Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial);
+        Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe);
 
         super.adicionar(this.agendamentos, novoAgendamento);  
         return novoAgendamento;
@@ -141,10 +139,10 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
             if (statusAtual == StatusAgendamento.PRE_AGENDADO) {
                 long diasDeAntecedencia = ChronoUnit.DAYS.between(agora.toLocalDate(), ag.getDataHoraInicioAgendamento().toLocalDate());
                 if (diasDeAntecedencia < PRE_AGENDAMENTO) {
-                    ag.setStatus(StatusAgendamento.CONFIRMADO);
-                    statusAtual = StatusAgendamento.CONFIRMADO;
+                    ag.setStatus(StatusAgendamento.AGUARDANDO_PAGAMENTO);
+                    statusAtual = StatusAgendamento.AGUARDANDO_PAGAMENTO;
                 }
-            }
+            }       
             
             if (statusAtual == StatusAgendamento.CONFIRMADO) {
                 if (agora.toLocalDate().isEqual(ag.getDataHoraInicioAgendamento().toLocalDate()) && agora.isBefore(ag.getDataHoraInicioAgendamento())) {

@@ -6,6 +6,7 @@ package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.temporal.ChronoUnit;
 
 
 /**
@@ -19,6 +20,8 @@ public class Agendamento extends Modelo{
     private static int contador = 0;
     //String nomeAgendamento;
     
+   private boolean isEncaixe;
+    
     private final Cliente cliente;
     private final Barbeiro barbeiro;
     private final Usuario atendente;
@@ -26,12 +29,12 @@ public class Agendamento extends Modelo{
     private final ArrayList<Servico> servicos;
     
     private final LocalDateTime dataHoraInicioAgendamento;
-    private final LocalDateTime dataHoraFimAgendameto;
+    private final LocalDateTime dataHoraFimAgendamento;
 
     private StatusAgendamento status;
 
 
-    public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status) {
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status, boolean isEncaixe) {
         super(cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
         
         this.cliente = cliente;
@@ -44,10 +47,10 @@ public class Agendamento extends Modelo{
         this.status = status;
         
         int duracaoTotal = calcularDuracaoTotal();
-        this.dataHoraFimAgendameto =  dataHoraInicioAgendamento.plusMinutes(duracaoTotal);  
+        this.dataHoraFimAgendamento =  dataHoraInicioAgendamento.plusMinutes(duracaoTotal);
+        
+        this.isEncaixe = isEncaixe;
     }
-    
-
     
     private int calcularDuracaoTotal(){
         int total = 0;
@@ -70,6 +73,11 @@ public class Agendamento extends Modelo{
         return atendente;
     }
 
+    public boolean isEncaixe() {
+        return isEncaixe;
+    }
+    
+    
     public Estacao getEstacao() {
         return estacao;
     }
@@ -83,7 +91,7 @@ public class Agendamento extends Modelo{
     }
 
     public LocalDateTime getDataHoraFimAgendamento() {
-        return dataHoraFimAgendameto;
+        return dataHoraFimAgendamento;
     }
 
     public StatusAgendamento getStatus() {
@@ -95,11 +103,7 @@ public class Agendamento extends Modelo{
     }
 
     public double getValorDosServicos() {
-        double total = 0.0;
-        for (Servico s : this.servicos) {
-            total += s.getPreco();
-        }
-        return total;
+        return this.servicos.stream().mapToDouble(Servico::getPreco).sum();
     }
     
     /*

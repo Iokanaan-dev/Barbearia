@@ -49,12 +49,17 @@ public abstract class Gestao<M extends Modelo>{
                 encontrados.add(modelo);
             }
         }
-
-        if (encontrados.isEmpty()) {
-            System.out.println("Nada foi encontrado.");
-        }
-
         return encontrados;
+    }
+    public String getNomesItens(ArrayList<M> lista) {
+        String nomesItensLista = String.format("%n");
+        if(lista.isEmpty())
+            return String.format("---%n");
+      
+        for(Modelo item: lista)
+            nomesItensLista += String.format("%s%n", item.getNome());
+        
+        return nomesItensLista;
     }
     
     /**
@@ -63,9 +68,13 @@ public abstract class Gestao<M extends Modelo>{
      * @param Id
      * @return String
      */
-    public String getNomeItem(ArrayList<M> lista, String Id) 
-    {
-        return procurandoID(lista, Id).getNome();
+    public String getNomeItem(ArrayList<M> lista, String Id) {
+        M modelo = procurandoID(lista, Id);
+        
+        if(modelo != null) {
+            return modelo.getNome();
+        }
+        return "não encontrado";
     }
 
     /**
@@ -74,12 +83,7 @@ public abstract class Gestao<M extends Modelo>{
      * @param id
      */
     public void remover(ArrayList<M> lista, String id) {
-        boolean removeu = lista.removeIf(modelo -> Objects.equals(modelo.getId(), id));
-
-        if (removeu)
-            System.out.println("Remoção bem-sucedida.");
-        else
-            System.out.println("Não foi possível remover.");
+        lista.removeIf(modelo -> Objects.equals(modelo.getId(), id));
     }
     
     /**
@@ -87,23 +91,26 @@ public abstract class Gestao<M extends Modelo>{
      * @param modelos
      */
     public void printLista(ArrayList<M> modelos){
-        if(modelos != null){
-        for (Modelo m : modelos)
-            System.out.println(m);
+        if(modelos == null || modelos.isEmpty()){
+            System.out.println("Lista Vazia");
         }
-        else
-            System.out.println("Lista vazia.");
-            
+        else{
+            for (Modelo m : modelos)
+                System.out.println(m);
+        }
         System.out.println();   
-
     }
     
     /**
      * Imprime a representaçao string de um modelo
      * @param modelo
      */
-    public void printItem(M modelo)
-    {
-        System.out.println(modelo.toString());
+    public void printItem(M modelo) {
+        if (modelo == null) {
+            System.out.println("Item não encontrado");
+        } 
+        else {
+            System.out.println(modelo.toString());
+        }
     }          
 }

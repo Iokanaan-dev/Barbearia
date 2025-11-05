@@ -1,172 +1,268 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Gerenciamento;
 
-import com.mycompany.barbearia.modelos.OrdemServico;
-import com.mycompany.barbearia.modelos.Servico;
-import com.mycompany.barbearia.modelos.Produto;
+import com.mycompany.barbearia.modelos.*; // Importa todos os modelos
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
- *
- * @author intalo
+ * SERVIÇO FINANCEIRO. Gerencia as "Contas" (Ordens de Serviço).
+ * Calcula taxas, processa pagamentos e cancelamentos.
+ * (Versão Refatorada)
+ * @author italo
  */
 public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
-    // cria uma lista de OSs que sera gerenciada
     private final ArrayList<OrdemServico> listaOS = new ArrayList<>();
-    
     private static GestaoOrdemServico instancia;
     
+    private final GestaoEstoque gestaoEstoque;
+    private final GestaoProdutos gestaoProdutos;
+
+    
+    private static final int CANCELAMENTO_SEM_TAXA = 7;
+    private static final double TAXA_CANCELAMENTO = 0.35;
+    private static final double ADIANTAMENTO_PERCENTUAL = 0.50; 
+    private static final double TAXA_ENCAIXE_PERCENTUAL = 0.10;
+
+    private GestaoOrdemServico() {
+        this.gestaoEstoque = GestaoEstoque.getInstancia();
+        this.gestaoProdutos = GestaoProdutos.getInstancia();
+    
+    } 
+
     /**
-     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
-     * @return GestaoOrdemServico
+     * Ponto de acesso global Singleton.
      */
-    public static GestaoOrdemServico getInstancia()
-    {
-        if(instancia == null)
+    public static GestaoOrdemServico getInstancia() {
+        if (instancia == null) {
             instancia = new GestaoOrdemServico();
-        
+        }
         return instancia;
     }
-    
 
     /**
-     * Cadastra uma nova ordem de serviço na lista de ordens de Serviça
-     * @param idCliente
-     * @param idBarbeiro
-     * @param observacoes
-     * @param dataExecucao
-     */
-    public void cadastrar(String idCliente, String idBarbeiro, String observacoes, LocalDate dataExecucao){
-        OrdemServico novaOrdemServico = new OrdemServico(idCliente, idBarbeiro, observacoes, dataExecucao);
-        super.adicionar(listaOS, novaOrdemServico);
-    }
-    
-    /**
-     *  Permite cadastrar uma ordem de serviço sem adicionar as observaçoes, tornando esse campo opcional
-     * @param idCliente
-     * @param idBarbeiro
-     * @param dataExecucao
-     */
-    public void cadastrar(String idCliente, String idBarbeiro, LocalDate dataExecucao){
-        OrdemServico novaOrdemServico = new OrdemServico(idCliente, idBarbeiro, dataExecucao);
-        super.adicionar(listaOS, novaOrdemServico);
-    }
-    
-    /**
-     * Torna possivel a busca por id em outras classes, como as de gestao
-     * @return ArrayList<>
+     * Retorna uma CÓPIA segura da lista.
      */
     public ArrayList<OrdemServico> getLista() {
-        return listaOS;
-    }       
-    
+        return new ArrayList<>(this.listaOS);
+    }
+
     /**
-     * Busca uma ordem de serviço na lista usando o ID
-     * @param id
-     * 
-     * @return Cliente
+     * Cria uma nova Ordem de Serviço (conta) para um cliente e
+     * anexa o primeiro agendamento a ela.
      */
-    public OrdemServico buscarPorId(String id){
-        return super.procurandoID(listaOS, id);
-    }  
+    public OrdemServico criarOrdemDeServico(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
+        OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
+        novaOS.adicionarAgendamento(agendamentoInicial); 
+        super.adicionar(this.listaOS, novaOS);
+        return novaOS;
+    }
     
-    /**
-     * Edita as observacoes e a data de execucao
-     * @param id
-     * @param observacoes
-     * @param dataExecucao
-     */
-    public void editar(String id, String observacoes, LocalDate dataExecucao){
-      
-      OrdemServico ordemServico = this.buscarPorId(id);
+    private void recalcularValoresTotais(OrdemServico os) {
+        if (os == null) return;
         
-      ordemServico.setObservacoes(observacoes);
-      ordemServico.setDataExecucao(dataExecucao);
-    } 
-    
-    /**
-     * Edita as observacoes
-     * @param id
-     * @param observacoes
-     */
-    public void editar(String id, String observacoes){
-      
-      OrdemServico ordemServico = this.buscarPorId(id);
+        // --- 1. Calcular Serviços ---
+        double totalBaseServicos = 0.0;
+        double totalTaxaEncaixe = 0.0;
         
-      ordemServico.setObservacoes(observacoes);
+        for (Agendamento ag : os.getAgendamentos()) {
+            double valorBaseAg = ag.getValorDosServicos();
+            totalBaseServicos += valorBaseAg;
+            
+            if (ag.isEncaixe()) {
+                totalTaxaEncaixe += (valorBaseAg * 0.10); 
+            }
+        }
+        
+        // --- 2. Calcular Produtos ---
+        double totalProdutos = 0.0;
+        
+        // Itera pelo "carrinho de compras" (o Map)
+        for (Map.Entry<String, Integer> itemVendido : os.getProdutosVendidos().entrySet()) {
+            String produtoId = itemVendido.getKey();
+            int quantidade = itemVendido.getValue();
+            
+            // O SERVIÇO (GestaoOS) chama OUTRO SERVIÇO (GestaoProdutos)
+            Produto produto = this.gestaoProdutos.buscarPorId(produtoId); 
+            
+            if (produto != null) {
+                totalProdutos += (produto.getPreco() * quantidade);
+            }
+        }
+        
+        // --- 3. Atualizar o Modelo "burro" ---
+        os.setValorTotalServicos(totalBaseServicos);
+        os.setValorTaxaEncaixe(totalTaxaEncaixe);
+        os.setValorTotalProdutos(totalProdutos);
+    }
+
+        public void adicionarProdutoVendido(String osID, String produtoID, int quantidade) throws Exception {
+        
+        // 1. Validar as entradas (Seu código aqui está perfeito)
+        OrdemServico os = this.buscarPorId(osID);
+        if (os == null) throw new Exception("OS não encontrada.");
+        
+        Produto produto = this.gestaoProdutos.buscarPorId(produtoID);
+        if (produto == null) throw new Exception("Produto do catálogo não encontrado.");
+        
+        if (quantidade <= 0) throw new IllegalArgumentException("Quantidade deve ser positiva.");
+
+        // 2. AÇÃO LOGÍSTICA (Dar baixa no Estoque)
+        // (Seu código aqui está perfeito)
+        try {
+            // (Assumindo que o nome do seu método em GestaoEstoque é 'darBaixa')
+            this.gestaoEstoque.reduzirQuantidade(produtoID, quantidade); 
+        } catch (Exception e) {
+            throw new Exception("Falha ao adicionar produto à conta: " + e.getMessage());
+        }
+
+        // 3. AÇÃO FINANCEIRA (Adicionar à Conta)
+        
+        // A. Adiciona o item ao "carrinho" (o Map) dentro da OS
+        os.adicionarProdutoVendido(produto, quantidade);
+        
+        // B. [A CORREÇÃO]
+        // O "Caixa" (GestaoOS) agora chama o "Motor" de Cálculo.
+        // Em vez de fazer a matemática aqui, nós delegamos.
+        this.recalcularValoresTotais(os);
+        
+        System.out.println("Produto " + produto.getNome() + " (x" + quantidade + ") adicionado à OS " + os.getId());
+    }
+
+    /**
+     * Anexa um agendamento a uma OS já existente.
+     */
+    public void adicionarAgendamentoEmOS(String osID, Agendamento novoAgendamento) throws Exception {
+        OrdemServico os = this.buscarPorId(osID); 
+        if (os == null) {
+            throw new Exception("Ordem de Serviço não encontrada.");
+        }
+        os.adicionarAgendamento(novoAgendamento);
+        this.recalcularValoresTotais(os);
     }
     
     /**
-     * Remove uma ordem de serviço com base no ID informado
-     * @param id
+     * Processa o pagamento do adiantamento de 50%.
+     * Esta é a "cola" que conecta Finanças e Logística.
      */
-    public void remover(String id){
+    public void processarPagamentoAdiantado(String osID) throws Exception {
+        OrdemServico os = this.buscarPorId(osID);
+        if (os == null) throw new Exception("OS não encontrada.");
+        
+ 
+        double valorAdiantamento = os.getValorTotalAPagar() * ADIANTAMENTO_PERCENTUAL;
+        os.setValorAdiantado_50pct(valorAdiantamento);
+        
+ 
+        // Libera os agendamentos logisticamente.
+        for (Agendamento ag : os.getAgendamentos()) {
+            if (ag.getStatus() == StatusAgendamento.AGUARDANDO_PAGAMENTO) {
+                ag.setStatus(StatusAgendamento.CONFIRMADO);
+            }
+        }
+        
+        System.out.println("Pagamento de 50% registrado para a " + os.getId());
+    }
+    
+    /**
+     * Este método é chamado DEPOIS que GestaoAgendamento.cancelarAgendamento() é chamado.
+     */
+    public void processarCancelamentoFinanceiro(String osID, Agendamento agCancelado) throws Exception {
+        OrdemServico os = this.buscarPorId(osID);
+        if (os == null) throw new Exception("OS não encontrada.");
+        
+        // LÓGICA FINANCEIRA (35%):
+        long diasRestantes = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), agCancelado.getDataHoraInicioAgendamento().toLocalDate());
+        
+    
+        // E SE o cancelamento foi em cima da hora (menos de 7 dias).
+        if (agCancelado.getStatus() != StatusAgendamento.PRE_AGENDADO && diasRestantes < CANCELAMENTO_SEM_TAXA) {
+            
+            double valorBase = agCancelado.getValorDosServicos();
+            if (agCancelado.isEncaixe()) {
+                valorBase += (valorBase * TAXA_ENCAIXE_PERCENTUAL); // A taxa de 35% é sobre o valor final 
+            }
+            
+            double taxa = valorBase * TAXA_CANCELAMENTO;
+            os.setValorTaxaCancelamento_35pct(taxa);
+        }
+        
+        os.setStatus(StatusAtendimento.CANCELADO);
+    }
+
+    /**
+     * Busca uma ordem de serviço na lista usando o ID.
+     */
+    public OrdemServico buscarPorId(String id) {
+        return super.procurandoID(this.listaOS, id);
+    }
+
+    /**
+     * Edita as observacoes (de forma segura).
+     */
+    public void editar(String id, String observacoes) throws Exception {
+        OrdemServico ordemServico = this.buscarPorId(id);
+        
+        if (ordemServico == null) {
+            throw new Exception("OS com ID " + id + " não encontrada.");
+        }
+        
+        ordemServico.setObservacoes(observacoes);
+    }
+    
+    /**
+     * Remove uma ordem de serviço com base no ID informado.
+     */
+    public void remover(String id) {
         super.remover(listaOS, id);
     }
-    
+
     /**
-     * Imprime a lista de OSs atual
+     * Imprime a lista de OSs atual.
      */
-    public void printLista(){
+    public void printLista() {
         super.printLista(listaOS);
-    }        
-   
-    /**
-     * Adiciona a uma ordem de serviço um serviço especificando ambos (ordem de serviço e serviço) pelos seus respectivos IDs
-     * @param idOrdem
-     * @param idServico
-     */
-    public void adcionarServico(String idOrdem, String idServico){
-      // armazena a ordem de servico que sera editada
-      OrdemServico ordemSelecionada = buscarPorId(idOrdem);
-      
-      // armazena o servico que sera adicionado
-      Servico servicoAdicionado = GestaoServico.getInstancia().buscarPorId(idServico);
-      
-      ordemSelecionada.adicionarServico(servicoAdicionado);
     }
     
     /**
-     * Adiciona a uma ordem de serviço um produto especificando ambos (ordem de serviço e produto) pelos seus respectivos IDs
-     * @param idOrdem
-     * @param idProduto
-     */    
-    public void adcionarProduto(String idOrdem, String idProduto){
-      // armazena a ordem de servico que sera editada
-      OrdemServico ordemSelecionada = buscarPorId(idOrdem);
-      
-      // armazena o produto que sera adicionado
-      Produto produtoAdicionado = GestaoProdutos.getInstancia().buscarPorId(idProduto);
-      
-      ordemSelecionada.adicionarProduto(produtoAdicionado);
-    }    
-    
-    /**
-     * Busca todas as ordens de serviços associadas a um dado cliente e retorna em um ArrayList
-     * @param id
-     * @return ArrayList
+     * Adiciona um produto usado ao histórico da OS.
      */
-    private ArrayList<OrdemServico> buscarOSCliente(String id){ // private pois so sera usado aqui na classe
- ArrayList<OrdemServico> osSelecionadas = new ArrayList<>();
+    public void adicionarProdutoUtilizado(String idOrdem, String idProduto) throws Exception {
+        OrdemServico ordemSelecionada = this.buscarPorId(idOrdem);
+        if (ordemSelecionada == null) {
+            throw new Exception("OS " + idOrdem + " não encontrada.");
+        }
 
-    for (OrdemServico os : listaOS) {
-        if (os.getIdCliente().equals(id)) 
-            super.adicionar(osSelecionadas, os);  
-    }
-
-    return osSelecionadas;
+        Produto produtoAdicionado = GestaoProdutos.getInstancia().buscarPorId(idProduto);
+        if (produtoAdicionado == null) {
+            throw new Exception("Produto " + idProduto + " não encontrado.");
+        }
+        
+        ordemSelecionada.adicionarProdutoUtilizado(produtoAdicionado);
     }
     
     /**
-     * Imprime todas as ordens de serviço associadas a um dado cliente
-     * @param id
+     * Busca todas as ordens de serviços associadas a um dado cliente.
      */
-    public void printListaOSCliente(String id){
-        super.printLista(buscarOSCliente(id));
+    private ArrayList<OrdemServico> buscarOSCliente(String idCliente) {
+        ArrayList<OrdemServico> osSelecionadas = new ArrayList<>();
+        for (OrdemServico os : this.listaOS) {
+            if (os.getIdCliente().equals(idCliente)) {
+                
+                osSelecionadas.add(os);
+            }
+        }
+        return osSelecionadas;
+    }
+    
+    /**
+     * Imprime todas as ordens de serviço associadas a um dado cliente.
+     */
+    public void printListaOSCliente(String id) {
+        ArrayList<OrdemServico> lista = buscarOSCliente(id);
+        super.printLista(lista);
     }
 }
