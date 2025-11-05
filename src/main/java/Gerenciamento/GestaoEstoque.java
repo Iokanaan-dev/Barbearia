@@ -130,6 +130,10 @@ public class GestaoEstoque extends Gestao<Produto> {
         }
     }
     
+    public int getQuantidade(String id) {
+        return this.estoque.getQuantidade(id);
+    }
+    
     public Map<Produto, Integer> getListaQuantidades(){
         Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
         Map<String, Integer> itens = estoque.getTabelaEstoque();

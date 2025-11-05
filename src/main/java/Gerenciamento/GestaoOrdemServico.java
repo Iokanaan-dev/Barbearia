@@ -52,7 +52,10 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      */
     public OrdemServico criarOrdemDeServico(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
         OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
-        novaOS.adicionarAgendamento(agendamentoInicial); 
+        novaOS.adicionarAgendamento(agendamentoInicial);
+        
+        this.recalcularValoresTotais(novaOS);
+        
         super.adicionar(this.listaOS, novaOS);
         return novaOS;
     }
@@ -65,13 +68,17 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         double totalTaxaEncaixe = 0.0;
         
         for (Agendamento ag : os.getAgendamentos()) {
-            double valorBaseAg = ag.getValorDosServicos();
-            totalBaseServicos += valorBaseAg;
-            
-            if (ag.isEncaixe()) {
-                totalTaxaEncaixe += (valorBaseAg * 0.10); 
+            if(ag.getStatus() != StatusAgendamento.CANCELADO) {
+                
+                double valorBaseAg = ag.getValorDosServicos();
+                totalBaseServicos += valorBaseAg;
+
+                if (ag.isEncaixe()) {
+                    totalTaxaEncaixe += (valorBaseAg * 0.10); 
+                }
             }
         }
+
         
         // Calcular Produtos ---
         double totalProdutos = 0.0;
@@ -174,8 +181,9 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
             
             double taxa = valorBase * TAXA_CANCELAMENTO;
             os.setValorTaxaCancelamento_35pct(taxa);
+            
         }
-        
+        this.recalcularValoresTotais(os);
         os.setStatus(StatusAtendimento.CANCELADO);
     }
 

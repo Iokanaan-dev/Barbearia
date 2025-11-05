@@ -100,7 +100,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         if (diasDeAntecedencia >= PRE_AGENDAMENTO) {
             statusInicial = StatusAgendamento.PRE_AGENDADO;
         } else {
-            statusInicial = StatusAgendamento.CONFIRMADO;
+            statusInicial = StatusAgendamento.AGUARDANDO_PAGAMENTO;
         }
         
      
