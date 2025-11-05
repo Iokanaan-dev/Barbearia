@@ -162,6 +162,22 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         System.out.println("Pagamento de 50% registrado para a " + os.getId());
     }
     
+    public void processarPagamentoFinal(String osID) throws Exception {
+        OrdemServico os = this.buscarPorId(osID);
+        if (os == null) throw new Exception("OS não encontrada.");    
+        
+        double valorPendente = os.getValorPendente();
+        System.out.println("Recebendo pagamento final de: R$" + valorPendente);
+        
+        os.setValorAdiantado_50pct(os.getValorTotalAPagar());
+        
+        // Zera o adiantamento (pois agora foi pago) e marca a OS como PAGA
+        os.setValorAdiantado_50pct(os.getValorTotalAPagar()); 
+        os.setStatus(StatusAtendimento.PAGO);
+        
+        System.out.println("Ordem de Serviço " + os.getId() + " finalizada e PAGA.");
+    }    
+    
     /**
      * Este método é chamado DEPOIS que GestaoAgendamento.cancelarAgendamento() é chamado.
      */

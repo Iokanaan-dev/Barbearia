@@ -32,7 +32,7 @@ public class GestaoDespesas extends Gestao<Despesa> {
             throw new Exception("Acesso negado, só gerentes podem lancar despesas");
         }
         
-        Despesa novaDespesa = new Despesa(nome, valor, tipo, obs);
+        Despesa novaDespesa = new Despesa(nome, valor, data, tipo, obs);
         super.adicionar(this.listaDespesas, novaDespesa);
     }
     

@@ -20,10 +20,11 @@ public class Despesa extends Modelo{
     private TipoDespesa tipo;
     private String observacoes;
     
-    public Despesa(String nome, double valor, TipoDespesa tipo, String observacoes) {
+    public Despesa(String nome, double valor, LocalDate dataPagamento ,TipoDespesa tipo, String observacoes) {
         super(nome);
         
         this.valor = valor;
+        this.dataPagamento = dataPagamento;
         this.tipo = tipo;
         this.observacoes = observacoes;
     }
