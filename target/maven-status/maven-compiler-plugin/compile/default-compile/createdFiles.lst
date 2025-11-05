@@ -1,7 +1,10 @@
-Utilidades\Login.class
-com\mycompany\barbearia\modelos\ListaEspera.class
-com\mycompany\barbearia\modelos\OrdemServico.class
-com\mycompany\barbearia\modelos\StatusAtendimento.class
-Gerenciamento\GestaoOrdemServico.class
-Gerenciamento\GestaoProdutos.class
-Gerenciamento\GestaoListaEspera.class
+Utilidades/Login.class
+com/mycompany/barbearia/modelos/ParBatida.class
+com/mycompany/barbearia/modelos/StatusAtendimento.class
+com/mycompany/barbearia/modelos/TipoEstacao.class
+com/mycompany/barbearia/modelos/ListaEspera.class
+com/mycompany/barbearia/modelos/TabelaPonto.class
+Gerenciamento/GestaoListaEspera.class
+Gerenciamento/Gestao.class
+Gerenciamento/GestaoPonto.class
+com/mycompany/barbearia/modelos/Agenda.class

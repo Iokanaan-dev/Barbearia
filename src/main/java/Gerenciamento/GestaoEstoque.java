@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class GestaoEstoque extends Gestao<Produto> {
     private final Estoque estoque = new Estoque();
-    private final ArrayList<Produto> listaProdutosEstoque = new ArrayList();
+    private final ArrayList<Produto> listaProdutosEstoque = new ArrayList<>();
     
     private static GestaoEstoque instancia;
     
@@ -31,23 +31,37 @@ public class GestaoEstoque extends Gestao<Produto> {
         return instancia;
     }   
     
-    public void cadastrar(String id, int quantidade) {  
-        Produto novoProduto = GestaoProdutos.getInstancia().buscarPorId(id);
-
-        if (null == novoProduto) {
-            System.out.println("Cadastre o produto antes de adicionar ao estoque.");
-            return;
+    public void adicionarAoEstoque(String id, int quantidade) {  
+        if (!existeNoSistema(id)) {
+            throw new IllegalArgumentException("Produto não existe no sistema.");
         }
 
-        // verifica se o produto já está no estoque
-        if (estoque.contemProduto(id)) {
-            System.out.println("O produto já existe no estoque.");
-            return;
+        if (existeEmEstoque(id)) {
+            throw new IllegalStateException("Produto já cadastrado no estoque.");
         }
 
-        listaProdutosEstoque.add(novoProduto);
+        listaProdutosEstoque.add(GestaoProdutos.getInstancia().buscarPorId(id));
         estoque.setQuantidade(id, quantidade);
     }
+
+    /**
+     * Verifica se o produto já foi cadastrado no sistema.
+     * @param id
+     * @return 
+     */
+    public boolean existeNoSistema(String id) {
+        return GestaoProdutos.getInstancia().buscarPorId(id) != null;      
+    }
+
+    /**
+     * Verifica se o produto já foi cadastrado no estoque.
+     * @param id
+     * @return 
+     */
+    public boolean existeEmEstoque(String id) {
+        return estoque.contemProduto(id);      
+    }
+  
     
     /**
      * Torna possivel a busca por id em outras classes, como as de gestao
@@ -100,12 +114,16 @@ public class GestaoEstoque extends Gestao<Produto> {
         super.remover(listaProdutosEstoque, id);
     }
             
-    public boolean verificacaoQuantidade(String id, int quantidade){
-         if(estoque.contemProduto(id) && quantidade > 0)
-             return true;
-         
-         System.out.println("Dados invalidos");
-         return false;
+    public boolean verificacaoQuantidade(String id, int quantidade) {
+        if (!estoque.contemProduto(id)) {
+            throw new IllegalArgumentException("O produto com o ID " + id + " não existe no estoque.");
+        }
+
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+        }
+
+        return true;
     }
     
     public void aumentarQuantidade(String id, int quantidade){
