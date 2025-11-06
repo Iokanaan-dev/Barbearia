@@ -18,8 +18,6 @@ public class Barbearia {
     public static void main(String[] args) {
         
         System.out.println("--- INICIANDO SISTEMA DE BARBEARIA (MODO DE TESTE) ---");
-        
-        // --- 1. INICIALIZAÇÃO DOS SINGLETONS ---
      
         System.out.println("Inicializando serviços de gestão...");
         GestaoClientes gestaoC = GestaoClientes.getInstancia();
@@ -63,7 +61,7 @@ public class Barbearia {
         System.out.println("SUCESSO: Os dados (CPF: " + clone.getCpf() + ") foram copiados.");
         
         // 5. Prova de que são independentes
-        clone.setNome("Clone do Italo");
+        
         System.out.println("\nNome do Original (não deve mudar): " + original.getNome());
         System.out.println("Nome do Clone (mudado):       " + clone.getNome());
 
