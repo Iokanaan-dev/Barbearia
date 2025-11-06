@@ -7,9 +7,7 @@ Utilidades\StatusAtendimento.class
 com\mycompany\barbearia\modelos\Despesa.class
 Utilidades\TipoDespesa.class
 Gerenciamento\GestaoListaEspera.class
-com\mycompany\barbearia\Barbearia$2.class
 com\mycompany\barbearia\modelos\ListaEspera.class
-com\mycompany\barbearia\Barbearia$1.class
 Utilidades\StatusAgendamento.class
 Gerenciamento\GestaoOrdemServico.class
 Gerenciamento\GestaoProdutos.class

@@ -51,7 +51,7 @@ public abstract class Modelo implements IdGerador {
     @Override
     public String toString() {
         if (nome == null)
-            return String.format("ID: %s", getId());
+            return String.format("ID:%s", getId());
         
         return String.format("Nome: %s | ID: %s", getNome(), getId());
     }

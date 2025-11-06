@@ -27,6 +27,14 @@ public abstract class Individuo extends Modelo{
     //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
     //public abstract String gerarId();
     
+    protected Individuo(Individuo prototipo){
+        super(prototipo.getNome());
+        
+        this.cpf = prototipo.cpf;
+        this.telefone = prototipo.telefone;
+        this.dataNascimento = prototipo.dataNascimento;
+    }
+    
     private static void validarCpf(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             throw new IllegalArgumentException("CPF inválido!");
@@ -74,6 +82,6 @@ public abstract class Individuo extends Modelo{
 
     @Override
     public String toString() {
-        return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpf(), getTelefone(), getDataNascimento());
+        return String.format("%s CPF:  %s%nTelefone: %s%nData de Nascimento:%s%n", super.toString(), getCpf(), getTelefone(), getDataNascimento());
     }
 }

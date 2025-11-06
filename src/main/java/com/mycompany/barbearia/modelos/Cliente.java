@@ -29,6 +29,11 @@ public class Cliente extends Individuo{
         this.email = email;
     }
     
+    public Cliente(Cliente prototipo){
+        super(prototipo);
+        this.email = prototipo.getEmail();
+    }
+    
    private void validarEmail(String email) {
         if (email == null || email.length() < 8 || !(email.contains("@")) || !(email.contains(".com")))
             throw new IllegalArgumentException("Email inválido!");
