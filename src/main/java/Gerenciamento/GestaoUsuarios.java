@@ -11,8 +11,6 @@ import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
 import java.time.LocalDate;
-import java.util.Scanner;
-
 
 /**
  *

@@ -108,6 +108,7 @@ public class Barbearia {
 //        // TESTES USUARIOS---------------------------------------------------
         
         gestaoU.cadastrar("italof1ad", "123456789", "marcos", "33333333333", "38998090957", data1, "Barbeiro");
+        gestaoPo.baterPonto("BA1", "Entrada");        
         gestaoU.cadastrar("italod1ad", "123456789", "antonio", "33333333333", "38998090957", data1, "Barbeiro");        
         gestaoU.cadastrar("italod3cd", "123456789", "pedro", "33333333333", "38998090957", data1, "Atendente");
         gestaoU.cadastrar("adm123123", "000000001", "joão", "33333333333", "38998090957", data1, "Gerente", "8181");
@@ -139,8 +140,13 @@ public class Barbearia {
         
         
 //        // TESTES PONTOS USUARIOS---------------------------------------------
-        
-       gestaoPo.baterPonto("BA1", "Entrada");
+       
+
+       for(int i=0; i<100000000; i++)
+           System.out.print("");
+       
+       System.out.println("");
+       
        gestaoPo.baterPonto("BA1", "Saida");
        gestaoPo.baterPonto("BA1", "Entrada");
        gestaoPo.baterPonto("BA1", "Saida");
@@ -149,6 +155,8 @@ public class Barbearia {
        
        
        gestaoPo.printPontosUsuario("BA1");
+       
+       gestaoPo.printHorasUsuario("BA1");
         
         } 
         catch (Exception m)

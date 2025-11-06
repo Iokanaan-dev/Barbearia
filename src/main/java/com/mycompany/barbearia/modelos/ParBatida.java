@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 /**
  * Classe que representa um par de entrada e saida
@@ -40,10 +41,18 @@ public class ParBatida {
     public void setSaida(LocalDateTime saida) {
         this.saida = saida;
     }
+    
+    public double horasEntradaEmDouble(){
+        return entrada.atZone(ZoneId.systemDefault()).toEpochSecond();
+    }  
+    
+    public double horasSaidaEmDouble(){
+        return saida.atZone(ZoneId.systemDefault()).toEpochSecond();
+    }     
 
     @Override
     public String toString() {
-        return String.format("%nEntrada: %s - Saida: %s%n", getEntrada(), getSaida());
+        return String.format("Entrada: %s - Saida: %s%n", getEntrada(), getSaida());
     }
     
     
