@@ -13,22 +13,27 @@ import java.util.Map;
  * @author intalo
  */
 public class TabelaPonto {
-    private final Map<String, ArrayList<ParBatida>> tabelaPonto = new HashMap(); // A chave é o ID do Usuario (String), e as horas sao um par de objetos de entrada e saida.
+    private final Map<String, ArrayList<ParBatida>> tabelaPontos = new HashMap(); // A chave é o ID do Usuario (String), e as horas sao um par de objetos de entrada e saida.
     
     /**
      *
      * @param id
      * @return 
      */
-    public ArrayList<ParBatida> getParBatida(String id){
-        return tabelaPonto.getOrDefault(id, null);
+    public ArrayList<ParBatida> getListaParBatida(String id){
+        return tabelaPontos.getOrDefault(id, null);
     }
 
     public Map<String, ArrayList<ParBatida>> getTabelaPontos() {
-        return tabelaPonto;
+        return tabelaPontos;
+    }
+    
+    public void setListaDePontos(String idUsuario){
+        ArrayList<ParBatida> listaDePontos = new ArrayList<>();
+        tabelaPontos.put(idUsuario, listaDePontos);
     }
     
     public boolean contemUsuario(String id) {
-        return tabelaPonto.containsKey(id);
+        return tabelaPontos.containsKey(id);
     }
 }

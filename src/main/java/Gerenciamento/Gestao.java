@@ -92,7 +92,7 @@ public abstract class Gestao<M extends Modelo>{
      */
     public void printLista(ArrayList<M> modelos){
         if(modelos == null || modelos.isEmpty()){
-            System.out.println("Lista Vazia");
+            throw new IllegalArgumentException("Argumento invalido para print.");
         }
         else{
             for (Modelo m : modelos)

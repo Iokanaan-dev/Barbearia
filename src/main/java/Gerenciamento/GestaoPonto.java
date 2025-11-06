@@ -36,19 +36,24 @@ public class GestaoPonto extends Gestao<Usuario>{
     
     public void baterPonto(String idUsuario, String tipoBatida){
         
-        if(!usuarioExiste(idUsuario))
+        if(!existeNoSistema(idUsuario))
             throw new IllegalArgumentException("Usuario não existe no sistema.");
         
-        if(verificarBatida(tipoBatida)){
-            registrarEntrada(idUsuario, construirParBatida());
-            return;
-        }
-                
-        registrarSaida(idUsuario);
+        if(!tipoBatidaValido(tipoBatida))
+            throw new IllegalArgumentException("Tipo de batida invalida não existe no sistema.");
+        
+        switch(tipoBatida)
+        {
+            case "Entrada":
+                registrarEntrada(idUsuario, construirParBatida());
+                return;
+            case "Saida":
+                registrarSaida(idUsuario);                
+        }           
     }
     
-    private boolean verificarBatida(String tipoBatida) {
-        return "Entrada".equals(tipoBatida);
+    private boolean tipoBatidaValido(String tipoBatida) {
+        return "Entrada".equals(tipoBatida) || "Saida".equals(tipoBatida);
     }
 
     public LocalDateTime pegarHorarioAtual(){
@@ -56,31 +61,53 @@ public class GestaoPonto extends Gestao<Usuario>{
     }
     
     private ParBatida construirParBatida(){ // private pois so vai ser usado aqui dentro da classe
-            ParBatida parBatida = new ParBatida(pegarHorarioAtual());
+            ParBatida parBatida = new ParBatida(pegarHorarioAtual()); //ja constroi e adiciona a entrada
             return parBatida;
     }
     
-    public void registrarEntrada(String id, ParBatida parBatida){ // esse metodo serve para fazer a batida de Entrada
-        if(!this.tabelaPontos.contemUsuario(id))
+    public void registrarEntrada(String idUsuario, ParBatida parBatida){ // esse metodo serve para fazer a batida de Entrada
+        if(!existeNaTabelaPonto(idUsuario))
             throw new IllegalArgumentException("Usuario não existe na tabela de ponto."); 
-        ArrayList<ParBatida>listaPontoUsuarios = tabelaPontos.getTabelaPontos().get(id);
         
-        if(listaPontoUsuarios.isEmpty())
-            
-        this.tabelaPontos.getTabelaPontos().get(id).add(parBatida);
+        //ArrayList<ParBatida>listaPontoUsuarios = tabelaPontos.getTabelaPontos().get(idUsuario);
+                
+        //this.tabelaPontos.getTabelaPontos().get(idUsuario).add(parBatida);
+        this.tabelaPontos.getListaParBatida(idUsuario).add(parBatida);
     }    
     
-    public void registrarSaida(String id){ // esse metodo serve para fazer a batida de saida
-        if(!this.tabelaPontos.contemUsuario(id))
+    public void registrarSaida(String idUsuario){ // esse metodo serve para fazer a batida de saida
+        if(!existeNaTabelaPonto(idUsuario))
             throw new IllegalArgumentException("Usuario não existe na tabela de ponto."); 
         
-        ArrayList<ParBatida>listaPontoUsuarios = tabelaPontos.getTabelaPontos().get(id);
-        listaPontoUsuarios.get(listaPontoUsuarios.size()-1).setSaida(pegarHorarioAtual());
+        //ArrayList<ParBatida>listaPontoUsuarios = tabelaPontos.getTabelaPontos().get(id);
+        //listaPontoUsuarios.get(listaPontoUsuarios.size()-1).setSaida(pegarHorarioAtual());
+        
+        this.tabelaPontos.getListaParBatida(idUsuario).get(this.tabelaPontos.getListaParBatida(idUsuario).size()-1).setSaida(pegarHorarioAtual());
+        
     }     
     
-    public boolean usuarioExiste(String id){
-        return (GestaoUsuarios.getInstancia().buscarPorId(id) != null);      
+    public boolean existeNoSistema(String idUsuario){
+        return (GestaoUsuarios.getInstancia().buscarPorId(idUsuario) != null);      
     } 
     
+    public boolean existeNaTabelaPonto(String id){
+        return tabelaPontos.contemUsuario(id);
+    }
+    
     // CUIDADO COM ESSAS EXCEÇOES DE ENTRADA E SAIDA, FALTA AINDA UM METODO PARA ADICIONAR O PAR <ID, ARRAYLISY>
+    
+    public void adicionarATabelaPonto(String idUsuario){ // adiciona o usuario a tabela de pontos e cria sua lista de pontos
+        if (!existeNoSistema(idUsuario))
+            throw new IllegalArgumentException("Usuario não existe no sistema.");
+        
+        tabelaPontos.setListaDePontos(idUsuario);
+    }
+    
+    public void printPontosUsuario(String idUsuario){
+        ArrayList<ParBatida> listaParBatidasUsuario = this.tabelaPontos.getListaParBatida(idUsuario);
+        
+        System.out.printf("Usuario: %s | Nome: %s", idUsuario, GestaoUsuarios.getInstancia().buscarPorId(idUsuario).getNome());
+        for(ParBatida par: listaParBatidasUsuario)
+            System.out.print(par.toString());
+    }
 }

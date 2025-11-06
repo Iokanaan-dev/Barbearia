@@ -40,6 +40,11 @@ public class ParBatida {
     public void setSaida(LocalDateTime saida) {
         this.saida = saida;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%nEntrada: %s - Saida: %s%n", getEntrada(), getSaida());
+    }
     
     
 }
