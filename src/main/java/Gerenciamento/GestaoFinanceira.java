@@ -66,7 +66,7 @@ public class GestaoFinanceira {
         
     double balancoFinal = totalReceitas - totalDespesas;
         
-        // 5. GERAÇÃO DO RELATÓRIO (String formatada)
+      
         String relatorio = String.format(
             "%n--- BALANÇO MENSAL: %02d/%d ---%n" +
             "Receita Total (Ordens Pagas):... R$ %.2f%n" +
@@ -84,24 +84,23 @@ public class GestaoFinanceira {
 
     public String gerarRelatorioVendasDiario(LocalDate dia) {
         
-        // 1. Busca todas as "Contas" (Ordens de Serviço)
-        ArrayList<OrdemServico> todasOrdens = gestaoOS.getLista(); // Pega a cópia da lista
+   
+        ArrayList<OrdemServico> todasOrdens = gestaoOS.getLista(); 
         
         double totalServicos = 0.0;
         double totalProdutos = 0.0;
         double totalTaxasEncaixe = 0.0;
         double totalTaxasCancelamento = 0.0;
         
-        // 2. Itera e filtra as OSs
+  
         for (OrdemServico os : todasOrdens) {
-            // Filtra pela data exata
             if (os.getDataExecucao().isEqual(dia)) {
                 
                 // Filtra pelo status financeiro
                 // (Contamos o que foi PAGO ou o que foi CANCELADO e gerou multa)
                 if (os.getStatus() == StatusAtendimento.PAGO || os.getStatus() == StatusAtendimento.CANCELADO) {
                     
-                    // 3. Agrega (soma) os valores
+                    // soma os valores
                     totalServicos += os.getValorTotalServicos();
                     totalProdutos += os.getValorTotalProdutos();
                     totalTaxasEncaixe += os.getValorTaxaEncaixe();
@@ -113,7 +112,7 @@ public class GestaoFinanceira {
         double receitaBruta = totalServicos + totalProdutos + totalTaxasEncaixe;
         double receitaLiquida = receitaBruta + totalTaxasCancelamento; // (Taxa de cancelamento é receita pura)
 
-        // 4. Formata a String de retorno
+        //Formata a String de retorno
         return String.format(
             "%n--- RELATÓRIO DE VENDAS E SERVIÇOS: %s ---%n" +
             "Receita de Serviços (Base):.... R$ %.2f%n" +
@@ -143,7 +142,7 @@ public class GestaoFinanceira {
         double totalTaxasEncaixe = 0.0;
         double totalTaxasCancelamento = 0.0;
         
-        // 2. Itera e filtra as OSs
+        //  Itera e filtra as OSs
         for (OrdemServico os : todasOrdens) {
             // Filtra pelo Mês e Ano
             if (os.getDataExecucao().getMonthValue() == mes && os.getDataExecucao().getYear() == ano) {
@@ -160,7 +159,7 @@ public class GestaoFinanceira {
         double receitaBruta = totalServicos + totalProdutos + totalTaxasEncaixe;
         double receitaLiquida = receitaBruta + totalTaxasCancelamento;
 
-        // 4. Formata a String de retorno
+        //  Formata a String de retorno
         return String.format(
             "%n--- RELATÓRIO DE VENDAS E SERVIÇOS: %02d/%d ---%n" +
             "Receita de Serviços (Base):.... R$ %.2f%n" +
