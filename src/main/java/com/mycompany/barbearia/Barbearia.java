@@ -61,7 +61,7 @@ public class Barbearia {
         System.out.println("SUCESSO: Os dados (CPF: " + clone.getCpf() + ") foram copiados.");
         
         // 5. Prova de que são independentes
-        
+        //clone.setNome("Clone do Italo"); 
         System.out.println("\nNome do Original (não deve mudar): " + original.getNome());
         System.out.println("Nome do Clone (mudado):       " + clone.getNome());
 
