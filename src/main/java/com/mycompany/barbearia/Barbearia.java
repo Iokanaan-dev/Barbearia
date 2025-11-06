@@ -20,7 +20,7 @@ public class Barbearia {
         System.out.println("--- INICIANDO SISTEMA DE BARBEARIA (MODO DE TESTE) ---");
         
         // --- 1. INICIALIZAÇÃO DOS SINGLETONS ---
-        // (Adicionando os serviços financeiros que faltavam)
+     
         System.out.println("Inicializando serviços de gestão...");
         GestaoClientes gestaoC = GestaoClientes.getInstancia();
         GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
@@ -30,14 +30,14 @@ public class Barbearia {
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
-        GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia(); // (Já incluindo a lista de espera)
-        GestaoDespesas gestaoDES = GestaoDespesas.getInstancia();     // (Novo módulo de Despesas)
-        GestaoFinanceira gestaoFIN = GestaoFinanceira.getInstancia();   // (Novo módulo de Relatórios)
+        GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia(); 
+        GestaoDespesas gestaoDES = GestaoDespesas.getInstancia();     
+        GestaoFinanceira gestaoFIN = GestaoFinanceira.getInstancia();   
         
         LocalDate data1 = LocalDate.of(1991, 12, 31);
         LocalDate hoje = LocalDate.now();
         
-        // --- 2. SETUP DE DADOS ---
+ 
         try {
             System.out.println("\n--- Cadastrando dados de setup ---");
             
@@ -70,7 +70,7 @@ public class Barbearia {
             gestaoEstoque.cadastrar(pomada.getId(), 0); // Registra no inventário
             gestaoEstoque.aumentarQuantidade(pomada.getId(), 10); // Adiciona 10 ao estoque
             
-            // E. Cadastrar Despesas (Novo Módulo) 
+            // E. Cadastrar Despesas 
             gestaoDES.lancarDespesas("Café do Mês", 150.00, hoje, TipoDespesa.CONSUMIVEIS, "Compra de café e açúcar", gerenteJoao);
             
             System.out.println("Setup concluído.");
@@ -127,6 +127,7 @@ public class Barbearia {
             System.out.println("\n[Cenário 3]: Teste de Cancelamento (Com Taxa 35%)");
             LocalDateTime horarioTaxa = LocalDateTime.now().plusDays(3).withHour(11).withMinute(0);
             Agendamento agTaxa = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoE.getEstacao(1), atendentePedro, servicosCorte, horarioTaxa, false);
+            System.out.println(agTaxa.getStatus());
             OrdemServico osTaxa = gestaoOS.criarOrdemDeServico(clienteItalo, barbeiroMarcos, hoje, agTaxa);
             
             // 1. Cancelar (Logística)
@@ -154,16 +155,54 @@ public class Barbearia {
             osLongo = gestaoOS.buscarPorId(osLongo.getId());
             System.out.printf("Valor Taxa Cancelamento (PRE_AGENDADO): R$ %.2f%n", osLongo.getValorTaxaCancelamento_35pct()); // Deve ser 0.0
             
-            // --- CENÁRIO 5: FECHAMENTO DE CAIXA (Pagamento Final) ---
-            // (Requisito implícito para o Balanço)
+            // CENÁRIO 5: FECHAMENTO DE CAIXA (Pagamento Final) ---
+          
             System.out.println("\n[Cenário 5]: Fechamento de Caixa (Pagamento Final da OS1)");
             gestaoOS.processarPagamentoFinal(os1.getId());
             os1 = gestaoOS.buscarPorId(os1.getId());
             System.out.println("Status Financeiro da OS1: " + os1.getStatus()); // Deve ser PAGO
             System.out.printf("Valor Pendente da OS1: R$ %.2f%n", os1.getValorPendente()); // Deve ser 0.00
             
-            // --- CENÁRIO 6: TESTE DOS RELATÓRIOS FINANCEIROS (O que você pediu) ---
-            System.out.println("\n--- Teste 6: GestaoFinanceira (Relatórios) ---");
+            //CENÁRIO 6: TESTE DA LISTA DE ESPERA (PILHA LIFO) ---
+            System.out.println("\n--- Teste 6: Lista de Espera (Pilha LIFO) ---");
+            try {
+                // 1. OBTER DADOS PARA O TESTE
+                LocalDate dataOcupada = horario1.toLocalDate(); 
+                Cliente clienteZeca = gestaoC.buscarPorId("CL2");
+                
+                // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
+                System.out.println("Adicionando 'Zeca' (Primeiro a entrar) na espera para " + dataOcupada);
+                gestaoLE.adicionarClienteEspera(clienteZeca, servicosCorte, dataOcupada, null); // null = sem preferência
+                
+                System.out.println("Adicionando 'Italo' (Segundo a entrar) na espera para " + dataOcupada);
+                gestaoLE.adicionarClienteEspera(clienteItalo, servicosCorte, dataOcupada, null);
+
+                // 3. O ATENDENTE CONSULTA A PILHA (LIFO)
+                System.out.println("... Vaga cancelada (simulação) ...");
+                ListaEspera proximoDaPilha = gestaoLE.consultaProximoPilha(); // .peek()
+                
+                System.out.println("Atendente consultou a pilha. Próximo a ser chamado (LIFO): " + proximoDaPilha.getCliente().getNome());
+                
+                if (!proximoDaPilha.getCliente().getId().equals(clienteItalo.getId())) { // Comparando IDs
+                    throw new Exception("Falha na lógica LIFO: O último (Italo) não foi o primeiro a sair.");
+                }
+                System.out.println("SUCESSO: A lógica LIFO (Pilha) está correta.");
+
+                // 4. ATENDENTE REMOVE DA PILHA (simulando a confirmação)
+                ListaEspera solicitacaoRemovida = gestaoLE.removerProximoPilha(); // .pop()
+                System.out.println("Removido da pilha: " + solicitacaoRemovida.getCliente().getNome());
+                
+                // 5. Verificando o próximo (agora o Zeca)
+                proximoDaPilha = gestaoLE.consultaProximoPilha();
+                System.out.println("Próximo da pilha (agora): " + proximoDaPilha.getCliente().getNome()); // Deve ser Zeca
+
+            } catch (Exception e) {
+                System.err.println("TESTE 6 (LISTA DE ESPERA) FALHOU: " + e.getMessage());
+                e.printStackTrace();
+            }
+
+            // --- [RENUMERADO] CENÁRIO 7: TESTE DOS RELATÓRIOS FINANCEIROS ---
+            System.out.println("\n--- Teste 7: GestaoFinanceira (Relatórios) ---");
             
             // 1. Relatório de Vendas do Dia (Req 35)
             // Deve somar a OS1 (R$ 108.50) e a OS_Taxa (R$ 12.25)
@@ -172,15 +211,15 @@ public class Barbearia {
             // (Receita Total = 108.50 + 12.25 = 120.75)
 
             // 2. Balanço Mensal (Req 36) - (Restrito ao Gerente)
-            System.out.println("\n--- Teste 6b: Balanço Mensal (Restrito ao Gerente) ---");
+            System.out.println("\n--- Teste 7b: Balanço Mensal (Restrito ao Gerente) ---");
             int mesAtual = hoje.getMonthValue();
             int anoAtual = hoje.getYear();
             String balanco = gestaoFIN.gerarBalancoMensal(mesAtual, anoAtual, gerenteJoao);
             System.out.println(balanco);
             // (Balanço = Receita[120.75] - Despesa[150.00] = -29.25)
 
-            // --- CENÁRIO 7: TESTE DE BUSCA DE VAGAS ---
-            System.out.println("\n--- Teste 7: Imprimindo Vagas Disponíveis (Amanhã) ---");
+            // --- [RENUMERADO] CENÁRIO 8: TESTE DE BUSCA DE VAGAS ---
+            System.out.println("\n--- Teste 8: Imprimindo Vagas Disponíveis (Amanhã) ---");
             LocalDate dataDaBusca = LocalDate.now().plusDays(1);
             ArrayList<Agenda> vagasEncontradas = gestaoAGE.buscarHorarioVagoAgendamento(servicosCorte, dataDaBusca);
             System.out.println("--- Vagas Encontradas para 'Corte' em " + dataDaBusca + " ---");
