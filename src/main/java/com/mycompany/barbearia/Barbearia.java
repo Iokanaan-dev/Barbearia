@@ -3,6 +3,7 @@ package com.mycompany.barbearia;
 import Utilidades.TipoEstacao;
 import com.mycompany.barbearia.modelos.*;
 import Gerenciamento.*;
+import Utilidades.Prototype;
 import Utilidades.TipoDespesa;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -37,8 +38,9 @@ public class Barbearia {
         
  
       
-        System.out.println("\n--- Teste do Padrão Prototype (Clonar Cliente) ---");
+        System.out.println("\n--- Teste do Padrão Prototype (Clonar Servico) ---");
     try {
+        /*
         // 1. Pega o protótipo "Italo" (ID "CL1")
         gestaoC.cadastrar("Italo", "11111111111", "38998060657", data1, "italof5631@gmail.com");
         Cliente original = gestaoC.buscarPorId("CL1");
@@ -63,9 +65,43 @@ public class Barbearia {
         // 5. Prova de que são independentes
         //clone.setNome("Clone do Italo"); 
         System.out.println("\nNome do Original (não deve mudar): " + original.getNome());
-        System.out.println("Nome do Clone (mudado):       " + clone.getNome());
+        System.out.println("Nome do Clone (mudado):       " + clone.getNome()); */
+      
+        
+      // cadastra um item
+      gestaoS.cadastrar("Corte Social Maquina", 20.00, "Corte social padrao", 2, TipoEstacao.CORRIQUEIRA);
+      System.out.println("Lista servicos inicial");
+      gestaoS.printLista();
+      
+      // declara duas variaveis para serem usadas no teste do clone
+      Servico servico01, cloneServico01;
+      
+      // atribui o item a ser clonado na variavel
+      servico01 = gestaoS.buscarPorId("SE1");
+      
+      // atribui o clone a outra variavel
+      cloneServico01 = servico01.clone();
+      
+      // cadastra o clone
+      gestaoS.cadastrar(cloneServico01);
+      System.out.println("Lista servicos inicial e clone");     
+      // exibe para mostrar que sao iguais
+      gestaoS.printLista();
+      
+      // remove o clone do cadastro
+      gestaoS.remover("SE2");
+      
+      //edita os campos necessarios      
+      cloneServico01.editarClone("Corte Social Tesoura", 30.00, 3);
+      
+      // cadstra o clone editado
+      gestaoS.cadastrar(cloneServico01.getNome(), cloneServico01.getPreco(), cloneServico01.getDescricao(), cloneServico01.getTempoEmSlots(), cloneServico01.getTipoEstacaoRequerido());      
+      System.out.println("Lista servicos inicial e clone editado");            
+      gestaoS.printLista();
 
-    } catch (Exception e) {
+    } 
+    
+    catch (Exception e) {
         System.err.println("TESTE PROTOTYPE FALHOU: " + e.getMessage());
     }        
         

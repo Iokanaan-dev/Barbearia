@@ -121,4 +121,13 @@ public class GestaoServico extends Gestao <Servico>{
         super.printLista(listaServicos);
     }    
     
+    /**
+     * Sobreescrita criada para implementaçao do Padrao de Projeto Prototype.
+     * Agora eh possivel passar um clone diretamente ao cadastroé
+     * @param servico
+     */
+    public void cadastrar(Servico servico){
+        adicionar(listaServicos, servico);
+    }
+    
 }

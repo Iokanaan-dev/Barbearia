@@ -90,7 +90,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         }
         
 
-        int duracaoTotalEmMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos10).sum();  
+        int duracaoTotalEmMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();  
         LocalDateTime dataFim = dataInicio.plusMinutes(duracaoTotalEmMinutos);
         
         if (horarioOcupado(barbeiro, dataInicio, dataFim)) { throw new Exception("Horário indisponivel (barbeiro)"); }
@@ -189,7 +189,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
             return agenda;
         }
         
-        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos10).sum();
+        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
         
         LocalDateTime slotAtual = data.atTime(HORA_INICIO_ESPEDIENTE);
         while (slotAtual.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE)) {

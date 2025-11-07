@@ -5,6 +5,7 @@
 package Gerenciamento;
 import com.mycompany.barbearia.modelos.Estacao;
 import Utilidades.TipoEstacao;
+import java.util.ArrayList;
 
 
 /**
@@ -45,6 +46,11 @@ public class GestaoEstacao extends Gestao<Estacao>{
             System.out.println("O indice não pode ser menor que 0, ou maior que " + num + "!");
         }
         return estacoes[indice];
+    }
+    
+    @Override
+    public Estacao procurandoID(ArrayList<Estacao> lista, String id) {
+        return super.procurandoID(lista, id); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 }
     

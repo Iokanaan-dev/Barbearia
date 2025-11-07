@@ -52,7 +52,7 @@ public class ListaEspera {
 
 
     public int getDuracaoTotalMinutos() {
-        return this.servicosDesejados.stream().mapToInt(Servico::getTempoEmMinutos10).sum();
+        return this.servicosDesejados.stream().mapToInt(Servico::getTempoEmMinutos).sum();
     }
     
     public TipoEstacao getTipoEstacaoRequerido() {

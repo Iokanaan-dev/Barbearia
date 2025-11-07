@@ -79,7 +79,6 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     public void adicionarProdutoUtilizado(Produto produto) {
         this.produtosUtilizados.add(produto);
     }
-  
 
     public String getIdCliente() {
         return idCliente;
