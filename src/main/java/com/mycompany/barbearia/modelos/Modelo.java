@@ -16,6 +16,7 @@ public abstract class Modelo implements IdGerador {
 
     /**
      * Construtor para modelos que TÊM um nome (Cliente, Produto, Servico).
+     * @param nome
      */
     public Modelo(String nome) {
         validarNome(nome);
