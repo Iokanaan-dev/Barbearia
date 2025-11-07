@@ -14,8 +14,14 @@ import java.util.ArrayList;
  * @author italo
  */
 public class Barbearia {
-
+    
+    public static int totalOrdensServico() {
+        return OrdemServico.getContador();
+    }
+    
     public static void main(String[] args) {
+        
+        
         
         System.out.println("--- INICIANDO SISTEMA DE BARBEARIA (MODO DE TESTE) ---");
         
@@ -37,7 +43,8 @@ public class Barbearia {
         LocalDate data1 = LocalDate.of(1991, 12, 31);
         LocalDate hoje = LocalDate.now();
         
- 
+
+        
         try {
             System.out.println("\n--- Cadastrando dados de setup ---");
             
@@ -91,11 +98,13 @@ public class Barbearia {
             System.out.println("OS Criada: " + os1.getId() + " | Status Logístico: " + ag1.getStatus());
             System.out.printf("Valor Total da OS: R$ %.2f%n", os1.getValorTotalAPagar()); // Deve ser 20.00
             
+            
+            
             // 3. Finanças: Processa o Adiantamento 50%
             gestaoOS.processarPagamentoAdiantado(os1.getId());
             
             // 4. Verificação
-            os1 = gestaoOS.buscarPorId(os1.getId());
+           
             System.out.println("Status Logístico (Pós-Pagto): " + ag1.getStatus()); // Deve ser CONFIRMADO
             System.out.printf("Valor Adiantado: R$ %.2f%n", os1.getValorAdiantado_50pct()); // Deve ser 10.00
             System.out.printf("Valor Pendente: R$ %.2f%n", os1.getValorPendente()); // Deve ser 10.00
@@ -155,11 +164,13 @@ public class Barbearia {
             osLongo = gestaoOS.buscarPorId(osLongo.getId());
             System.out.printf("Valor Taxa Cancelamento (PRE_AGENDADO): R$ %.2f%n", osLongo.getValorTaxaCancelamento_35pct()); // Deve ser 0.0
             
-            // CENÁRIO 5: FECHAMENTO DE CAIXA (Pagamento Final) ---
-          
+            
+            
+            //CENÁRIO 5: FECHAMENTO DE CAIXA (Pagamento Final) ---
+            
             System.out.println("\n[Cenário 5]: Fechamento de Caixa (Pagamento Final da OS1)");
             gestaoOS.processarPagamentoFinal(os1.getId());
-            os1 = gestaoOS.buscarPorId(os1.getId());
+            //os1 = gestaoOS.buscarPorId(os1.getId());
             System.out.println("Status Financeiro da OS1: " + os1.getStatus()); // Deve ser PAGO
             System.out.printf("Valor Pendente da OS1: R$ %.2f%n", os1.getValorPendente()); // Deve ser 0.00
             
@@ -217,8 +228,13 @@ public class Barbearia {
             String balanco = gestaoFIN.gerarBalancoMensal(mesAtual, anoAtual, gerenteJoao);
             System.out.println(balanco);
             // (Balanço = Receita[120.75] - Despesa[150.00] = -29.25)
+            
+           String nota = gestaoFIN.gerarNotaCliente(clienteItalo);
+           System.out.println(nota);
+            
 
-            // --- [RENUMERADO] CENÁRIO 8: TESTE DE BUSCA DE VAGAS ---
+
+            /* --- [RENUMERADO] CENÁRIO 8: TESTE DE BUSCA DE VAGAS ---
             System.out.println("\n--- Teste 8: Imprimindo Vagas Disponíveis (Amanhã) ---");
             LocalDate dataDaBusca = LocalDate.now().plusDays(1);
             ArrayList<Agenda> vagasEncontradas = gestaoAGE.buscarHorarioVagoAgendamento(servicosCorte, dataDaBusca);
@@ -240,7 +256,7 @@ public class Barbearia {
                 }
             }
             System.out.println("-------------------------------------------------");
-            
+            */
         } catch (Exception m) {
             System.err.println("!!! OCORREU UM ERRO INESPERADO NO TESTE: " + m.getMessage());
             m.printStackTrace();

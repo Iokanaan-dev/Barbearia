@@ -9,6 +9,10 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author iarar
+ */
 public class GestaoAgendamento extends Gestao<Agendamento> {
     
     private final ArrayList<Agendamento> agendamentos = new ArrayList<>();
@@ -34,6 +38,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     
     /**
      * Ponto de acesso global Singleton.
+     * @return 
      */
     public static GestaoAgendamento getInstancia() {
         if (instancia == null) {
@@ -44,7 +49,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     
     /**
      * Retorna uma CÓPIA segura da lista de agendamentos.
-
+     * @return
      */
     public ArrayList<Agendamento> getLista() {
         return new ArrayList<>(this.agendamentos);
@@ -78,6 +83,18 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return false;
     }
     
+    /**
+     *
+     * @param cliente
+     * @param barbeiro
+     * @param estacao
+     * @param atendente
+     * @param servicos
+     * @param dataInicio
+     * @param isEncaixe
+     * @return
+     * @throws Exception
+     */
     public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe) throws Exception {
         
         if (servicos == null || servicos.isEmpty()) { throw new Exception("Sem serviço"); }
@@ -112,6 +129,12 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return novoAgendamento;
     }
     
+    /**
+     *
+     * @param ID
+     * @return
+     * @throws Exception
+     */
     public Agendamento cancelarAgendamento(String ID) throws Exception {
 
         Agendamento agendamento = super.procurandoID(this.agendamentos, ID);  
@@ -131,6 +154,9 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return agendamento;
     }
     
+    /**
+     *
+     */
     public void atualizarStatusAgendamento() {
         LocalDateTime agora = LocalDateTime.now();
         
@@ -168,6 +194,12 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         }
     }
     
+    /**
+     *
+     * @param servicos
+     * @param data
+     * @return
+     */
     public ArrayList<Agenda> buscarHorarioVagoAgendamento(ArrayList<Servico> servicos, LocalDate data) {
         ArrayList<Agenda> agenda = new ArrayList<>();
         
@@ -219,14 +251,29 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return agenda;
     }
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Agendamento> getAgendamentos() {
         return new ArrayList<>(this.agendamentos); 
     }
     
+    /**
+     *
+     * @param ID
+     * @return
+     */
     public Agendamento buscarAgendamentoID(String ID) {
         return super.procurandoID(this.agendamentos, ID); 
     }
     
+    /**
+     *
+     * @param barbeiro
+     * @param data
+     * @return
+     */
     public ArrayList<Agendamento> buscarAgendamentoBarbeiro(Barbeiro barbeiro, LocalDate data) {
         ArrayList<Agendamento> resultados = new ArrayList<>();
         for (Agendamento ag : this.agendamentos) { 
@@ -237,6 +284,11 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return resultados;
     }
     
+    /**
+     *
+     * @param cliente
+     * @return
+     */
     public ArrayList<Agendamento> buscarAgendamentoPorCliente(Cliente cliente) {
         ArrayList<Agendamento> resultados = new ArrayList<>();
         for (Agendamento ag : this.agendamentos) {

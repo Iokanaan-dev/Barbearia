@@ -97,6 +97,10 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
         return status;
     }
 
+    public static int getContador() {
+        return contador;
+    }
+
     public double getValorTotalServicos() {
         return valorTotalServicos;
     }
@@ -150,14 +154,14 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     }
     
     public double getValorTotalAPagar() {
-        return this.valorTotalServicos + this.valorTaxaEncaixe + this.valorTotalProdutos;
+        return (this.valorTotalServicos + this.valorTaxaEncaixe + this.valorTotalProdutos);
     }
     
     public double getValorPendente() {
         return getValorTotalAPagar() - this.valorAdiantado_50pct + this.valorTaxaCancelamento_35pct;
     }
    
-    // adiciona produtos
+    
     public void adicionarProduto(Produto produto){
         this.produtosUtilizados.add(produto);
     }

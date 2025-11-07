@@ -2,7 +2,7 @@ package Gerenciamento;
 
 import Utilidades.StatusAtendimento;
 import Utilidades.StatusAgendamento;
-import com.mycompany.barbearia.modelos.*; // Importa todos os modelos
+import com.mycompany.barbearia.modelos.*; 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -25,7 +25,6 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     private static final int CANCELAMENTO_SEM_TAXA = 7;
     private static final double TAXA_CANCELAMENTO = 0.35;
-    private static final double ADIANTAMENTO_PERCENTUAL = 0.50; 
     private static final double TAXA_ENCAIXE_PERCENTUAL = 0.10;
 
     private GestaoOrdemServico() {
@@ -34,6 +33,10 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     } 
 
+    /**
+     *
+     * @return
+     */
     public static GestaoOrdemServico getInstancia() {
         if (instancia == null) {
             instancia = new GestaoOrdemServico();
@@ -43,6 +46,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
     /**
      * Retorna uma CÓPIA segura
+     * @return 
      */
     public ArrayList<OrdemServico> getLista() {
         return new ArrayList<>(this.listaOS);
@@ -51,8 +55,13 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     /**
      * Cria uma nova Ordem de Serviço (conta) para um cliente e
      * anexa o primeiro agendamento a ela.
+     * @param cliente
+     * @param barbeiro
+     * @param data
+     * @param agendamentoInicial
+     * @return 
      */
-    public OrdemServico criarOrdemDeServico(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
+        public OrdemServico criarOrdemDeServico(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
         OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
         novaOS.adicionarAgendamento(agendamentoInicial);
         
@@ -65,7 +74,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     private void recalcularValoresTotais(OrdemServico os) {
         if (os == null) return;
         
-        // --- 1. Calcular Serviços ---
+       
         double totalBaseServicos = 0.0;
         double totalTaxaEncaixe = 0.0;
         
@@ -82,10 +91,10 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         }
 
         
-        // Calcular Produtos ---
+        // Calcular Produtos 
         double totalProdutos = 0.0;
         
-        // Itera pelo Map
+        
         for (Map.Entry<String, Integer> itemVendido : os.getProdutosVendidos().entrySet()) {
             String produtoId = itemVendido.getKey();
             int quantidade = itemVendido.getValue();
@@ -102,7 +111,14 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         os.setValorTotalProdutos(totalProdutos);
     }
 
-        public void adicionarProdutoVendido(String osID, String produtoID, int quantidade) throws Exception {
+    /**
+     *
+     * @param osID
+     * @param produtoID
+     * @param quantidade
+     * @throws Exception
+     */
+    public void adicionarProdutoVendido(String osID, String produtoID, int quantidade) throws Exception {
         
 
         OrdemServico os = this.buscarPorId(osID);
@@ -129,6 +145,9 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
     /**
      * Anexa um agendamento a uma OS já existente.
+     * @param osID
+     * @param novoAgendamento
+     * @throws java.lang.Exception
      */
     public void adicionarAgendamentoEmOS(String osID, Agendamento novoAgendamento) throws Exception {
         OrdemServico os = this.buscarPorId(osID); 
@@ -141,18 +160,19 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Processa o pagamento do adiantamento de 50%.
-     * Esta é a "cola" que conecta Finanças e Logística.
+     * @param osID
+     * @throws java.lang.Exception
      */
     public void processarPagamentoAdiantado(String osID) throws Exception {
         OrdemServico os = this.buscarPorId(osID);
         if (os == null) throw new Exception("OS não encontrada.");
         
  
-        double valorAdiantamento = os.getValorTotalAPagar() * ADIANTAMENTO_PERCENTUAL;
+        double valorAdiantamento = os.getValorTotalAPagar() * 0.50;
         os.setValorAdiantado_50pct(valorAdiantamento);
         
  
-        // Libera os agendamentos logisticamente.
+        // Libera os agendamentos
         for (Agendamento ag : os.getAgendamentos()) {
             if (ag.getStatus() == StatusAgendamento.AGUARDANDO_PAGAMENTO) {
                 ag.setStatus(StatusAgendamento.CONFIRMADO);
@@ -162,6 +182,11 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         System.out.println("Pagamento de 50% registrado para a " + os.getId());
     }
     
+    /**
+     *
+     * @param osID
+     * @throws Exception
+     */
     public void processarPagamentoFinal(String osID) throws Exception {
         OrdemServico os = this.buscarPorId(osID);
         if (os == null) throw new Exception("OS não encontrada.");    
@@ -169,9 +194,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         double valorPendente = os.getValorPendente();
         System.out.println("Recebendo pagamento final de: R$" + valorPendente);
         
-        os.setValorAdiantado_50pct(os.getValorTotalAPagar());
-        
-        // Zera o adiantamento (pois agora foi pago) e marca a OS como PAGA
+        // Zera o adiantamento 
         os.setValorAdiantado_50pct(os.getValorTotalAPagar()); 
         os.setStatus(StatusAtendimento.PAGO);
         
@@ -180,9 +203,12 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Este método é chamado DEPOIS que GestaoAgendamento.cancelarAgendamento() é chamado.
+     * @param ordemServicoID
+     * @param agCancelado
+     * @throws java.lang.Exception
      */
-    public void processarCancelamentoFinanceiro(String osID, Agendamento agCancelado) throws Exception {
-        OrdemServico os = this.buscarPorId(osID);
+    public void processarCancelamentoFinanceiro(String ordemServicoID, Agendamento agCancelado) throws Exception {
+        OrdemServico os = this.buscarPorId(ordemServicoID);
         if (os == null) throw new Exception("OS não encontrada.");
         
         // LÓGICA FINANCEIRA (35%):
@@ -194,7 +220,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
             
             double valorBase = agCancelado.getValorDosServicos();
             if (agCancelado.isEncaixe()) {
-                valorBase += (valorBase * TAXA_ENCAIXE_PERCENTUAL); // A taxa de 35% é sobre o valor final 
+                valorBase += (valorBase * TAXA_ENCAIXE_PERCENTUAL); 
             }
             
             double taxa = valorBase * TAXA_CANCELAMENTO;
@@ -207,6 +233,8 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
     /**
      * Busca uma ordem de serviço na lista usando o ID.
+     * @param id
+     * @return 
      */
     public OrdemServico buscarPorId(String id) {
         return super.procurandoID(this.listaOS, id);
@@ -214,6 +242,9 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
     /**
      * Edita as observacoes (de forma segura).
+     * @param id
+     * @param observacoes
+     * @throws java.lang.Exception
      */
     public void editar(String id, String observacoes) throws Exception {
         OrdemServico ordemServico = this.buscarPorId(id);
@@ -227,6 +258,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Remove uma ordem de serviço com base no ID informado.
+     * @param id
      */
     public void remover(String id) {
         super.remover(listaOS, id);
@@ -241,6 +273,9 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Adiciona um produto usado ao histórico da OS.
+     * @param idOrdem
+     * @param idProduto
+     * @throws java.lang.Exception
      */
     public void adicionarProdutoUtilizado(String idOrdem, String idProduto) throws Exception {
         OrdemServico ordemSelecionada = this.buscarPorId(idOrdem);
@@ -258,8 +293,10 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Busca todas as ordens de serviços associadas a um dado cliente.
+     * @param idCliente
+     * @return 
      */
-    private ArrayList<OrdemServico> buscarOSCliente(String idCliente) {
+    public ArrayList<OrdemServico> buscarOSCliente(String idCliente) {
         ArrayList<OrdemServico> osSelecionadas = new ArrayList<>();
         for (OrdemServico os : this.listaOS) {
             if (os.getIdCliente().equals(idCliente)) {
@@ -272,6 +309,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     /**
      * Imprime todas as ordens de serviço associadas a um dado cliente.
+     * @param id
      */
     public void printListaOSCliente(String id) {
         ArrayList<OrdemServico> lista = buscarOSCliente(id);

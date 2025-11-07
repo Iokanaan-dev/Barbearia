@@ -81,7 +81,48 @@ public class GestaoFinanceira {
         
         return relatorio;
     }
-
+    
+    public String gerarNotaCliente(Cliente cliente){
+        ArrayList<OrdemServico> ordensCLiente = gestaoOS.buscarOSCliente(cliente.getId());
+        
+        double totalServicos = 0.0;
+        double totalProdutos = 0.0;
+        double totalTaxasCancelamento = 0.0;
+        double totalEncaixe = 0.0;
+        double totalPagar = 0.0;
+        
+        for (OrdemServico os : ordensCLiente) {
+            if (os.getStatus() == StatusAtendimento.PAGO || os.getStatus() == StatusAtendimento.CANCELADO){
+                
+                totalServicos += os.getValorTotalServicos();
+                totalProdutos += os.getValorTotalProdutos();
+                totalTaxasCancelamento += os.getValorTaxaCancelamento_35pct();
+                totalEncaixe += os.getValorTaxaEncaixe();
+                totalPagar += os.getValorTotalAPagar() + os.getValorTaxaCancelamento_35pct(); 
+         
+            }
+        }
+        
+        String relatorio = String.format(
+            "--- Nota cliente: %s ---\n" +
+            "Total Serviços (Ordens Pagas):... R$ %.2f \n" +
+            "Total Produtos (Custos):........ R$ %.2f \n"+
+            "Total taxa de cancelamento (Custos):........ R$ %.2f \n" +
+            "Total encaixe (Custos):........ R$ %.2f \n" +
+            "------------------------------------\n" +
+            "Total a pagar:................... R$ %.2f \n",
+            
+            cliente.getNome(),
+            totalServicos,
+            totalProdutos,
+            totalTaxasCancelamento,
+            totalEncaixe,
+            totalPagar
+        );
+        
+        return relatorio;
+    }  
+    
     public String gerarRelatorioVendasDiario(LocalDate dia) {
         
    

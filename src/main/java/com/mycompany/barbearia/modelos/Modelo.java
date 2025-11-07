@@ -11,6 +11,7 @@ import Utilidades.IdGerador;
  * @author italo
  */
 public abstract class Modelo implements IdGerador {
+    
     private String nome;
     private final String id;
 
@@ -40,7 +41,7 @@ public abstract class Modelo implements IdGerador {
     public String getNome() {
         return nome;
     }
-
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
