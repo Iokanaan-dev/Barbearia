@@ -61,7 +61,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @param agendamentoInicial
      * @return 
      */
-        public OrdemServico criarOrdemDeServico(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
+        public OrdemServico cadastrar(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
         OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
         novaOS.adicionarAgendamento(agendamentoInicial);
         
@@ -237,7 +237,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @return 
      */
     public OrdemServico buscarPorId(String id) {
-        return super.procurandoID(this.listaOS, id);
+        return super.buscarPorId(this.listaOS, id);
     }
 
     /**

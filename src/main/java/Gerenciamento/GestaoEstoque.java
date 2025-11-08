@@ -77,7 +77,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @return ArrayList<>
     */
     public ArrayList<Produto> buscarPorNome(String nome){
-        return super.procurandoNome(this.listaProdutosEstoque, nome);
+        return super.buscarPorNome(this.listaProdutosEstoque, nome);
     }
      
     /**
@@ -95,7 +95,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @return Cliente
      */
     public Produto buscarPorId(String id){
-        return super.procurandoID(listaProdutosEstoque, id);
+        return super.buscarPorId(listaProdutosEstoque, id);
     }
     
     /**

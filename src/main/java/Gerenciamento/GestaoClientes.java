@@ -7,20 +7,18 @@ package Gerenciamento;
 import java.util.ArrayList;
 import com.mycompany.barbearia.modelos.Cliente;
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 
 /**
- * Essa classe cria uma lista de Clientes e a gerencia.
+ * Essa classe cria uma listaModelo de Clientes e a gerencia.
  * @author italo
  */
 public class GestaoClientes extends Gestao<Cliente> {   
     
-    // cria uma lista de clientes que sera gerenciada (por enquanto static para ser acessivel por outras gestoes, mas quem sabe usemos singleton em breve)
-    private final ArrayList<Cliente> listaClientes = new ArrayList();
-    
     private static GestaoClientes instancia;
     
     /**
-     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
+     * Permite o uso do padrao singleton para permitir o acesso da listaModelo dessa classe em outras classes
      * @return GestaoClientes
      */
     public static GestaoClientes getInstancia()
@@ -32,7 +30,7 @@ public class GestaoClientes extends Gestao<Cliente> {
     }
   
     /**
-     * Cadastra um novo cliente na lista de clientes
+     * Cadastra um novo cliente na listaModelo de clientes
      * @param nome
      * @param cpf
      * @param telefone
@@ -41,60 +39,17 @@ public class GestaoClientes extends Gestao<Cliente> {
      */
     public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
         Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
-        super.adicionar(listaClientes, novoCliente);
+        super.adicionar(novoCliente);
     }
     
-    /**
-     * Torna possivel a busca por id em outras classes, como as de gestao
-     * @return ArrayList<>
-     */
-    public ArrayList<Cliente> getLista() {
-        return listaClientes;
-    }
-    
-    /**
-     * Busca clientes na lista de clientes usando o nome
-     * @param nome
-     * @return ArrayList<>
-    */
-    public ArrayList<Cliente> buscarPorNome(String nome){
-        return super.procurandoNome(listaClientes, nome);
-    }
-     
-    /**
-     * Imprime todos os clientes com um certo nome
-     * @param nome
-     */
-    public void printPorNome(String nome){
-        super.printLista(buscarPorNome(nome));
-    }
-    
-    /**
-     * Busca um cliente na lista de clientes usando o id
-     * @param id
-     * 
-     * @return Cliente
-     */
-    public Cliente buscarPorId(String id){
-        return super.procurandoID(listaClientes, id);
-    }
-    
-    /**
-     * Imprime o clientes com um certo ID
-     * @param id
-     */
-    public void printPorId(String id){
-        super.printItem(buscarPorId(id));
-    }
-    public Cliente buscarCPF(String CPF) {
-       
+    public Cliente buscarCPF(String cpf) {
+        verificarCampoNulo(cpf);
         
-        for(Cliente c : this.listaClientes) {
-            if (c.getCpf().equals(CPF)) {
+        for(Cliente c : this.listaModelo) {
+            if (c.getCpf().equals(cpf)) 
                 return c;
-            }
         }
-        return null;
+        throw new NoSuchElementException("Nenhum item encontrado com o CPF: " + cpf);
     }    
 
     /**
@@ -110,7 +65,7 @@ public class GestaoClientes extends Gestao<Cliente> {
       
         //verifcar id nulo
         
-      Cliente cliente = this.buscarPorId(id);
+      Cliente cliente = buscarPorId(id);
         
       cliente.setNome(nome);
       cliente.setCpf(cpf);
@@ -118,21 +73,6 @@ public class GestaoClientes extends Gestao<Cliente> {
       cliente.setDataNascimento(dataNascimento);
       cliente.setEmail(email);
       
-    }
-
-    /**
-      Remove um cliente com base no ID informado
-     * @param id
-     */
-    public void remover(String id){
-        super.remover(listaClientes, id);
-    }
-    
-    /**
-     * Imprime a lista de clientes atual
-     */
-    public void printLista(){
-        super.printLista(listaClientes);
     }
 }
 

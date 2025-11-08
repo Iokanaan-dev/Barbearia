@@ -137,7 +137,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public Agendamento cancelarAgendamento(String ID) throws Exception {
 
-        Agendamento agendamento = super.procurandoID(this.agendamentos, ID);  
+        Agendamento agendamento = super.buscarPorId(this.agendamentos, ID);  
         
         if (agendamento == null) {
             throw new Exception("Esse agendamento não existe!");
@@ -265,7 +265,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      */
     public Agendamento buscarAgendamentoID(String ID) {
-        return super.procurandoID(this.agendamentos, ID); 
+        return super.buscarPorId(this.agendamentos, ID); 
     }
     
     /**

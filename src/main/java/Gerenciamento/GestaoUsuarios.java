@@ -6,6 +6,7 @@ package Gerenciamento;
 
 import java.util.ArrayList;
 import Utilidades.Login;
+import Utilidades.TipoUsuario;
 import com.mycompany.barbearia.modelos.Usuario;
 import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
@@ -17,7 +18,7 @@ import java.time.LocalDate;
  * @author italo
  */
 public class GestaoUsuarios extends Gestao<Usuario> implements Login {
-    private final ArrayList<Usuario> listaUsuarios = new ArrayList();
+ //   private final ArrayList<Usuario> listaUsuarios = new ArrayList();
     
     private static GestaoUsuarios instancia;
     
@@ -33,12 +34,9 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         return instancia;
     }
     
-    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao) {
-        if (!funcaoValida(funcao))
-            throw new IllegalArgumentException("Função inválida: " + funcao);
-    
-        if (usuarioExiste(username))
-            throw new IllegalArgumentException("Usuário já existe no sistema.");
+    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao) {
+        funcaoValida(funcao);
+        usernameSendoUsado(username);
     
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao);
         registrarUsuario(novoUsuario);
@@ -46,13 +44,10 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }
     
-    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao, String pin) {
-        if (!funcaoValida(funcao))
-            throw new IllegalArgumentException("Função inválida: " + funcao);
-    
-        if (usuarioExiste(username))
-            throw new IllegalArgumentException("Usuário já existe no sistema.");
-    
+    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao, String pin) {
+        funcaoValida(funcao);
+        usernameSendoUsado(username);
+        
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao , pin);
         registrarUsuario(novoUsuario);
         
@@ -62,23 +57,23 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     /**
     * Cria o objeto Usuario de acordo com a função.
     */
-    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao) {
+    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao) {
         Usuario novoUsuario;
         switch (funcao) {
-            case "Barbeiro":
+            case BARBEIRO:
                 novoUsuario = new Barbeiro(username, senha, nome, cpf, telefone, dataNascimento);
                 return novoUsuario;
 
-            case "Atendente":
+            case ATENDENTE:
                 novoUsuario = new Atendente(username, senha, nome, cpf, telefone, dataNascimento);
                 return novoUsuario;
-              
+                
             default:
-                throw new IllegalArgumentException("Função inválida: " + funcao);
+            throw new IllegalArgumentException("Funçao invalida");
         }        
     }
 
-    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String pin, String funcao) {
+    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao, String pin) {
         return new Gerente(username, senha, nome, cpf, telefone, dataNascimento, pin);      
     }    
 
@@ -86,64 +81,24 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * Registra o usuário criado na lista.
      */
     private void registrarUsuario(Usuario usuario) {
-        super.adicionar(listaUsuarios, usuario);
+        super.adicionar(usuario);
     }
 
     /**
      * Verifica se o usuário já existe.
      */
-    public boolean usuarioExiste(String username) {
-        return buscarUsername(username) != null;
+    public void usernameSendoUsado(String username) {
+        if(buscarUsername(username) != null)
+            throw new IllegalArgumentException("Username ja existe.");
     }
 
     /**
      * Verifica se a função informada é válida.
      */
-    private boolean funcaoValida(String funcao) {
-        return funcao.equals("Barbeiro") || funcao.equals("Atendente") || funcao.equals("Gerente");
-    }
-    
-    /**
-     * Torna possivel a busca por id em outras classes, como as de gestao
-     * @return ArrayList<>
-     */
-    public ArrayList<Usuario> getLista() {
-        return listaUsuarios;
-    }
-    
-    /**
-     *
-     * @param nome
-     * @return
-     */
-    public ArrayList<Usuario> buscarPorNome(String nome){
-        return super.procurandoNome(listaUsuarios, nome);
-    } 
-    
-    /**
-     * Imprime todos os usuarios com um certo nome
-     * @param nome
-     */
-    public void printPorNome(String nome){
-        super.printLista(buscarPorNome(nome));
-    }     
-    
-    /**
-     * Busca um usuario na lista de clientes usando o id
-     * @param id
-     * @return
-     */
-    public Usuario buscarPorId(String id){
-        return super.procurandoID(listaUsuarios, id);
-    } 
-    
-    /**
-     * Imprime o clientes com um certo ID
-     * @param id
-     */
-    public void printPorId(String id){
-        super.printItem(buscarPorId(id));
-    }     
+    private void funcaoValida(TipoUsuario funcao) {
+        if(funcao == null)
+            throw new IllegalArgumentException("Função nao pode ser nula");
+    }   
     
     /**
      * Permite ao gerente editar as informacoes de um usuario
@@ -179,21 +134,6 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         }
         else
             throw new IllegalArgumentException("Usuario sem acesso suficiente!");  
-    } 
-    
-    /**
-     *
-     * @param id
-     */
-    public void remover(String id){
-        super.remover(listaUsuarios, id);
-    }  
-    
-    /**
-     * Imprime a lista de usuarios atual
-     */
-    public void printLista(){
-        super.printLista(listaUsuarios);
     }    
     
     /*
@@ -203,7 +143,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     
     public Usuario buscarUsername(String userName){ 
-        for(Usuario usuario : listaUsuarios){
+        for(Usuario usuario : listaModelo){
             if (usuario.getUsername().equalsIgnoreCase(userName))
                 return usuario;
         }
@@ -221,8 +161,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     public void editarUsuarioLogin(String idUsuario, String username, String senha, String usernameNovo ,String senhaNova){
 
-        if(!usuarioExiste(username))
-            throw new IllegalArgumentException("Usuario nao existe!"); 
+        usernameSendoUsado(username);
         
         Usuario usuario = buscarUsername(username);
         usuario.mudarUsername(username, usernameNovo);
@@ -239,17 +178,17 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         
         switch (opcao) {
             case 0:
-                for (Usuario usuario : listaUsuarios) {
+                for (Usuario usuario : listaModelo) {
                     if(usuario instanceof Gerente)
                         listaUsuariosSelecionados.add(usuario);
                 }   break;
             case 1:
-                for (Usuario usuario : listaUsuarios) {
+                for (Usuario usuario : listaModelo) {
                     if(usuario instanceof Barbeiro)
                         listaUsuariosSelecionados.add(usuario);
                 }   break;
             case 2:
-                for (Usuario usuario : listaUsuarios) {
+                for (Usuario usuario : listaModelo) {
                     if(usuario instanceof Atendente)
                         listaUsuariosSelecionados.add(usuario);
                 }   break;
@@ -288,20 +227,19 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * Imprime uma lista de usuarios de uma certa funçao
      * @param funcao
      */
-    public void printListaFuncao(String funcao){
+    public void printListaFuncao(TipoUsuario funcao){
         
-        if(!funcaoValida(funcao))
-            throw new IllegalArgumentException("Função inválida: " + funcao);
+        funcaoValida(funcao);
             
         ArrayList<Usuario> usuarios = null;
         switch(funcao){
-            case "Gerente":
+            case GERENTE:
                 usuarios = getListaGerentes();
                 break;
-            case "Barbeiro":
+            case BARBEIRO:
                 usuarios = getListaBarbeiros();
                 break;   
-            case "Atendente":
+            case ATENDENTE:
                 usuarios = getListaAtendentes();
                 break;     
         }
