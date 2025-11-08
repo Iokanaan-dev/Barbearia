@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class Despesa extends Modelo{
     
-    private int contador = 0;
+    private static int contador = 0;
     
     private double valor;
     private LocalDate dataPagamento;
