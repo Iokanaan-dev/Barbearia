@@ -2,7 +2,9 @@ C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoUsuarios.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoEstoque.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Barbeiro.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Produto.java
+C:\repositori\Barbearia\src\main\java\com\mycompany\compara\ComparaAgendamentoHORA.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\OrdemServico.java
+C:\repositori\Barbearia\src\main\java\com\mycompany\compara\ComparaNome.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Servico.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoDespesas.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agenda.java
@@ -20,10 +22,12 @@ C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Modelo.jav
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoOrdemServico.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoListaEspera.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Despesa.java
+C:\repositori\Barbearia\src\main\java\com\mycompany\compara\ComparaAgendamentoClienteID.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoFinanceira.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Usuario.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoAgendamento.java
 C:\repositori\Barbearia\src\main\java\Utilidades\StatusAtendimento.java
+C:\repositori\Barbearia\src\main\java\com\mycompany\compara\ComparaCPF.java
 C:\repositori\Barbearia\src\main\java\Utilidades\StatusAgendamento.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\Gestao.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Cliente.java
