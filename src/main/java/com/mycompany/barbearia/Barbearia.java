@@ -6,7 +6,7 @@ import Gerenciamento.*;
 import Utilidades.TipoDespesa;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -209,7 +209,6 @@ public class Barbearia {
 
             } catch (Exception e) {
                 System.err.println("TESTE 6 (LISTA DE ESPERA) FALHOU: " + e.getMessage());
-                e.printStackTrace();
             }
 
             // --- [RENUMERADO] CENÁRIO 7: TESTE DOS RELATÓRIOS FINANCEIROS ---
@@ -259,7 +258,6 @@ public class Barbearia {
             */
         } catch (Exception m) {
             System.err.println("!!! OCORREU UM ERRO INESPERADO NO TESTE: " + m.getMessage());
-            m.printStackTrace();
         }
     }  
 }
