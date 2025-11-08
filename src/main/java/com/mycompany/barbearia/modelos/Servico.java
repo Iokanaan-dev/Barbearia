@@ -9,8 +9,9 @@ import Utilidades.TipoEstacao;
 import Gerenciamento.GestaoServico;
 
 /**
- * A duração é medida em slots que duram 10 minutos. EX: 2 slots 20 minutos
- * @author intalo
+ * Representa um serviço da barbearia.
+ * O tempo do serviço é definido em slots de 10 minutos.
+ * Implementa Prototype para permitir clonagem do objeto.
  */
 public class Servico extends Modelo implements Prototype<Servico>{
     private double preco;
@@ -20,9 +21,12 @@ public class Servico extends Modelo implements Prototype<Servico>{
     private TipoEstacao tipoEstacaoRequerido;
 
     /**
-     *
-     * @param nome
-     * @param preco
+     * Construtor principal do serviço.
+     * @param nome nome do serviço
+     * @param preco preço do serviço
+     * @param descricao descrição do serviço
+     * @param tempo tempo em slots (cada slot = 10 min)
+     * @param tipoEstacaoRequerida tipo de estação necessária
      */
     public Servico(String nome, double preco, String descricao, int tempo, TipoEstacao tipoEstacaoRequerida){
         super(nome);
@@ -39,18 +43,16 @@ public class Servico extends Modelo implements Prototype<Servico>{
     }
     
     /**
-     * Construtor que permite a descricao ser opcional
-     * @param nome
-     * @param preco
-     * @param tempo
-     * @param tipoEstacaoRequerida
+     * Construtor alternativo onde a descrição é opcional.
+     * @param nome nome do serviço
+     * @param preco preço do serviço
+     * @param tempo tempo em slots (cada slot = 10 min)
+     * @param tipoEstacaoRequerida tipo de estação necessária
      */
     public Servico(String nome, double preco, int tempo, TipoEstacao tipoEstacaoRequerida){
         this(nome, preco, "---", tempo, tipoEstacaoRequerida);
     }
     
-    
-
     /**
      *
      * @return
@@ -59,32 +61,60 @@ public class Servico extends Modelo implements Prototype<Servico>{
         return preco;
     }
 
+    /**
+     *
+     * @return
+     */
     public TipoEstacao getTipoEstacaoRequerido() {
         return tipoEstacaoRequerido;
     }
 
+    /**
+     *
+     * @param tipoEstacaoRequerido
+     */
     public final void setTipoEstacaoRequerido(TipoEstacao tipoEstacaoRequerido) {
         validarTipoEstacaoRequerido(tipoEstacaoRequerido);
         this.tipoEstacaoRequerido = tipoEstacaoRequerido;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }
 
+    /**
+     *
+     * @param descricao
+     */
     public final void setDescricao(String descricao) {
         validarDescricao(descricao);
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTempoEmMinutos() {
         return tempoSlots * 10;
     }
    
+    /**
+     *
+     * @return
+     */
     public int getTempoEmSlots() {
         return tempoSlots;
     }    
     
+    /**
+     *
+     * @param temp
+     */
     public void setTempoEmMinutos(int temp) {
         validarTempo(temp);
         this.tempoSlots = temp;
@@ -99,32 +129,44 @@ public class Servico extends Modelo implements Prototype<Servico>{
         this.preco = preco;
     }
 
+    /**
+     * Valida o preco
+     */    
     private void validarPreco(double preco) {
         if (preco <= 0) {
             throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
         }
     }
     
+    /**
+     * Valida a descricao
+     */    
     private void validarDescricao(String descricao) {
         if (descricao == null) {
             throw new IllegalArgumentException("A descricao não pode ser nula");
         }
     }    
 
+    /**
+     * Valida o tempo
+     */    
     private void validarTempo(int temp) {
         if (temp <= 0) {
             throw new IllegalArgumentException("O tempo deve ser maior que 0");
         }
     }
 
+    /**
+     * Valida o o tipo de estacao
+     */    
     private void validarTipoEstacaoRequerido(TipoEstacao tipoEstacaoRequerido) {
-        if (!(tipoEstacaoRequerido == TipoEstacao.CORRIQUEIRA || tipoEstacaoRequerido == TipoEstacao.LAVAGEM)) {
-            throw new IllegalArgumentException("Estacao deve pertencer aos tipos pre-definidos.");
+        if (tipoEstacaoRequerido == null) {
+            throw new IllegalArgumentException("Estacao nao pode ser nula");
         }
     }    
     
     /**
-     *
+     * ID gerado do serviço
      * @return
      */
     @Override
@@ -141,12 +183,20 @@ public class Servico extends Modelo implements Prototype<Servico>{
         return String.format("%sPreco: %s | Tempo: %s | %nDescricao: %s", super.toString(), getPreco(), getTempoEmMinutos(), getDescricao());
     }
 
+    /**
+     *
+     * @return representação em String do serviço
+     */
     @Override
     public Servico clone() {
         return new Servico(this);
     }
 
-public Servico(Servico servicoQueSeraClonado) {
+    /**
+     * Construtor de clonagem.
+     * @param servicoQueSeraClonado serviço base para clonagem
+     */
+    public Servico(Servico servicoQueSeraClonado) {
     validarServicoClonado(servicoQueSeraClonado);
     this.setNome(servicoQueSeraClonado.getNome()); 
     this.preco = servicoQueSeraClonado.getPreco();
@@ -155,7 +205,12 @@ public Servico(Servico servicoQueSeraClonado) {
     this.tipoEstacaoRequerido = servicoQueSeraClonado.getTipoEstacaoRequerido();
 }
 
-    
+    /**
+     * Edita os dados de um serviço clonado.
+     * @param nome novo nome
+     * @param preco novo preço
+     * @param tempo novo tempo em slots
+     */
     public void editarClone(String nome, double preco, int tempo){
         super.validarNome(nome);
         validarPreco(preco);
