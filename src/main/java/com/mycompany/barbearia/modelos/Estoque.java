@@ -12,7 +12,7 @@ import java.util.Map;
  * @author italo
  */
 public class Estoque {
-    private final Map<String, Integer> tabelaEstoque = new HashMap(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
+    private final Map<String, Integer> tabelaEstoque = new HashMap<>(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
     
     /**
      *
@@ -39,6 +39,6 @@ public class Estoque {
     
     public boolean contemProduto(String id) {
         return tabelaEstoque.containsKey(id);
-}
+    }
     
 }   

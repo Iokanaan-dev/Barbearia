@@ -10,5 +10,5 @@ package Utilidades;
  */
 public interface Login {
     
-    boolean login(String username, String senha);    
+    boolean validarLogin(String username, String senha);    
 }

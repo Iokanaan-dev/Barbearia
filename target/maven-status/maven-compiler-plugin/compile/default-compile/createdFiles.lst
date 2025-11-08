@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Gerenciamento\GestaoEstoque.class
 com\mycompany\compara\ComparaNome.class
 Utilidades\Login.class
@@ -29,3 +30,15 @@ Utilidades\StatusAgendamento.class
 com\mycompany\barbearia\modelos\Agendamento.class
 Gerenciamento\GestaoOrdemServico.class
 Gerenciamento\GestaoProdutos.class
+=======
+Utilidades/Login.class
+com/mycompany/barbearia/modelos/ParBatida.class
+com/mycompany/barbearia/modelos/StatusAtendimento.class
+com/mycompany/barbearia/modelos/TipoEstacao.class
+com/mycompany/barbearia/modelos/ListaEspera.class
+com/mycompany/barbearia/modelos/TabelaPonto.class
+Gerenciamento/GestaoListaEspera.class
+Gerenciamento/Gestao.class
+Gerenciamento/GestaoPonto.class
+com/mycompany/barbearia/modelos/Agenda.class
+>>>>>>> origin/feature/PontoUsuario

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoUsuarios.java
 C:\repositori\Barbearia\src\main\java\Gerenciamento\GestaoEstoque.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Barbeiro.java
@@ -37,3 +38,39 @@ C:\repositori\Barbearia\src\main\java\Utilidades\TipoDespesa.java
 C:\repositori\Barbearia\src\main\java\Utilidades\TipoEstacao.java
 C:\repositori\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Individuo.java
 C:\repositori\Barbearia\src\main\java\Utilidades\IdGerador.java
+=======
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/TabelaPonto.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Agenda.java
+/home/intalo/Barbearia/src/main/java/Utilidades/IdGerador.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Agendamento.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Modelo.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoEstacao.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Individuo.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/Barbearia.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoPonto.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Gerente.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Estacao.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/ListaEspera.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/StatusAtendimento.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/TipoEstacao.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Produto.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoClientes.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoProdutos.java
+/home/intalo/Barbearia/src/main/java/Utilidades/Login.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoOrdemServico.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Cliente.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Servico.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoServico.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/OrdemServico.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Barbeiro.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoUsuarios.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Estoque.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Atendente.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoEstoque.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoAgendamento.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/Gestao.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/ParBatida.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/StatusAgendamento.java
+/home/intalo/Barbearia/src/main/java/Gerenciamento/GestaoListaEspera.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Usuario.java
+>>>>>>> origin/feature/PontoUsuario

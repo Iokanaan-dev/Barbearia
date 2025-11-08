@@ -11,8 +11,6 @@ import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
 import java.time.LocalDate;
-import java.util.Scanner;
-
 
 /**
  *
@@ -35,48 +33,74 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         return instancia;
     }
     
-    /**
-     * Cadastra um novo usuario nao gerente na lista de usuarios
-     * @param username
-     * @param senha
-     * @param nome
-     * @param funcao
-     * @param cpf
-     * @param telefone
-     * @param dataNascimento
-     */
-    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao){
-        // se ja existe um usuario com o username cadastrado retorna uma indicaçao de erro
-        if (buscarUsername(username) != null)
-            System.out.println("Usuario existente!");
+    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao) {
+        if (!funcaoValida(funcao))
+            throw new IllegalArgumentException("Função inválida: " + funcao);
+    
+        if (usuarioExiste(username))
+            throw new IllegalArgumentException("Usuário já existe no sistema.");
+    
+        Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao);
+        registrarUsuario(novoUsuario);
         
-        Usuario novoUsuario;
-
-        if("Barbeiro".equals(funcao))
-            novoUsuario = new Barbeiro(username, senha, nome, cpf, telefone, dataNascimento);
-        
-        else if("Atendente".equals(funcao))
-            novoUsuario = new Atendente(username, senha, nome, cpf, telefone, dataNascimento);
-        else
-            novoUsuario = null; // SUBSTITUIR ISSO POR UM LANÇAMENTO DE EXCEÇAO
-        
-        super.adicionar(listaUsuarios, novoUsuario);
+        GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }
     
+    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao, String pin) {
+        if (!funcaoValida(funcao))
+            throw new IllegalArgumentException("Função inválida: " + funcao);
+    
+        if (usuarioExiste(username))
+            throw new IllegalArgumentException("Usuário já existe no sistema.");
+    
+        Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao , pin);
+        registrarUsuario(novoUsuario);
+        
+        GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
+    }    
+
     /**
-     * Cadastra um novo usuario gerente na lista de usuarios
-     * @param username
-     * @param senha
-     * @param nome
-     * @param cpf
-     * @param telefone
-     * @param dataNascimento
-     * @param funçao
-     * @param pin
+    * Cria o objeto Usuario de acordo com a função.
+    */
+    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funcao) {
+        Usuario novoUsuario;
+        switch (funcao) {
+            case "Barbeiro":
+                novoUsuario = new Barbeiro(username, senha, nome, cpf, telefone, dataNascimento);
+                return novoUsuario;
+
+            case "Atendente":
+                novoUsuario = new Atendente(username, senha, nome, cpf, telefone, dataNascimento);
+                return novoUsuario;
+              
+            default:
+                throw new IllegalArgumentException("Função inválida: " + funcao);
+        }        
+    }
+
+    private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String pin, String funcao) {
+        return new Gerente(username, senha, nome, cpf, telefone, dataNascimento, pin);      
+    }    
+
+    /**
+     * Registra o usuário criado na lista.
      */
-    public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String funçao, String pin){
-        Usuario novoUsuario = new Gerente(username, senha, nome, cpf, telefone, dataNascimento, pin);
-        super.adicionar(listaUsuarios, novoUsuario);        
+    private void registrarUsuario(Usuario usuario) {
+        super.adicionar(listaUsuarios, usuario);
+    }
+
+    /**
+     * Verifica se o usuário já existe.
+     */
+    public boolean usuarioExiste(String username) {
+        return buscarUsername(username) != null;
+    }
+
+    /**
+     * Verifica se a função informada é válida.
+     */
+    private boolean funcaoValida(String funcao) {
+        return funcao.equals("Barbeiro") || funcao.equals("Atendente") || funcao.equals("Gerente");
     }
     
     /**
@@ -133,7 +157,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     public void editar(String nameuserGerente, String senhaGerente, String id, String nome, String cpf, String telefone, LocalDate dataNascimento){
         
-        if(login(nameuserGerente, senhaGerente)){
+        if(validarLogin(nameuserGerente, senhaGerente)){
             Usuario gerente = buscarUsername(nameuserGerente);
             
             if(gerente instanceof Gerente){
@@ -195,18 +219,14 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @param usernameNovo
      * @param senhaNova
      */
-    public void editarUsuarioLogin(Usuario objeto, String username, String senha, String usernameNovo ,String senhaNova){
-      if(objeto instanceof Gerente gerente){
-            Scanner entrada = new Scanner(System.in);
-            System.out.println("Digite o pin: ");
-            String pin = entrada.nextLine();
+    public void editarUsuarioLogin(String idUsuario, String username, String senha, String usernameNovo ,String senhaNova){
+
+        if(!usuarioExiste(username))
+            throw new IllegalArgumentException("Usuario nao existe!"); 
         
-        if(!gerente.verficarPinADM(pin)) {
-           throw new IllegalArgumentException("PIN incorreto!"); 
-      }
-      objeto.mudarUsername(username, usernameNovo);
-      objeto.mudarSenha(senha, senhaNova);
-        }
+        Usuario usuario = buscarUsername(username);
+        usuario.mudarUsername(username, usernameNovo);
+        usuario.mudarSenha(senha, senhaNova);
     }  
     
     /**
@@ -270,12 +290,15 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      */
     public void printListaFuncao(String funcao){
         
+        if(!funcaoValida(funcao))
+            throw new IllegalArgumentException("Função inválida: " + funcao);
+            
         ArrayList<Usuario> usuarios = null;
         switch(funcao){
             case "Gerente":
                 usuarios = getListaGerentes();
                 break;
-            case "Barbeiros":
+            case "Barbeiro":
                 usuarios = getListaBarbeiros();
                 break;   
             case "Atendente":
@@ -283,18 +306,17 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
                 break;     
         }
         
-        super.printLista(usuarios);
-        
+        super.printLista(usuarios); 
     }
 
     /**
-     * Implementa a interface login
+     * Implementa a interface validarLogin
      * @param username
      * @param senha
      * @return
      */
     @Override
-    public boolean login(String username, String senha){
+    public boolean validarLogin(String username, String senha){
         Usuario usuario = buscarUsername(username);
         
         return (usuario.verificarUsername(username) && usuario.verificarSenha(senha));
