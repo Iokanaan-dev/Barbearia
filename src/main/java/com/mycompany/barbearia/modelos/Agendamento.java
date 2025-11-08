@@ -7,7 +7,6 @@ package com.mycompany.barbearia.modelos;
 import Utilidades.StatusAgendamento;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.time.temporal.ChronoUnit;
 
 
 /**
@@ -21,7 +20,7 @@ public class Agendamento extends Modelo{
     private static int contador = 0;
     //String nomeAgendamento;
     
-   private boolean isEncaixe;
+    private final boolean isEncaixe;
     
     private final Cliente cliente;
     private final Barbeiro barbeiro;
