@@ -69,7 +69,15 @@ public class GestaoEstoque extends Gestao<Produto> {
      */
     public ArrayList<Produto> getLista() {
         return new ArrayList(listaModelo);
-    }     
+    } 
+
+    public Map<String, Integer> getEstoque() {
+        return estoque.getTabelaEstoque();
+    }
+    
+    public void carregarEstoque(Map<String, Integer> mapaCarregado) {
+        this.estoque.carregarMapa(mapaCarregado);
+    }
     
     /**
      * Busca produtos na lista de produtos do estoque usando o nome

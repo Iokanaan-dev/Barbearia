@@ -22,6 +22,8 @@ public class Estacao extends Modelo{
         this.tipo = tipo;
     }
     
+    public Estacao(){}
+    
     @Override
     public String gerarId(){
         return "ES-" + UUID.randomUUID().toString().substring(0, 10);
@@ -36,6 +38,16 @@ public class Estacao extends Modelo{
         this.tipo = tipo;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
+    
+    
     public String getDiscricao() {
         return descricao;
     }

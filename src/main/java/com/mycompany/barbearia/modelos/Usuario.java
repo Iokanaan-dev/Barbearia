@@ -32,6 +32,8 @@ public abstract class Usuario extends Individuo{
         this.senha = senha;
     }
     
+    public Usuario(){}
+    
     /**
      *
      * @param userName

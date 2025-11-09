@@ -25,6 +25,8 @@ public class Atendente extends Usuario{
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
     
+    public Atendente(){}
+    
     /**
      *
      * @return

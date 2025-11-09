@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public class Gerente extends Usuario{
     
-    private final String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
+    private String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
     
     /**
      *
@@ -29,6 +29,8 @@ public class Gerente extends Usuario{
         this.PIN_SEGURANCA = pinSeguranca;
     }
     
+    public Gerente(){}
+    
      private void validarPIN(String pin_seguranca){
         if(pin_seguranca == null || pin_seguranca.trim().length() < 4){
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
@@ -43,7 +45,7 @@ public class Gerente extends Usuario{
     public boolean verficarPinADM(String pin){
         return this.PIN_SEGURANCA.equals(pin);
     }
-        
+   
     /**
      *
      * @return

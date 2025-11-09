@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 public class GestaoPonto extends Gestao<Usuario>{
     
-    private final TabelaPonto tabelaPontos = new TabelaPonto(); // A chave é o ID do Usuario (String), e a quantidade é (Double).
+    private TabelaPonto tabelaPontos = new TabelaPonto(); // A chave é o ID do Usuario (String), e a quantidade é (Double).
     ArrayList listaUsuarios = GestaoUsuarios.getInstancia().getLista();
     ArrayList<ParBatida> listaParBatida = new ArrayList<>(); // ACHO QUE NAO VOU PRECISAR DISSO IREI VER DEPOIS
     
@@ -154,6 +154,16 @@ public class GestaoPonto extends Gestao<Usuario>{
             horasUsuario += par.horasSaidaEmDouble() - par.horasEntradaEmDouble();
         
         return horasUsuario / 3600;
+    }
+    
+    public TabelaPonto getTabela() {
+        return this.tabelaPontos;
+    }
+    
+    public void carregarTabela(TabelaPonto tabelaCarregada) {
+        if (tabelaCarregada != null) {
+            this.tabelaPontos = tabelaCarregada;
+        }
     }
     
     /**

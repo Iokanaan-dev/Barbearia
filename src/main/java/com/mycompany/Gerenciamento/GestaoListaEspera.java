@@ -54,9 +54,15 @@ public class GestaoListaEspera {
     }
 
     public Stack<ListaEspera> getPilhaEspera() {
-        return pilhaEspera;
+        return (Stack<ListaEspera>) this.pilhaEspera.clone();
     }
     
+    public void carregarPilha(Stack<ListaEspera> pilhaCarregada) {
+        if (pilhaCarregada != null) {
+            this.pilhaEspera.clear();
+            this.pilhaEspera.addAll(pilhaCarregada);
+        }
+    }
     
     public boolean isVazia() {
         return pilhaEspera.isEmpty();

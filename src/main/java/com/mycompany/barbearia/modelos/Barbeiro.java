@@ -24,6 +24,8 @@ public class Barbeiro extends Usuario{
     public Barbeiro(String username, String senha, String nome, String cpf, String telefone, LocalDate data_nascimento) {
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
+    
+    public Barbeiro(){}
  
     /**
      *

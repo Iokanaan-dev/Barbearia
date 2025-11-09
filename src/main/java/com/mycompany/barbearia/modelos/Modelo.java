@@ -5,11 +5,13 @@
 package com.mycompany.barbearia.modelos;
 
 import com.mycompany.Utilidades.IdGerador;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Modelo implements IdGerador {
     
 
@@ -30,7 +32,6 @@ public abstract class Modelo implements IdGerador {
      * Construtor para modelos que NÃO TÊM um nome (Agendamento, OrdemServico).
      */
     public Modelo() {
-        this.nome = null;
         this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId()
     }
     
@@ -38,7 +39,7 @@ public abstract class Modelo implements IdGerador {
     private void validarNome(String nome) {
         if (nome == null || nome.trim().isEmpty())
             throw new IllegalArgumentException("Campo Vazio!");
-    }   
+    }
     
     public String getNome() {
         return nome;

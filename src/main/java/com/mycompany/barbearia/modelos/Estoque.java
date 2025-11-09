@@ -19,6 +19,9 @@ public class Estoque {
      * @param produto
      * @param quantidade
      */
+    
+    public Estoque(){}
+    
     //retorna a quatidade de um produto X na tabelaEstoque atualmente
     public int getQuantidade(String id){
         return tabelaEstoque.getOrDefault(id, 0);
@@ -36,6 +39,19 @@ public class Estoque {
     public void remover(String ID){
         tabelaEstoque.remove(ID);
     }
+    
+    /**
+     * Limpa o inventário atual e o substitui pelo mapa carregado do JSON.
+     * (Este método é chamado pelo 'GestaoEstoque').
+     * @param mapaCarregado O mapa (ID -> Quantidade) lido do arquivo.
+     */
+    public void carregarMapa(Map<String, Integer> mapaCarregado) {
+        if (mapaCarregado != null) {
+            this.tabelaEstoque.clear(); // Limpa o estado atual
+            this.tabelaEstoque.putAll(mapaCarregado); // Adiciona todos os dados carregados
+        }
+    }
+    
     
     public boolean contemProduto(String id) {
         return tabelaEstoque.containsKey(id);

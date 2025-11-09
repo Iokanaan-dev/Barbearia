@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author iarar
+ * @author italo
  */
 public class GestaoAgendamento extends Gestao<Agendamento> {
      

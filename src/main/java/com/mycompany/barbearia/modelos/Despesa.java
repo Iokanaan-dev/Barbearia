@@ -27,11 +27,13 @@ public class Despesa extends Modelo{
         this.tipo = tipo;
         this.observacoes = observacoes;
     }
+    
+    public Despesa(){}
 
     public double getValor() {
         return valor;
     }
-
+    
     public LocalDate getDataPagamento() {
         return dataPagamento;
     }

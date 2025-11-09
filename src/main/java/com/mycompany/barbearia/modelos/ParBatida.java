@@ -19,8 +19,7 @@ public class ParBatida {
     /**
      * Construtor sem parametros. Nao utilizado,
      */
-    public ParBatida() {
-    }
+    public ParBatida() {}
 
     /**
      * Construtor que recebe a entrada. Usado em GestaPonto para criar objetos
@@ -38,6 +37,8 @@ public class ParBatida {
     public LocalDateTime getEntrada() {
         return entrada;
     }
+    
+    
 
     /**
      * Altera o valor da entrada

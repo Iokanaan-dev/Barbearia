@@ -28,6 +28,8 @@ public class Produto extends Modelo{
         this.descricao = descricao;
     }
     
+    public Produto(){}
+    
     /**
      *
      * @return
@@ -36,6 +38,7 @@ public class Produto extends Modelo{
     public String gerarId(){
         return "PO-" + UUID.randomUUID().toString().substring(0, 10);
     }
+   
 
     /**
      *

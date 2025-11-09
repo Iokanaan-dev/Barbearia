@@ -220,5 +220,28 @@ public abstract class Gestao<M extends Modelo>{
         else {
             System.out.println(modelo.toString());
         }
-    } 
+    }
+    /**
+     * Carrega uma lista de dados (vinda do JSON) para dentro
+     * da lista interna 'listaModelo' desta gestão.
+     * * Este método APAGA todos os dados atuais em memória e os SUBSTITUI
+     * pelos dados carregados do arquivo.
+     * (Este é o método que o ServicoDePersistencia chama)
+     *
+     * @param listaCarregada A lista de objetos lida do JSON.
+     */
+    public void carregarLista(ArrayList<M> listaCarregada) {
+        
+        // 1. (Segurança) Garante que a lista vinda do JSON não é nula
+        if (listaCarregada == null) {
+            System.err.println("AVISO: A lista carregada do JSON estava nula. Nada foi carregado.");
+            return; // Não faz nada se o JSON estava vazio ou corrompido
+        }
+        
+        // 2. Limpa a lista atual que está em memória
+        this.listaModelo.clear();
+        
+        // 3. Adiciona todos os itens da lista carregada
+        this.listaModelo.addAll(listaCarregada);
+    }   
 }

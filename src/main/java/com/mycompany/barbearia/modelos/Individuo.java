@@ -24,6 +24,9 @@ public abstract class Individuo extends Modelo{
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
     }
+    
+    public Individuo(){}
+    
     //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
     //public abstract String gerarId();
     
@@ -48,6 +51,8 @@ public abstract class Individuo extends Modelo{
     public String getCpfAnonimizado() {
         return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
     }
+    
+    
 
     public String getCpf() {
         return cpf;

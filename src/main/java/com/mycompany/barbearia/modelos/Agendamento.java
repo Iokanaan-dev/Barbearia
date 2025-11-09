@@ -20,22 +20,24 @@ public class Agendamento extends Modelo{
      
 
     
-    private final boolean isEncaixe;
+    private boolean isEncaixe;
     
-    private final Cliente cliente;
-    private final Barbeiro barbeiro;
-    private final Usuario atendente;
-    private final Estacao estacao;
-    private final ArrayList<Servico> servicos;
+    private Cliente cliente;
+    private Barbeiro barbeiro;
+    private Usuario atendente;
+    private Estacao estacao;
+    private ArrayList<Servico> servicos;
     
-    private final LocalDateTime dataHoraInicioAgendamento;
-    private final LocalDateTime dataHoraFimAgendamento;
+    private LocalDateTime dataHoraInicioAgendamento;
+    private LocalDateTime dataHoraFimAgendamento;
 
     private StatusAgendamento status;
-
-
+    
+    private double valorDosServicosCongelado;
+   
+    
     public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status, boolean isEncaixe) {
-        super(cliente.getNome() + " // " + barbeiro.getNome() + " // " + estacao.getNome());
+        super();
         
         this.cliente = cliente;
         this.barbeiro = barbeiro;
@@ -50,7 +52,12 @@ public class Agendamento extends Modelo{
         this.dataHoraFimAgendamento =  dataHoraInicioAgendamento.plusMinutes(duracaoTotal);
         
         this.isEncaixe = isEncaixe;
+        
+        this.valorDosServicosCongelado = this.servicos.stream().mapToDouble(Servico::getPreco).sum();
+        
     }
+    
+    public Agendamento(){}
     
     private int calcularDuracaoTotal(){
         int total = 0;
@@ -63,7 +70,10 @@ public class Agendamento extends Modelo{
     public Cliente getCliente() {
         return cliente;
     }
-    
+
+    public void setValorDosServicosCongelado(double valorDosServicosCongelado) {
+        this.valorDosServicosCongelado = valorDosServicosCongelado;
+    }
 
     public Barbeiro getBarbeiro() {
         return barbeiro;
@@ -76,7 +86,10 @@ public class Agendamento extends Modelo{
     public boolean isEncaixe() {
         return isEncaixe;
     }
-    
+
+    public boolean isIsEncaixe() {
+        return isEncaixe;
+    }
     
     public Estacao getEstacao() {
         return estacao;
@@ -103,7 +116,7 @@ public class Agendamento extends Modelo{
     }
 
     public double getValorDosServicos() {
-        return this.servicos.stream().mapToDouble(Servico::getPreco).sum();
+        return this.valorDosServicosCongelado;
     }
     
     /*

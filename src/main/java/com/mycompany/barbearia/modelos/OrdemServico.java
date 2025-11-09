@@ -52,6 +52,8 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
             this(cliente, barbeiro, dataExecucao, "---");
     }
     
+    public OrdemServico(){}
+    
     public void adicionarProdutoVendido(Produto produto, int quantidade) {
         String produtoId = produto.getId();
         int qtdAtual = this.produtosVendidos.getOrDefault(produtoId, 0);
@@ -88,6 +90,14 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
 
     public String getIdBarbeiro() {
         return idBarbeiro;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public void setIdBarbeiro(String idBarbeiro) {
+        this.idBarbeiro = idBarbeiro;
     }
 
     public ArrayList<Agendamento> getAgendamentos() {

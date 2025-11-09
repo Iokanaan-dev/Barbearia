@@ -43,6 +43,8 @@ public class Servico extends Modelo{
         this.tempoSlots = temp;
         this.tipoEstacaoRequerido = tipoRequerido;
     }
+    
+    public Servico(){}
 
     /**
      *

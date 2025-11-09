@@ -32,6 +32,8 @@ public class Cliente extends Individuo{
         Cliente.contadorInstancia++;
     }
     
+    public Cliente(){}
+    
    private void validarEmail(String email) {
         if (email == null || email.length() < 8 || !(email.contains("@")) || !(email.contains(".com")))
             throw new IllegalArgumentException("Email inválido!");
@@ -44,6 +46,8 @@ public class Cliente extends Individuo{
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
 
     public static void setContador(int contador) {
         Cliente.contador = contador;
