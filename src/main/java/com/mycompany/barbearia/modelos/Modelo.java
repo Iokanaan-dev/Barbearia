@@ -4,7 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Utilidades.IdGerador;
+import com.mycompany.Utilidades.IdGerador;
 
 
 /**
@@ -14,7 +14,7 @@ public abstract class Modelo implements IdGerador {
     
 
     private String nome;
-    private final String id;
+    private String id;
 
     /**
      * Construtor para modelos que TÊM um nome (Cliente, Produto, Servico).
@@ -44,6 +44,10 @@ public abstract class Modelo implements IdGerador {
         return nome;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+   
     public void setNome(String nome) {
         this.nome = nome;
     }

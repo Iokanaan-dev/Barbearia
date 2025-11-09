@@ -4,7 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Utilidades.TipoDespesa;
+import com.mycompany.Utilidades.TipoDespesa;
 import java.time.LocalDate;
 import java.util.UUID;
 

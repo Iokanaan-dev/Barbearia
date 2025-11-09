@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Gerenciamento;
+package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Servico;
-import Utilidades.TipoEstacao;
+import com.mycompany.Utilidades.TipoEstacao;
 
         
 /**

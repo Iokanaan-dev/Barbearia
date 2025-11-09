@@ -1,15 +1,24 @@
 package com.mycompany.barbearia;
 
-import Utilidades.TipoEstacao;
+import com.mycompany.Gerenciamento.GestaoAgendamento;
+import com.mycompany.Gerenciamento.GestaoClientes;
+import com.mycompany.Gerenciamento.GestaoDespesas;
+import com.mycompany.Gerenciamento.GestaoProdutos;
+import com.mycompany.Gerenciamento.GestaoEstoque;
+import com.mycompany.Gerenciamento.GestaoServico;
+import com.mycompany.Gerenciamento.GestaoEstacao;
+import com.mycompany.Gerenciamento.GestaoUsuarios;
+import com.mycompany.Gerenciamento.GestaoFinanceira;
+import com.mycompany.Gerenciamento.GestaoListaEspera;
+import com.mycompany.Gerenciamento.GestaoOrdemServico;
+import com.mycompany.Utilidades.TipoEstacao;
 import com.mycompany.barbearia.modelos.*;
-import Gerenciamento.*;
-import Utilidades.TipoDespesa;
-import Utilidades.TipoUsuario;
+import com.mycompany.Utilidades.TipoDespesa;
+import com.mycompany.Utilidades.TipoUsuario;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 /**
  * Classe principal para testes de integração de todo o sistema.
  * @author italo

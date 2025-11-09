@@ -4,7 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Utilidades.TipoEstacao;
+import com.mycompany.Utilidades.TipoEstacao;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Gerenciamento;
+package com.mycompany.Gerenciamento;
 
-import Utilidades.StatusAtendimento;
+import com.mycompany.Utilidades.StatusAtendimento;
 import com.mycompany.barbearia.modelos.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

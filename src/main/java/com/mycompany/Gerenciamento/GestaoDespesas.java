@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Gerenciamento;
+package com.mycompany.Gerenciamento;
 
 import com.mycompany.barbearia.modelos.Despesa;
 import com.mycompany.barbearia.modelos.Gerente;
-import Utilidades.TipoDespesa;
+import com.mycompany.Utilidades.TipoDespesa;
 import com.mycompany.barbearia.modelos.Usuario;
 import java.time.LocalDate;
 import java.util.ArrayList;

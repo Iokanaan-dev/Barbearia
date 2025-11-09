@@ -4,7 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Utilidades.TipoEstacao;
+import com.mycompany.Utilidades.TipoEstacao;
 import java.util.UUID;
 
 /**

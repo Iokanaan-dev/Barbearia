@@ -1,4 +1,4 @@
-package Gerenciamento;
+package com.mycompany.Gerenciamento;
 
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Modelo;

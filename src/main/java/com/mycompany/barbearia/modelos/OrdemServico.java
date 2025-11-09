@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
-import Utilidades.StatusAtendimento;
+import com.mycompany.Utilidades.StatusAtendimento;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.HashMap;

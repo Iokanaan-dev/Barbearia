@@ -4,7 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import Utilidades.StatusAgendamento;
+import com.mycompany.Utilidades.StatusAgendamento;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
