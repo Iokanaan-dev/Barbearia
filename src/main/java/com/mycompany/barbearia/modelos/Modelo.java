@@ -5,13 +5,14 @@
 package com.mycompany.barbearia.modelos;
 
 import Utilidades.IdGerador;
-
+import java.util.UUID;
 
 /**
  * @author italo
  */
 public abstract class Modelo implements IdGerador {
     
+
     private String nome;
     private final String id;
 
@@ -29,6 +30,7 @@ public abstract class Modelo implements IdGerador {
      * Construtor para modelos que NÃO TÊM um nome (Agendamento, OrdemServico).
      */
     public Modelo() {
+        this.nome = null;
         this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId()
     }
     
@@ -41,11 +43,11 @@ public abstract class Modelo implements IdGerador {
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
     public String getId() {
         return id;
     }

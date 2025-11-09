@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import Utilidades.TipoEstacao;
+import java.util.UUID;
 
 /**
  * A duração é medida em slots que duram 30 minutos. EX: 2 slots 1 hora
@@ -14,7 +15,7 @@ public class Servico extends Modelo{
     private double preco;
     private String descricao;
     private  int tempoSlots;
-    private static int contador = 0;
+    //private static int contador = 0;
     private TipoEstacao tipoEstacaoRequerido;
 
     /**
@@ -95,7 +96,7 @@ public class Servico extends Modelo{
      */
     @Override
     public String gerarId() {
-        return "SE" + (++contador);
+        return "SE-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
     /**

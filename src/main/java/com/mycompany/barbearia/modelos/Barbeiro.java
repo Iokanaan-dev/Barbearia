@@ -4,12 +4,13 @@
  */
 package com.mycompany.barbearia.modelos;
 import java.time.LocalDate;
+import java.util.UUID;
 /**
  *
  * @author italo
  */
 public class Barbeiro extends Usuario{
-    private static int contador = 0;
+
      
     /**
      *
@@ -30,7 +31,7 @@ public class Barbeiro extends Usuario{
      */
     @Override
     public String gerarId() {
-        return "BA" + (++contador);
+        return "BA-" + UUID.randomUUID().toString().substring(0, 10);
     }
     
     @Override

@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import Utilidades.TipoEstacao;
+import java.util.UUID;
 
 /**
  *
@@ -12,7 +13,7 @@ import Utilidades.TipoEstacao;
  */
 public class Estacao extends Modelo{
     private String descricao;
-    private static int cont;
+
     private TipoEstacao tipo;
     
     public Estacao(String nome, String descricao, TipoEstacao tipo){
@@ -23,12 +24,16 @@ public class Estacao extends Modelo{
     
     @Override
     public String gerarId(){
-        return "ES" + (++cont);
+        return "ES-" + UUID.randomUUID().toString().substring(0, 10);
 
     }
 
     public TipoEstacao getTipo() {
         return tipo;
+    }
+
+    public void setTipo(TipoEstacao tipo) {
+        this.tipo = tipo;
     }
 
     public String getDiscricao() {

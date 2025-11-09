@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 /**
  *
@@ -12,6 +13,7 @@ import java.time.LocalDate;
  */
 public class Cliente extends Individuo{
     private String email;
+    protected static int contadorInstancia; 
     private static int contador = 0;
     
     /**
@@ -27,6 +29,7 @@ public class Cliente extends Individuo{
         super(nome, cpf, telefone, data_nascimento);
         this.validarEmail(email);
         this.email = email;
+        Cliente.contadorInstancia++;
     }
     
    private void validarEmail(String email) {
@@ -41,6 +44,15 @@ public class Cliente extends Individuo{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public static void setContador(int contador) {
+        Cliente.contador = contador;
+    }
+   
+
+    public int getContador() {
+        return contador;
+    }
       
     /**
      *
@@ -48,7 +60,7 @@ public class Cliente extends Individuo{
      */
     @Override
     public String gerarId() {
-        return "CL" + (++contador);
+        return "CL-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
     @Override
@@ -56,3 +68,12 @@ public class Cliente extends Individuo{
         return String.format("%nCliente %s%n%sE-mail: %s", getId(), super.toString(), getEmail());
     }
 }
+
+/*
+Usando private com métodos get e set, aplicamos corretamente o princípio do encapsulamento, garantindo que o atributo só possa ser acessado e modificado de maneira controlada. 
+Isso aumenta a segurança e a facilidade de manutenção do código, pois evita alterações indevidas e permite inserir validações nos métodos de acesso.
+A principal desvantagem dessa abordagem é a necessidade de criar os métodos get e set e sempre utilizá-los para manipular o atributo.
+
+Por outro lado, ao usar o modificador protected, o acesso ao atributo é mais direto e simples, já que ele pode ser acessado sem os métodos get e set pelas classes do mesmo pacote ou por subclasses. 
+Mas, isso implica em menor segurança, pois o atributo fica mais exposto e sujeito a modificações indevidas.
+*/

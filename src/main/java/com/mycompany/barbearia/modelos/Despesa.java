@@ -6,15 +6,14 @@ package com.mycompany.barbearia.modelos;
 
 import Utilidades.TipoDespesa;
 import java.time.LocalDate;
+import java.util.UUID;
 
 /**
  *
  * @author italo
  */
 public class Despesa extends Modelo{
-    
-    private int contador = 0;
-    
+   
     private double valor;
     private LocalDate dataPagamento;
     private TipoDespesa tipo;
@@ -37,6 +36,22 @@ public class Despesa extends Modelo{
         return dataPagamento;
     }
 
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public void setDataPagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
+    }
+
+    public void setTipo(TipoDespesa tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+    
     public TipoDespesa getTipo() {
         return tipo;
     }
@@ -47,6 +62,6 @@ public class Despesa extends Modelo{
     
     @Override
     public String gerarId() {
-        return "DESP" + (++contador);
+        return "DESP-" + UUID.randomUUID().toString().substring(0, 10);
     }
 }

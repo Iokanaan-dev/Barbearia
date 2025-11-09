@@ -1,5 +1,6 @@
 package Gerenciamento;
 
+import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Modelo;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -17,7 +18,7 @@ public abstract class Gestao<M extends Modelo>{
     // PARTE POLIMORIFCA DE GESTAO
     
     public ArrayList<M> getLista(){
-        return listaModelo;
+        return new ArrayList(this.listaModelo);
     }
 
     /**
@@ -30,6 +31,7 @@ public abstract class Gestao<M extends Modelo>{
         verificarModeloNulo(modelo);
         listaModelo.add(modelo);
     }
+
 
     /**
      * Busca um modelo na lista com base em seu ID.
@@ -112,7 +114,7 @@ public abstract class Gestao<M extends Modelo>{
      * @throws NoSuchElementException caso nenhum item com o ID seja encontrado.
      */
     public String getNomeItem(String Id) {
-
+        
         this.verificarId(Id);
 
         M modelo = buscarPorId(Id);
@@ -265,11 +267,12 @@ public abstract class Gestao<M extends Modelo>{
      * @return String
      */
     public String getNomeItem(ArrayList<M> lista, String Id) {
+        this.verificarCampoNulo(Id);
         M modelo = buscarPorId(lista, Id);
         
         if(modelo != null) {
             return modelo.getNome();
-        }
+        }   
         return "não encontrado";
     }
 

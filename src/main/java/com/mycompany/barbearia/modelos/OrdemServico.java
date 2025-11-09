@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  *
  * @author intalo
  */
 public class OrdemServico extends Modelo{
-    private static int contador = 0;
+    private static int contadorInstancias = 0;
     
     private String idCliente;
     private String idBarbeiro;
@@ -98,7 +99,7 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     }
 
     public static int getContador() {
-        return contador;
+        return contadorInstancias;
     }
 
     public double getValorTotalServicos() {
@@ -169,7 +170,7 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     @Override
     public String gerarId()
     {
-        return "OS" + ++contador;
+        return "OS-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
     @Override

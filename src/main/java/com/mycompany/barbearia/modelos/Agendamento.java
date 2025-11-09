@@ -7,6 +7,7 @@ package com.mycompany.barbearia.modelos;
 import Utilidades.StatusAgendamento;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 /**
@@ -17,8 +18,7 @@ import java.util.ArrayList;
 
 public class Agendamento extends Modelo{
      
-    private static int contador = 0;
-    //String nomeAgendamento;
+
     
     private final boolean isEncaixe;
     
@@ -114,6 +114,6 @@ public class Agendamento extends Modelo{
     
     @Override
     public String gerarId() {
-        return "AGE" + (++contador);
+        return "AGE-" + UUID.randomUUID().toString().substring(0, 10);
     }
 }

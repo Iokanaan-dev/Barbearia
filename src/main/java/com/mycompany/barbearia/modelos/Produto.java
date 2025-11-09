@@ -4,13 +4,14 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import java.util.UUID;
+
 /**
  *
  * @author italo
  */
 public class Produto extends Modelo{
     private double preco;
-    private static int contador = 0;
     private String descricao;
 
     /**
@@ -33,7 +34,7 @@ public class Produto extends Modelo{
      */
     @Override
     public String gerarId(){
-        return "PO" + (++contador);
+        return "PO-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
     /**

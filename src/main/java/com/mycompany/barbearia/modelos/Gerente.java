@@ -4,12 +4,12 @@
  */
 package com.mycompany.barbearia.modelos;
 import java.time.LocalDate;
+import java.util.UUID;
 /**
  *
  * @author italo
  */
 public class Gerente extends Usuario{
-    private static int contador = 0;
     
     private final String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
     
@@ -50,7 +50,7 @@ public class Gerente extends Usuario{
      */
     @Override
     public String gerarId() {
-        return "GE" + (++contador);
+        return "GE-" + UUID.randomUUID().toString().substring(0, 10);
     }
     
         @Override

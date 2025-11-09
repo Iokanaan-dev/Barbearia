@@ -27,6 +27,8 @@ public class Barbearia {
         return OrdemServico.getContador();
     }
     
+    
+    
 //
     /**
      *
@@ -48,8 +50,11 @@ public class Barbearia {
         gestaoC.cadastrar("Bianca Souza", "99900011122", "991990011", LocalDate.MIN, "bianca.souza@gmail.com");
         gestaoC.cadastrar("Thiago Nascimento", "00011122233", "999001122", LocalDate.MIN, "thiago.nascimento@gmail.com");
         
-        gestaoC.remover("CL11");
-        gestaoC.editar("CL2", "Zeca", "11111111111", "77777777", LocalDate.MIN, "mariana.alves@gmail.com");
+        gestaoC.remover(gestaoC.buscarPorNome("Italo Souza").get(0).getId());
+        
+        System.out.println(gestaoC.buscarPorNome("Mariana Alves").get(0));
+        
+        gestaoC.editar(gestaoC.buscarCPF("11122233344").getId(), "Zeca", "11111111111", "77777777", LocalDate.MIN, "mariana.alves@gmail.com");
         
         //gestaoC.printLista();
         gestaoC.printPorNome("Bianca");
@@ -83,8 +88,8 @@ public class Barbearia {
     gestaoU.printLista();
 
     // Exemplo de remoção e edição
-    gestaoU.remover("BA12"); 
-    gestaoU.editar("roberto.gerente", "90011223", "AT1", "Pedro Santos", "12322233344", "988765432", LocalDate.MIN);
+    gestaoU.remover(gestaoU.buscarPorNome("henrique nunes").get(0).getId()); 
+    gestaoU.editar("roberto.gerente", "90011223", gestaoU.buscarUsername("marina.dias").getId(), "Pedro Santos", "12322233344", "988765432", LocalDate.MIN);
 
     // Impressões
     gestaoU.printLista();
@@ -107,8 +112,8 @@ public class Barbearia {
     gestaoP.printLista();
 
     // Testes igual ao padrão dos usuários
-    gestaoP.remover("PO5"); // remove exemplo (depende do ID gerado no seu sistema)
-    gestaoP.editar("PO2", "Gel Fixador Extra", 22.90, "Brilho molhado extra forte");
+    gestaoP.remover(gestaoP.buscarPorNome("Peitoral Descartável").get(0).getId()); // remove exemplo (depende do ID gerado no seu sistema)
+    gestaoP.editar(gestaoP.buscarPorNome("Gel Fixador").get(0).getId(), "Gel Fixador Extra", 22.90, "Brilho molhado extra forte");
 
     //gestaoP.printLista();
     gestaoP.printPorNome("Cera");
@@ -134,11 +139,21 @@ public class Barbearia {
     gestaoS.cadastrar("Progressiva", 150.0, "Serviço químico com acabamento profissional", 6, TipoEstacao.LAVAGEM);
 
     // Testes
-    gestaoS.remover("SE1");
-    gestaoS.editar("SE15", "Polimento de Careca", 30.0, "Passar pano na careca", 4);
+    gestaoS.remover(gestaoS.buscarPorNome("Corte Social").get(0).getId());
+    gestaoS.editar(gestaoS.buscarPorNome("Progressiva").get(0).getId(), "Polimento de Careca", 30.0, "Passar pano na careca", 4);
 
     // gestaoS.printLista();
     gestaoS.printPorNome("Corte");
+    
+    
+    //Cliente clinete1 = gestaoC.buscarCPF("12312312312");
+    //Usuario useer1 = gestaoU.buscarPorNome("joao.silva").get(0);
+    
+    //clinete1.getContador();
+    
+    
+    
+    
     
     
     
