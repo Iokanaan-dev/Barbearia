@@ -5,7 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import Utilidades.IdGerador;
-import java.util.UUID;
+
 
 /**
  * @author italo
