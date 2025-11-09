@@ -16,7 +16,6 @@ import java.util.Map;
  */
 public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
-    private final ArrayList<OrdemServico> listaOS = new ArrayList<>();
     private static GestaoOrdemServico instancia;
     
     private final GestaoEstoque gestaoEstoque;
@@ -49,7 +48,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @return 
      */
     public ArrayList<OrdemServico> getLista() {
-        return new ArrayList<>(this.listaOS);
+        return new ArrayList<>(listaModelo);
     }
 
     /**
@@ -67,7 +66,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         
         this.recalcularValoresTotais(novaOS);
         
-        super.adicionar(this.listaOS, novaOS);
+        super.adicionar(novaOS);
         return novaOS;
     }
     
@@ -237,7 +236,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @return 
      */
     public OrdemServico buscarPorId(String id) {
-        return super.buscarPorId(this.listaOS, id);
+        return super.buscarPorId(id);
     }
 
     /**
@@ -261,14 +260,14 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @param id
      */
     public void remover(String id) {
-        super.remover(listaOS, id);
+        super.remover(id);
     }
 
     /**
      * Imprime a lista de OSs atual.
      */
     public void printLista() {
-        super.printLista(listaOS);
+        super.printLista(listaModelo);
     }
     
     /**
@@ -298,7 +297,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      */
     public ArrayList<OrdemServico> buscarOSCliente(String idCliente) {
         ArrayList<OrdemServico> osSelecionadas = new ArrayList<>();
-        for (OrdemServico os : this.listaOS) {
+        for (OrdemServico os : listaModelo) {
             if (os.getIdCliente().equals(idCliente)) {
                 
                 osSelecionadas.add(os);

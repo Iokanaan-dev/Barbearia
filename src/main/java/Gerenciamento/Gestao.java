@@ -2,6 +2,7 @@ package Gerenciamento;
 
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Modelo;
+import com.mycompany.barbearia.modelos.Usuario;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -151,6 +152,16 @@ public abstract class Gestao<M extends Modelo>{
 
         System.out.println();   
     }
+    
+    protected void printLista(ArrayList<M> listaFiltrada) {
+        if (listaFiltrada == null || listaFiltrada.isEmpty()) {
+            System.out.println("Nenhum item encontrado.");
+        } else {
+            for (Modelo m : listaFiltrada)
+                System.out.println(m);
+        }
+        System.out.println();   
+    }    
 
     /**
      * Imprime um item específico baseado no ID informado.
@@ -198,126 +209,6 @@ public abstract class Gestao<M extends Modelo>{
             throw new IllegalArgumentException("O objeto não pode ser nulo.");
     }
    
-  
-    // PARTE NAO POLIMORFICA=================================================
-
-    /**
-     * Adiciona um modelo à listaModelo.
-     * @param lista
-     * @param modelo
-     */
-    public void adicionar(ArrayList<M> lista, M modelo) {
-        lista.add(modelo);
-    }
-
-    /**
-     * Busca um modelo pelo ID.
-     * @param lista
-     * @param id
-     * @return M
-     */
-    public M buscarPorId(ArrayList<M> lista, String id) {
-        verificarId(id);
-        
-        for (M modelo : lista) {
-            if (modelo.getId().equals(id)) {
-                return modelo;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Busca modelos pelo nome (case-insensitive).
-     * @param lista
-     * @param nome
-     * @return ArrayList<>
-     */
-    public ArrayList<M> buscarPorNome(ArrayList<M> lista, String nome) {
-        ArrayList<M> encontrados = new ArrayList<>();
-
-        for (M modelo : lista) {
-            if (modelo.getNome().toLowerCase().contains(nome.toLowerCase())) {
-                encontrados.add(modelo);
-            }
-        }
-        return encontrados;
-    }
-    
-    /**
-     *
-     * @param lista
-     * @return
-     */
-    public String getNomesItens(ArrayList<M> lista) {
-        String nomesItensLista = String.format("%n");
-        if(lista.isEmpty())
-            return String.format("---%n");
-      
-        for(Modelo item: lista)
-            nomesItensLista += String.format("%s%n", item.getNome());
-        
-        return nomesItensLista;
-    }
-    
-    /**
-     * Retorna um nome de um modelo com base no seu ID
-     * @param lista
-     * @param Id
-     * @return String
-     */
-    public String getNomeItem(ArrayList<M> lista, String Id) {
-        this.verificarCampoNulo(Id);
-        M modelo = buscarPorId(lista, Id);
-        
-        if(modelo != null) {
-            return modelo.getNome();
-        }   
-        return "não encontrado";
-    }
-
-    /**
-     * Remove um modelo pelo ID.
-     * @param lista
-     * @param id
-     */
-    public void remover(ArrayList<M> lista, String id) {
-        if (id == null) {
-            throw new IllegalArgumentException("O ID não pode ser nulo.");
-        }
-
-        boolean encontrou = false;
-
-        for (int i = 0; i < lista.size(); i++) {
-            if (Objects.equals(lista.get(i).getId(), id)) {
-                lista.remove(i);
-                encontrou = true;
-                break; // remove só 1, tire se quiser remover todos
-            }
-        }
-
-        if (!encontrou) {
-            throw new NoSuchElementException("Nenhum item encontrado com o ID: " + id);
-        }
-    }
-
-
-    
-    /**
-     * Imprime a listaModelo de modelos passada
-     * @param modelos
-     */
-    public void printLista(ArrayList<M> modelos){
-        if(modelos == null || modelos.isEmpty()){
-            throw new IllegalArgumentException("Argumento invalido para print.");
-        }
-        else{
-            for (Modelo m : modelos)
-                System.out.println(m);
-        }
-        System.out.println();   
-    }
-    
     /**
      * Imprime a representaçao string de um modelo
      * @param modelo
@@ -329,5 +220,5 @@ public abstract class Gestao<M extends Modelo>{
         else {
             System.out.println(modelo.toString());
         }
-    }          
+    } 
 }

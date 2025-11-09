@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class GestaoEstoque extends Gestao<Produto> {
     private final Estoque estoque = new Estoque();
-    private final ArrayList<Produto> listaProdutosEstoque = new ArrayList<>();
+
     
     private static GestaoEstoque instancia;
     
@@ -40,7 +40,7 @@ public class GestaoEstoque extends Gestao<Produto> {
             throw new IllegalStateException("Produto já cadastrado no estoque.");
         }
 
-        listaProdutosEstoque.add(GestaoProdutos.getInstancia().buscarPorId(id));
+        listaModelo.add(GestaoProdutos.getInstancia().buscarPorId(id));
         estoque.setQuantidade(id, quantidade);
     }
 
@@ -68,7 +68,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @return ArrayList<>
      */
     public ArrayList<Produto> getLista() {
-        return listaProdutosEstoque;
+        return new ArrayList(listaModelo);
     }     
     
     /**
@@ -77,7 +77,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @return ArrayList<>
     */
     public ArrayList<Produto> buscarPorNome(String nome){
-        return super.buscarPorNome(this.listaProdutosEstoque, nome);
+       return super.buscarPorNome(nome);
     }
      
     /**
@@ -85,7 +85,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param nome
      */
     public void printPorNome(String nome){
-        super.printLista(buscarPorNome(nome));
+       // super.printLista(buscarPorNome(nome));
     }  
     
     /**
@@ -95,7 +95,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @return Cliente
      */
     public Produto buscarPorId(String id){
-        return super.buscarPorId(listaProdutosEstoque, id);
+        return super.buscarPorId(id);
     }
     
     /**
@@ -103,7 +103,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param id
      */
     public void printPorId(String id){
-        super.printItem(buscarPorId(id));
+       // super.printItem(buscarPorId(id));
     }
     
     /**
@@ -111,7 +111,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param id
      */
     public void remover(String id){
-        super.remover(listaProdutosEstoque, id);
+       // super.remover(listaProdutosEstoque, id);
     }
             
     public boolean verificacaoQuantidade(String id, int quantidade) {

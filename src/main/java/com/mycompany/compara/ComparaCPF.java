@@ -13,7 +13,7 @@ public class ComparaCPF {
     public abstract class Compara implements Comparator<Cliente>{
     @Override
     public int compare(Cliente cliente1, Cliente cliente2){
-        return cliente1.getCpf().compareTo(cliente2.getCpf());
+        return cliente1.getCpfAnonimizado().compareTo(cliente2.getCpfAnonimizado());
     }
 }
 }

@@ -45,8 +45,12 @@ public abstract class Individuo extends Modelo{
         }
     }
 
-    public String getCpf() {
+    public String getCpfAnonimizado() {
         return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setCpf(String cpf) {
@@ -74,6 +78,6 @@ public abstract class Individuo extends Modelo{
 
     @Override
     public String toString() {
-        return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpf(), getTelefone(), getDataNascimento());
+        return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());
     }
 }

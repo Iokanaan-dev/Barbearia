@@ -33,7 +33,7 @@ public class GestaoDespesas extends Gestao<Despesa> {
         }
         
         Despesa novaDespesa = new Despesa(nome, valor, data, tipo, obs);
-        super.adicionar(this.listaDespesas, novaDespesa);
+       // super.adicionar(this.listaDespesas, novaDespesa);
     }
     
     public ArrayList<Despesa> getList(Usuario user) throws Exception {
