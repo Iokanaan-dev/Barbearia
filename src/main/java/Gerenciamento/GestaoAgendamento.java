@@ -14,9 +14,7 @@ import java.util.ArrayList;
  * @author iarar
  */
 public class GestaoAgendamento extends Gestao<Agendamento> {
-    
-    private final ArrayList<Agendamento> agendamentos = new ArrayList<>();
-    
+     
     private final GestaoUsuarios gestaoUsuarios;
     private final GestaoEstacao gestaoEstacao;
     
@@ -52,13 +50,13 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      */
     public ArrayList<Agendamento> getLista() {
-        return new ArrayList<>(this.agendamentos);
+        return new ArrayList<>(this.listaModelo);
     }
     
     private boolean horarioOcupado(Modelo recurso, LocalDateTime inicio, LocalDateTime fim) {
         
 
-        for (Agendamento agendamentoExistente : this.agendamentos) {  
+        for (Agendamento agendamentoExistente : this.listaModelo) {  
             if (agendamentoExistente.getStatus() == StatusAgendamento.CANCELADO) continue;
             
             boolean colisaoRecurso = false;
@@ -124,7 +122,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         
      
         Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe);
-
+        super.adicionar(novoAgendamento);
         //super.adicionar(this.agendamentos, novoAgendamento);  
         return novoAgendamento;
     }
@@ -134,10 +132,10 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @param ID
      * @return
      * @throws Exception
-     
+    **/ 
     public Agendamento cancelarAgendamento(String ID) throws Exception {
 
-       // Agendamento agendamento = super.buscarPorId(this.agendamentos, ID);  
+        Agendamento agendamento = super.buscarPorId(ID);  
         
         if (agendamento == null) {
             throw new Exception("Esse agendamento não existe!");
@@ -161,7 +159,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         LocalDateTime agora = LocalDateTime.now();
         
 
-        for (Agendamento ag : this.agendamentos) {  
+        for (Agendamento ag : this.listaModelo) {  
             StatusAgendamento statusAtual = ag.getStatus();
             
             if (statusAtual == StatusAgendamento.PRE_AGENDADO) {
@@ -256,16 +254,16 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      */
     public ArrayList<Agendamento> getAgendamentos() {
-        return new ArrayList<>(this.agendamentos); 
+        return new ArrayList<>(this.listaModelo); 
     }
     
     /**
      *
      * @param ID
      * @return
-     
+    **/ 
     public Agendamento buscarAgendamentoID(String ID) {
-        return super.buscarPorId(this.agendamentos, ID); 
+        return super.buscarPorId(ID); 
     }
     
     /**
@@ -276,7 +274,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public ArrayList<Agendamento> buscarAgendamentoBarbeiro(Barbeiro barbeiro, LocalDate data) {
         ArrayList<Agendamento> resultados = new ArrayList<>();
-        for (Agendamento ag : this.agendamentos) { 
+        for (Agendamento ag : this.listaModelo) { 
             if (ag.getBarbeiro().getId().equals(barbeiro.getId()) && ag.getDataHoraInicioAgendamento().toLocalDate().isEqual(data)) {
                 resultados.add(ag);
             }
@@ -291,7 +289,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public ArrayList<Agendamento> buscarAgendamentoPorCliente(Cliente cliente) {
         ArrayList<Agendamento> resultados = new ArrayList<>();
-        for (Agendamento ag : this.agendamentos) {
+        for (Agendamento ag : this.listaModelo) {
             if (ag.getCliente().getId().equals(cliente.getId())) {
                 resultados.add(ag);
             }
