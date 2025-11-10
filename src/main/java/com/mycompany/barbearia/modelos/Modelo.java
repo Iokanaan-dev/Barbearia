@@ -7,7 +7,7 @@ package com.mycompany.barbearia.modelos;
 import com.mycompany.Utilidades.IdGerador;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import java.util.Objects;
+
 
 /**
  * @author italo
@@ -66,18 +66,5 @@ public abstract class Modelo implements IdGerador {
             return String.format("ID: %s", getId());
         
         return String.format("Nome: %s | ID: %s |", getNome(), getId());
-    }
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Modelo modelo = (Modelo) o;
-        return Objects.equals(id, modelo.id);
-    }
-
-    @Override
-    public int hashCode() {
-    return Objects.hash(id);
     }
 }

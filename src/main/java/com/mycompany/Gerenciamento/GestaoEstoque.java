@@ -5,6 +5,7 @@
 package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Estoque;
 import com.mycompany.barbearia.modelos.Produto;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,22 +15,28 @@ import java.util.Map;
  * @author italo
  */
 public class GestaoEstoque extends Gestao<Produto> {
-    private final Estoque estoque = new Estoque();
+    private Estoque estoque = new Estoque();
 
     
     private static GestaoEstoque instancia;
+    private Barbearia_date dados;
     
-    /**
-     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
-     * @return GestaoEstoque
-     */
-    public static GestaoEstoque getInstancia()
-    {
-        if(instancia == null)
-            instancia = new GestaoEstoque();
-        
+    private GestaoEstoque(Barbearia_date dados){
+        this.dados = dados;
+        listaModelo = dados.listaProdutos;
+        this.estoque = (Estoque) dados.estoque;
+    }
+    
+    public static void inicializa(Barbearia_date dados) {
+            if (instancia == null) {
+            instancia = new GestaoEstoque(dados);
+        }
+    }
+   
+    public static GestaoEstoque getInstancia(){
         return instancia;
-    }   
+    }    
+    
     
     public void adicionarAoEstoque(String id, int quantidade) {  
         if (!existeNoSistema(id)) {
@@ -93,7 +100,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param nome
      */
     public void printPorNome(String nome){
-       // super.printLista(buscarPorNome(nome));
+        super.printLista(buscarPorNome(nome));
     }  
     
     /**
@@ -111,7 +118,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param id
      */
     public void printPorId(String id){
-       // super.printItem(buscarPorId(id));
+        super.printItem(buscarPorId(id));
     }
     
     /**
@@ -119,7 +126,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * @param id
      */
     public void remover(String id){
-       // super.remover(listaProdutosEstoque, id);
+        super.remover(id);
     }
             
     public boolean verificacaoQuantidade(String id, int quantidade) {

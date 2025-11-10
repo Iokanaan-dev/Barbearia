@@ -3,6 +3,7 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.Utilidades.TipoEstacao;
 import com.mycompany.Utilidades.StatusAgendamento;
 import com.mycompany.barbearia.modelos.*;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -19,6 +20,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private final GestaoEstacao gestaoEstacao;
     
     private static GestaoAgendamento instancia;
+    private Barbearia_date dados;
 
     // --- Constantes ---
     private static final int PRE_AGENDAMENTO = 14;
@@ -26,27 +28,31 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
 
-    /**
-     * Construtor privado para Singleton.
-     */
-    private GestaoAgendamento() {
+        // 🔹 Construtor privado
+    private GestaoAgendamento(Barbearia_date dados) {
+        this.dados = dados;
+        this.listaModelo = dados.getListaAgendamentos();
         this.gestaoUsuarios = GestaoUsuarios.getInstancia();
         this.gestaoEstacao = GestaoEstacao.getInstancia();
     }
-    
-    /**
-     * Ponto de acesso global Singleton.
-     * @return 
-     */
+
+    // 🔹 Inicializa o Singleton (chama no main)
+    public static void inicializa(Barbearia_date dados) {
+        if (instancia == null) {
+            instancia = new GestaoAgendamento(dados);
+        }
+    }
+
+    // 🔹 Acesso global
     public static GestaoAgendamento getInstancia() {
         if (instancia == null) {
-            instancia = new GestaoAgendamento();
+            throw new IllegalStateException("GestaoAgendamento não foi inicializada. Chame inicializa(dados) primeiro.");
         }
         return instancia;
     }
     
     /**
-     * Retorna uma CÓPIA segura da lista de agendamentos.
+     * Retorna uma copia.
      * @return
      */
     public ArrayList<Agendamento> getLista() {

@@ -93,7 +93,4 @@ public abstract class Individuo extends Modelo{
     public String toString() {
         return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());
     }
-    
-
-
 }

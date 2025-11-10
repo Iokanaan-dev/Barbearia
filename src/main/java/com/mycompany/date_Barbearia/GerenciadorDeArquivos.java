@@ -19,7 +19,7 @@ public class GerenciadorDeArquivos {
 
     // 🔹 Salva (com merge automático)
     public static void salvar(Barbearia_date dados) {
-        try {
+        try { 
             File arquivo = new File(CAMINHO_ARQUIVO);
             mapper.writeValue(arquivo, dados);
             System.out.println("Dados salvos com sucesso!");
