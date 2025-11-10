@@ -18,7 +18,9 @@ import java.util.Stack;
 public class Barbearia_date {
     
     public ArrayList<Cliente> listaClientes = new ArrayList<>();
-    public ArrayList<Usuario> listaUsuarios = new ArrayList<>(); //acho que vai dar errado
+    public ArrayList<Gerente> listaGerentes = new ArrayList<>();
+    public ArrayList<Barbeiro> listaBarbeiros = new ArrayList<>();
+    public ArrayList<Atendente> listaAtendentes = new ArrayList<>();
     public ArrayList<Produto> listaProdutos = new ArrayList<>();
     public ArrayList<Servico> listaServicos = new ArrayList<>(); 
     public ArrayList<Despesa> listaDespesas = new ArrayList<>();
@@ -29,5 +31,7 @@ public class Barbearia_date {
     public ArrayList<Agendamento> listaAgendamentos = new ArrayList<>();
     public ArrayList<OrdemServico> listaOrdensServico = new ArrayList<>();
     public TabelaPonto tabelaPonto;
+    
+    public Barbearia_date(){}
    
 }

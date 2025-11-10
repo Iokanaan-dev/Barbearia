@@ -4,6 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
@@ -11,6 +12,7 @@ import java.time.ZoneId;
  * Classe que representa um par de entrada e saida
  * @author intalo
  */
+
 public class ParBatida {
     
     private LocalDateTime entrada;

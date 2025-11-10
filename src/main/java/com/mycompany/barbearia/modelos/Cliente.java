@@ -4,6 +4,9 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -11,6 +14,8 @@ import java.util.UUID;
  *
  * @author italo
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Cliente extends Individuo{
     private String email;
     protected static int contadorInstancia; 

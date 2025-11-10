@@ -3,12 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 import java.util.UUID;
 /**
  *
  * @author italo
- */
+ */@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class Gerente extends Usuario{
     
     private String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
@@ -29,7 +32,9 @@ public class Gerente extends Usuario{
         this.PIN_SEGURANCA = pinSeguranca;
     }
     
-    public Gerente(){}
+    public Gerente(){
+        
+    }
     
      private void validarPIN(String pin_seguranca){
         if(pin_seguranca == null || pin_seguranca.trim().length() < 4){

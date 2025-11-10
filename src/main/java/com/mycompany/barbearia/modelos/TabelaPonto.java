@@ -5,6 +5,7 @@
     package com.mycompany.barbearia.modelos;
 
    
+
     import java.util.ArrayList;
     import java.util.HashMap;
     import java.util.Map;
@@ -17,6 +18,7 @@
      * tipo ParBatida
      * @author intalo
      */
+
     public class TabelaPonto {
         private final Map<String, ArrayList<ParBatida>> tabelaPontos = new HashMap(); // A chave é o ID do Usuario (String), e as horas sao um par de objetos de entrada e saida.
 

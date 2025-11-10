@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Utilidades.StatusAtendimento;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ import java.util.UUID;
  *
  * @author intalo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class OrdemServico extends Modelo{
     private static int contadorInstancias = 0;
     

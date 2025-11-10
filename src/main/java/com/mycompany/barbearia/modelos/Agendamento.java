@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Utilidades.StatusAgendamento;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import java.util.UUID;
  * @author italo
  */
 
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Agendamento extends Modelo{
      
 

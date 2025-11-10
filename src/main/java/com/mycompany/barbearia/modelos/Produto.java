@@ -4,12 +4,15 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.UUID;
 
 /**
  *
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Produto extends Modelo{
     private double preco;
     private String descricao;

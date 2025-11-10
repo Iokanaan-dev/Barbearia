@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Utilidades.TipoEstacao;
 import java.util.UUID;
 
@@ -11,6 +13,7 @@ import java.util.UUID;
  * A duração é medida em slots que duram 30 minutos. EX: 2 slots 1 hora
  * @author intalo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Servico extends Modelo{
     private double preco;
     private String descricao;

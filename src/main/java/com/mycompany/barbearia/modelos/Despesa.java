@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Utilidades.TipoDespesa;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -12,6 +14,7 @@ import java.util.UUID;
  *
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Despesa extends Modelo{
    
     private double valor;

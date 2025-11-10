@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ import java.util.Map;
  *
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Estoque {
     private final Map<String, Integer> tabelaEstoque = new HashMap<>(); // A chave é o ID do Produto (String), e a quantidade é (Integer).
     

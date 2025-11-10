@@ -3,12 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 import java.util.UUID;
 /**
  *
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Atendente extends Usuario{
 
     
@@ -25,7 +28,9 @@ public class Atendente extends Usuario{
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
     
-    public Atendente(){}
+    public Atendente(){
+        
+    }
     
     /**
      *

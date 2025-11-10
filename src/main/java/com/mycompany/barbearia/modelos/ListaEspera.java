@@ -4,8 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import com.mycompany.Utilidades.TipoEstacao;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
  *
  * @author italo
  */
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class ListaEspera {
     
     private Cliente cliente;

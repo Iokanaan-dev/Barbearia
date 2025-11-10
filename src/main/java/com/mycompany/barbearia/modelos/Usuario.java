@@ -3,13 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 
 /**
  * // classe que representa um usuario do sistema, um funcionario padrao ou adm
  * @author italo
  */
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Usuario extends Individuo{
+    
+    public Usuario(){
+        
+    }
     
     private String username;
     private String senha;
@@ -31,8 +38,6 @@ public abstract class Usuario extends Individuo{
         validarSenha(senha);
         this.senha = senha;
     }
-    
-    public Usuario(){}
     
     /**
      *
@@ -124,5 +129,18 @@ public abstract class Usuario extends Individuo{
     public String toString() {
         return String.format("%sUsername: %s",super.toString(), getUsername()); 
     }
+    
+    @Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Usuario u = (Usuario) o;
+    return username != null && username.equals(u.username);
+}
+
+@Override
+public int hashCode() {
+    return username == null ? 0 : username.hashCode();
+}
 }
     

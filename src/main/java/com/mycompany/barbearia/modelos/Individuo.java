@@ -3,11 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.barbearia.modelos;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 /**
  *
  * @author italo
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Individuo extends Modelo{
     private String cpf;
     private String telefone;
@@ -25,7 +30,9 @@ public abstract class Individuo extends Modelo{
         this.dataNascimento = dataNascimento;
     }
     
-    public Individuo(){}
+    public Individuo() {
+       
+    }
     
     //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
     //public abstract String gerarId();
@@ -47,16 +54,15 @@ public abstract class Individuo extends Modelo{
             throw new IllegalArgumentException("Data de nascimento inválida!");
         }
     }
-
+    
+    public String getCpf() {
+        return cpf;
+    }
+    
     public String getCpfAnonimizado() {
         return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
     }
     
-    
-
-    public String getCpf() {
-        return cpf;
-    }
 
     public void setCpf(String cpf) {
         validarCpf(cpf);
@@ -85,4 +91,16 @@ public abstract class Individuo extends Modelo{
     public String toString() {
         return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());
     }
+    @Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Cliente cliente = (Cliente) o;
+    return cpf != null && cpf.equals(cliente.getCpf());
+}
+
+@Override
+public int hashCode() {
+    return cpf == null ? 0 : cpf.hashCode();
+}
 }

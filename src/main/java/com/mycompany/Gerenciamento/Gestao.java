@@ -30,6 +30,11 @@ public abstract class Gestao<M extends Modelo>{
      */
     public void adicionar(M modelo){
         verificarModeloNulo(modelo);
+    if (listaModelo.contains(modelo)) {
+        System.out.println("⚠️ Objeto já existente. Ignorando...");
+        return;
+    }
+        
         listaModelo.add(modelo);
     }
 

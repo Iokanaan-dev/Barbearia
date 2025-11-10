@@ -7,6 +7,7 @@ package com.mycompany.barbearia.modelos;
 import com.mycompany.Utilidades.IdGerador;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.util.Objects;
 
 /**
  * @author italo
@@ -32,7 +33,7 @@ public abstract class Modelo implements IdGerador {
      * Construtor para modelos que NÃO TÊM um nome (Agendamento, OrdemServico).
      */
     public Modelo() {
-        this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId()
+       // this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId() //comentei pra usar o json daquele naipe 
     }
     
  
@@ -64,4 +65,20 @@ public abstract class Modelo implements IdGerador {
         
         return String.format("Nome: %s | ID: %s |", getNome(), getId());
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Modelo outro = (Modelo) obj;
+        return Objects.equals(this.getId(), outro.getId());
+}
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getId());
+    }
+    
+    
+
 }
