@@ -47,7 +47,9 @@ public class Servico extends Modelo{
         this.tipoEstacaoRequerido = tipoRequerido;
     }
     
-    public Servico(){}
+    public Servico(){
+        super();
+    }
 
     /**
      *

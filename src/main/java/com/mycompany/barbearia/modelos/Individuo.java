@@ -31,7 +31,7 @@ public abstract class Individuo extends Modelo{
     }
     
     public Individuo() {
-       
+        super();
     }
     
     //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
@@ -91,16 +91,21 @@ public abstract class Individuo extends Modelo{
     public String toString() {
         return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());
     }
+    
     @Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Cliente cliente = (Cliente) o;
-    return cpf != null && cpf.equals(cliente.getCpf());
-}
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // mesma referência
+        if (obj == null || getClass() != obj.getClass()) return false; // classes diferentes
 
-@Override
-public int hashCode() {
-    return cpf == null ? 0 : cpf.hashCode();
-}
+        Individuo outro = (Individuo) obj;
+
+        // Se CPF for nulo, não dá pra comparar
+        return cpf != null && cpf.equals(outro.cpf);
+    }
+
+    @Override
+    public int hashCode() {
+        return cpf != null ? cpf.hashCode() : 0;
+    }
+
 }

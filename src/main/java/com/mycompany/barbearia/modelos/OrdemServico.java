@@ -37,7 +37,8 @@ public class OrdemServico extends Modelo{
     private double valorTaxaCancelamento_35pct;
 
 public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, String observacoes) {
-        
+    
+        super(null);
         this.idCliente = cliente.getId();
         this.idBarbeiro = barbeiro.getId();
         this.dataExecucao = dataExecucao;
@@ -55,7 +56,9 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
             this(cliente, barbeiro, dataExecucao, "---");
     }
     
-    public OrdemServico(){}
+    public OrdemServico(){
+        super();
+    }
     
     public void adicionarProdutoVendido(Produto produto, int quantidade) {
         String produtoId = produto.getId();

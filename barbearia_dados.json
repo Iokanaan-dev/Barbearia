@@ -1,48 +1,123 @@
 {
-  "listaClientes" : [ {
-    "id" : "CL-41951aac-b",
-    "nome" : "Italo",
-    "cpf" : "12755050667",
-    "telefone" : "38998060657",
-    "dataNascimento" : "1991-12-31",
-    "email" : "Italof4531@gmail.com",
-    "contador" : 0,
-    "cpfAnonimizado" : "*****50667"
-  }, {
-    "id" : "CL-6ba0628f-3",
-    "nome" : "Italo",
-    "cpf" : "12755050667",
-    "telefone" : "38998060657",
-    "dataNascimento" : "1991-12-31",
-    "email" : "Italof4531@gmail.com",
-    "contador" : 0,
-    "cpfAnonimizado" : "*****50667"
-  } ],
-  "listaGerentes" : [ {
-    "id" : "GE-38d3871e-7",
-    "nome" : "pedrim",
-    "cpf" : "28391293921",
-    "telefone" : "38998070792",
-    "dataNascimento" : "1991-12-31",
-    "username" : "pedrim123",
-    "cpfAnonimizado" : "*****93921"
-  }, {
-    "id" : "GE-2952e25a-a",
-    "nome" : "pedrim",
-    "cpf" : "28391293921",
-    "telefone" : "38998070792",
-    "dataNascimento" : "1991-12-31",
-    "username" : "pedrim123",
-    "cpfAnonimizado" : "*****93921"
-  } ],
-  "listaBarbeiros" : [ ],
-  "listaAtendentes" : [ ],
-  "listaProdutos" : [ ],
-  "listaServicos" : [ ],
-  "listaDespesas" : [ ],
-  "estoque" : { },
-  "listaDeEspera" : [ ],
-  "listaAgendamentos" : [ ],
-  "listaOrdensServico" : [ ],
-  "tabelaPonto" : null
+  "listaClientes": [
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-d71bfae5-a"
+    },
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-0afa1038-5"
+    },
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-c802e7a5-d"
+    },
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-8cef4311-d"
+    },
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-7bb94d32-f"
+    },
+    {
+      "email": "Italof4531@gmail.com",
+      "cpf": "12755050667",
+      "telefone": "38998060657",
+      "dataNascimento": "1991-12-31",
+      "nome": "Italo",
+      "id": "CL-9fc17aee-9"
+    }
+  ],
+  "listaGerentes": [
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-fc1accb5-0"
+    },
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-5e5e2dd5-5"
+    },
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-37c2bee4-7"
+    },
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-76719735-c"
+    },
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-31ae135c-b"
+    },
+    {
+      "PIN_SEGURANCA": "9090",
+      "username": "pedrim123",
+      "senha": "Pedrim1234",
+      "cpf": "28391293921",
+      "telefone": "38998070792",
+      "dataNascimento": "1991-12-31",
+      "nome": "pedrim",
+      "id": "GE-2a4d83b7-9"
+    }
+  ],
+  "listaBarbeiros": [],
+  "listaAtendentes": [],
+  "listaProdutos": [],
+  "listaServicos": [],
+  "listaDespesas": [],
+  "estoque": {},
+  "listaDeEspera": [],
+  "listaAgendamentos": [],
+  "listaOrdensServico": []
 }

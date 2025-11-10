@@ -33,8 +33,8 @@ public class Gerente extends Usuario{
     }
     
     public Gerente(){
-        
-    }
+        super();
+    }   
     
      private void validarPIN(String pin_seguranca){
         if(pin_seguranca == null || pin_seguranca.trim().length() < 4){
@@ -64,4 +64,6 @@ public class Gerente extends Usuario{
     public String toString(){
         return String.format("%nGerente %s%n%s", getId(), super.toString()); 
     }
+    
+    
 }

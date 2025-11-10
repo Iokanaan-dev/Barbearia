@@ -31,7 +31,9 @@ public class Despesa extends Modelo{
         this.observacoes = observacoes;
     }
     
-    public Despesa(){}
+    public Despesa(){
+        super();
+    }
 
     public double getValor() {
         return valor;

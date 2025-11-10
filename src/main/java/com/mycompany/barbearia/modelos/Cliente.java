@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -37,7 +38,9 @@ public class Cliente extends Individuo{
         Cliente.contadorInstancia++;
     }
     
-    public Cliente(){}
+    public Cliente(){
+        super();
+    }
     
    private void validarEmail(String email) {
         if (email == null || email.length() < 8 || !(email.contains("@")) || !(email.contains(".com")))
@@ -76,6 +79,7 @@ public class Cliente extends Individuo{
     public String toString() {
         return String.format("%nCliente %s%n%sE-mail: %s", getId(), super.toString(), getEmail());
     }
+   
 }
 
 /*

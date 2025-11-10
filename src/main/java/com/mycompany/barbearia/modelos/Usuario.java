@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public abstract class Usuario extends Individuo{
     
     public Usuario(){
-        
+        super();
     }
     
     private String username;
@@ -129,18 +129,5 @@ public abstract class Usuario extends Individuo{
     public String toString() {
         return String.format("%sUsername: %s",super.toString(), getUsername()); 
     }
-    
-    @Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Usuario u = (Usuario) o;
-    return username != null && username.equals(u.username);
-}
-
-@Override
-public int hashCode() {
-    return username == null ? 0 : username.hashCode();
-}
 }
     

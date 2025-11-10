@@ -22,7 +22,9 @@ public class Estacao extends Modelo{
         this.tipo = tipo;
     }
     
-    public Estacao(){}
+    public Estacao(){
+        super();
+    }
     
     @Override
     public String gerarId(){

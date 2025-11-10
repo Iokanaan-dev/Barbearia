@@ -33,5 +33,52 @@ public class Barbearia_date {
     public TabelaPonto tabelaPonto;
     
     public Barbearia_date(){}
-   
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public ArrayList<Gerente> getListaGerentes() {
+        return listaGerentes;
+    }
+
+    public ArrayList<Barbeiro> getListaBarbeiros() {
+        return listaBarbeiros;
+    }
+
+    public ArrayList<Atendente> getListaAtendentes() {
+        return listaAtendentes;
+    }
+
+    public ArrayList<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public ArrayList<Servico> getListaServicos() {
+        return listaServicos;
+    }
+
+    public ArrayList<Despesa> getListaDespesas() {
+        return listaDespesas;
+    }
+
+    public Map<String, Integer> getEstoque() {
+        return estoque;
+    }
+
+    public Stack<ListaEspera> getListaDeEspera() {
+        return listaDeEspera;
+    }
+
+    public ArrayList<Agendamento> getListaAgendamentos() {
+        return listaAgendamentos;
+    }
+
+    public ArrayList<OrdemServico> getListaOrdensServico() {
+        return listaOrdensServico;
+    }
+
+    public TabelaPonto getTabelaPonto() {
+        return tabelaPonto;
+    }
 }

@@ -29,7 +29,7 @@ public class Barbeiro extends Usuario{
     }
     
     public Barbeiro(){
-     
+        super();
     }
  
     /**

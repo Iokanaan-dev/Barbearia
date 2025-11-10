@@ -26,7 +26,9 @@ public abstract class Modelo implements IdGerador {
     public Modelo(String nome) {
         validarNome(nome);
         this.nome = nome;
-        this.id = this.gerarId(); // A subclasse (ex: Cliente) implementa gerarId()
+        if (this.id == null) {
+        this.id = this.gerarId();
+        }
     }
 
     /**
@@ -67,18 +69,15 @@ public abstract class Modelo implements IdGerador {
     }
     
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Modelo outro = (Modelo) obj;
-        return Objects.equals(this.getId(), outro.getId());
-}
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Modelo modelo = (Modelo) o;
+        return Objects.equals(id, modelo.id);
+    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getId());
+    return Objects.hash(id);
     }
-    
-    
-
 }

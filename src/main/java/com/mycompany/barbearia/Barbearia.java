@@ -36,8 +36,8 @@ public class Barbearia {
         
         
         
-        dados.listaGerentes.add((Gerente) pedrim);
-        dados.listaClientes.add(new Cliente("Italo", "12755050667", "38998060657", data1 , "Italof4531@gmail.com"));
+       dados.listaGerentes.add((Gerente) pedrim);
+       dados.listaClientes.add(new Cliente("Italo", "12755050667", "38998060657", data1 , "Italof4531@gmail.com")); 
 
         // 🔹 Salva as mudanças
         GerenciadorDeArquivos.salvar(dados);

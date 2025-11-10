@@ -7,6 +7,8 @@ package com.mycompany.Gerenciamento;
 //import java.util.ArrayList;
 import com.mycompany.barbearia.modelos.Cliente;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -14,7 +16,7 @@ import java.util.NoSuchElementException;
  * @author italo
  */
 public class GestaoClientes extends Gestao<Cliente> {   
-    
+   
     private static GestaoClientes instancia;
     
     /**
