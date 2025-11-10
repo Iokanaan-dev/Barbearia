@@ -1,13 +1,13 @@
 {
   "listaClientes" : [ {
-    "id" : "CL-7fc1c67b-6",
+    "id" : "CL-2f859996-8",
     "nome" : "Italo",
     "cpf" : "12755050667",
     "telefone" : "38998060657",
     "dataNascimento" : "1991-12-31",
     "email" : "Italof5631@gmail.com",
     "contador" : 0
-  }, "CL-7fc1c67b-6" ],
+  }, "CL-2f859996-8" ],
   "listaGerentes" : [ ],
   "listaBarbeiros" : [ ],
   "listaAtendentes" : [ ],
