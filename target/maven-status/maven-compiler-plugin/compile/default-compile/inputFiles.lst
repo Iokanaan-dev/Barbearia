@@ -6,7 +6,6 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\ComparaCPF.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoUsuarios.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\TipoUsuario.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoPonto.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\JacksonBarbearia\GerenciadorDeArquivos.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agenda.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\ParBatida.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoClientes.java
@@ -18,10 +17,11 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoDes
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\IdGerador.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Estacao.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\ComparaAgendamentoHORA.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\date_Barbearia\Barbearia_date.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Produto.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoAgendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoProdutos.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\JacksonBarbearia\Barbearia_date.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\date_Barbearia\GerenciadorDeArquivos.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\ListaEspera.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Gerente.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoOrdemServico.java

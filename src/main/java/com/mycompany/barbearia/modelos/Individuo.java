@@ -4,6 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
@@ -59,6 +60,7 @@ public abstract class Individuo extends Modelo{
         return cpf;
     }
     
+    @JsonIgnore 
     public String getCpfAnonimizado() {
         return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
     }
@@ -92,20 +94,6 @@ public abstract class Individuo extends Modelo{
         return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());
     }
     
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true; // mesma referência
-        if (obj == null || getClass() != obj.getClass()) return false; // classes diferentes
 
-        Individuo outro = (Individuo) obj;
-
-        // Se CPF for nulo, não dá pra comparar
-        return cpf != null && cpf.equals(outro.cpf);
-    }
-
-    @Override
-    public int hashCode() {
-        return cpf != null ? cpf.hashCode() : 0;
-    }
 
 }

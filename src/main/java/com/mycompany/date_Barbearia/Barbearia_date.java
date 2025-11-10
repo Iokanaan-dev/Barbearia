@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.mycompany.JacksonBarbearia;
+package com.mycompany.date_Barbearia;
 
 import com.mycompany.barbearia.modelos.*;
 import java.util.ArrayList;
