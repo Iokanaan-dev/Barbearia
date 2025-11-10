@@ -1,16 +1,58 @@
 {
   "listaClientes" : [ {
-    "id" : "CL-cb7a6b68-6",
+    "id" : "CL-7f7aa312-1",
     "nome" : "Italo",
     "cpf" : "12755050667",
     "telefone" : "38998060657",
     "dataNascimento" : "1991-12-31",
     "email" : "Italof5631@gmail.com",
     "contador" : 0
-  }, "CL-cb7a6b68-6" ],
-  "listaGerentes" : [ ],
-  "listaBarbeiros" : [ ],
-  "listaAtendentes" : [ ],
+  }, "CL-7f7aa312-1", "CL-7f7aa312-1" ],
+  "listaGerentes" : [ {
+    "id" : "GE-f448827b-e",
+    "nome" : "pedrim",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "pedrim123"
+  }, {
+    "id" : "GE-09058379-7",
+    "nome" : "pedrim",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "pedrim123"
+  } ],
+  "listaBarbeiros" : [ {
+    "id" : "BA-ab345951-f",
+    "nome" : "itim",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "itim123"
+  }, {
+    "id" : "BA-ddd887d5-c",
+    "nome" : "itim",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "itim123"
+  } ],
+  "listaAtendentes" : [ {
+    "id" : "AT-0ca001b8-1",
+    "nome" : "itao",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "itao123"
+  }, {
+    "id" : "AT-c5e393c4-c",
+    "nome" : "itao",
+    "cpf" : "28391293921",
+    "telefone" : "38998070792",
+    "dataNascimento" : "1991-12-31",
+    "username" : "itao123"
+  } ],
   "listaProdutos" : [ ],
   "listaServicos" : [ ],
   "listaDespesas" : [ ],

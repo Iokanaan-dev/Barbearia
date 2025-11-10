@@ -11,6 +11,7 @@ import com.mycompany.barbearia.modelos.Usuario;
 import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
 
 /**
@@ -21,16 +22,24 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
  //   private final ArrayList<Usuario> listaUsuarios = new ArrayList();
     
     private static GestaoUsuarios instancia;
-    
-    /**
-     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
-     * @return GestaoUsuarios
-     */
-    public static GestaoUsuarios getInstancia()
-    {
-        if(instancia == null)
-            instancia = new GestaoUsuarios();
-        
+    private Barbearia_date dados;
+
+private GestaoUsuarios(Barbearia_date dados) {
+    this.dados = dados;
+    this.listaModelo = new ArrayList<>();
+    this.listaModelo.addAll(dados.getListaGerentes());
+    this.listaModelo.addAll(dados.getListaBarbeiros());
+    this.listaModelo.addAll(dados.getListaAtendentes());
+}
+
+
+    public static void inicializar(Barbearia_date dados) {
+        if (instancia == null) {
+            instancia = new GestaoUsuarios(dados);
+        }
+    }
+
+    public static GestaoUsuarios getInstancia() {
         return instancia;
     }
     

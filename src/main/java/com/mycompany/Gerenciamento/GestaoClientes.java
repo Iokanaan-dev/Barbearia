@@ -8,8 +8,6 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -21,7 +19,7 @@ public class GestaoClientes extends Gestao<Cliente> {
     private static GestaoClientes instancia;
     private Barbearia_date dados;
     
-    GestaoClientes(Barbearia_date dados) {
+    private GestaoClientes(Barbearia_date dados) {
         this.dados = dados;
         this.listaModelo = dados.getListaClientes();
     }    
@@ -48,20 +46,7 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @param dataNascimento
      * @param email
      */
-    public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{
-        
-        try {
-            Cliente clienteExistente = this.buscarCPF(cpf);
-            
-           
-            // um cliente (clienteExistente != null), o que é um erro.
-            if (clienteExistente != null) {
-                throw new Exception("Erro de Duplicidade: Já existe um cliente cadastrado com o CPF: " + cpf);
-            }
-            
-        } catch (NoSuchElementException e) {
-        }
-        
+    public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{        
         Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
         super.adicionar(novoCliente);
     }

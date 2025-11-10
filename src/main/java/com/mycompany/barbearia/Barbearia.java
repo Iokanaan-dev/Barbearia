@@ -24,6 +24,7 @@ public class Barbearia {
         // 🔹 Carrega os dados existentes ou cria novos
         Barbearia_date dados = GerenciadorDeArquivos.carregar();
         GestaoClientes.inicializar(dados);
+        GestaoUsuarios.inicializar(dados);
 
         // 🔹 Manipula normalmente
         
@@ -34,18 +35,18 @@ public class Barbearia {
         Cliente italo = gestaoC.buscarCPF("12755050667");
         
         GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
-        gestaoU.cadastrar("itim123", "Pedrim1234", "pedrim", "28391293921", "38998070792", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("itao123", "Pedrim1234", "pedrim", "28391293921", "38998070792", data1, TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("itim123", "Pedrim1234", "itim", "28391293921", "38998070792", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("itao123", "Pedrim1234", "itao", "28391293921", "38998070792", data1, TipoUsuario.ATENDENTE);
         gestaoU.cadastrar("pedrim123", "Pedrim1234", "pedrim", "28391293921", "38998070792", data1, TipoUsuario.GERENTE, "9090");
     
-       //Usuario pedrim = gestaoU.buscarUsername("pedrim123");
-       //Usuario itim = gestaoU.buscarUsername("itao123");
-       //Usuario itao = gestaoU.buscarUsername("itim123");
+       Gerente pedrim = (Gerente) gestaoU.buscarUsername("pedrim123");
+       Barbeiro itim = (Barbeiro) gestaoU.buscarUsername("itim123");
+       Atendente itao = (Atendente) gestaoU.buscarUsername("itao123");
         
        dados.listaClientes.add(italo);
-       //dados.listaGerentes.add((Gerente) pedrim);
-       //dados.listaGerentes.add((Gerente) itim);
-       //dados.listaGerentes.add((Gerente)itao);
+       dados.listaGerentes.add(pedrim);
+       dados.listaBarbeiros.add(itim);
+       dados.listaAtendentes.add(itao);
 
         // 🔹 Salva as mudanças
         GerenciadorDeArquivos.salvar(dados);

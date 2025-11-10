@@ -35,7 +35,7 @@ public abstract class Modelo implements IdGerador {
      * Construtor para modelos que NÃO TÊM um nome (Agendamento, OrdemServico).
      */
     public Modelo() {
-       // this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId() //comentei pra usar o json daquele naipe 
+       this.id = this.gerarId(); // A subclasse (ex: Agendamento) implementa gerarId() //comentei pra usar o json daquele naipe 
     }
     
  
