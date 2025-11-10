@@ -28,17 +28,6 @@ public class GerenciadorDeArquivos {
         }
     }
 
-
-    // 🔁 Função genérica para mesclar listas sem duplicar
-    private static <T> void mesclarListasSemDuplicar(List<T> listaExistente, List<T> listaNova) {
-        if (listaExistente == null || listaNova == null) return;
-        for (T itemNovo : listaNova) {
-            if (!listaExistente.contains(itemNovo)) {
-                listaExistente.add(itemNovo);
-            }
-        }
-    }
-
     // 🔹 Carrega os dados do arquivo e retorna a instância
     public static Barbearia_date carregar() {
         try {
