@@ -5,6 +5,7 @@
 package com.mycompany.Gerenciamento;
 
 import com.mycompany.barbearia.modelos.*;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -15,15 +16,22 @@ import java.util.Stack;
  */
 public class GestaoListaEspera {
     
-    private final Stack<ListaEspera> pilhaEspera = new Stack();
+    private Stack<ListaEspera> pilhaEspera = new Stack<>();
     private static GestaoListaEspera instancia;
+    private Barbearia_date dados;
     
-    private GestaoListaEspera(){}
+    private GestaoListaEspera(Barbearia_date dados ){
+        this.dados = dados;
+        this.pilhaEspera = dados.getListaDeEspera();
+    }
+    
+    public static void inicializar(Barbearia_date dados){
+        if(instancia == null){
+            instancia = new GestaoListaEspera(dados);
+        }
+    }
     
     public static GestaoListaEspera getInstancia(){
-        if(instancia == null){
-            instancia = new GestaoListaEspera();
-        }
         return instancia;
     }
     
