@@ -16,6 +16,8 @@ public class GestaoServico extends Gestao <Servico>{
     
     private final ArrayList<Servico> listaServicos = new ArrayList();
     
+    private static int contador = 0;
+    
     private static GestaoServico instancia;
     
     /**
@@ -127,6 +129,7 @@ public class GestaoServico extends Gestao <Servico>{
      * @param servico
      */
     public void cadastrar(Servico servico){
+        servico.setId("SE" + ++contador);
         adicionar(listaServicos, servico);
     }
     

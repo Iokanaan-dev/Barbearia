@@ -12,7 +12,7 @@ import Utilidades.IdGerador;
  */
 public abstract class Modelo implements IdGerador {
     private String nome;
-    private final String id;
+    private String id;
 
     /**
      * Construtor para modelos que TÊM um nome (Cliente, Produto, Servico).
@@ -20,7 +20,7 @@ public abstract class Modelo implements IdGerador {
     public Modelo(String nome) {
         validarNome(nome);
         this.nome = nome;
-        this.id = this.gerarId(); // A subclasse (ex: Cliente) implementa gerarId()
+        //this.id = this.gerarId(); // A subclasse (ex: Cliente) implementa gerarId()
     }
 
     /**
@@ -46,6 +46,10 @@ public abstract class Modelo implements IdGerador {
 
     public String getId() {
         return id;
+    }
+    
+    public void setId(String id){
+        this.id = id;
     }
 
     @Override
