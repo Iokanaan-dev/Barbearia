@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe que gerencia agendamentos
  * @author italo
  */
 public class GestaoAgendamento extends Gestao<Agendamento> {
@@ -20,7 +20,6 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private final GestaoEstacao gestaoEstacao;
     
     private static GestaoAgendamento instancia;
-    private Barbearia_date dados;
 
     // --- Constantes ---
     private static final int PRE_AGENDAMENTO = 14;
@@ -28,15 +27,19 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
 
-        // 🔹 Construtor privado
+    // 🔹 Construtor privado
     private GestaoAgendamento(Barbearia_date dados) {
-        this.dados = dados;
         this.listaModelo = dados.getListaAgendamentos();
         this.gestaoUsuarios = GestaoUsuarios.getInstancia();
         this.gestaoEstacao = GestaoEstacao.getInstancia();
     }
 
     // 🔹 Inicializa o Singleton (chama no main)
+
+    /**
+     *
+     * @param dados
+     */
     public static void inicializa(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoAgendamento(dados);
@@ -44,6 +47,11 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
 
     // 🔹 Acesso global
+
+    /**
+     *
+     * @return
+     */
     public static GestaoAgendamento getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoAgendamento não foi inicializada. Chame inicializa(dados) primeiro.");
@@ -52,43 +60,40 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     * Retorna uma copia.
+     * Verifica se um horario esta ocupado
      * @return
-     */
-    public ArrayList<Agendamento> getLista() {
-        return new ArrayList<>(this.listaModelo);
-    }
-    
+     */    
     private boolean horarioOcupado(Modelo recurso, LocalDateTime inicio, LocalDateTime fim) {
         
-
+        // verifica cada agendamento na lista para obter seu status
         for (Agendamento agendamentoExistente : this.listaModelo) {  
             if (agendamentoExistente.getStatus() == StatusAgendamento.CANCELADO) continue;
             
+            // variavel de controle
             boolean colisaoRecurso = false;
-            if (recurso instanceof Barbeiro && agendamentoExistente.getBarbeiro().getId().equals(recurso.getId())) {
-                colisaoRecurso = true;
-            } 
-
-            else if (recurso instanceof Estacao && agendamentoExistente.getEstacao().getId().equals(recurso.getId())) { 
-                colisaoRecurso = true;
-            }
             
-            if (colisaoRecurso) {
+            if (recurso instanceof Barbeiro && agendamentoExistente.getBarbeiro().getId().equals(recurso.getId())) 
+                colisaoRecurso = true;
 
+            else if (recurso instanceof Estacao && agendamentoExistente.getEstacao().getId().equals(recurso.getId()))
+                colisaoRecurso = true;
+     
+            // verifica se o recurso ja esa sendo utilizado
+            if (colisaoRecurso) {
+                
                 LocalDateTime inicioExistente = agendamentoExistente.getDataHoraInicioAgendamento();  
                 LocalDateTime fimExistente = agendamentoExistente.getDataHoraFimAgendamento();
                 
-                if (inicio.isBefore(fimExistente) && fim.isAfter(inicioExistente)) {
+                // verifica se os horarios da utilizaçao recurso vao bater com horarios ja agendados  
+                if (inicio.isBefore(fimExistente) && fim.isAfter(inicioExistente)) 
                     return true;
-                }
             }
         }
-        return false;
+        return false; // indica que ha horarios livres e sem colisoes de recursos
     }
     
     /**
-     *
+     * Cria agendamentos
      * @param cliente
      * @param barbeiro
      * @param estacao
@@ -101,15 +106,9 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe) throws Exception {
         
-        if (servicos == null || servicos.isEmpty()) { throw new Exception("Sem serviço"); }
-        if (dataInicio.isBefore(LocalDateTime.now())) { throw new Exception("Não pode voltar no tempo"); }
-        
-        for (Servico s : servicos) {
-            if (s.getTipoEstacaoRequerido() != estacao.getTipo()) {
-                throw new Exception("A estação não é compativel com o serviço " + s.getNome());
-            }
-        }
-        
+        validarListaServicos(servicos);
+        validarHorario(dataInicio);
+        validarEstacao(servicos, estacao);
 
         int duracaoTotalEmMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos10).sum();  
         LocalDateTime dataFim = dataInicio.plusMinutes(duracaoTotalEmMinutos);
@@ -126,44 +125,92 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
             statusInicial = StatusAgendamento.AGUARDANDO_PAGAMENTO;
         }
         
-     
         Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe);
         super.adicionar(novoAgendamento);
-        //super.adicionar(this.agendamentos, novoAgendamento);  
         return novoAgendamento;
     }
     
     /**
-     *
+     * Valida uma lista de Servicos
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
+    private void validarListaServicos(ArrayList<Servico> servicos) throws Exception{
+        if (servicos == null || servicos.isEmpty())
+            throw new Exception("Sem serviço"); 
+    }
+
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
+    private void validarHorario(LocalDateTime dataInicio) throws Exception{
+        if (dataInicio.isBefore(LocalDateTime.now())) 
+            throw new Exception("Não pode voltar no tempo");
+    }
+    
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
+    private void validarEstacao(ArrayList<Servico> servicos, Estacao estacao) throws Exception{
+        for (Servico s : servicos) {
+            if (s.getTipoEstacaoRequerido() != estacao.getTipo())
+                throw new Exception("A estação não é compativel com o serviço " + s.getNome());
+        }        
+    }
+    
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/ 
+    private void validarAgendamento(Agendamento agendamento) throws Exception{
+        
+        if (agendamento == null)
+            throw new Exception("Esse agendamento não existe!");
+    }
+    
+    /**
+     * Valida o Status de um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/ 
+    private void validarStatusAgendamento(Agendamento agendamento) throws Exception{
+        StatusAgendamento statusAtual = agendamento.getStatus(); 
+        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO || statusAtual == StatusAgendamento.EM_ANDAMENTO)
+            throw new Exception("Esse agendamento já foi finalizado, está em andamento ou já foi cancelado.");
+    }
+    
+    /**
+     * Cancela um agendamento
      * @param ID
      * @return
      * @throws Exception
     **/ 
     public Agendamento cancelarAgendamento(String ID) throws Exception {
 
-        Agendamento agendamento = super.buscarPorId(ID);  
+        Agendamento agendamento = super.buscarPorId(ID); 
         
-        if (agendamento == null) {
-            throw new Exception("Esse agendamento não existe!");
-        }
-        
-        StatusAgendamento statusAtual = agendamento.getStatus();
-        
-
-        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO || statusAtual == StatusAgendamento.EM_ANDAMENTO) {
-            throw new Exception("Esse agendamento já foi finalizado, está em andamento ou já foi cancelado.");
-        }
+        validarAgendamento(agendamento);
+        validarStatusAgendamento(agendamento);
         
         agendamento.setStatus(StatusAgendamento.CANCELADO);
         return agendamento;
     }
     
     /**
-     *
+     * Atualiza o status de um agendamento
      */
     public void atualizarStatusAgendamento() {
         LocalDateTime agora = LocalDateTime.now();
-        
 
         for (Agendamento ag : this.listaModelo) {  
             StatusAgendamento statusAtual = ag.getStatus();
@@ -199,7 +246,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Busca um horario vago na lsita de agendamento
      * @param servicos
      * @param data
      * @return
@@ -256,7 +303,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Obtem os agendamentos
      * @return
      */
     public ArrayList<Agendamento> getAgendamentos() {
@@ -264,16 +311,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
-     * @param ID
-     * @return
-    **/ 
-    public Agendamento buscarAgendamentoID(String ID) {
-        return super.buscarPorId(ID); 
-    }
-    
-    /**
-     *
+     * Obtem todos os agendamentos associados a um certo Barbeiro
      * @param barbeiro
      * @param data
      * @return
@@ -289,7 +327,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Obtem todos os agendamentos associados a um certo Cliente
      * @param cliente
      * @return
      */
