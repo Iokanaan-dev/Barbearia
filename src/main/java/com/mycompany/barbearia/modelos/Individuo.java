@@ -95,16 +95,16 @@ public abstract class Individuo extends Modelo{
     }
     
     @Override
-public boolean equals(Object o) {
-    if (this == o) return true; // mesma referência
-    if (!(o instanceof Individuo)) return false; // verifica se é do tipo certo
-    Individuo outro = (Individuo) o;
-    return this.getCpf().equals(outro.getCpf()); // compara pelo CPF
-}
+    public boolean equals(Object o) {
+        if (this == o) return true; // mesma referência
+        if (!(o instanceof Individuo)) return false; // verifica se é do tipo certo
+        Individuo outro = (Individuo) o;
+        return this.getCpf().equals(outro.getCpf()); // compara pelo CPF
+    }
 
-@Override
-public int hashCode() {
-    return this.getCpf() != null ? this.getCpf().hashCode() : 0; // evita NullPointer
-}
+    @Override
+    public int hashCode() {
+        return this.getCpf() != null ? this.getCpf().hashCode() : 0; // evita NullPointer
+    }
 
 }

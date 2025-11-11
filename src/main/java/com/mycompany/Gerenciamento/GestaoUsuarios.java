@@ -27,9 +27,14 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
 private GestaoUsuarios(Barbearia_date dados) {
     this.dados = dados;
     this.listaModelo = new ArrayList<>();
-    this.listaModelo.addAll(dados.getListaGerentes());
-    this.listaModelo.addAll(dados.getListaBarbeiros());
-    this.listaModelo.addAll(dados.getListaAtendentes());
+    if (dados.getListaGerentes() != null)
+        this.listaModelo.addAll(dados.getListaGerentes().stream().filter(u -> u != null).toList());
+
+    if (dados.getListaBarbeiros() != null)
+        this.listaModelo.addAll(dados.getListaBarbeiros().stream().filter(u -> u != null).toList());
+
+    if (dados.getListaAtendentes() != null)
+        this.listaModelo.addAll(dados.getListaAtendentes().stream().filter(u -> u != null).toList());
 }
 
 
@@ -153,6 +158,7 @@ private GestaoUsuarios(Barbearia_date dados) {
     
     public Usuario buscarUsername(String userName){ 
         for(Usuario usuario : listaModelo){
+            if (usuario == null) continue;
             if (usuario.getUsername().equalsIgnoreCase(userName))
                 return usuario;
         }

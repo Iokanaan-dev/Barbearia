@@ -36,8 +36,10 @@ public class Barbearia {
         
         GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
         gestaoU.cadastrar("itim123", "Pedrim1234", "itim", "28391293921", "38998070792", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("itao123", "Pedrim1234", "itao", "28391293921", "38998070792", data1, TipoUsuario.ATENDENTE);
-        gestaoU.cadastrar("pedrim123", "Pedrim1234", "pedrim", "28391293921", "38998070792", data1, TipoUsuario.GERENTE, "9090");
+        gestaoU.cadastrar("itao123", "Pedrim1234", "itao", "28391293967", "38998070792", data1, TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("pedrim123", "Pedrim1234", "pedrim", "28391383921", "38998070792", data1, TipoUsuario.GERENTE, "9090");
+        
+        
     
        Gerente pedrim = (Gerente) gestaoU.buscarUsername("pedrim123");
        Barbeiro itim = (Barbeiro) gestaoU.buscarUsername("itim123");
