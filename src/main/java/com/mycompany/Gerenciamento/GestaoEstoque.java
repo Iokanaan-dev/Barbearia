@@ -21,12 +21,23 @@ public class GestaoEstoque extends Gestao<Produto> {
     private static GestaoEstoque instancia;
     private Barbearia_date dados;
     
-    private GestaoEstoque(Barbearia_date dados){
+    private GestaoEstoque(Barbearia_date dados) {
         this.dados = dados;
-        listaModelo = dados.listaProdutos;
-        this.estoque = (Estoque) dados.estoque;
+        this.listaModelo = dados.listaProdutos;
+
+        // Se o arquivo JSON já tem um mapa, carregamos ele no objeto Estoque
+        this.estoque = new Estoque();
+
+        if (dados.estoque instanceof Map) {
+            // Gson salvou como LinkedHashMap, então recarregamos os dados
+            Map<String, Integer> mapaCarregado = (Map<String, Integer>) dados.estoque;
+            this.estoque.carregarMapa(mapaCarregado);
+        } else if (dados.estoque instanceof Estoque) {
+            // Caso o objeto seja realmente do tipo Estoque
+            this.estoque = (Estoque) dados.estoque;
+        }
     }
-    
+
     public static void inicializa(Barbearia_date dados) {
             if (instancia == null) {
             instancia = new GestaoEstoque(dados);

@@ -38,7 +38,7 @@ public class OrdemServico extends Modelo{
 
 public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, String observacoes) {
     
-        super(null);
+        super();
         this.idCliente = cliente.getId();
         this.idBarbeiro = barbeiro.getId();
         this.dataExecucao = dataExecucao;

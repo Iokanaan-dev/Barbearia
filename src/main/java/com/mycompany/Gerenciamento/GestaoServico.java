@@ -5,6 +5,7 @@
 package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Servico;
 import com.mycompany.Utilidades.TipoEstacao;
+import com.mycompany.date_Barbearia.Barbearia_date;
 
         
 /**
@@ -14,16 +15,24 @@ import com.mycompany.Utilidades.TipoEstacao;
 public class GestaoServico extends Gestao <Servico>{
         
     private static GestaoServico instancia;
+    private Barbearia_date dados;
+    
+    GestaoServico(Barbearia_date dados){
+        this.dados = dados;
+        listaModelo = dados.listaServicos;
+    }
+    
+    public static void inicializa(Barbearia_date dados) {
+        if (instancia == null) {
+        instancia = new GestaoServico(dados);
+        }
+    }
     
     /**
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
      * @return GestaoClientes
      */
-    public static GestaoServico getInstancia()
-    {
-        if(instancia == null)
-            instancia = new GestaoServico();
-        
+    public static GestaoServico getInstancia(){
         return instancia;
     }
     

@@ -3,6 +3,7 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.Utilidades.StatusAtendimento;
 import com.mycompany.Utilidades.StatusAgendamento;
 import com.mycompany.barbearia.modelos.*; 
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -20,6 +21,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     
     private final GestaoEstoque gestaoEstoque;
     private final GestaoProdutos gestaoProdutos;
+    private Barbearia_date dados;
 
     
     private static final int CANCELAMENTO_SEM_TAXA = 7;
@@ -31,14 +33,30 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         this.gestaoProdutos = GestaoProdutos.getInstancia();
     
     } 
+    
+    private GestaoOrdemServico(Barbearia_date dados) {
+        this.dados = dados;
+        this.gestaoEstoque = GestaoEstoque.getInstancia();
+        this.gestaoProdutos = GestaoProdutos.getInstancia();
+        
+        
+        this.listaModelo = new ArrayList<>();
+        if (dados.getListaOrdensServico() != null) {
+            this.listaModelo.addAll(dados.getListaOrdensServico().stream().filter(os -> os != null).toList());
+        }
+    }
 
-    /**
-     *
-     * @return
-     */
+    
+    public static void inicializar(Barbearia_date dados) {
+        if (instancia == null) {
+            instancia = new GestaoOrdemServico(dados);
+        }
+    }
+
+    
     public static GestaoOrdemServico getInstancia() {
         if (instancia == null) {
-            instancia = new GestaoOrdemServico();
+            throw new IllegalStateException("GestaoOrdemServico ainda não foi inicializada");
         }
         return instancia;
     }

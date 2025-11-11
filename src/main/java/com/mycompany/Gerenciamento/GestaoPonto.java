@@ -7,6 +7,7 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Usuario;
 import com.mycompany.barbearia.modelos.ParBatida;
 import com.mycompany.barbearia.modelos.TabelaPonto;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
@@ -16,23 +17,33 @@ import java.time.LocalDateTime;
  */
 public class GestaoPonto extends Gestao<Usuario>{
     
-    private TabelaPonto tabelaPontos = new TabelaPonto(); // A chave é o ID do Usuario (String), e a quantidade é (Double).
-    ArrayList listaUsuarios = GestaoUsuarios.getInstancia().getLista();
-    ArrayList<ParBatida> listaParBatida = new ArrayList<>(); // ACHO QUE NAO VOU PRECISAR DISSO IREI VER DEPOIS
+    private TabelaPonto tabelaPontos; // A chave é o ID do Usuario (String), e a quantidade é (Double).
+    //ArrayList listaUsuarios = GestaoUsuarios.getInstancia().getLista();
+    //ArrayList<ParBatida> listaParBatida = new ArrayList<>(); // ACHO QUE NAO VOU PRECISAR DISSO IREI VER DEPOIS
     
      private static GestaoPonto instancia;
-    
-    /**
-     * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
-     * @return GestaoEstoque
-     */
-    public static GestaoPonto getInstancia()
-    {
-        if(instancia == null)
-            instancia = new GestaoPonto();
-        
+     private Barbearia_date dados;
+     
+     
+    private GestaoPonto(Barbearia_date dados) {
+        this.dados = dados;
+        this.tabelaPontos = dados.tabelaPonto;
+        this.listaModelo = new ArrayList<>();
+        this.listaModelo.addAll(GestaoUsuarios.getInstancia().getLista());
+    }
+
+    public static void inicializar(Barbearia_date dados) {
+        if (instancia == null) {
+            instancia = new GestaoPonto(dados);
+        }
+    }
+
+    public static GestaoPonto getInstancia() {
+        if (instancia == null) {
+            throw new IllegalStateException("GestaoPonto ainda não foi inicializada");
+        }
         return instancia;
-    }  
+    } 
     
     /**
      * Usa o id do usuario e o tipo da batida para bater o ponto

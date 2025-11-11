@@ -18,7 +18,7 @@ public class GestaoListaEspera {
     
     private Stack<ListaEspera> pilhaEspera = new Stack<>();
     private static GestaoListaEspera instancia;
-    private Barbearia_date dados;
+    public Barbearia_date dados;
     
     private GestaoListaEspera(Barbearia_date dados ){
         this.dados = dados;

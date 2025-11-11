@@ -5,7 +5,8 @@
 package com.mycompany.Gerenciamento;
 
 import com.mycompany.barbearia.modelos.Produto;
-import java.util.ArrayList;
+import com.mycompany.date_Barbearia.Barbearia_date;
+
 
 /**
  *
@@ -14,16 +15,24 @@ import java.util.ArrayList;
 public class GestaoProdutos extends Gestao<Produto>{
         
     private static GestaoProdutos instancia;
+    private Barbearia_date dados;
+    
+    GestaoProdutos(Barbearia_date dados){
+        this.dados = dados;
+        listaModelo = dados.listaProdutos;
+    }
+    
+    public static void inicializa(Barbearia_date dados) {
+            if (instancia == null) {
+            instancia = new GestaoProdutos(dados);
+        }
+    }    
     
     /**
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
      * @return GestaoProdutos
      */
-    public static GestaoProdutos getInstancia()
-    {
-        if(instancia == null)
-            instancia = new GestaoProdutos();
-        
+    public static GestaoProdutos getInstancia(){
         return instancia;
     }    
     

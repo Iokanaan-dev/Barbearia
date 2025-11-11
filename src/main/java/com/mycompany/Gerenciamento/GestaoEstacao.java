@@ -44,7 +44,7 @@ public class GestaoEstacao extends Gestao<Estacao>{
         if (indice < 0 || indice >= num){
             System.out.println("O indice não pode ser menor que 0, ou maior que " + num + "!");
         }
-        return estacoes[indice];
+        return estacoes[--indice];
     }
 }
     
