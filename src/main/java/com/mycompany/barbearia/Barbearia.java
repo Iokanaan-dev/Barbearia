@@ -15,12 +15,10 @@ import java.util.ArrayList;
  */
 public class Barbearia {
     
-    
-    
     // (Seu método totalOrdensServico() está ótimo)
     
     public static void main(String[] args) throws Exception {
-    /*    
+        
         LocalDate data1 = LocalDate.of(1991, 12, 31);
         
         // 🔹 Carrega os dados existentes ou cria novos
@@ -52,7 +50,5 @@ public class Barbearia {
 
         // 🔹 Salva as mudanças
         GerenciadorDeArquivos.salvar(dados);
-
-        */
     }
 }

@@ -93,7 +93,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Cria agendamentos
      * @param cliente
      * @param barbeiro
      * @param estacao
@@ -106,7 +106,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe) throws Exception {
         
-        validarServicos(servicos);
+        validarListaServicos(servicos);
         validarHorario(dataInicio);
         validarEstacao(servicos, estacao);
 
@@ -130,16 +130,34 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         return novoAgendamento;
     }
     
-    private void validarServicos(ArrayList<Servico> servicos) throws Exception{
+    /**
+     * Valida uma lista de Servicos
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
+    private void validarListaServicos(ArrayList<Servico> servicos) throws Exception{
         if (servicos == null || servicos.isEmpty())
             throw new Exception("Sem serviço"); 
     }
 
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
     private void validarHorario(LocalDateTime dataInicio) throws Exception{
         if (dataInicio.isBefore(LocalDateTime.now())) 
             throw new Exception("Não pode voltar no tempo");
     }
     
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/     
     private void validarEstacao(ArrayList<Servico> servicos, Estacao estacao) throws Exception{
         for (Servico s : servicos) {
             if (s.getTipoEstacaoRequerido() != estacao.getTipo())
@@ -147,12 +165,24 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         }        
     }
     
+    /**
+     * Valida um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/ 
     private void validarAgendamento(Agendamento agendamento) throws Exception{
         
         if (agendamento == null)
             throw new Exception("Esse agendamento não existe!");
     }
     
+    /**
+     * Valida o Status de um agendamento
+     * @param Agendamento
+     * @return
+     * @throws Exception
+    **/ 
     private void validarStatusAgendamento(Agendamento agendamento) throws Exception{
         StatusAgendamento statusAtual = agendamento.getStatus(); 
         if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO || statusAtual == StatusAgendamento.EM_ANDAMENTO)
@@ -160,7 +190,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Cancela um agendamento
      * @param ID
      * @return
      * @throws Exception
@@ -177,7 +207,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Atualiza o status de um agendamento
      */
     public void atualizarStatusAgendamento() {
         LocalDateTime agora = LocalDateTime.now();
@@ -216,7 +246,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Busca um horario vago na lsita de agendamento
      * @param servicos
      * @param data
      * @return
@@ -273,7 +303,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Obtem os agendamentos
      * @return
      */
     public ArrayList<Agendamento> getAgendamentos() {
@@ -281,7 +311,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Obtem todos os agendamentos associados a um certo Barbeiro
      * @param barbeiro
      * @param data
      * @return
@@ -297,7 +327,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Obtem todos os agendamentos associados a um certo Cliente
      * @param cliente
      * @return
      */
