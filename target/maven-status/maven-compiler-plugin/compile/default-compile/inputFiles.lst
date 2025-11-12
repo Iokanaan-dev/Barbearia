@@ -15,6 +15,7 @@
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/StatusAgendamento.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Gerenciamento/GestaoFinanceira.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Produto.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/RelatorioFinanceiro.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Gerenciamento/Gestao.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/Login.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Cliente.java
@@ -44,3 +45,4 @@
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Usuario.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/compara/ComparaCPF.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/StatusAtendimento.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/TipoRelatorio.java

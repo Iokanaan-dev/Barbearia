@@ -104,31 +104,70 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      * @throws Exception
      */
-    public Agendamento x(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
+    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
         
-        validarListaServicos(servicos);
-        validarHorario(dataInicio);
-        validarEstacao(servicos, estacao);
+        validarPreCondicoes(servicos, dataInicio, estacao);
 
-        int duracaoTotalEmMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos10).sum();  
-        LocalDateTime dataFim = dataInicio.plusMinutes(duracaoTotalEmMinutos);
-        
-        if (horarioOcupado(barbeiro, dataInicio, dataFim)) { throw new Exception("Horário indisponivel (barbeiro)"); }
-        if (horarioOcupado(estacao, dataInicio, dataFim)) { throw new Exception("Horário indisponivel (estação)"); }
-        
-        StatusAgendamento statusInicial;
-        long diasDeAntecedencia = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), dataInicio.toLocalDate());
-        
-        if (diasDeAntecedencia >= PRE_AGENDAMENTO) {
-            statusInicial = StatusAgendamento.PRE_AGENDADO;
-        } else {
-            statusInicial = StatusAgendamento.AGUARDANDO_PAGAMENTO;
-        }
-        
-        Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
+        int duracaoTotalEmMinutos = calcularDuracaoTotal(servicos);
+        LocalDateTime dataFim = calcularDataFim(dataInicio, duracaoTotalEmMinutos);
+
+        validarDisponibilidade(barbeiro, estacao, dataInicio, dataFim);
+
+        StatusAgendamento statusInicial = determinarStatusInicial(dataInicio);
+
+        Agendamento novoAgendamento = new Agendamento(
+                cliente, barbeiro, atendente, estacao,
+                servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico
+        );
+
         super.adicionar(novoAgendamento);
         return novoAgendamento;
     }
+    
+    /**
+     * Verifica todas as pré-condições de entrada antes de criar o agendamento.
+     */
+    private void validarPreCondicoes(ArrayList<Servico> servicos, LocalDateTime dataInicio, Estacao estacao) throws Exception {
+        validarListaServicos(servicos);
+        validarHorario(dataInicio);
+        validarEstacao(servicos, estacao);
+    }
+
+    /**
+     * Soma o tempo total de todos os serviços em minutos.
+     */
+    private int calcularDuracaoTotal(ArrayList<Servico> servicos) {
+        return servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
+    }
+
+    /**
+     * Calcula o horário de término do agendamento com base no início e na duração total.
+     */
+    private LocalDateTime calcularDataFim(LocalDateTime dataInicio, int duracaoTotalMinutos) {
+        return dataInicio.plusMinutes(duracaoTotalMinutos);
+    }
+
+    /**
+     * Verifica se barbeiro e estação estão disponíveis no intervalo solicitado.
+     */
+    private void validarDisponibilidade(Barbeiro barbeiro, Estacao estacao, LocalDateTime inicio, LocalDateTime fim) throws Exception {
+        if (horarioOcupado(barbeiro, inicio, fim))
+            throw new Exception("Horário indisponível (barbeiro)");
+
+        if (horarioOcupado(estacao, inicio, fim))
+            throw new Exception("Horário indisponível (estação)");
+    }
+
+    /**
+     * Determina o status inicial de um agendamento com base na antecedência.
+     */
+    private StatusAgendamento determinarStatusInicial(LocalDateTime dataInicio) {
+        long diasDeAntecedencia = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), dataInicio.toLocalDate());
+        return (diasDeAntecedencia >= PRE_AGENDAMENTO)
+                ? StatusAgendamento.PRE_AGENDADO
+                : StatusAgendamento.AGUARDANDO_PAGAMENTO;
+    }
+    
     
     /**
      * Valida uma lista de Servicos
@@ -272,7 +311,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
             return agenda;
         }
         
-        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos10).sum();
+        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
         
         LocalDateTime slotAtual = data.atTime(HORA_INICIO_ESPEDIENTE);
         while (slotAtual.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE)) {

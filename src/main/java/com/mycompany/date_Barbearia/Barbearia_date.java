@@ -11,11 +11,13 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Stack;
 
+
 /**
  * Aqui aglomeramos todos os dados, esse sera o arquivo json com todos os dados da barbearia
  * @author italo
  */
 public class Barbearia_date {
+    
     
     public ArrayList<Cliente> listaClientes = new ArrayList<>();  
     public ArrayList<Gerente> listaGerentes = new ArrayList<>();
@@ -24,6 +26,7 @@ public class Barbearia_date {
     public ArrayList<Produto> listaProdutos = new ArrayList<>();
     public ArrayList<Servico> listaServicos = new ArrayList<>(); 
     public ArrayList<Despesa> listaDespesas = new ArrayList<>();
+    private ArrayList<RelatorioFinanceiro> listaRelatorios = new ArrayList<>();
     
     public Map<String, Integer> estoque = new HashMap<>();
     public Stack<ListaEspera> listaDeEspera = new Stack<>();
@@ -51,47 +54,107 @@ public class Barbearia_date {
         return listaClientes;
     }
 
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
     public ArrayList<Gerente> getListaGerentes() {
         return listaGerentes;
+    }
+
+    public void setListaGerentes(ArrayList<Gerente> listaGerentes) {
+        this.listaGerentes = listaGerentes;
     }
 
     public ArrayList<Barbeiro> getListaBarbeiros() {
         return listaBarbeiros;
     }
 
+    public void setListaBarbeiros(ArrayList<Barbeiro> listaBarbeiros) {
+        this.listaBarbeiros = listaBarbeiros;
+    }
+
     public ArrayList<Atendente> getListaAtendentes() {
         return listaAtendentes;
+    }
+
+    public void setListaAtendentes(ArrayList<Atendente> listaAtendentes) {
+        this.listaAtendentes = listaAtendentes;
     }
 
     public ArrayList<Produto> getListaProdutos() {
         return listaProdutos;
     }
 
+    public void setListaProdutos(ArrayList<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+
     public ArrayList<Servico> getListaServicos() {
         return listaServicos;
+    }
+
+    public void setListaServicos(ArrayList<Servico> listaServicos) {
+        this.listaServicos = listaServicos;
     }
 
     public ArrayList<Despesa> getListaDespesas() {
         return listaDespesas;
     }
 
+    public void setListaDespesas(ArrayList<Despesa> listaDespesas) {
+        this.listaDespesas = listaDespesas;
+    }
+
+    public ArrayList<RelatorioFinanceiro> getListaRelatorios() {
+        return listaRelatorios;
+    }
+
+    public void setListaRelatorios(ArrayList<RelatorioFinanceiro> listaRelatorios) {
+        this.listaRelatorios = listaRelatorios;
+    }
+
     public Map<String, Integer> getEstoque() {
         return estoque;
+    }
+
+    public void setEstoque(Map<String, Integer> estoque) {
+        this.estoque = estoque;
     }
 
     public Stack<ListaEspera> getListaDeEspera() {
         return listaDeEspera;
     }
 
+    public void setListaDeEspera(Stack<ListaEspera> listaDeEspera) {
+        this.listaDeEspera = listaDeEspera;
+    }
+
     public ArrayList<Agendamento> getListaAgendamentos() {
         return listaAgendamentos;
+    }
+
+    public void setListaAgendamentos(ArrayList<Agendamento> listaAgendamentos) {
+        this.listaAgendamentos = listaAgendamentos;
     }
 
     public ArrayList<OrdemServico> getListaOrdensServico() {
         return listaOrdensServico;
     }
 
+    public void setListaOrdensServico(ArrayList<OrdemServico> listaOrdensServico) {
+        this.listaOrdensServico = listaOrdensServico;
+    }
+
     public TabelaPonto getTabelaPonto() {
         return tabelaPonto;
+    }
+
+    public void setTabelaPonto(TabelaPonto tabelaPonto) {
+        this.tabelaPonto = tabelaPonto;
+    }
+    
+    public void salvar() {
+        GerenciadorDeArquivos.salvar(this);
     }
 }

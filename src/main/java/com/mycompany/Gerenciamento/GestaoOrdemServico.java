@@ -27,13 +27,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     private static final int CANCELAMENTO_SEM_TAXA = 7;
     private static final double TAXA_CANCELAMENTO = 0.35;
     private static final double TAXA_ENCAIXE_PERCENTUAL = 0.10;
-
-    private GestaoOrdemServico() {
-        this.gestaoEstoque = GestaoEstoque.getInstancia();
-        this.gestaoProdutos = GestaoProdutos.getInstancia();
-    
-    } 
-    
+   
     private GestaoOrdemServico(Barbearia_date dados) {
         this.dados = dados;
         this.gestaoEstoque = GestaoEstoque.getInstancia();

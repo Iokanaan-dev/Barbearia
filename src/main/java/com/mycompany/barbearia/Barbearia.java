@@ -33,21 +33,22 @@ public class Barbearia {
         GestaoOrdemServico.inicializar(dados);
         GestaoListaEspera.inicializar(dados);
         GestaoPonto.inicializar(dados);
+        GestaoFinanceira.inicializar(dados);
 
         // 🔹 Manipula normalmente
         
         GestaoClientes gestaoC = GestaoClientes.getInstancia();
 
-        gestaoC.cadastrar("Italo", "11111111111", "99999999", data1, "italo@picles.com");
-        gestaoC.cadastrar("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
-        gestaoC.cadastrar("Maria", "33333333333", "988877766", data1, "maria@email.com");
-        gestaoC.cadastrar("João", "44444444444", "977766655", data1, "joao@email.com");
-        gestaoC.cadastrar("Ana", "55555555555", "966655544", data1, "ana@email.com");
-        gestaoC.cadastrar("Carlos", "66666666666", "955544433", data1, "carlos@email.com");
-        gestaoC.cadastrar("Fernanda", "77777777777", "944433322", data1, "fernanda@email.com");
-        gestaoC.cadastrar("Bruno", "88888888888", "933322211", data1, "bruno@email.com");
-        gestaoC.cadastrar("Juliana", "99999999999", "922211100", data1, "juliana@email.com");
-        gestaoC.cadastrar("Ricardo", "10101010101", "911100099", data1, "ricardo@email.com");
+        gestaoC.cadastrar("Italo", "11111611111", "99999999", data1, "italo@picles.com");
+        gestaoC.cadastrar("Zeca", "22222225222", "728294729", data1, "borabill@oi.com");
+        gestaoC.cadastrar("Maria", "33333353333", "988877766", data1, "maria@email.com");
+        gestaoC.cadastrar("João", "44444445444", "977766655", data1, "joao@email.com");
+        gestaoC.cadastrar("Ana", "55555555355", "966655544", data1, "ana@email.com");
+        gestaoC.cadastrar("Carlos", "66666566666", "955544433", data1, "carlos@email.com");
+        gestaoC.cadastrar("Fernanda", "77757777777", "944433322", data1, "fernanda@email.com");
+        gestaoC.cadastrar("Bruno", "88888858888", "933322211", data1, "bruno@email.com");
+        gestaoC.cadastrar("Juliana", "99995999999", "922211100", data1, "juliana@email.com");
+        gestaoC.cadastrar("Ricardo", "10105010101", "911100099", data1, "ricardo@email.com");
         
         Cliente cliente1 = new Cliente("Felipe", "14141414141", "38997001313", data1, "felipe@email.com");
         Cliente cliente2 = new Cliente("Roberta", "15151515151", "38997001414", data1, "roberta@email.com");
@@ -75,21 +76,21 @@ public class Barbearia {
 
         GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
 
-        gestaoU.cadastrar("barbeiro_andre", "andre123", "Andre", "11111111111", "38997000111", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_caio", "caio1234", "Caio", "22222222222", "38997000222", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_lucas", "lucas123", "Lucas", "33333333333", "38997000333", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_rafa", "rafa1234", "Rafa", "44444444444", "38997000444", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_diego", "diego123", "Diego", "55555555555", "38997000555", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_vini", "vini1234", "Vini", "66666666666", "38997000666", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_enzo", "enzo1234", "Enzo", "77777777777", "38997000777", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_otavio", "otavio123", "Otavio", "88888888888", "38997000888", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("gerente_mario", "mario123", "Mario", "99999999999", "38997000999", data1, TipoUsuario.GERENTE, "4321");
-        gestaoU.cadastrar("gerente_clara", "clara123", "Clara", "10101010101", "38997001010", data1, TipoUsuario.GERENTE, "8765");
-        gestaoU.cadastrar("atendente_lara", "lara1234", "Lara", "12121212121", "38997001111", data1, TipoUsuario.ATENDENTE);
-        gestaoU.cadastrar("atendente_paulo", "paulo123", "Paulo", "13131313131", "38997001212", data1, TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("barbeiro_andr", "andre123", "Andre", "11111111111", "38997000111", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_cao", "caio1234", "Caio", "22222222222", "38997000222", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_luca", "lucas123", "Lucas", "33333333333", "38997000333", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_raf", "rafa1234", "Rafa", "44444444444", "38997000444", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_dieg", "diego123", "Diego", "55555555555", "38997000555", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_vin", "vini1234", "Vini", "66666666666", "38997000666", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_enz", "enzo1234", "Enzo", "77777777777", "38997000777", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_otavi", "otavio123", "Otavio", "88888888888", "38997000888", data1, TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("gerente_mari", "mario123", "Mario", "99999999999", "38997000999", data1, TipoUsuario.GERENTE, "4321");
+        gestaoU.cadastrar("gerente_clar", "clara123", "Clara", "10101010101", "38997001010", data1, TipoUsuario.GERENTE, "8765");
+        gestaoU.cadastrar("atendente_lar", "lara1234", "Lara", "12121212121", "38997001111", data1, TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("atendente_paul", "paulo123", "Paulo", "13131313131", "38997001212", data1, TipoUsuario.ATENDENTE);
 
         Barbeiro usuario1 = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", data1);
-        Barbeiro usuario2 = new Barbeiro("barbeiro_marcos", "marcos5678", "Marcos", "15151515151", "38997002222", data1);
+        Barbeiro usuario2 = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", data1);
         Barbeiro usuario3 = new Barbeiro("barbeiro_daniel", "daniel9101", "Daniel", "16161616161", "38997003333", data1);
         Barbeiro usuario4 = new Barbeiro("barbeiro_rodrigo", "rodrigo2020", "Rodrigo", "17171717171", "38997004444", data1);
         Barbeiro usuario5 = new Barbeiro("barbeiro_matheus", "matheus3030", "Matheus", "18181818181", "38997005555", data1);
@@ -112,7 +113,7 @@ public class Barbearia {
 
         gestaoU.printLista();
         
-GestaoServicos gestaoS = GestaoServicos.getInstancia();
+        GestaoServicos gestaoS = GestaoServicos.getInstancia();
 
         gestaoS.cadastrar("Luzes Masculinas", 120.0, "Técnica de clareamento parcial dos fios", 75, TipoEstacao.LAVAGEM);
         gestaoS.cadastrar("Selagem Capilar", 100.0, "Reduz o frizz e dá brilho intenso", 60, TipoEstacao.LAVAGEM);
@@ -212,11 +213,15 @@ GestaoServicos gestaoS = GestaoServicos.getInstancia();
     
         /*
         // C. Cadastrar Serviços (em SLOTS de 10 min)
+        
         GestaoServicos gestaoS = GestaoServicos.getInstancia();
         gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
+
+        GestaoServico gestaoS = GestaoServico.getInstancia();
+       // gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
                                                                             
-        gestaoS.cadastrar("Lavar", 20.0, "Lavagem simples", 1, TipoEstacao.LAVAGEM); 
-        gestaoS.cadastrar("Barba", 15.00, "Corte de barba", 3, TipoEstacao.CORRIQUEIRA); 
+        //gestaoS.cadastrar("Lavar", 20.0, "Lavagem simples", 1, TipoEstacao.LAVAGEM); 
+        //gestaoS.cadastrar("Barba", 15.00, "Corte de barba", 3, TipoEstacao.CORRIQUEIRA); 
             
         Servico servicoLavar = gestaoS.buscarPorId(gestaoS.buscarPorNome("Lavar").get(0).getId());
         Servico servicoCorte = gestaoS.buscarPorId(gestaoS.buscarPorNome("Corte").get(0).getId());
@@ -225,9 +230,9 @@ GestaoServicos gestaoS = GestaoServicos.getInstancia();
         // D. Cadastrar Produtos e Estoque (Para Venda na Loja)
         GestaoProdutos gestaoP = GestaoProdutos.getInstancia();
         GestaoEstoque gestaoE = GestaoEstoque.getInstancia();
-        gestaoP.cadastrar("Pomada Modeladora", 25.00, "Pomada de alta fixação");
+       // gestaoP.cadastrar("Pomada Modeladora", 25.00, "Pomada de alta fixação");
         Produto pomada = gestaoP.buscarPorId(gestaoP.buscarPorNome("Pomada modeladora").get(0).getId());
-        gestaoE.adicionarAoEstoque(pomada.getId(), 0); // Registra no inventário
+        //gestaoE.adicionarAoEstoque(pomada.getId(), 0); // Registra no inventário
         gestaoE.aumentarQuantidade(pomada.getId(), 10); // Adiciona 10 ao estoque
         
         LocalDate hoje = LocalDate.now();
@@ -243,23 +248,33 @@ GestaoServicos gestaoS = GestaoServicos.getInstancia();
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
         GestaoEstacao gestaoES = GestaoEstacao.getInstancia();
-	Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
-        OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
+	//Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
+        //OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
 
         Cliente clienteZeca = gestaoC.buscarCPF("22222222222");
         GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia();
                 
         // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
 
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
+        //gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
+       
+        //gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
         
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null); // é possível cadastrar um mesmo cliente na lista de espera
+        GestaoFinanceira gestaoFE = GestaoFinanceira.getInstancia();
+        
+        String relatorio = gestaoFE.gerarRelatorioVendasDiario(data1);
 
-        gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(
+            TipoRelatorio.RELATORIO_DIARIO,
+            data1.toString(),
+            relatorio
+        );
 
+     
+        
         // 🔹 Salva as mudanças
         //dados.listaClientes.add(clienteItalo);
-       // dados.listaClientes.add(clienteZaca);
+        //dados.listaClientes.add(clienteZaca);
         
         //dados.listaBarbeiros.add(barbeiroMarcos);
         //dados.listaAtendentes.add(atendentePedro);
@@ -284,4 +299,6 @@ GestaoServicos gestaoS = GestaoServicos.getInstancia();
         }
 
     
+
+        //GerenciadorDeArquivos.salvar(dados); 
 }

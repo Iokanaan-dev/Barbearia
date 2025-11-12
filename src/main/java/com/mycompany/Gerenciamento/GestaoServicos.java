@@ -53,7 +53,7 @@ public class GestaoServicos extends Gestao <Servico>{
     
     public void cadastrar(Servico servico) throws Exception{
         verificarServicoExiste(servico.getNome());
-        verificarServicoDuracao(servico.getTempoEmMinutos10());
+        verificarServicoDuracao(servico.getTempoEmMinutos());
         
         super.adicionar(servico);    
     }

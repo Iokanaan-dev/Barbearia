@@ -3,6 +3,7 @@ com/mycompany/Utilidades/TipoDespesa.class
 com/mycompany/Gerenciamento/GestaoEstacao.class
 com/mycompany/Utilidades/TipoEstacao.class
 com/mycompany/compara/ComparaAgendamentoClienteID.class
+com/mycompany/barbearia/modelos/RelatorioFinanceiro.class
 com/mycompany/Gerenciamento/GestaoFinanceira.class
 com/mycompany/barbearia/modelos/ParBatida.class
 com/mycompany/date_Barbearia/Barbearia_date.class
@@ -28,4 +29,5 @@ com/mycompany/compara/ComparaAgendamentoHORA.class
 com/mycompany/Gerenciamento/GestaoAgendamento.class
 com/mycompany/compara/ComparaCPF.class
 com/mycompany/barbearia/SistemaBarbearia.class
+com/mycompany/Utilidades/TipoRelatorio.class
 com/mycompany/Gerenciamento/Gestao.class

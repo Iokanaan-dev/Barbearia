@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Utilidades.StatusAgendamento;
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ import java.util.UUID;
  * 
  * @author italo
  */
-
+@JsonIgnoreProperties(ignoreUnknown = true) // PARA IGNORAR UM CAMPO ANTIGO QUE NÃO ESTA MAIS NO CODIGO DA CLASSE
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Agendamento extends Modelo{
      
@@ -82,7 +83,7 @@ public class Agendamento extends Modelo{
     private int calcularDuracaoTotal(){
         int total = 0;
         for(Servico s : this.servicos){
-            total += s.getTempoEmMinutos10();
+            total += s.getTempoEmMinutos();
         }
         return total;
     }

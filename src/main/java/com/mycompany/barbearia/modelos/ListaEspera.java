@@ -5,6 +5,7 @@
 package com.mycompany.barbearia.modelos;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mycompany.Utilidades.TipoEstacao;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  *
  * @author italo
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListaEspera {
     
     private Cliente cliente;
@@ -68,8 +70,10 @@ public class ListaEspera {
 
 
     public int getDuracaoTotalMinutos() {
-        return this.servicosDesejados.stream().mapToInt(Servico::getTempoEmMinutos10).sum();
+        return this.servicosDesejados.stream().mapToInt(Servico::getTempoEmMinutos).sum();
     }
+    
+    
     
     public TipoEstacao getTipoEstacaoRequerido() {
         
