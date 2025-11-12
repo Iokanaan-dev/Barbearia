@@ -110,7 +110,7 @@ public class Barbearia {
             relatorio
         );
 
-        dados.getListaRelatorios().add(registro);
+     
         
         // 🔹 Salva as mudanças
         //dados.listaClientes.add(clienteItalo);
