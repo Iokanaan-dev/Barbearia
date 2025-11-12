@@ -30,11 +30,7 @@ public abstract class Gestao<M extends Modelo>{
      */
     public void adicionar(M modelo){
         verificarModeloNulo(modelo);
-        if (listaModelo.contains(modelo)) {
-            System.out.println("Objeto já existente");
-        return;
-        }
-    listaModelo.add(modelo);
+        listaModelo.add(modelo);
     }
 
 
@@ -234,18 +230,15 @@ public abstract class Gestao<M extends Modelo>{
      *
      * @param listaCarregada A lista de objetos lida do JSON.
      */
-    public void carregarLista(ArrayList<M> listaCarregada) {
+    
+    public Modelo buscarPorNomeExato(String nome) {
+        verificarCampoNulo(nome); 
         
-        // 1. (Segurança) Garante que a lista vinda do JSON não é nula
-        if (listaCarregada == null) {
-            System.err.println("AVISO: A lista carregada do JSON estava nula. Nada foi carregado.");
-            return; // Não faz nada se o JSON estava vazio ou corrompido
+        for (Modelo t : this.listaModelo) { 
+            if (t.getNome().equalsIgnoreCase(nome)) {
+                return t; 
+            }
         }
-        
-        // 2. Limpa a lista atual que está em memória
-        this.listaModelo.clear();
-        
-        // 3. Adiciona todos os itens da lista carregada
-        this.listaModelo.addAll(listaCarregada);
-    }   
+        return null; 
+    }
 }

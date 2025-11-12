@@ -36,6 +36,8 @@ public class Agendamento extends Modelo{
     private LocalDateTime dataHoraFimAgendamento;
     private StatusAgendamento status;
     
+    private String associado_Ordem_Servico = null;
+    
     /**
      * Construtor de agendamento que inicizaliza todos os atributos necessarios
      * para controle do mesmo
@@ -48,7 +50,7 @@ public class Agendamento extends Modelo{
      * @param status
      * @param isEncaixe
      */
-    public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status, boolean isEncaixe) {
+    public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status, boolean isEncaixe, String associado_Ordem_Servico) {
         super();
         
         this.cliente = cliente;
@@ -189,6 +191,18 @@ public class Agendamento extends Modelo{
         return this.valorDosServicosCongelado;
     }
 
+    public double getValorDosServicosCongelado() {
+        return valorDosServicosCongelado;
+    }
+
+    public String getAssociado_Ordem_Servico() {
+        return associado_Ordem_Servico;
+    }
+
+    public void setAssociado_Ordem_Servico(String associado_Ordem_Servico) {
+        this.associado_Ordem_Servico = associado_Ordem_Servico;
+    }
+    
     /**
      * Gera o id do objeto
      * @return

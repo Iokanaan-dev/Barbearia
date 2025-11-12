@@ -104,7 +104,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      * @throws Exception
      */
-    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe) throws Exception {
+    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
         
         validarListaServicos(servicos);
         validarHorario(dataInicio);
@@ -125,7 +125,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
             statusInicial = StatusAgendamento.AGUARDANDO_PAGAMENTO;
         }
         
-        Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe);
+        Agendamento novoAgendamento = new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
         super.adicionar(novoAgendamento);
         return novoAgendamento;
     }

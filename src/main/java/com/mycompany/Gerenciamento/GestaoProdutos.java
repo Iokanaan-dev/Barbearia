@@ -42,7 +42,12 @@ public class GestaoProdutos extends Gestao<Produto>{
      * @param preco
      * @param descricao
      */
-    public void cadastrar(String nome, double preco, String descricao){
+    public void cadastrar(String nome, double preco, String descricao) throws Exception{
+        
+        if (buscarPorNomeExato(nome) != null) {
+            throw new Exception("Já existe um produto cadastrado com o nome: " + nome);
+        }
+        
         Produto novoProduto = new Produto(nome, preco, descricao);
         super.adicionar(novoProduto);
     }

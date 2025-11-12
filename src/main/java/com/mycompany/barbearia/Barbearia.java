@@ -50,12 +50,15 @@ public class Barbearia {
         gestaoU.cadastrar("gerente_joao", "joao1239", "joão", "00000000000", "38998090957", data1, TipoUsuario.GERENTE, "8181");
 
         Barbeiro barbeiroMarcos = (Barbeiro) gestaoU.buscarUsername("barbeiro_marcos");
-        Atendente atendentePedro = (Atendente) gestaoU.buscarUsername("pedro123");
-        Gerente gerenteJoao = (Gerente) gestaoU.buscarUsername("gerente_joao");        
+        Atendente atendentePedro = (Atendente) gestaoU.buscarUsername("atendente_pedro");
+        Gerente gerenteJoao = (Gerente) gestaoU.buscarUsername("gerente_joao");
+
+    
         
         // C. Cadastrar Serviços (em SLOTS de 10 min)
         GestaoServico gestaoS = GestaoServico.getInstancia();
-        gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA); 
+        gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
+                                                                            
         gestaoS.cadastrar("Lavar", 20.0, "Lavagem simples", 1, TipoEstacao.LAVAGEM); 
         gestaoS.cadastrar("Barba", 15.00, "Corte de barba", 3, TipoEstacao.CORRIQUEIRA); 
             
@@ -84,45 +87,46 @@ public class Barbearia {
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
         GestaoEstacao gestaoES = GestaoEstacao.getInstancia();
-	Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false);
-	OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
+	Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
+        OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
 
-        //CENÁRIO 6: TESTE DA LISTA DE ESPERA (PILHA LIFO) ---
-        System.out.println("\n--- Teste 6: Lista de Espera (Pilha LIFO) ---");
+
+
 
         LocalDate dataOcupada = horario1.toLocalDate(); 
         Cliente clienteZeca = gestaoC.buscarCPF("22222222222");
         GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia();
                 
         // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
-        System.out.println("Adicionando 'Zeca' (Primeiro a entrar) na espera para " + dataOcupada);
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, dataOcupada, null); // null = sem preferência
-                
-        System.out.println("Adicionando 'Italo' (Segundo a entrar) na espera para " + dataOcupada);
+
+        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, dataOcupada, null);
+        
+        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, dataOcupada, null); // é possível cadastrar um mesmo cliente na lista de espera
+
         gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, dataOcupada, null);
 
         // 🔹 Salva as mudanças
-        dados.listaClientes.add(clienteItalo);
-        dados.listaClientes.add(clienteZaca);
+        //dados.listaClientes.add(clienteItalo);
+       // dados.listaClientes.add(clienteZaca);
         
-        dados.listaBarbeiros.add(barbeiroMarcos);
-        dados.listaAtendentes.add(atendentePedro);
-        dados.listaGerentes.add(gerenteJoao);
+        //dados.listaBarbeiros.add(barbeiroMarcos);
+        //dados.listaAtendentes.add(atendentePedro);
+        //dados.listaGerentes.add(gerenteJoao);
         
-        dados.listaServicos.add(servicoCorte);
-        dados.listaServicos.add(servicoBarba);
-        dados.listaServicos.add(servicoLavar);
+        //dados.listaServicos.add(servicoCorte);
+        //dados.listaServicos.add(servicoBarba);
+        //dados.listaServicos.add(servicoLavar);
         
-        dados.listaProdutos.add(pomada);
+        //dados.listaProdutos.add(pomada);
         
-        dados.listaAgendamentos.add(ag1);
-        dados.listaOrdensServico.add(os1);
+        //dados.listaAgendamentos.add(ag1);
+        //dados.listaOrdensServico.add(os1);
         
-        dados.listaDeEspera = GestaoListaEspera.getInstancia().getPilhaEspera();
-        dados.estoque = GestaoEstoque.getInstancia().getEstoque();
-        dados.tabelaPonto = GestaoPonto.getInstancia().getTabela();
+        //dados.listaDeEspera = GestaoListaEspera.getInstancia().getPilhaEspera();
+        //dados.estoque = GestaoEstoque.getInstancia().getEstoque();
+        //dados.tabelaPonto = GestaoPonto.getInstancia().getTabela();
                 
                 
-        GerenciadorDeArquivos.salvar(dados);
+        //GerenciadorDeArquivos.salvar(dados); todos esses dados devem ser carregados dentro das gestões em seus metodos de cadastro 
     }
 }

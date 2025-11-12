@@ -43,10 +43,19 @@ public class GestaoServico extends Gestao <Servico>{
      * @param descricao
      * @param temp
      */
-    public void cadastrar(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){
+    public void cadastrar(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido) throws Exception{
+      
+        if (buscarPorNomeExato(nome) != null) {
+            throw new Exception("Já existe um serviço cadastrado com o nome: " + nome);
+        }
+        
+        if (temp <= 0) {
+            throw new IllegalArgumentException("Duração deve ser positiva.");
+        }
+        
         Servico servico = new Servico(nome, preco, descricao, temp, tipoRequerido);
         super.adicionar(servico);
-    }       
+    }  
 
     /**
      * Permite a edicao de informacoes de um servico

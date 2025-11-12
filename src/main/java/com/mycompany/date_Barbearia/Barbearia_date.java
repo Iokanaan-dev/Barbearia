@@ -17,31 +17,31 @@ import java.util.Stack;
  */
 public class Barbearia_date {
     
-    public ListaUnica<Cliente> listaClientes = new ListaUnica<>();
-    public ListaUnica<Gerente> listaGerentes = new ListaUnica<>();
-    public ListaUnica<Barbeiro> listaBarbeiros = new ListaUnica<>();
-    public ListaUnica<Atendente> listaAtendentes = new ListaUnica<>();
-    public ListaUnica<Produto> listaProdutos = new ListaUnica<>();
-    public ListaUnica<Servico> listaServicos = new ListaUnica<>(); 
-    public ListaUnica<Despesa> listaDespesas = new ListaUnica<>();
+    public ArrayList<Cliente> listaClientes = new ArrayList<>();  
+    public ArrayList<Gerente> listaGerentes = new ArrayList<>();
+    public ArrayList<Barbeiro> listaBarbeiros = new ArrayList<>();
+    public ArrayList<Atendente> listaAtendentes = new ArrayList<>();
+    public ArrayList<Produto> listaProdutos = new ArrayList<>();
+    public ArrayList<Servico> listaServicos = new ArrayList<>(); 
+    public ArrayList<Despesa> listaDespesas = new ArrayList<>();
     
     public Map<String, Integer> estoque = new HashMap<>();
     public Stack<ListaEspera> listaDeEspera = new Stack<>();
     
-    public ListaUnica<Agendamento> listaAgendamentos = new ListaUnica<>();
-    public ListaUnica<OrdemServico> listaOrdensServico = new ListaUnica<>();
+    public ArrayList<Agendamento> listaAgendamentos = new ArrayList<>();
+    public ArrayList<OrdemServico> listaOrdensServico = new ArrayList<>();
     public TabelaPonto tabelaPonto;
     
     public Barbearia_date(){
-        this.listaClientes = new ListaUnica<>();
-        this.listaGerentes = new ListaUnica<>();
-        this.listaBarbeiros = new ListaUnica<>();
-        this.listaAtendentes = new ListaUnica<>();
-        this.listaProdutos = new ListaUnica<>();
-        this.listaServicos = new ListaUnica<>();
-        this.listaDespesas = new ListaUnica<>();
-        this.listaAgendamentos = new ListaUnica<>();
-        this.listaOrdensServico = new ListaUnica<>();
+        this.listaClientes = new ArrayList<>();
+        this.listaGerentes = new ArrayList<>();
+        this.listaBarbeiros = new ArrayList<>();
+        this.listaAtendentes = new ArrayList<>();
+        this.listaProdutos = new ArrayList<>();
+        this.listaServicos = new ArrayList<>();
+        this.listaDespesas = new ArrayList<>();
+        this.listaAgendamentos = new ArrayList<>();
+        this.listaOrdensServico = new ArrayList<>();
         this.estoque = new HashMap<>();
         this.listaDeEspera = new Stack<>();
         this.tabelaPonto = new TabelaPonto();

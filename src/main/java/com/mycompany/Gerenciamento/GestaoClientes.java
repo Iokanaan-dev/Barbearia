@@ -46,7 +46,13 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @param dataNascimento
      * @param email
      */
-    public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{        
+    public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{
+        
+        if (this.buscarPorCpfInterno(cpf) != null) {
+            // Se NÃO for nulo, significa que o cliente já existe.
+            throw new Exception("Já existe um cliente cadastrado com o CPF: " + cpf);
+        }
+        
         Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
         super.adicionar(novoCliente);
     }
@@ -59,7 +65,21 @@ public class GestaoClientes extends Gestao<Cliente> {
                 return c;
         }
         throw new NoSuchElementException("Nenhum item encontrado com o CPF: " + cpf);
-    }    
+    }
+
+    private Cliente buscarPorCpfInterno(String cpf) {
+        if (cpf == null || cpf.trim().isEmpty()) {
+            return null; 
+        }
+        
+       
+        for (Cliente c : this.listaModelo) { 
+            if (c.getCpf().equals(cpf)) {
+                return c; 
+            }
+        }
+        return null; 
+    }
 
     /**
      * Permite a edicao de informacoes do cliente

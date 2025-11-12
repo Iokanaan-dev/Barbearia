@@ -31,7 +31,6 @@ com\mycompany\barbearia\modelos\Produto.class
 com\mycompany\Utilidades\TipoDespesa.class
 com\mycompany\compara\ComparaAgendamentoHORA.class
 com\mycompany\barbearia\modelos\ListaEspera.class
-com\mycompany\date_Barbearia\ListaUnica.class
 com\mycompany\Utilidades\TipoEstacao.class
 com\mycompany\compara\ComparaAgendamentoClienteID.class
 com\mycompany\Gerenciamento\GestaoListaEspera.class

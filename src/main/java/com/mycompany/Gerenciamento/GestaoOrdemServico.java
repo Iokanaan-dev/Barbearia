@@ -78,9 +78,16 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @param agendamentoInicial
      * @return 
      */
-        public OrdemServico cadastrar(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) {
+        public OrdemServico cadastrar(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) throws Exception {
+
+       if (agendamentoInicial.getAssociado_Ordem_Servico() != null) {
+            throw new Exception("O Agendamento " + agendamentoInicial.getId() + " já pertence à Ordem de Serviço " + agendamentoInicial.getAssociado_Ordem_Servico() +
+                                ". Não é possível criar uma nova OS para ele.");
+        }                
+            
         OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
         novaOS.adicionarAgendamento(agendamentoInicial);
+        agendamentoInicial.setAssociado_Ordem_Servico(novaOS.getId());
         
         this.recalcularValoresTotais(novaOS);
         
@@ -160,20 +167,6 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         System.out.println("Produto " + produto.getNome() + " (x" + quantidade + ") adicionado à OS " + os.getId());
     }
 
-    /**
-     * Anexa um agendamento a uma OS já existente.
-     * @param osID
-     * @param novoAgendamento
-     * @throws java.lang.Exception
-     */
-    public void adicionarAgendamentoEmOS(String osID, Agendamento novoAgendamento) throws Exception {
-        OrdemServico os = this.buscarPorId(osID); 
-        if (os == null) {
-            throw new Exception("Ordem de Serviço não encontrada.");
-        }
-        os.adicionarAgendamento(novoAgendamento);
-        this.recalcularValoresTotais(os);
-    }
     
     /**
      * Processa o pagamento do adiantamento de 50%.
