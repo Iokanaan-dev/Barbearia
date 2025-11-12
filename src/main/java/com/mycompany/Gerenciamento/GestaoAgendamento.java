@@ -104,7 +104,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      * @throws Exception
      */
-    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
+    public Agendamento cadastrar(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
         
         validarPreCondicoes(servicos, dataInicio, estacao);
 
@@ -122,6 +122,17 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
 
         super.adicionar(novoAgendamento);
         return novoAgendamento;
+    }
+    
+    public void cadastrar(Agendamento agendamento) throws Exception{
+        validarPreCondicoes(agendamento.getServicos(), agendamento.getDataHoraInicioAgendamento(), agendamento.getEstacao());
+        int duracaoTotalEmMinutos = calcularDuracaoTotal(agendamento.getServicos());
+        LocalDateTime dataFim = calcularDataFim(agendamento.getDataHoraInicioAgendamento(), duracaoTotalEmMinutos);
+        validarDisponibilidade(agendamento.getBarbeiro(), agendamento.getEstacao(), agendamento.getDataHoraInicioAgendamento(), dataFim);
+        
+        StatusAgendamento statusInicial = determinarStatusInicial(agendamento.getDataHoraInicioAgendamento());
+        
+        super.adicionar(agendamento);
     }
     
     /**

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Classe principal para testes de integração de todo o sistema.
  * @author italo
@@ -99,6 +100,7 @@ public class Barbearia {
         Barbeiro usuario8 = new Barbeiro("barbeiro_renan", "renan6060", "Renan", "21212121212", "38997008888", data1);
         Barbeiro usuario9 = new Barbeiro("barbeiro_jorge", "jorge7070", "Jorge", "22222222222", "38997009999", data1);
         Barbeiro usuario10 = new Barbeiro("barbeiro_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", data1);
+        Atendente usuario11 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", data1);
 
         gestaoU.cadastrar(usuario1);
         gestaoU.cadastrar(usuario2);
@@ -110,32 +112,34 @@ public class Barbearia {
         gestaoU.cadastrar(usuario8);
         gestaoU.cadastrar(usuario9);
         gestaoU.cadastrar(usuario10);
+        gestaoU.cadastrar(usuario11);
 
         gestaoU.printLista();
         
         GestaoServicos gestaoS = GestaoServicos.getInstancia();
 
-        gestaoS.cadastrar("Luzes Masculinas", 120.0, "Técnica de clareamento parcial dos fios", 75, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Selagem Capilar", 100.0, "Reduz o frizz e dá brilho intenso", 60, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Escova Modeladora", 50.0, "Modelagem com secador e escova", 40, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Massagem Facial", 35.0, "Relaxamento e ativação da circulação facial", 20, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Limpeza de Pele", 70.0, "Limpeza profunda com extração de impurezas", 50, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Hidratação de Barba", 40.0, "Tratamento hidratante e revitalizante para barba", 25, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Corte Navalhado", 45.0, "Corte rente com navalha e acabamento preciso", 35, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Pigmentação Capilar", 90.0, "Restaura o tom natural do cabelo", 55, TipoEstacao.LAVAGEM);
-        gestaoS.cadastrar("Corte com Tesoura", 50.0, "Corte artesanal feito totalmente com tesoura", 30, TipoEstacao.CORRIQUEIRA);
-        gestaoS.cadastrar("Design de Cavanhaque", 25.0, "Modelagem e alinhamento do cavanhaque", 15, TipoEstacao.CORRIQUEIRA);
-        
-        Servico servico1 = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 35, TipoEstacao.CORRIQUEIRA);
-        Servico servico2 = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 25, TipoEstacao.CORRIQUEIRA);
-        Servico servico3 = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 30, TipoEstacao.CORRIQUEIRA);
-        Servico servico4 = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 40, TipoEstacao.LAVAGEM);
-        Servico servico5 = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 60, TipoEstacao.LAVAGEM);
-        Servico servico6 = new Servico("Cauterização", 110.0, "Reconstrução profunda dos fios danificados", 70, TipoEstacao.LAVAGEM);
-        Servico servico7 = new Servico("Corte Social", 50.0, "Corte clássico e elegante para todas as idades", 25, TipoEstacao.CORRIQUEIRA);
-        Servico servico8 = new Servico("Sobrancelha Masculina", 25.0, "Limpeza e definição das sobrancelhas", 15, TipoEstacao.CORRIQUEIRA);
-        Servico servico9 = new Servico("Escova Progressiva", 130.0, "Alisamento capilar com efeito natural e duradouro", 90, TipoEstacao.LAVAGEM);
-        Servico servico10 = new Servico("Tratamento Antiqueda", 85.0, "Fortalecimento do couro cabeludo e prevenção de queda", 45, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Luzes Masculinas", 120.0, "Técnica de clareamento parcial dos fios", 5, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Selagem Capilar", 100.0, "Reduz o frizz e dá brilho intenso", 4, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Escova Modeladora", 50.0, "Modelagem com secador e escova", 3, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Massagem Facial", 35.0, "Relaxamento e ativação da circulação facial", 2, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Limpeza de Pele", 70.0, "Limpeza profunda com extração de impurezas", 4, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Hidratação de Barba", 40.0, "Tratamento hidratante e revitalizante para barba", 3, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Corte Navalhado", 45.0, "Corte rente com navalha e acabamento preciso", 3, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Pigmentação Capilar", 90.0, "Restaura o tom natural do cabelo", 5, TipoEstacao.LAVAGEM);
+        gestaoS.cadastrar("Corte com Tesoura", 50.0, "Corte artesanal feito totalmente com tesoura", 3, TipoEstacao.CORRIQUEIRA);
+        gestaoS.cadastrar("Design de Cavanhaque", 25.0, "Modelagem e alinhamento do cavanhaque", 2, TipoEstacao.CORRIQUEIRA);
+
+        Servico servico1 = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2 = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3 = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
+        Servico servico4 = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        Servico servico5 = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);
+        Servico servico6 = new Servico("Cauterização", 110.0, "Reconstrução profunda dos fios danificados", 6, TipoEstacao.LAVAGEM);
+        Servico servico7 = new Servico("Corte Social", 50.0, "Corte clássico e elegante para todas as idades", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico8 = new Servico("Sobrancelha Masculina", 25.0, "Limpeza e definição das sobrancelhas", 2, TipoEstacao.CORRIQUEIRA);
+        Servico servico9 = new Servico("Escova Progressiva", 130.0, "Alisamento capilar com efeito natural e duradouro", 5, TipoEstacao.LAVAGEM);
+        Servico servico10 = new Servico("Tratamento Antiqueda", 85.0, "Fortalecimento do couro cabeludo e prevenção de queda", 4, TipoEstacao.LAVAGEM);
+
 
         gestaoS.cadastrar(servico1);
         gestaoS.cadastrar(servico2);
@@ -174,7 +178,6 @@ public class Barbearia {
         Produto produto9 = new Produto("Balm para Barba Citrus", 47.0, "Nutre e perfuma a barba com toque refrescante e leve");
         Produto produto10 = new Produto("Toalha de Algodão Premium", 32.0, "Toalha macia e altamente absorvente, ideal para uso profissional");
 
-
         gestaoP.cadastrar(produto1);
         gestaoP.cadastrar(produto2);
         gestaoP.cadastrar(produto3);
@@ -188,9 +191,31 @@ public class Barbearia {
 
     
 
-    gestaoP.printLista();
+        gestaoP.printLista();
+        GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
+        GestaoAgendamento gestaoA = GestaoAgendamento.getInstancia();
         
+        LocalDateTime dataBase = LocalDateTime.of(2025, 11, 13, 9, 0);
+
+        ArrayList<Servico> servicos1 = new ArrayList<>(Arrays.asList(servico1, servico2));
+        ArrayList<Servico> servicos2 = new ArrayList<>(Arrays.asList(servico3, servico7));
+        ArrayList<Servico> servicos3 = new ArrayList<>(Arrays.asList(servico4, servico5));
+        ArrayList<Servico> servicos4 = new ArrayList<>(Arrays.asList(servico6));
+        ArrayList<Servico> servicos5 = new ArrayList<>(Arrays.asList(servico4, servico9, servico10));
+
+        Agendamento agendamento1 = new Agendamento(cliente1, usuario1, usuario11, gestaoE.getEstacao(1), servicos1, dataBase, StatusAgendamento.PRE_AGENDADO, false, null);
+        Agendamento agendamento2 = new Agendamento(cliente2, usuario2, usuario11, gestaoE.getEstacao(1), servicos2, dataBase.plusHours(1), StatusAgendamento.AGUARDANDO_PAGAMENTO, false, null);
+        Agendamento agendamento3 = new Agendamento(cliente3, usuario3, usuario11, gestaoE.getEstacao(0), servicos3, dataBase.plusHours(2), StatusAgendamento.PRE_AGENDADO, false, null);
+        Agendamento agendamento4 = new Agendamento(cliente4, usuario4, usuario11, gestaoE.getEstacao(0), servicos4, dataBase.plusHours(4), StatusAgendamento.AGUARDANDO_PAGAMENTO, false, null);
+        Agendamento agendamento5 = new Agendamento(cliente5, usuario5, usuario11, gestaoE.getEstacao(0), servicos5, dataBase.plusHours(5), StatusAgendamento.PRE_AGENDADO, false, null);
         
+        gestaoA.cadastrar(agendamento1);
+        gestaoA.cadastrar(agendamento2);
+        gestaoA.cadastrar(agendamento3);
+        gestaoA.cadastrar(agendamento4);
+        gestaoA.cadastrar(agendamento5);
+        
+        gestaoA.printLista();
         
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
 
@@ -248,7 +273,7 @@ public class Barbearia {
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
         GestaoEstacao gestaoES = GestaoEstacao.getInstancia();
-	//Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
+	//Agendamento ag1 = gestaoAGE.cadastrar(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
         //OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
 
         Cliente clienteZeca = gestaoC.buscarCPF("22222222222");

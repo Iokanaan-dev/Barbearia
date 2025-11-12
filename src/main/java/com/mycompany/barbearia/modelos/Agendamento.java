@@ -204,6 +204,13 @@ public class Agendamento extends Modelo{
         this.associado_Ordem_Servico = associado_Ordem_Servico;
     }
     
+    public String isEncaixeString(){
+        if(isEncaixe)
+            return "Sim";
+        
+        return "Nao";
+    }
+    
     /**
      * Gera o id do objeto
      * @return
@@ -212,4 +219,12 @@ public class Agendamento extends Modelo{
     public String gerarId() {
         return "AGE-" + UUID.randomUUID().toString().substring(0, 10);
     }
+
+    @Override
+    public String toString() {
+        
+        return String.format("%nAgendamento %s%n Encaixe: %s | Cliente: %s | Barbeiro: %s | Estacao: %s | Valor: %.2f", getId(), isEncaixeString(), cliente.getNome(), barbeiro.getNome(), estacao.getNome() ,getValorDosServicosCongelado());
+    }
+    
+    
 }

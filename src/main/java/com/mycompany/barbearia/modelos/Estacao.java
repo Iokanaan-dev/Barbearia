@@ -48,8 +48,6 @@ public class Estacao extends Modelo{
         this.descricao = descricao;
     }
     
-    
-    
     public String getDiscricao() {
         return descricao;
     }
