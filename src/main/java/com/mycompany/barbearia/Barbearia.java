@@ -33,6 +33,7 @@ public class Barbearia {
         GestaoOrdemServico.inicializar(dados);
         GestaoListaEspera.inicializar(dados);
         GestaoPonto.inicializar(dados);
+        GestaoFinanceira.inicializar(dados);
 
         // 🔹 Manipula normalmente
         
@@ -96,11 +97,21 @@ public class Barbearia {
         // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
 
         gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
-        
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null); // é possível cadastrar um mesmo cliente na lista de espera
-
+       
         gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
+        
+        GestaoFinanceira gestaoFE = GestaoFinanceira.getInstancia();
+        
+        String relatorio = gestaoFE.gerarRelatorioVendasDiario(data1);
 
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(
+            TipoRelatorio.RELATORIO_DIARIO,
+            data1.toString(),
+            relatorio
+        );
+
+        dados.getListaRelatorios().add(registro);
+        
         // 🔹 Salva as mudanças
         //dados.listaClientes.add(clienteItalo);
        // dados.listaClientes.add(clienteZaca);
