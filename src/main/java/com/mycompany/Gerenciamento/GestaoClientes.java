@@ -48,14 +48,28 @@ public class GestaoClientes extends Gestao<Cliente> {
      */
     public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{
         
+        verificarCpfExiste(cpf);
+        
+        Cliente novoCliente = construirCliente(nome, cpf, telefone, dataNascimento, email);
+        super.adicionar(novoCliente);
+    }
+    
+    public void cadastrar(Cliente cliente) throws Exception{
+        verificarCpfExiste(cliente.getCpf());
+        super.adicionar(cliente);
+    }
+    
+    private void verificarCpfExiste(String cpf) throws Exception{
         if (this.buscarPorCpfInterno(cpf) != null) {
             // Se NÃO for nulo, significa que o cliente já existe.
             throw new Exception("Já existe um cliente cadastrado com o CPF: " + cpf);
         }
-        
-        Cliente novoCliente = new Cliente(nome, cpf, telefone, dataNascimento, email);
-        super.adicionar(novoCliente);
     }
+    
+    public Cliente construirCliente(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
+        return new Cliente(nome, cpf, telefone, dataNascimento, email);
+    }
+    
     
     public Cliente buscarCPF(String cpf) {
         verificarCampoNulo(cpf);

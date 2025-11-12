@@ -53,7 +53,7 @@ private GestaoUsuarios(Barbearia_date dados) {
         usernameSendoUsado(username);
     
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao);
-        registrarUsuario(novoUsuario);
+        super.adicionar(novoUsuario);
         
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }
@@ -63,10 +63,15 @@ private GestaoUsuarios(Barbearia_date dados) {
         usernameSendoUsado(username);
         
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao , pin);
-        registrarUsuario(novoUsuario);
+        super.adicionar(novoUsuario);
         
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }    
+    
+    public void cadastrar(Usuario usuario){
+        usernameSendoUsado(usuario.getUsername());
+        super.adicionar(usuario);
+    }
 
     /**
     * Cria o objeto Usuario de acordo com a função.
@@ -90,13 +95,6 @@ private GestaoUsuarios(Barbearia_date dados) {
     private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao, String pin) {
         return new Gerente(username, senha, nome, cpf, telefone, dataNascimento, pin);      
     }    
-
-    /**
-     * Registra o usuário criado na lista.
-     */
-    private void registrarUsuario(Usuario usuario) {
-        super.adicionar(usuario);
-    }
 
     /**
      * Verifica se o usuário já existe.

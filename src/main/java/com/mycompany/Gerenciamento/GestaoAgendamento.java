@@ -104,7 +104,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      * @return
      * @throws Exception
      */
-    public Agendamento criarAgendamento(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
+    public Agendamento x(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
         
         validarListaServicos(servicos);
         validarHorario(dataInicio);

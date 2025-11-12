@@ -12,19 +12,19 @@ import com.mycompany.date_Barbearia.Barbearia_date;
  *
  * @author italo
  */
-public class GestaoServico extends Gestao <Servico>{
+public class GestaoServicos extends Gestao <Servico>{
         
-    private static GestaoServico instancia;
+    private static GestaoServicos instancia;
     private Barbearia_date dados;
     
-    GestaoServico(Barbearia_date dados){
+    GestaoServicos(Barbearia_date dados){
         this.dados = dados;
         listaModelo = dados.listaServicos;
     }
     
     public static void inicializa(Barbearia_date dados) {
         if (instancia == null) {
-        instancia = new GestaoServico(dados);
+        instancia = new GestaoServicos(dados);
         }
     }
     
@@ -32,7 +32,7 @@ public class GestaoServico extends Gestao <Servico>{
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
      * @return GestaoClientes
      */
-    public static GestaoServico getInstancia(){
+    public static GestaoServicos getInstancia(){
         return instancia;
     }
     
@@ -44,18 +44,33 @@ public class GestaoServico extends Gestao <Servico>{
      * @param temp
      */
     public void cadastrar(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido) throws Exception{
-      
-        if (buscarPorNomeExato(nome) != null) {
-            throw new Exception("Já existe um serviço cadastrado com o nome: " + nome);
-        }
-        
-        if (temp <= 0) {
-            throw new IllegalArgumentException("Duração deve ser positiva.");
-        }
-        
-        Servico servico = new Servico(nome, preco, descricao, temp, tipoRequerido);
+        verificarServicoExiste(nome);
+        verificarServicoDuracao(temp);
+       
+        Servico servico = construirServico(nome, preco, descricao, temp, tipoRequerido);
         super.adicionar(servico);
-    }  
+    }
+    
+    public void cadastrar(Servico servico) throws Exception{
+        verificarServicoExiste(servico.getNome());
+        verificarServicoDuracao(servico.getTempoEmMinutos10());
+        
+        super.adicionar(servico);    
+    }
+    
+    private Servico construirServico(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){
+        return new Servico(nome, preco, descricao, temp, tipoRequerido);
+    }
+    
+    private void verificarServicoExiste(String nome) throws Exception{
+        if (buscarPorNomeExato(nome) != null)
+            throw new Exception("Já existe um serviço cadastrado com o nome: " + nome);       
+    }
+    
+    private void verificarServicoDuracao(int temp) throws Exception{
+        if (temp <= 0)
+            throw new IllegalArgumentException("Duração deve ser positiva.");    
+    }    
 
     /**
      * Permite a edicao de informacoes de um servico
@@ -69,9 +84,7 @@ public class GestaoServico extends Gestao <Servico>{
         
         Servico servico = this.buscarPorId(id);
         
-        if(servico == null){
-            throw new IllegalArgumentException("Servico nao pode ser nulo.");
-        }
+        super.verificarModeloNulo(servico);
         
         servico.setNome(nome);
         servico.setPreco(preco);
