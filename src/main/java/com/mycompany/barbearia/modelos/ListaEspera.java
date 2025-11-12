@@ -18,14 +18,12 @@ public class ListaEspera {
     
     private Cliente cliente;
     private ArrayList<Servico> servicosDesejados;
-    private LocalDate dataDesejada;
     private Barbeiro barbeiroPreferencial; 
     private LocalDateTime dataDaSolicitacao; 
 
-    public ListaEspera(Cliente cliente, ArrayList<Servico> servicos, LocalDate data, Barbeiro preferencia) {
+    public ListaEspera(Cliente cliente, ArrayList<Servico> servicos, Barbeiro preferencia) {
         this.cliente = cliente;
         this.servicosDesejados = servicos;
-        this.dataDesejada = data;
         this.barbeiroPreferencial = preferencia;
         this.dataDaSolicitacao = LocalDateTime.now(); 
     }
@@ -43,10 +41,6 @@ public class ListaEspera {
     public ArrayList<Servico> getServicosDesejados() {
         return servicosDesejados;
     }
-    
-    public LocalDate getDataDesejada() { 
-        return dataDesejada; 
-    }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
@@ -54,10 +48,6 @@ public class ListaEspera {
 
     public void setServicosDesejados(ArrayList<Servico> servicosDesejados) {
         this.servicosDesejados = servicosDesejados;
-    }
-
-    public void setDataDesejada(LocalDate dataDesejada) {
-        this.dataDesejada = dataDesejada;
     }
 
     public void setBarbeiroPreferencial(Barbeiro barbeiroPreferencial) {

@@ -35,9 +35,13 @@ public class GestaoListaEspera {
         return instancia;
     }
     
-    public void adicionarClienteEspera(Cliente cliente, ArrayList<Servico> servicos, LocalDate data, Barbeiro preferencia) throws Exception {
+    public void adicionarClienteEspera(Cliente cliente, ArrayList<Servico> servicos, Barbeiro preferencia) throws Exception {
         
-        ListaEspera novaEspera = new ListaEspera(cliente, servicos, data, preferencia);
+        if (clienteJaNaEspera(cliente.getId())) {
+            throw new Exception("O cliente " + cliente.getNome() + " já está na lista de espera.");
+        }
+        
+        ListaEspera novaEspera = new ListaEspera(cliente, servicos, preferencia);
         
         if(novaEspera.getTipoEstacaoRequerido() == null) {
             throw new Exception("Não é possivel adicionar a lista serviços com estações misturadas");
@@ -75,4 +79,13 @@ public class GestaoListaEspera {
     public boolean isVazia() {
         return pilhaEspera.isEmpty();
     }
+    
+    private boolean clienteJaNaEspera(String idCliente) {
+    for (ListaEspera espera : pilhaEspera) {
+        if (espera.getCliente().getId().equals(idCliente)) {
+            return true;
+        }
+    }
+    return false;
+}
 }

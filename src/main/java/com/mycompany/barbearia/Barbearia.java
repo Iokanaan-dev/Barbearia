@@ -90,20 +90,16 @@ public class Barbearia {
 	Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
         OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
 
-
-
-
-        LocalDate dataOcupada = horario1.toLocalDate(); 
         Cliente clienteZeca = gestaoC.buscarCPF("22222222222");
         GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia();
                 
         // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
 
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, dataOcupada, null);
+        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
         
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, dataOcupada, null); // é possível cadastrar um mesmo cliente na lista de espera
+        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null); // é possível cadastrar um mesmo cliente na lista de espera
 
-        gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, dataOcupada, null);
+        gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
 
         // 🔹 Salva as mudanças
         //dados.listaClientes.add(clienteItalo);
