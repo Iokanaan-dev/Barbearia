@@ -1,6 +1,6 @@
 {
   "listaClientes" : [ {
-    "id" : "CL-cc43f12f-b",
+    "id" : "CL-1f7cb64d-5",
     "nome" : "Italo",
     "cpf" : "11111111111",
     "telefone" : "99999999",
@@ -8,47 +8,78 @@
     "email" : "italo@picles.com",
     "contador" : 0
   }, {
-    "id" : "CL-586adc09-6",
+    "id" : "CL-0699eb96-5",
     "nome" : "Zeca",
     "cpf" : "22222222222",
     "telefone" : "728294729",
     "dataNascimento" : "1991-12-31",
     "email" : "borabill@oi.com",
     "contador" : 0
+  }, "CL-1f7cb64d-5", "CL-0699eb96-5" ],
+  "listaGerentes" : [ {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-a3730718-0",
+    "nome" : "joão",
+    "cpf" : "00000000000",
+    "telefone" : "38998090957",
+    "dataNascimento" : "1991-12-31",
+    "username" : "gerente_joao"
   } ],
-  "listaGerentes" : [ ],
-  "listaBarbeiros" : [ ],
-  "listaAtendentes" : [ ],
+  "listaBarbeiros" : [ {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-c9b61b46-c",
+    "nome" : "marcos",
+    "cpf" : "44444444444",
+    "telefone" : "38998090957",
+    "dataNascimento" : "1991-12-31",
+    "username" : "barbeiro_marcos"
+  } ],
+  "listaAtendentes" : [ {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-95971212-e",
+    "nome" : "pedro",
+    "cpf" : "33333333333",
+    "telefone" : "38998090957",
+    "dataNascimento" : "1991-12-31",
+    "username" : "atendente_pedro"
+  } ],
   "listaProdutos" : [ {
-    "id" : "PO-d765044d-e",
+    "id" : "PO-ba946139-7",
     "nome" : "Pomada Modeladora",
     "preco" : 25.0,
     "descricao" : "Pomada de alta fixação"
-  }, "PO-d765044d-e" ],
+  }, "PO-ba946139-7", "PO-ba946139-7" ],
   "listaServicos" : [ {
-    "id" : "SE-000247d2-a",
+    "id" : "SE-3b28ce0b-4",
     "nome" : "Corte",
     "preco" : 35.0,
     "descricao" : "Corte geral",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
-    "tempoEmMinutos10" : 30
+    "tempoEmMinutos" : 300
   }, {
-    "id" : "SE-f22bb1ac-9",
+    "id" : "SE-e4b5b57c-a",
     "nome" : "Lavar",
     "preco" : 20.0,
     "descricao" : "Lavagem simples",
     "tipoEstacaoRequerido" : "LAVAGEM",
-    "tempoEmMinutos10" : 10
+    "tempoEmMinutos" : 100
   }, {
-    "id" : "SE-3c287083-2",
+    "id" : "SE-676e6b57-e",
     "nome" : "Barba",
     "preco" : 15.0,
     "descricao" : "Corte de barba",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
-    "tempoEmMinutos10" : 30
-  } ],
+    "tempoEmMinutos" : 300
+  }, "SE-3b28ce0b-4", "SE-676e6b57-e", "SE-e4b5b57c-a" ],
   "listaDespesas" : [ {
-    "id" : "DESP-11f57db6-f",
+    "id" : "DESP-d0b3ceb3-7",
+    "nome" : "Café do Mês",
+    "valor" : 150.0,
+    "dataPagamento" : "2025-11-12",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Compra de café e açúcar"
+  }, {
+    "id" : "DESP-e6720a22-4",
     "nome" : "Café do Mês",
     "valor" : 150.0,
     "dataPagamento" : "2025-11-12",
@@ -59,69 +90,80 @@
     "tipo" : "RELATORIO_DIARIO",
     "periodo" : "1991-12-31",
     "conteudo" : "\r\n--- RELATÓRIO DE VENDAS DIÁRIO: 31/12/1991 ---\r\nReceita de Serviços:............ R$ 0,00\r\nReceita de Produtos:............ R$ 0,00\r\nTaxas de Encaixe:............... R$ 0,00\r\n-------------------------------------------\r\nRECEITA BRUTA:.................. R$ 0,00\r\nMultas (Cancelamentos):......... R$ 0,00\r\n-------------------------------------------\r\nRECEITA TOTAL DO DIA:........... R$ 0,00\r\n",
-    "dataGeracao" : "2025-11-12T15:35:29.8028291"
-  } ],
-  "estoque" : { },
-  "listaDeEspera" : [ {
-    "cliente" : "CL-586adc09-6",
-    "servicosDesejados" : [ "SE-f22bb1ac-9" ],
-    "barbeiroPreferencial" : null,
-    "dataDaSolicitacao" : "2025-11-12T15:35:29.8008158",
-    "tipoEstacaoRequerido" : "LAVAGEM",
-    "servicos" : [ "SE-f22bb1ac-9" ],
-    "duracaoTotalMinutos" : 10
+    "dataGeracao" : "2025-11-12T16:15:58.4565317"
   }, {
-    "cliente" : "CL-cc43f12f-b",
-    "servicosDesejados" : [ "SE-f22bb1ac-9" ],
+    "tipo" : "RELATORIO_DIARIO",
+    "periodo" : "1991-12-31",
+    "conteudo" : "\r\n--- RELATÓRIO DE VENDAS DIÁRIO: 31/12/1991 ---\r\nReceita de Serviços:............ R$ 0,00\r\nReceita de Produtos:............ R$ 0,00\r\nTaxas de Encaixe:............... R$ 0,00\r\n-------------------------------------------\r\nRECEITA BRUTA:.................. R$ 0,00\r\nMultas (Cancelamentos):......... R$ 0,00\r\n-------------------------------------------\r\nRECEITA TOTAL DO DIA:........... R$ 0,00\r\n",
+    "dataGeracao" : "2025-11-12T16:23:31.9309394"
+  } ],
+  "estoque" : {
+    "PO-ba946139-7" : 10
+  },
+  "listaDeEspera" : [ {
+    "cliente" : "CL-0699eb96-5",
+    "servicosDesejados" : [ "SE-e4b5b57c-a", "SE-e4b5b57c-a" ],
     "barbeiroPreferencial" : null,
-    "dataDaSolicitacao" : "2025-11-12T15:35:29.8008158",
-    "tipoEstacaoRequerido" : "LAVAGEM",
-    "servicos" : [ "SE-f22bb1ac-9" ],
-    "duracaoTotalMinutos" : 10
+    "dataDaSolicitacao" : "2025-11-12T16:15:58.4535244",
+    "servicos" : [ "SE-e4b5b57c-a", "SE-e4b5b57c-a" ],
+    "duracaoTotalMinutos" : 200,
+    "tipoEstacaoRequerido" : "LAVAGEM"
+  }, {
+    "cliente" : "CL-1f7cb64d-5",
+    "servicosDesejados" : [ "SE-e4b5b57c-a", "SE-e4b5b57c-a" ],
+    "barbeiroPreferencial" : null,
+    "dataDaSolicitacao" : "2025-11-12T16:15:58.4535244",
+    "servicos" : [ "SE-e4b5b57c-a", "SE-e4b5b57c-a" ],
+    "duracaoTotalMinutos" : 200,
+    "tipoEstacaoRequerido" : "LAVAGEM"
   } ],
   "listaAgendamentos" : [ {
-    "id" : "AGE-9320f09b-b",
+    "id" : "AGE-67d5d4f3-d",
     "nome" : null,
     "isEncaixe" : false,
-    "cliente" : "CL-cc43f12f-b",
-    "barbeiro" : {
-      "id" : "BA-ac75bbd7-7",
-      "nome" : "marcos",
-      "cpf" : "44444444444",
-      "telefone" : "38998090957",
-      "dataNascimento" : "1991-12-31",
-      "username" : "barbeiro_marcos"
-    },
-    "atendente" : {
-      "id" : "AT-392c2d5e-5",
-      "nome" : "pedro",
-      "cpf" : "33333333333",
-      "telefone" : "38998090957",
-      "dataNascimento" : "1991-12-31",
-      "username" : "atendente_pedro"
-    },
+    "cliente" : "CL-1f7cb64d-5",
+    "barbeiro" : "BA-c9b61b46-c",
+    "atendente" : "AT-95971212-e",
     "estacao" : {
-      "id" : "ES-1b64d32b-c",
+      "id" : "ES-14638449-f",
       "nome" : "Lavar e sacar",
       "descricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!",
       "tipo" : "LAVAGEM",
       "discricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!"
     },
-    "servicos" : [ "SE-f22bb1ac-9" ],
+    "servicos" : [ "SE-e4b5b57c-a" ],
     "valorDosServicosCongelado" : 20.0,
-    "dataHoraInicioAgendamento" : "2025-11-17T10:00:00.7945805",
-    "dataHoraFimAgendamento" : "2025-11-17T10:10:00.7945805",
+    "dataHoraInicioAgendamento" : "2025-11-17T10:00:00.4460291",
+    "dataHoraFimAgendamento" : "2025-11-17T10:10:00.4460291",
     "status" : "AGUARDANDO_PAGAMENTO",
-    "associado_Ordem_Servico" : "OS-3980f50e-7",
+    "associado_Ordem_Servico" : "OS-80de0036-b",
     "valorDosServicos" : 20.0,
     "encaixe" : false
+  }, "AGE-67d5d4f3-d" ],
+  "listaOrdensServico" : [ {
+    "id" : "OS-80de0036-b",
+    "nome" : null,
+    "idCliente" : "CL-1f7cb64d-5",
+    "idBarbeiro" : "BA-c9b61b46-c",
+    "status" : "ABERTO",
+    "dataExecucao" : "2025-11-12",
+    "observacoes" : "---",
+    "produtosUtilizados" : [ ],
+    "agendamentos" : [ "AGE-67d5d4f3-d" ],
+    "produtosVendidos" : { },
+    "valorTotalProdutos" : 0.0,
+    "valorTotalServicos" : 20.0,
+    "valorTaxaEncaixe" : 0.0,
+    "valorAdiantado_50pct" : 0.0,
+    "valorTaxaCancelamento_35pct" : 0.0,
+    "valorPendente" : 20.0,
+    "valorTotalAPagar" : 20.0
   } ],
-  "listaOrdensServico" : [ ],
   "tabelaPonto" : {
     "tabelaPontos" : {
-      "BA-ac75bbd7-7" : [ ],
-      "GE-d456ca34-9" : [ ],
-      "AT-392c2d5e-5" : [ ]
+      "AT-95971212-e" : [ ],
+      "BA-c9b61b46-c" : [ ],
+      "GE-a3730718-0" : [ ]
     }
   }
 }

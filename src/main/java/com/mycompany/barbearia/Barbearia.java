@@ -39,16 +39,16 @@ public class Barbearia {
         
         
         GestaoClientes gestaoC = GestaoClientes.getInstancia();
-        gestaoC.cadastrar("Italo", "11111111111", "99999999", data1, "italo@picles.com");
-        gestaoC.cadastrar("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
+        //gestaoC.cadastrar("Italo", "11111111111", "99999999", data1, "italo@picles.com");
+        //gestaoC.cadastrar("Zeca", "22222222222", "728294729", data1, "borabill@oi.com");
         Cliente clienteZaca = gestaoC.buscarCPF("22222222222");
         Cliente clienteItalo = gestaoC.buscarCPF("11111111111");
        
         
         GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
-        gestaoU.cadastrar("atendente_pedro", "pedro123", "pedro", "33333333333", "38998090957", data1, TipoUsuario.ATENDENTE);
-        gestaoU.cadastrar("barbeiro_marcos", "marcos123", "marcos", "44444444444", "38998090957", data1, TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("gerente_joao", "joao1239", "joão", "00000000000", "38998090957", data1, TipoUsuario.GERENTE, "8181");
+        //gestaoU.cadastrar("atendente_pedro", "pedro123", "pedro", "33333333333", "38998090957", data1, TipoUsuario.ATENDENTE);
+        //gestaoU.cadastrar("barbeiro_marcos", "marcos123", "marcos", "44444444444", "38998090957", data1, TipoUsuario.BARBEIRO);
+        //gestaoU.cadastrar("gerente_joao", "joao1239", "joão", "00000000000", "38998090957", data1, TipoUsuario.GERENTE, "8181");
 
         Barbeiro barbeiroMarcos = (Barbeiro) gestaoU.buscarUsername("barbeiro_marcos");
         Atendente atendentePedro = (Atendente) gestaoU.buscarUsername("atendente_pedro");
@@ -58,10 +58,10 @@ public class Barbearia {
         
         // C. Cadastrar Serviços (em SLOTS de 10 min)
         GestaoServico gestaoS = GestaoServico.getInstancia();
-        gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
+       // gestaoS.cadastrar("Corte", 35.00, "Corte geral", 3, TipoEstacao.CORRIQUEIRA);
                                                                             
-        gestaoS.cadastrar("Lavar", 20.0, "Lavagem simples", 1, TipoEstacao.LAVAGEM); 
-        gestaoS.cadastrar("Barba", 15.00, "Corte de barba", 3, TipoEstacao.CORRIQUEIRA); 
+        //gestaoS.cadastrar("Lavar", 20.0, "Lavagem simples", 1, TipoEstacao.LAVAGEM); 
+        //gestaoS.cadastrar("Barba", 15.00, "Corte de barba", 3, TipoEstacao.CORRIQUEIRA); 
             
         Servico servicoLavar = gestaoS.buscarPorId(gestaoS.buscarPorNome("Lavar").get(0).getId());
         Servico servicoCorte = gestaoS.buscarPorId(gestaoS.buscarPorNome("Corte").get(0).getId());
@@ -70,9 +70,9 @@ public class Barbearia {
         // D. Cadastrar Produtos e Estoque (Para Venda na Loja)
         GestaoProdutos gestaoP = GestaoProdutos.getInstancia();
         GestaoEstoque gestaoE = GestaoEstoque.getInstancia();
-        gestaoP.cadastrar("Pomada Modeladora", 25.00, "Pomada de alta fixação");
+       // gestaoP.cadastrar("Pomada Modeladora", 25.00, "Pomada de alta fixação");
         Produto pomada = gestaoP.buscarPorId(gestaoP.buscarPorNome("Pomada modeladora").get(0).getId());
-        gestaoE.adicionarAoEstoque(pomada.getId(), 0); // Registra no inventário
+        //gestaoE.adicionarAoEstoque(pomada.getId(), 0); // Registra no inventário
         gestaoE.aumentarQuantidade(pomada.getId(), 10); // Adiciona 10 ao estoque
         
         LocalDate hoje = LocalDate.now();
@@ -88,17 +88,17 @@ public class Barbearia {
         GestaoAgendamento gestaoAGE = GestaoAgendamento.getInstancia();
         GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
         GestaoEstacao gestaoES = GestaoEstacao.getInstancia();
-	Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
-        OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
+	//Agendamento ag1 = gestaoAGE.criarAgendamento(clienteItalo, barbeiroMarcos, gestaoES.getEstacao(1), atendentePedro, servicosLavar, horario1, false, null);
+        //OrdemServico os1 = gestaoOS.cadastrar(clienteItalo, barbeiroMarcos, hoje, ag1);
 
         Cliente clienteZeca = gestaoC.buscarCPF("22222222222");
         GestaoListaEspera gestaoLE = GestaoListaEspera.getInstancia();
                 
         // 2. SIMULAR CLIENTES ENTRANDO NA LISTA DE ESPERA (LIFO)
 
-        gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
+        //gestaoLE.adicionarClienteEspera(clienteZeca, servicosLavar, null);
        
-        gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
+        //gestaoLE.adicionarClienteEspera(clienteItalo, servicosLavar, null);
         
         GestaoFinanceira gestaoFE = GestaoFinanceira.getInstancia();
         
@@ -114,7 +114,7 @@ public class Barbearia {
         
         // 🔹 Salva as mudanças
         //dados.listaClientes.add(clienteItalo);
-       // dados.listaClientes.add(clienteZaca);
+        //dados.listaClientes.add(clienteZaca);
         
         //dados.listaBarbeiros.add(barbeiroMarcos);
         //dados.listaAtendentes.add(atendentePedro);
@@ -134,6 +134,6 @@ public class Barbearia {
         //dados.tabelaPonto = GestaoPonto.getInstancia().getTabela();
                 
                 
-        //GerenciadorDeArquivos.salvar(dados); todos esses dados devem ser carregados dentro das gestões em seus metodos de cadastro 
+        //GerenciadorDeArquivos.salvar(dados); 
     }
 }

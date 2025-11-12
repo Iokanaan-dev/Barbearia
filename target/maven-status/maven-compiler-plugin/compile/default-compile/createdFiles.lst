@@ -38,6 +38,7 @@ com\mycompany\Gerenciamento\GestaoListaEspera.class
 com\mycompany\barbearia\modelos\Agenda.class
 com\mycompany\barbearia\modelos\Servico.class
 com\mycompany\barbearia\modelos\Barbeiro.class
+com\mycompany\barbearia\Barbearia$1.class
 com\mycompany\barbearia\modelos\RelatorioFinanceiro.class
 com\mycompany\Gerenciamento\GestaoOrdemServico.class
 com\mycompany\Gerenciamento\GestaoEstoque.class

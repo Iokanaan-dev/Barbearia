@@ -75,7 +75,7 @@ public class Servico extends Modelo{
         this.descricao = descricao;
     }
 
-    public int getTempoEmMinutos10() {
+    public int getTempoEmMinutos() {
         return tempoSlots * 10;
     }
     

@@ -4,6 +4,8 @@
  */
 package com.mycompany.barbearia.modelos;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 
@@ -11,6 +13,21 @@ import java.time.LocalDate;
  * // classe que representa um usuario do sistema, um funcionario padrao ou adm
  * @author italo
  */
+
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "tipoUsuario"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Gerente.class, name = "Gerente"),
+    @JsonSubTypes.Type(value = Barbeiro.class, name = "Barbeiro"),
+    @JsonSubTypes.Type(value = Cliente.class, name = "Cliente"),
+    @JsonSubTypes.Type(value = Atendente.class, name = "Atendente")
+})
+// isso corrige um erro do jackson não saber qual classe atribuir em um agendamento onde o tipo requerido é "Usuario"
+
+
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Usuario extends Individuo{
     
