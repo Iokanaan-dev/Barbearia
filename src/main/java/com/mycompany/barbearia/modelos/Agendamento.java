@@ -196,7 +196,7 @@ public class Agendamento extends Modelo{
         return valorDosServicosCongelado;
     }
 
-    public String getAssociado_Ordem_Servico() {
+    public String getAssociadoOrdemServico() {
         return associado_Ordem_Servico;
     }
 
@@ -223,7 +223,7 @@ public class Agendamento extends Modelo{
     @Override
     public String toString() {
         
-        return String.format("%nAgendamento %s%n Encaixe: %s | Cliente: %s | Barbeiro: %s | Estacao: %s | Valor: %.2f", getId(), isEncaixeString(), cliente.getNome(), barbeiro.getNome(), estacao.getNome() ,getValorDosServicosCongelado());
+        return String.format("%nAgendamento %s%nEncaixe: %s | Cliente: %s | Barbeiro: %s | Estacao: %s | Valor: %.2f", getId(), isEncaixeString(), cliente.getNome(), barbeiro.getNome(), estacao.getNome() ,getValorDosServicosCongelado());
     }
     
     

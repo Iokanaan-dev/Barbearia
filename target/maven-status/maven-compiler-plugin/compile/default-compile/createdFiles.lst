@@ -10,11 +10,13 @@ com/mycompany/date_Barbearia/Barbearia_date.class
 com/mycompany/compara/ComparaCPF$Compara.class
 com/mycompany/Gerenciamento/GestaoClientes.class
 com/mycompany/Gerenciamento/GestaoUsuarios$1.class
+com/mycompany/Gerenciamento/GestaoAgendamentos.class
 com/mycompany/Gerenciamento/GestaoUsuarios.class
 com/mycompany/barbearia/modelos/TabelaPonto.class
 com/mycompany/compara/ComparaNome.class
 com/mycompany/Utilidades/StatusAtendimento.class
 com/mycompany/date_Barbearia/GerenciadorDeArquivos.class
+Questoes/Questoes.class
 com/mycompany/Utilidades/IdGerador.class
 com/mycompany/Gerenciamento/GestaoProdutos.class
 com/mycompany/Utilidades/StatusAgendamento.class
@@ -26,8 +28,6 @@ com/mycompany/Gerenciamento/GestaoDespesas.class
 com/mycompany/Utilidades/TipoUsuario.class
 com/mycompany/Gerenciamento/GestaoEstoque.class
 com/mycompany/compara/ComparaAgendamentoHORA.class
-com/mycompany/Gerenciamento/GestaoAgendamento.class
 com/mycompany/compara/ComparaCPF.class
-com/mycompany/barbearia/SistemaBarbearia.class
 com/mycompany/Utilidades/TipoRelatorio.class
 com/mycompany/Gerenciamento/Gestao.class

@@ -6,6 +6,9 @@ package com.mycompany.barbearia.modelos;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.mycompany.Gerenciamento.GestaoClientes;
+import com.mycompany.Gerenciamento.GestaoProdutos;
+import com.mycompany.Gerenciamento.GestaoUsuarios;
 import com.mycompany.Utilidades.StatusAtendimento;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -94,6 +97,10 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
 
     public String getIdCliente() {
         return idCliente;
+    }
+    
+    public Cliente getCliente(){
+        return GestaoClientes.getInstancia().buscarPorId(this.idCliente);
     }
 
     public String getIdBarbeiro() {
@@ -193,9 +200,6 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
 
     @Override
     public String toString() {
-        return "OrdemServico{" + "idCliente=" + idCliente + ", idBarbeiro=" + idBarbeiro + ", status=" + status + ", dataExecucao=" + dataExecucao + ", observacoes=" + observacoes + ", produtosUtilizados=" + produtosUtilizados + ", agendamentos=" + agendamentos + ", valorTotalServicos=" + valorTotalServicos + ", valorTaxaEncaixe=" + valorTaxaEncaixe + ", valorAdiantado_50pct=" + valorAdiantado_50pct + ", valorTaxaCancelamento_35pct=" + valorTaxaCancelamento_35pct + '}';
-    }
-
-    
-    
+        return String.format("%nOrdem de Servico %s%nCliente: %s | Barbeiro %s | Status: %s | Data de Execucao: %s%nProdutos: %s%nTaxa de Encaixe: %s | Total %.2f%nOBS: %s", getId(), GestaoClientes.getInstancia().buscarPorId(idCliente).getNome(), GestaoUsuarios.getInstancia().buscarPorId(idBarbeiro).getNome(), getStatus(), getDataExecucao(), this.produtosVendidos, getValorTaxaEncaixe(), getValorTotalAPagar(), getObservacoes());
+    }  
 }

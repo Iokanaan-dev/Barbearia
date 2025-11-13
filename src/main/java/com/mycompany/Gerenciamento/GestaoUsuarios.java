@@ -98,6 +98,7 @@ private GestaoUsuarios(Barbearia_date dados) {
 
     /**
      * Verifica se o usuário já existe.
+     * @param username
      */
     public void usernameSendoUsado(String username) {
         if(buscarUsername(username) != null)
@@ -174,7 +175,7 @@ private GestaoUsuarios(Barbearia_date dados) {
      */
     public void editarUsuarioLogin(String idUsuario, String username, String senha, String usernameNovo ,String senhaNova){
 
-        usernameSendoUsado(username);
+        usernameSendoUsado(usernameNovo);
         
         Usuario usuario = buscarUsername(username);
         usuario.mudarUsername(username, usernameNovo);

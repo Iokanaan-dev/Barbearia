@@ -208,6 +208,16 @@ public abstract class Gestao<M extends Modelo>{
         if(modelo == null)
             throw new IllegalArgumentException("O objeto não pode ser nulo.");
     }
+    
+    /**
+     * Verifica se o a lista de modelos é nula.
+     *
+     * @param listaDeItens
+     * @throws IllegalArgumentException caso o modelo seja nulo.
+     */    
+    public void verificarListaNula(ArrayList<M> listaDeItens){
+        if(listaDeItens == null)
+            throw new IllegalArgumentException("O objeto não pode ser nulo.");    }
    
     /**
      * Imprime a representaçao string de um modelo
@@ -241,4 +251,20 @@ public abstract class Gestao<M extends Modelo>{
         }
         return null; 
     }
+    
+    /**
+     * Imprime todos os itens de uma lista
+     * @param listaDeItens
+     */
+    public void printTodosItensLista(ArrayList<M> listaDeItens){
+        verificarListaNula(listaDeItens);
+        
+        for(M item: listaDeItens)
+            System.out.println(item);
+    }
+    
+    public void limparLista(){
+        listaModelo.clear();
+    }
+    
 }

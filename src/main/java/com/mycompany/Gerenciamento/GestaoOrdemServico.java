@@ -74,39 +74,78 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      */
         public OrdemServico cadastrar(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) throws Exception {
 
-       if (agendamentoInicial.getAssociado_Ordem_Servico() != null) {
-            throw new Exception("O Agendamento " + agendamentoInicial.getId() + " já pertence à Ordem de Serviço " + agendamentoInicial.getAssociado_Ordem_Servico() +
-                                ". Não é possível criar uma nova OS para ele.");
-        }                
-            
-        OrdemServico novaOS = new OrdemServico(cliente, barbeiro, data);
-        novaOS.adicionarAgendamento(agendamentoInicial);
-        agendamentoInicial.setAssociado_Ordem_Servico(novaOS.getId());
-        
-        this.recalcularValoresTotais(novaOS);
-        
-        super.adicionar(novaOS);
-        return novaOS;
-    }
-    
-    private void recalcularValoresTotais(OrdemServico os) {
-        if (os == null) return;
-        
-       
-        double totalBaseServicos = 0.0;
-        double totalTaxaEncaixe = 0.0;
-        
-        for (Agendamento ag : os.getAgendamentos()) {
-            if(ag.getStatus() != StatusAgendamento.CANCELADO) {
-                
-                double valorBaseAg = ag.getValorDosServicos();
-                totalBaseServicos += valorBaseAg;
+            validarAgendamentoParaCadastro(agendamentoInicial);
 
-                if (ag.isEncaixe()) {
-                    totalTaxaEncaixe += (valorBaseAg * 0.10); 
-                }
+            OrdemServico novaOS = construirOrdemServicoBasica(cliente, barbeiro, data, agendamentoInicial);
+
+            vincularAgendamentoAOrdem(novaOS, agendamentoInicial);
+            recalcularValoresTotais(novaOS);
+
+            super.adicionar(novaOS);
+            return novaOS;
+        }
+        
+        /** 
+           * Verifica se o agendamento já está associado a uma OS
+           */
+        private void validarAgendamentoParaCadastro(Agendamento agendamento) throws Exception {
+            if (agendamento.getAssociadoOrdemServico() != null) {
+                throw new Exception(
+                    "O Agendamento " + agendamento.getId() + 
+                    " já pertence à OS " + agendamento.getAssociadoOrdemServico() + 
+                    ". Não é possível criar uma nova OS para ele."
+                );
             }
         }
+        
+        public void cadastrar(OrdemServico ordemServico, Agendamento agendamento) throws Exception{
+            validarAgendamentoParaCadastro(agendamento);
+            validarCliente(ordemServico.getIdCliente(), agendamento.getCliente());
+            vincularAgendamentoAOrdem(ordemServico, agendamento);
+            recalcularValoresTotais(ordemServico);
+            super.adicionar(ordemServico);
+        }
+        
+        private void validarCliente(String idClienteOS, Cliente clienteAgendamento) throws Exception{
+            Cliente clienteOS = GestaoClientes.getInstancia().buscarPorId(idClienteOS);
+            if(!clienteOS.getId().equals(clienteAgendamento.getId()))
+                  throw new Exception("Cliente da OS difere do cliente do Agendamento;");  
+        }
+
+        /** 
+           * Cria uma nova ordem de serviço com os dados básicos 
+           */
+        private OrdemServico construirOrdemServicoBasica(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamento) {
+            return new OrdemServico(cliente, barbeiro, data);
+        }
+
+        /**
+           * Vincula o agendamento à ordem e define o relacionamento entre ambos 
+           * 
+           */
+        private void vincularAgendamentoAOrdem(OrdemServico os, Agendamento agendamento) {
+            os.adicionarAgendamento(agendamento);
+            agendamento.setAssociado_Ordem_Servico(os.getId());
+        }        
+    
+        private void recalcularValoresTotais(OrdemServico os) {
+            if (os == null) return;
+        
+       
+            double totalBaseServicos = 0.0;
+            double totalTaxaEncaixe = 0.0;
+        
+            for (Agendamento ag : os.getAgendamentos()) {
+                if(ag.getStatus() != StatusAgendamento.CANCELADO) {
+
+                    double valorBaseAg = ag.getValorDosServicos();
+                    totalBaseServicos += valorBaseAg;
+
+                    if (ag.isEncaixe()) {
+                        totalTaxaEncaixe += (valorBaseAg * 0.10); 
+                    }
+                }
+            }
 
         
         // Calcular Produtos 
@@ -261,21 +300,6 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     }
     
     /**
-     * Remove uma ordem de serviço com base no ID informado.
-     * @param id
-     */
-    public void remover(String id) {
-        super.remover(id);
-    }
-
-    /**
-     * Imprime a lista de OSs atual.
-     */
-    public void printLista() {
-        super.printLista(listaModelo);
-    }
-    
-    /**
      * Adiciona um produto usado ao histórico da OS.
      * @param idOrdem
      * @param idProduto
@@ -312,11 +336,38 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     }
     
     /**
+     * Busca todas as ordens de serviços associadas a um dado cliente.
+     * @param cliente
+     * @return 
+     */
+    public ArrayList<OrdemServico> buscarOSCliente(Cliente cliente) {
+        ArrayList<OrdemServico> osSelecionadas = new ArrayList<>();
+        for (OrdemServico os : listaModelo) {
+            if (os.getCliente() == cliente && !osSelecionadas.contains(os))
+                osSelecionadas.add(os);   
+        }
+        return osSelecionadas;
+    }    
+    
+    /**
      * Imprime todas as ordens de serviço associadas a um dado cliente.
      * @param id
      */
     public void printListaOSCliente(String id) {
         ArrayList<OrdemServico> lista = buscarOSCliente(id);
         super.printLista(lista);
+    }
+    
+    /**
+     * Imprime todas as ordens de serviço associadas a um dado cliente.
+     * @param cliente
+     */
+    public void printListaOSCliente(Cliente cliente) {
+        ArrayList<OrdemServico> lista = buscarOSCliente(cliente);
+        super.printLista(lista);
+    } 
+    
+    public void adicionarAgendamento(OrdemServico ordemServico, Agendamento agendamento){
+        ordemServico.adicionarAgendamento(agendamento);
     }
 }

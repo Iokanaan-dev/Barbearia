@@ -28,6 +28,9 @@ public class GestaoServicos extends Gestao <Servico>{
         }
     }
     
+    private static int contadorPrivate = 0;
+    protected static int contadorProtected = 0;
+    
     /**
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
      * @return GestaoClientes
@@ -55,7 +58,9 @@ public class GestaoServicos extends Gestao <Servico>{
         verificarServicoExiste(servico.getNome());
         verificarServicoDuracao(servico.getTempoEmMinutos());
         
-        super.adicionar(servico);    
+        super.adicionar(servico);
+        contadorPrivate++;
+        contadorProtected++;
     }
     
     private Servico construirServico(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){

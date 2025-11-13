@@ -14,12 +14,12 @@ import java.util.ArrayList;
  * Classe que gerencia agendamentos
  * @author italo
  */
-public class GestaoAgendamento extends Gestao<Agendamento> {
+public class GestaoAgendamentos extends Gestao<Agendamento> {
      
     private final GestaoUsuarios gestaoUsuarios;
     private final GestaoEstacao gestaoEstacao;
     
-    private static GestaoAgendamento instancia;
+    private static GestaoAgendamentos instancia;
 
     // --- Constantes ---
     private static final int PRE_AGENDAMENTO = 14;
@@ -28,7 +28,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
     private static final int SLOT_MINUTOS = 10;
 
     // 🔹 Construtor privado
-    private GestaoAgendamento(Barbearia_date dados) {
+    private GestaoAgendamentos(Barbearia_date dados) {
         this.listaModelo = dados.getListaAgendamentos();
         this.gestaoUsuarios = GestaoUsuarios.getInstancia();
         this.gestaoEstacao = GestaoEstacao.getInstancia();
@@ -42,7 +42,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      */
     public static void inicializa(Barbearia_date dados) {
         if (instancia == null) {
-            instancia = new GestaoAgendamento(dados);
+            instancia = new GestaoAgendamentos(dados);
         }
     }
 
@@ -52,7 +52,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
      *
      * @return
      */
-    public static GestaoAgendamento getInstancia() {
+    public static GestaoAgendamentos getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoAgendamento não foi inicializada. Chame inicializa(dados) primeiro.");
         }
@@ -115,10 +115,7 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
 
         StatusAgendamento statusInicial = determinarStatusInicial(dataInicio);
 
-        Agendamento novoAgendamento = new Agendamento(
-                cliente, barbeiro, atendente, estacao,
-                servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico
-        );
+        Agendamento novoAgendamento = construirAgendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
 
         super.adicionar(novoAgendamento);
         return novoAgendamento;
@@ -131,8 +128,13 @@ public class GestaoAgendamento extends Gestao<Agendamento> {
         validarDisponibilidade(agendamento.getBarbeiro(), agendamento.getEstacao(), agendamento.getDataHoraInicioAgendamento(), dataFim);
         
         StatusAgendamento statusInicial = determinarStatusInicial(agendamento.getDataHoraInicioAgendamento());
+        agendamento.setStatus(statusInicial);
         
         super.adicionar(agendamento);
+    }
+    
+    public Agendamento construirAgendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataInicio, StatusAgendamento statusInicial, boolean isEncaixe, String associado_Ordem_Servico){
+        return new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
     }
     
     /**
