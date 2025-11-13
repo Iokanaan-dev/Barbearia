@@ -55,14 +55,18 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
         this.valorTaxaEncaixe = 0.0;
         this.valorAdiantado_50pct = 0.0;
         this.valorTaxaCancelamento_35pct = 0.0;
+        
+        contadorInstancias++;
     }
     
     public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao) {
             this(cliente, barbeiro, dataExecucao, "---");
+            contadorInstancias++;    
     }
     
     public OrdemServico(){
         super();
+        contadorInstancias++;
     }
     
     public void adicionarProdutoVendido(Produto produto, int quantidade) {

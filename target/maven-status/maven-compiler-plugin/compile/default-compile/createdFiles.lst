@@ -1,3 +1,4 @@
+com/mycompany/Gerenciamento/Sistema.class
 com/mycompany/Gerenciamento/GestaoOrdemServico.class
 com/mycompany/Utilidades/TipoDespesa.class
 com/mycompany/Gerenciamento/GestaoEstacao.class
@@ -16,7 +17,6 @@ com/mycompany/barbearia/modelos/TabelaPonto.class
 com/mycompany/compara/ComparaNome.class
 com/mycompany/Utilidades/StatusAtendimento.class
 com/mycompany/date_Barbearia/GerenciadorDeArquivos.class
-Questoes/Questoes.class
 com/mycompany/Utilidades/IdGerador.class
 com/mycompany/Gerenciamento/GestaoProdutos.class
 com/mycompany/Utilidades/StatusAgendamento.class

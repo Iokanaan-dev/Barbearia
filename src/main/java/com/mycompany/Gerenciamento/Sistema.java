@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Questoes;
+package com.mycompany.Gerenciamento;
 
-import com.mycompany.Gerenciamento.*;
 import com.mycompany.Utilidades.StatusAgendamento;
 import com.mycompany.Utilidades.TipoEstacao;
 import com.mycompany.barbearia.modelos.Agendamento;
@@ -23,7 +22,7 @@ import java.util.List;
  *
  * @author intalo
  */
-public class Questoes {
+public class Sistema {
     
     GestaoClientes gestaoC = GestaoClientes.getInstancia();
     GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
@@ -38,7 +37,7 @@ public class Questoes {
         Gerente gerenteNovo  = new Gerente("gerente_sebastiao", "sebinho1234", "Sebastiao", "64646464675", "38997001111", LocalDate.of(1994, 5, 5), "12345");
         
         
-        // cadastro de colaboradores
+        // cadastro de colaboradores e adm (gerente)
         gestaoU.cadastrar(barbeiroNovo);
         gestaoU.cadastrar(atendenteNovo);
         gestaoU.cadastrar(gerenteNovo);
@@ -47,10 +46,10 @@ public class Questoes {
         gestaoU.editar("gerente_sebastiao", "sebinho1234", atendenteNovo.getId(), "Thiago", "12323232323", "559292019", LocalDate.of(1999, 9, 3));
         gestaoU.editarUsuarioLogin(atendenteNovo.getId(), "atendente_thiago", "thiago1234", "thiagin_do_mel", "thiagin123");
         
-        // remocao de colaborador
+        // remocao de colaborador (funcao ADM)
         Barbeiro barbeiroApagavel = new Barbeiro("barneiro_apagavel", "apagavel123", "Apagavel", "00000000000", "000000000", LocalDate.of(1900, 1, 1));
         gestaoU.cadastrar(barbeiroApagavel);
-        gestaoU.remover(barbeiroApagavel.getId());
+        gestaoU.remover("gerente_sebastiao", "sebinho1234", barbeiroApagavel);
         
         // print colaboradores
         System.out.println("===== Novos Usuarios Cadastrados=====");
@@ -145,11 +144,48 @@ public class Questoes {
         gestaoOS.adicionarAgendamento(os1, agendamento3);
         gestaoOS.cadastrar(os2, agendamento4);
         gestaoOS.cadastrar(os3, agendamento5);
-
+        
+        System.out.println("===== OSs Cliente 01=====");
         gestaoOS.printListaOSCliente(cliente1);
+        
+        System.out.println("===== OSs Cliente 02=====");        
         gestaoOS.printListaOSCliente(cliente2);
         
     }
+    
+   public void Questao11(){
+        System.out.println("===== Print Contador Private =====");
+        System.out.printf("Numero de intancias de serviço: %d%n", GestaoServicos.getContadorPrivate());  
+        
+        System.out.println("\n===== Print Contador Protected =====");
+        System.out.printf("Numero de intancias de serviço: %d%n", GestaoServicos.contadorProtected);  
+        
+      /*
+            A grande vantagem do uso do modificador de acesso protected eh que
+            ele aumenta o desempenho, pois nao eh necessario um metodo intermediario
+            para o acesso a variavel de instancia. Entretanto, ele reduz a seguranca,
+            ja que qualquer classe do pacote ou que seja subclasse pode acessar, como
+            foi feito acima. O uso do modificador private tem como principal vantagem
+            a seguranca proporcionada, pois existe um maior controle sobre como acessar.
+            Para uma variavel que nao deva ser modificada, existe a possibilidade de
+            nao deixar um metodo setter disponivel, o que impede acesso indevido,
+            o que protected nao proporciona. Alem disso, caso seja possivel acessar e
+            modifica-la via metodo setter, eh possivel validar a modificacao, impedindo
+            dados inconsistentes. Notemos que, com o carater static da variavel, eh
+            possivel acessa-la via qualquer classe desse pacote diretamente ou por
+            seus objetos (tambem por subclasse e seus objetos, mas nao eh o caso
+            para Servicos), o que pode ser perigoso.        
+        */
+        
+   }
+   
+    public void Questao12(){
+        System.out.println("\n===== Numero OS Instanciadas =====");        
+        System.out.println(gestaoOS.getNumeroOS());
+    }   
+   
+   
+
     
     public void Questao13(){
         
