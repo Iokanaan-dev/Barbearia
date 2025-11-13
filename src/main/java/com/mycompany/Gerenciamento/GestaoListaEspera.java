@@ -11,9 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Classe que gerencia a lista de espera dos clientes (modo FIFO)
- * O primeiro cliente a entrar é o primeiro a ser atendido.
- * 
+ * Gerencia a lista de espera dos clientes
  * @author italo
  */
 public class GestaoListaEspera {
@@ -22,20 +20,20 @@ public class GestaoListaEspera {
     private static GestaoListaEspera instancia;
     private final Barbearia_date dados;
 
-    // 🔹 Construtor privado (Singleton)
+    //  Construtor privado (Singleton)
     private GestaoListaEspera(Barbearia_date dados) {
         this.dados = dados;
         this.filaEspera = dados.getFilaEspera(); // garante persistência dos dados
     }
 
-    // 🔹 Inicializa o Singleton
+    //  Inicializa o Singleton
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoListaEspera(dados);
         }
     }
 
-    // 🔹 Retorna a instância global
+    //  Retorna a instância global
     public static GestaoListaEspera getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoListaEspera não foi inicializada. Chame inicializar(dados) primeiro.");

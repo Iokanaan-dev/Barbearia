@@ -122,9 +122,12 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     public void cadastrar(Agendamento agendamento) throws Exception{
+        
         validarPreCondicoes(agendamento.getServicos(), agendamento.getDataHoraInicioAgendamento(), agendamento.getEstacao());
+        
         int duracaoTotalEmMinutos = calcularDuracaoTotal(agendamento.getServicos());
         LocalDateTime dataFim = calcularDataFim(agendamento.getDataHoraInicioAgendamento(), duracaoTotalEmMinutos);
+        
         validarDisponibilidade(agendamento.getBarbeiro(), agendamento.getEstacao(), agendamento.getDataHoraInicioAgendamento(), dataFim);
         
         StatusAgendamento statusInicial = determinarStatusInicial(agendamento.getDataHoraInicioAgendamento());
@@ -261,38 +264,28 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     /**
      * Atualiza o status de um agendamento
      */
-    public void atualizarStatusAgendamento() {
+    private void atualizarStatusAgendamento(Agendamento ag) {
         LocalDateTime agora = LocalDateTime.now();
+        LocalDateTime inicio = ag.getDataHoraInicioAgendamento();
+        LocalDateTime fim = ag.getDataHoraFimAgendamento();
+        StatusAgendamento status = ag.getStatus();
 
-        for (Agendamento ag : this.listaModelo) {  
-            StatusAgendamento statusAtual = ag.getStatus();
-            
-            if (statusAtual == StatusAgendamento.PRE_AGENDADO) {
-                long diasDeAntecedencia = ChronoUnit.DAYS.between(agora.toLocalDate(), ag.getDataHoraInicioAgendamento().toLocalDate());
-                if (diasDeAntecedencia < PRE_AGENDAMENTO) {
+        switch (status) {
+            case PRE_AGENDADO -> {
+                if (ChronoUnit.DAYS.between(agora.toLocalDate(), inicio.toLocalDate()) < PRE_AGENDAMENTO)
                     ag.setStatus(StatusAgendamento.AGUARDANDO_PAGAMENTO);
-                    statusAtual = StatusAgendamento.AGUARDANDO_PAGAMENTO;
-                }
-            }       
-            
-            if (statusAtual == StatusAgendamento.CONFIRMADO) {
-                if (agora.toLocalDate().isEqual(ag.getDataHoraInicioAgendamento().toLocalDate()) && agora.isBefore(ag.getDataHoraInicioAgendamento())) {
+            }
+            case CONFIRMADO -> {
+                if (agora.toLocalDate().isEqual(inicio.toLocalDate()) && agora.isBefore(inicio))
                     ag.setStatus(StatusAgendamento.EM_ESPERA);
-                    statusAtual = StatusAgendamento.EM_ESPERA;
-                }
             }
-            
-            if (statusAtual == StatusAgendamento.EM_ESPERA) {
-                if (agora.isAfter(ag.getDataHoraInicioAgendamento()) || agora.isEqual(ag.getDataHoraInicioAgendamento())) {
+            case EM_ESPERA -> {
+                if (!agora.isBefore(inicio))
                     ag.setStatus(StatusAgendamento.EM_ANDAMENTO);
-                    statusAtual = StatusAgendamento.EM_ANDAMENTO;
-                }
             }
-            
-            if (statusAtual == StatusAgendamento.EM_ANDAMENTO) {
-                if (agora.isAfter(ag.getDataHoraFimAgendamento()) || agora.isEqual(ag.getDataHoraFimAgendamento())) {
+            case EM_ANDAMENTO -> {
+                if (!agora.isBefore(fim))
                     ag.setStatus(StatusAgendamento.FINALIZADO);
-                }
             }
         }
     }
