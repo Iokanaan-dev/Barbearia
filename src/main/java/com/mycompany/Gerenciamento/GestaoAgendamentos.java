@@ -149,12 +149,15 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     /**
      * Soma o tempo total de todos os serviços em minutos.
      */
-    private int calcularDuracaoTotal(ArrayList<Servico> servicos) {
+    public int calcularDuracaoTotal(ArrayList<Servico> servicos) {
         return servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
     }
 
     /**
      * Calcula o horário de término do agendamento com base no início e na duração total.
+     * @param dataInicio
+     * @param duracaoTotalMinutos
+     * @return 
      */
     private LocalDateTime calcularDataFim(LocalDateTime dataInicio, int duracaoTotalMinutos) {
         return dataInicio.plusMinutes(duracaoTotalMinutos);

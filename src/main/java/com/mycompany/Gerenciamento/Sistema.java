@@ -13,6 +13,8 @@ import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.OrdemServico;
 import com.mycompany.barbearia.modelos.Servico;
+import com.mycompany.compara.DataNascimentoClienteComparator;
+import com.mycompany.compara.TempoServicosEmAgendamentoComparator;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class Sistema {
         gestaoU.cadastrar(atendenteNovo);
         gestaoU.cadastrar(gerenteNovo);
         
-        //edicao de colaborador
+        //edicao de colaborador (funcao ADM)
         gestaoU.editar("gerente_sebastiao", "sebinho1234", atendenteNovo.getId(), "Thiago", "12323232323", "559292019", LocalDate.of(1999, 9, 3));
         gestaoU.editarUsuarioLogin(atendenteNovo.getId(), "atendente_thiago", "thiago1234", "thiagin_do_mel", "thiagin123");
         
@@ -183,12 +185,62 @@ public class Sistema {
         System.out.println("\n===== Numero OS Instanciadas =====");        
         System.out.println(gestaoOS.getNumeroOS());
     }   
-   
-   
-
-    
-    public void Questao13(){
+       
+    public void Questao13() throws Exception{
+        gestaoC.limparLista();
+        gestaoU.limparLista();
+        gestaoA.limparLista();
         
+        // cria 2 clientes
+        Cliente cliente1  = new Cliente("Pitolomeu", "14141414141", "38997001313", LocalDate.of(1990, 10, 12), "pitin@email.com");
+        Cliente cliente2  = new Cliente("Robertin", "15151515151", "38997001414", LocalDate.of(1990, 10, 12), "robertao@email.com"); 
+        
+        // cria o objeto que ira comparar as datas 
+        DataNascimentoClienteComparator comparaDataNascimento = new DataNascimentoClienteComparator();
+        
+        // printa quem nasceu primeiro usando o compare personalizado
+        System.out.println("\n===== Comparando data nascimento clientes =====");        
+        comparaDataNascimento.quemNasceuPrimeiro(cliente1, cliente2);
+        
+        // configura todas as informacoes necessarias para se cadastrar 2 novos novo agendamentos
+        Barbeiro usuario1  = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12));
+        Barbeiro usuario2  = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12));        
+        Atendente usuario3 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12));
+
+        Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        
+        gestaoC.cadastrar(cliente1);
+        gestaoC.cadastrar(cliente2);
+
+        gestaoU.cadastrar(usuario1);
+        gestaoU.cadastrar(usuario2);
+        gestaoU.cadastrar(usuario3);
+
+        gestaoS.cadastrar(servico1);
+        gestaoS.cadastrar(servico2);
+        gestaoS.cadastrar(servico3);
+        
+        ArrayList<Servico> servicos1 = new ArrayList<>(List.of(servico1, servico2)); // CORRIQUEIRA
+        ArrayList<Servico> servicos2 = new ArrayList<>(List.of(servico3)); // LAVAGEM
+
+        Agendamento agendamento1 = new Agendamento(cliente1, usuario1, usuario3, gestaoE.getEstacao(1), servicos1,
+                LocalDateTime.of(2026, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+
+        Agendamento agendamento2 = new Agendamento(cliente1, usuario2, usuario3, gestaoE.getEstacao(0), servicos2,
+                LocalDateTime.of(2026, 11, 13, 9, 0), StatusAgendamento.CONFIRMADO, false, null);
+
+        gestaoA.cadastrar(agendamento1);
+        gestaoA.cadastrar(agendamento2);
+        
+        // cria o objeto que ira comparar os tempos 
+        TempoServicosEmAgendamentoComparator comparaTempoAgendamento = new TempoServicosEmAgendamentoComparator();
+        
+        // printa qual dura menos usando o compare personalizado
+        
+        System.out.println("\n===== Comparando tempo de atendimento =====");        
+        comparaTempoAgendamento.qualDuraMenos(agendamento1, agendamento2);
     }
     
     
