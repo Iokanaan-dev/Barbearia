@@ -10,7 +10,6 @@ com\mycompany\Gerenciamento\GestaoFinanceira.class
 com\mycompany\Utilidades\TipoUsuario.class
 com\mycompany\Gerenciamento\GestaoUsuarios$1.class
 com\mycompany\barbearia\modelos\TabelaPonto.class
-com\mycompany\Gerenciamento\GestaoAgendamentos$1.class
 com\mycompany\compara\ComparaCPF.class
 com\mycompany\Gerenciamento\GestaoAgendamentos.class
 com\mycompany\Utilidades\StatusAtendimento.class

@@ -241,6 +241,14 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         os.setValorAdiantado_50pct(os.getValorTotalAPagar()); 
         os.setStatus(StatusAtendimento.PAGO);
         
+        // move os agendamentos da conta para FINALIZADO.
+        for (Agendamento ag : os.getAgendamentos()) {
+            
+            if (ag.getStatus() == StatusAgendamento.CONFIRMADO) {
+                ag.setStatus(StatusAgendamento.FINALIZADO);
+            }
+        }
+        
         System.out.println("Ordem de Serviço " + os.getId() + " finalizada e PAGA.");
     }    
     

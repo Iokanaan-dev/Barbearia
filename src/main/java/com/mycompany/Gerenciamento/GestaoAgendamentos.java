@@ -240,7 +240,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     **/ 
     private void validarStatusAgendamento(Agendamento agendamento) throws Exception{
         StatusAgendamento statusAtual = agendamento.getStatus(); 
-        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO || statusAtual == StatusAgendamento.EM_ANDAMENTO)
+        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO)
             throw new Exception("Esse agendamento já foi finalizado, está em andamento ou já foi cancelado.");
     }
     
@@ -261,34 +261,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         return agendamento;
     }
     
-    /**
-     * Atualiza o status de um agendamento
-     */
-    private void atualizarStatusAgendamento(Agendamento ag) {
-        LocalDateTime agora = LocalDateTime.now();
-        LocalDateTime inicio = ag.getDataHoraInicioAgendamento();
-        LocalDateTime fim = ag.getDataHoraFimAgendamento();
-        StatusAgendamento status = ag.getStatus();
-
-        switch (status) {
-            case PRE_AGENDADO -> {
-                if (ChronoUnit.DAYS.between(agora.toLocalDate(), inicio.toLocalDate()) < PRE_AGENDAMENTO)
-                    ag.setStatus(StatusAgendamento.AGUARDANDO_PAGAMENTO);
-            }
-            case CONFIRMADO -> {
-                if (agora.toLocalDate().isEqual(inicio.toLocalDate()) && agora.isBefore(inicio))
-                    ag.setStatus(StatusAgendamento.EM_ESPERA);
-            }
-            case EM_ESPERA -> {
-                if (!agora.isBefore(inicio))
-                    ag.setStatus(StatusAgendamento.EM_ANDAMENTO);
-            }
-            case EM_ANDAMENTO -> {
-                if (!agora.isBefore(fim))
-                    ag.setStatus(StatusAgendamento.FINALIZADO);
-            }
-        }
-    }
+    
+    
     
     /**
      * Busca um horario vago na lsita de agendamento
