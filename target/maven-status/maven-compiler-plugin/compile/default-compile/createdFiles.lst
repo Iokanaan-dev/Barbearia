@@ -10,7 +10,6 @@ com\mycompany\Gerenciamento\GestaoFinanceira.class
 com\mycompany\Utilidades\TipoUsuario.class
 com\mycompany\Gerenciamento\GestaoUsuarios$1.class
 com\mycompany\barbearia\modelos\TabelaPonto.class
-Questoes\Questoes.class
 com\mycompany\compara\ComparaCPF.class
 com\mycompany\Gerenciamento\GestaoAgendamentos.class
 com\mycompany\Utilidades\StatusAtendimento.class
@@ -20,6 +19,7 @@ com\mycompany\date_Barbearia\GerenciadorDeArquivos.class
 com\mycompany\Utilidades\TipoDespesa.class
 com\mycompany\compara\ComparaAgendamentoHORA.class
 com\mycompany\Utilidades\TipoRelatorio.class
+com\mycompany\Gerenciamento\Sistema.class
 com\mycompany\Utilidades\TipoEstacao.class
 com\mycompany\compara\ComparaAgendamentoClienteID.class
 com\mycompany\Gerenciamento\GestaoListaEspera.class
