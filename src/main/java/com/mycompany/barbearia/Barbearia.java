@@ -68,6 +68,9 @@ public class Barbearia {
             //13 ==========================================================
             sistema.Questao13();
             
+            // 15P2 =======================================================
+            sistema.Questao15P2();
+            
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());
             e.printStackTrace();
