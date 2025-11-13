@@ -370,4 +370,8 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     public void adicionarAgendamento(OrdemServico ordemServico, Agendamento agendamento){
         ordemServico.adicionarAgendamento(agendamento);
     }
+    
+    public int getNumeroOS(){
+        return OrdemServico.getContador();
+    }
 }

@@ -30,6 +30,12 @@ public class GestaoServicos extends Gestao <Servico>{
     
     private static int contadorPrivate = 0;
     protected static int contadorProtected = 0;
+
+    public static int getContadorPrivate() {
+        return contadorPrivate;
+    }
+    
+    
     
     /**
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes

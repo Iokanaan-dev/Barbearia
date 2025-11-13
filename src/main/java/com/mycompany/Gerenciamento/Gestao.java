@@ -70,6 +70,11 @@ public abstract class Gestao<M extends Modelo>{
         }
         throw new NoSuchElementException("Nenhum item encontrado com o ID: " + id);
     } 
+    
+    private void verificarModelosNaoPermitidos(M modelo){
+        if(modelo instanceof Usuario)
+            throw new NoSuchElementException("Necessario ser ADM do sistema.");
+    }
 
     /**
      * Busca todos os modelos cujo nome contenha o texto informado.
@@ -135,12 +140,35 @@ public abstract class Gestao<M extends Modelo>{
      */
     public void remover(String id) {
         verificarId(id);
+        M modelo = buscarPorId(id);
+        this.verificarModelosNaoPermitidos(modelo);
 
         for (int i = 0; i < listaModelo.size(); i++) {
             if (Objects.equals(listaModelo.get(i).getId(), id))
                 listaModelo.remove(i);   
         }
-    }  
+    }
+    
+    /**
+     * Remove da listaModelo um item baseado no Modelo informado. Usado pelo ADM.
+     *
+     * @param username
+     * @param senha
+     * @param modelo
+     * @throws IllegalArgumentException caso o ID seja nulo.
+     * @throws NoSuchElementException caso nenhum item com o ID seja encontrado.
+     */
+    public void remover(String username, String senha, M modelo) {
+        verificarModeloNulo(modelo);
+
+        for (int i = 0; i < listaModelo.size(); i++) {
+            if (Objects.equals(listaModelo.get(i), modelo)) {
+                listaModelo.remove(i);
+                return;
+            }
+        }
+    }
+    
 
     /**
      * Imprime todos os itens da listaModelo usando o método toString().

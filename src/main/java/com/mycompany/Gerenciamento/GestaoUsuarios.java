@@ -272,5 +272,11 @@ private GestaoUsuarios(Barbearia_date dados) {
         Usuario usuario = buscarUsername(username);
         
         return (usuario.verificarUsername(username) && usuario.verificarSenha(senha));
-    }   
+    }  
+    
+    @Override
+    public void remover(String username, String senha, Usuario usuario){
+        validarLogin(username, senha);
+        super.remover(username, senha, usuario);  
+    }
 }
