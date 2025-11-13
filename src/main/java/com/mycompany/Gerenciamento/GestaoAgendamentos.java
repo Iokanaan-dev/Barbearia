@@ -271,54 +271,48 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
      * @return
      */
     public ArrayList<Agenda> buscarHorarioVagoAgendamento(ArrayList<Servico> servicos, LocalDate data) {
-        ArrayList<Agenda> agenda = new ArrayList<>();
-        
-        if (servicos == null || servicos.isEmpty()) return agenda;
-        
+        ArrayList<Agenda> agendas = new ArrayList<>();
 
-        ArrayList<Usuario> todosBarbeiros = this.gestaoUsuarios.getListaBarbeiros(); 
-        Estacao[] todasEstacao = this.gestaoEstacao.getEstacoes();
-        
+        if (servicos == null || servicos.isEmpty()) return agendas;
+
+        //  Verifica se todos os serviços requerem o mesmo tipo de estação
         TipoEstacao tipoRequerido = servicos.get(0).getTipoEstacaoRequerido();
-        boolean tiposMisturados = false;
-        for (Servico s : servicos) {
-            if (s.getTipoEstacaoRequerido() != tipoRequerido) {
-                tiposMisturados = true;
-                break;
-            }
-        }
-        if (tiposMisturados) {
-            return agenda;
-        }
-        
-        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
-        
-        LocalDateTime slotAtual = data.atTime(HORA_INICIO_ESPEDIENTE);
-        while (slotAtual.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE)) {
-            
-            LocalDateTime inicio = slotAtual;
-            LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
-            
-            if (fim.toLocalTime().isAfter(HORA_FINAL_ESPEDIENTE) || inicio.isBefore(LocalDateTime.now())) {
-                slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
-                continue;
-            }
-            
+        boolean tiposMisturados = servicos.stream()
+                .anyMatch(s -> s.getTipoEstacaoRequerido() != tipoRequerido);
+        if (tiposMisturados) return agendas;
 
-            for (Usuario barbeiro : todosBarbeiros) { 
-                if (!horarioOcupado(barbeiro, inicio, fim)) {
-                    for (Estacao estacao : todasEstacao) {
-                        if (estacao.getTipo() == tipoRequerido) {
-                            if (!horarioOcupado(estacao, inicio, fim)) {
-                                agenda.add(new Agenda(inicio, (Barbeiro) barbeiro, estacao));
-                            }
-                        }
+        //  Calcula a duração total
+        int duracaoTotalMinutos = servicos.stream()
+                .mapToInt(Servico::getTempoEmMinutos)
+                .sum();
+
+        //  Obtém recursos disponíveis
+        var barbeiros = gestaoUsuarios.getListaBarbeiros();
+        var estacoes = gestaoEstacao.getEstacoes();
+
+        //  Percorre o expediente em intervalos de SLOT_MINUTOS
+        for (LocalDateTime inicio = data.atTime(HORA_INICIO_ESPEDIENTE);
+             inicio.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE);
+             inicio = inicio.plusMinutes(SLOT_MINUTOS)) {
+
+            LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
+
+            // pula horários fora do expediente ou no passado
+            if (fim.toLocalTime().isAfter(HORA_FINAL_ESPEDIENTE) || inicio.isBefore(LocalDateTime.now()))
+                continue;
+
+            //  Busca combinações barbeiro + estação disponíveis
+            for (Usuario usuario : barbeiros) {
+                if (horarioOcupado(usuario, inicio, fim)) continue;
+
+                for (Estacao estacao : estacoes) {
+                    if (estacao.getTipo() == tipoRequerido && !horarioOcupado(estacao, inicio, fim)) {
+                        agendas.add(new Agenda(inicio, (Barbeiro) usuario, estacao));
                     }
                 }
             }
-            slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
         }
-        return agenda;
+        return agendas;
     }
     
     /**

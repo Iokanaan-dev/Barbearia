@@ -136,14 +136,13 @@ public class Sistema {
         
         OrdemServico os1 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19), "Cliente gostou dos atendimentos");
         OrdemServico os2 = new OrdemServico(cliente2, usuario1, LocalDate.of(2026, 11, 19));
-        OrdemServico os3 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os3 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19));      
         
-        
-        gestaoOS.cadastrar(os1, agendamento1);
+        gestaoOS.adicionarAgendamento(os1, agendamento1);
         gestaoOS.adicionarAgendamento(os1, agendamento2);
         gestaoOS.adicionarAgendamento(os1, agendamento3);
-        gestaoOS.cadastrar(os2, agendamento4);
-        gestaoOS.cadastrar(os3, agendamento5);
+        gestaoOS.adicionarAgendamento(os2, agendamento4);
+        gestaoOS.adicionarAgendamento(os3, agendamento5);
         
         System.out.println("===== OSs Cliente 01=====");
         gestaoOS.printListaOSCliente(cliente1);

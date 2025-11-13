@@ -70,13 +70,7 @@ public class Barbearia {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());
             e.printStackTrace();
         }
-      
-
-
-
-    
- 
-                
+             
         // 14 - Parte II ====================================================
         //GerenciadorDeArquivos.salvar(dados); todos esses dados devem ser carregados dentro das gestões em seus metodos de cadastro 
     
