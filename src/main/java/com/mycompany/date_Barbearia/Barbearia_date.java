@@ -9,7 +9,8 @@ import com.mycompany.barbearia.modelos.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 /**
@@ -29,7 +30,7 @@ public class Barbearia_date {
     private ArrayList<RelatorioFinanceiro> listaRelatorios = new ArrayList<>();
     
     public Map<String, Integer> estoque = new HashMap<>();
-    public Stack<ListaEspera> listaDeEspera = new Stack<>();
+    public Queue<ListaEspera> FilaEspera = new LinkedList<>();
     
     public ArrayList<Agendamento> listaAgendamentos = new ArrayList<>();
     public ArrayList<OrdemServico> listaOrdensServico = new ArrayList<>();
@@ -46,7 +47,7 @@ public class Barbearia_date {
         this.listaAgendamentos = new ArrayList<>();
         this.listaOrdensServico = new ArrayList<>();
         this.estoque = new HashMap<>();
-        this.listaDeEspera = new Stack<>();
+        this.FilaEspera = new LinkedList();
         this.tabelaPonto = new TabelaPonto();
     }
 
@@ -122,12 +123,12 @@ public class Barbearia_date {
         this.estoque = estoque;
     }
 
-    public Stack<ListaEspera> getListaDeEspera() {
-        return listaDeEspera;
+    public Queue<ListaEspera> getFilaEspera() {
+        return FilaEspera;
     }
 
-    public void setListaDeEspera(Stack<ListaEspera> listaDeEspera) {
-        this.listaDeEspera = listaDeEspera;
+    public void setFilaEspera(Queue<ListaEspera> FilaEspera) {
+        this.FilaEspera = FilaEspera;
     }
 
     public ArrayList<Agendamento> getListaAgendamentos() {
