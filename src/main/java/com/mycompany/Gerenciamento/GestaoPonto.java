@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class GestaoPonto extends Gestao<Usuario>{
     
     private TabelaPonto tabelaPontos; // A chave é o ID do Usuario (String), e a quantidade é (Double).
-    //ArrayList listaUsuarios = GestaoUsuarios.getInstancia().getLista();
+    //ArrayList listaUsuarios = GestaoUsuarios.getInstancia().getListaCopia();
     //ArrayList<ParBatida> listaParBatida = new ArrayList<>(); // ACHO QUE NAO VOU PRECISAR DISSO IREI VER DEPOIS
     
      private static GestaoPonto instancia;
@@ -29,7 +29,7 @@ public class GestaoPonto extends Gestao<Usuario>{
         this.dados = dados;
         this.tabelaPontos = dados.tabelaPonto;
         this.listaModelo = new ArrayList<>();
-        this.listaModelo.addAll(GestaoUsuarios.getInstancia().getLista());
+        this.listaModelo.addAll(GestaoUsuarios.getInstancia().getListaCopia());
     }
 
     public static void inicializar(Barbearia_date dados) {

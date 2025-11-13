@@ -85,7 +85,7 @@ public class GestaoEstoque extends Gestao<Produto> {
      * Torna possivel a busca por id em outras classes, como as de gestao
      * @return ArrayList<>
      */
-    public ArrayList<Produto> getLista() {
+    public ArrayList<Produto> getListaCopia() {
         return new ArrayList(listaModelo);
     } 
 

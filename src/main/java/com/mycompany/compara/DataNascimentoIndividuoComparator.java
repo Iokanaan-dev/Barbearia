@@ -5,13 +5,14 @@
 package com.mycompany.compara;
 
 import com.mycompany.barbearia.modelos.Cliente;
+import com.mycompany.barbearia.modelos.Individuo;
 import java.util.Comparator;
 
 /**
  * Classe que compara data de nascimento de clientes
  * @author intalo
  */
-public class DataNascimentoClienteComparator implements Comparator<Cliente> {
+public class DataNascimentoIndividuoComparator implements Comparator<Individuo> {
 
     /**
      * Sobreescreve compare 
@@ -20,7 +21,7 @@ public class DataNascimentoClienteComparator implements Comparator<Cliente> {
      * @return
      */
     @Override
-    public int compare(Cliente cliente1, Cliente cliente2){
+    public int compare(Individuo cliente1, Individuo cliente2){
         int comparaAno = cliente1.getDataNascimento().getYear() - cliente2.getDataNascimento().getYear();
         
         // testa o ano primeiro
@@ -42,16 +43,16 @@ public class DataNascimentoClienteComparator implements Comparator<Cliente> {
      * @param cliente1
      * @param cliente2
      */
-    public void quemNasceuPrimeiro(Cliente cliente1, Cliente cliente2){
+    public void quemNasceuPrimeiro(Individuo cliente1, Individuo cliente2){
             int resultadoCompare = compare(cliente1, cliente2);
             
             if(resultadoCompare > 0)
-                System.out.printf("O cliente %s nasceu antes do cliente %s%n", cliente2.getNome(), cliente1.getNome());
+                System.out.printf("O individuo %s nasceu antes do individuo %s%n", cliente2.getNome(), cliente1.getNome());
             
             else if(resultadoCompare < 0)
-                System.out.printf("O cliente %s nasceu antes do cliente %s%n", cliente1.getNome(), cliente2.getNome());
+                System.out.printf("O individuo %s nasceu antes do individuo %s%n", cliente1.getNome(), cliente2.getNome());
             
             else
-                System.out.printf("Os clientes %s e %s nasceram no mesmo dia%n", cliente1.getNome(), cliente2.getNome());
+                System.out.printf("Os individuos %s e %s nasceram no mesmo dia%n", cliente1.getNome(), cliente2.getNome());
     }
 }

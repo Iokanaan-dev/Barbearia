@@ -51,25 +51,29 @@ public class Barbearia {
             Sistema sistema = new Sistema();
 
             //06 ===========================================================
-            sistema.Questao06();
+            //sistema.questao06();
 
             //07 ===========================================================
-            sistema.Questao07();
+            //sistema.questao07();
 
             //08 ===========================================================
-            sistema.Questao08();        
+            //sistema.questao08();        
 
             //11 ===========================================================
-            sistema.Questao11();
+            //sistema.questao11();
 
             //12 ===========================================================
-            sistema.Questao12();
+            //sistema.questao12();
             
             //13 ==========================================================
-            sistema.Questao13();
+            //sistema.questao13();
             
-            // 15P2 =======================================================
-            sistema.Questao15P2();
+            //15P2 ========================================================
+            //sistema.questao15P2();
+            
+            //16P2 ======================================================== 
+            sistema.questao16P2();
+            
             
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());

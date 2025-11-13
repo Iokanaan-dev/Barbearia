@@ -18,9 +18,21 @@ public abstract class Gestao<M extends Modelo>{
 
     // PARTE POLIMORIFCA DE GESTAO
     
-    public ArrayList<M> getLista(){
+    /**
+     * Retorna uma copia da lista
+     * @return
+     */    
+    public ArrayList<M> getListaCopia(){
         return new ArrayList(this.listaModelo);
     }
+    
+    /**
+     * Retorna a lista, nao sua copia
+     * @return
+     */
+    public ArrayList<M> getListaReal(){
+        return listaModelo;
+    }    
 
     /**
      * Adiciona um modelo à listaModelo após verificar se o objeto é válido.

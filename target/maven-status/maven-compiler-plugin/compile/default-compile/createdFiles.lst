@@ -9,10 +9,10 @@ com/mycompany/barbearia/modelos/ParBatida.class
 com/mycompany/date_Barbearia/Barbearia_date.class
 com/mycompany/Gerenciamento/GestaoClientes.class
 com/mycompany/Gerenciamento/GestaoUsuarios$1.class
-com/mycompany/compara/DataNascimentoClienteComparator.class
 com/mycompany/Gerenciamento/GestaoAgendamentos.class
 com/mycompany/Gerenciamento/GestaoUsuarios.class
 com/mycompany/barbearia/modelos/TabelaPonto.class
+com/mycompany/compara/TamanhoNomeIndividuoComparator.class
 com/mycompany/Utilidades/StatusAtendimento.class
 com/mycompany/date_Barbearia/GerenciadorDeArquivos.class
 com/mycompany/Utilidades/IdGerador.class
@@ -22,6 +22,7 @@ com/mycompany/Gerenciamento/GestaoListaEspera.class
 com/mycompany/Utilidades/Login.class
 com/mycompany/compara/TempoServicosEmAgendamentoComparator.class
 com/mycompany/Gerenciamento/GestaoServicos.class
+com/mycompany/compara/DataNascimentoIndividuoComparator.class
 com/mycompany/Gerenciamento/GestaoPonto.class
 com/mycompany/Gerenciamento/GestaoDespesas.class
 com/mycompany/Utilidades/TipoUsuario.class

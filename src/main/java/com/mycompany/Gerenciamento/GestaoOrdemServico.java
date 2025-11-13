@@ -59,7 +59,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * Retorna uma CÓPIA segura
      * @return 
      */
-    public ArrayList<OrdemServico> getLista() {
+    public ArrayList<OrdemServico> getListaCopia() {
         return new ArrayList<>(listaModelo);
     }
 

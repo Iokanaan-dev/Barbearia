@@ -48,7 +48,7 @@ public class GestaoFinanceira {
 
         double totalReceitas = 0.0;
 
-        ArrayList<OrdemServico> todasOrdens = gestaoOS.getLista();
+        ArrayList<OrdemServico> todasOrdens = gestaoOS.getListaCopia();
 
         for (OrdemServico os : todasOrdens) {
             if (os.getDataExecucao() == null) continue;
@@ -134,7 +134,7 @@ public class GestaoFinanceira {
     }
 
     public String gerarRelatorioVendasDiario(LocalDate dia) {
-        ArrayList<OrdemServico> todasOrdens = gestaoOS.getLista();
+        ArrayList<OrdemServico> todasOrdens = gestaoOS.getListaCopia();
 
         double totalServicos = 0.0;
         double totalProdutos = 0.0;
@@ -187,7 +187,7 @@ public class GestaoFinanceira {
     }
 
     public String gerarRelatorioVendasMensal(int mes, int ano) {
-        ArrayList<OrdemServico> todasOrdens = gestaoOS.getLista();
+        ArrayList<OrdemServico> todasOrdens = gestaoOS.getListaCopia();
 
         double totalServicos = 0.0;
         double totalProdutos = 0.0;

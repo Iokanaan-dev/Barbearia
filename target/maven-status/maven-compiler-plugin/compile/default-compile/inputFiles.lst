@@ -1,3 +1,4 @@
+/home/intalo/Barbearia/src/main/java/com/mycompany/compara/TamanhoNomeIndividuoComparator.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/TabelaPonto.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Despesa.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Agenda.java
@@ -8,7 +9,6 @@
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/Barbearia.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Gerente.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Gerenciamento/GestaoUsuarios.java
-/home/intalo/Barbearia/src/main/java/com/mycompany/compara/DataNascimentoClienteComparator.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/Estacao.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/ListaEspera.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/compara/TempoServicosEmAgendamentoComparator.java
@@ -37,6 +37,7 @@
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/TipoUsuario.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Gerenciamento/GestaoServicos.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Gerenciamento/GestaoPonto.java
+/home/intalo/Barbearia/src/main/java/com/mycompany/compara/DataNascimentoIndividuoComparator.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/TipoEstacao.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/barbearia/modelos/ParBatida.java
 /home/intalo/Barbearia/src/main/java/com/mycompany/Utilidades/TipoDespesa.java
