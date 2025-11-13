@@ -15,8 +15,8 @@ import java.util.Comparator;
 public class TempoServicosEmAgendamentoComparator implements Comparator<Agendamento> {
     /**
      * Sobreescreve compare 
-     * @param cliente1
-     * @param cliente2
+     * @param agendamento1
+     * @param agendamento2
      * @return
      */
     
@@ -28,7 +28,12 @@ public class TempoServicosEmAgendamentoComparator implements Comparator<Agendame
         return comparaTempo;
     }
     
-        public void qualDuraMenos(Agendamento agendamento1, Agendamento agendamento2){
+    /**
+     * Exibe qual agendamento dura menos
+     * @param agendamento1
+     * @param agendamento2
+     */
+    public void qualDuraMenos(Agendamento agendamento1, Agendamento agendamento2){
             int resultadoCompare = compare(agendamento1, agendamento2);
             
             if(resultadoCompare > 0)

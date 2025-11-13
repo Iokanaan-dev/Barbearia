@@ -33,7 +33,10 @@ public class Sistema {
     GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
     GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
     
-    public void Questao06(){        
+    public void Questao06(){ 
+        
+        gestaoU.limparLista();
+        
         Barbeiro barbeiroNovo  = new Barbeiro("barbeiro_toni", "tonin1234", "Toninho", "14141414141", "38997001111", LocalDate.of(1981, 12, 2));
         Atendente atendenteNovo  = new Atendente("atendente_thiago", "thiago1234", "Thiago", "12323232323", "38997001111", LocalDate.of(1999, 11, 4));
         Gerente gerenteNovo  = new Gerente("gerente_sebastiao", "sebinho1234", "Sebastiao", "64646464675", "38997001111", LocalDate.of(1994, 5, 5), "12345");
@@ -58,7 +61,10 @@ public class Sistema {
         gestaoU.printLista();    
     }
     
-    public void Questao07() throws Exception{        
+    public void Questao07() throws Exception{   
+        
+        gestaoC.limparLista();
+        
         Cliente clienteNovo  = new Cliente("Isaias", "12312312312", "38997001111", LocalDate.of(2011, 11, 11), "isaias@gmail.com");
  
         // cadastro de cliente
@@ -82,6 +88,7 @@ public class Sistema {
     
         gestaoC.limparLista();
         gestaoU.limparLista();
+        gestaoA.limparLista();
         gestaoOS.limparLista();
         
         Cliente cliente1  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
@@ -133,9 +140,7 @@ public class Sistema {
         gestaoA.cadastrar(agendamento2);
         gestaoA.cadastrar(agendamento3);
         gestaoA.cadastrar(agendamento4);
-        
-        gestaoA.printLista();
-        
+                
         OrdemServico os1 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19), "Cliente gostou dos atendimentos");
         OrdemServico os2 = new OrdemServico(cliente2, usuario1, LocalDate.of(2026, 11, 19));
         OrdemServico os3 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19));
@@ -187,8 +192,10 @@ public class Sistema {
     }   
        
     public void Questao13() throws Exception{
+        
         gestaoC.limparLista();
         gestaoU.limparLista();
+        gestaoS.limparLista();
         gestaoA.limparLista();
         
         // cria 2 clientes
