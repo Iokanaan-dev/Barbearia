@@ -84,7 +84,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
 
         validarAgendamentoParaCadastro(agendamentoInicial);
 
-        OrdemServico novaOS = construirOrdemServicoBasica(cliente, barbeiro, data, agendamentoInicial);
+        OrdemServico novaOS = construirOrdemServicoBasica(cliente, barbeiro, data);
 
         vincularAgendamentoAOrdem(novaOS, agendamentoInicial);
         recalcularValoresTotais(novaOS);
@@ -117,7 +117,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
     /** 
     * Cria uma nova ordem de serviço com os dados básicos 
     */
-    private OrdemServico construirOrdemServicoBasica(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamento) {
+    private OrdemServico construirOrdemServicoBasica(Cliente cliente, Barbeiro barbeiro, LocalDate data) {
         return new OrdemServico(cliente, barbeiro, data);
     }
 
@@ -203,11 +203,11 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
      * @param osID
      * @throws java.lang.Exception
      */
-    public void processarPagamentoAdiantado(OrdemServico os) throws Exception {
+    public void processarPagamentoAdiantado(String osID) throws Exception {
+        OrdemServico os = buscarOSValida(osID);
         os.setValorAdiantado_50pct(os.getValorTotalAPagar() * 0.5);
-        if(os.getAgendamentos().get(0).getStatus() == StatusAgendamento.AGUARDANDO_PAGAMENTO){
-            os.getAgendamentos().get(0).setStatus(StatusAgendamento.CONFIRMADO);
-        }
+        os.getAgendamentos().forEach(ag -> { if (ag.getStatus() == StatusAgendamento.AGUARDANDO_PAGAMENTO)ag.setStatus(StatusAgendamento.CONFIRMADO);
+        });
     }
 
     

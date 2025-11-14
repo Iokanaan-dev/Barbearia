@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.mycompany.Gerenciamento.GestaoClientes;
-import com.mycompany.Gerenciamento.GestaoProdutos;
 import com.mycompany.Gerenciamento.GestaoUsuarios;
 import com.mycompany.Utilidades.StatusAtendimento;
 import java.util.ArrayList;
@@ -62,6 +61,12 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao) {
             this(cliente, barbeiro, dataExecucao, "---");
             contadorInstancias++;    
+    }
+    
+    public OrdemServico(Cliente cliente, LocalDate dataCompra) {
+        this.idCliente = cliente.getId();
+        this.dataExecucao = dataCompra;
+        contadorInstancias++;    
     }
     
     public OrdemServico(){
