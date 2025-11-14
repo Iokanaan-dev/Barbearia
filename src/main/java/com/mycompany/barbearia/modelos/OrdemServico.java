@@ -196,10 +196,6 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
         return getValorTotalAPagar() - this.valorAdiantado_50pct + this.valorTaxaCancelamento_35pct;
     }
    
-    
-    public void adicionarProduto(Produto produto){
-        this.produtosUtilizados.add(produto);
-    }
 
     @Override
     public String gerarId()
