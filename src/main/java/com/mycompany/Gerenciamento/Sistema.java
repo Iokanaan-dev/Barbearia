@@ -43,6 +43,7 @@ public class Sistema {
     GestaoAgendamentos gestaoA = GestaoAgendamentos.getInstancia();
     GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
     GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
+    GestaoFinanceira gestaoF = GestaoFinanceira.getInstancia();
     
     public void questao03(){
         gestaoC.limparLista();
@@ -59,9 +60,7 @@ public class Sistema {
         System.out.println(clienteToString);
         System.out.println(barbeiroToString);
         System.out.println(servicoToString);
-        System.out.println(produtoToString);
-        
-        
+        System.out.println(produtoToString);  
     }
     
     public void questao06(){ 
@@ -71,7 +70,6 @@ public class Sistema {
         Barbeiro barbeiroNovo  = new Barbeiro("barbeiro_toni", "tonin1234", "Toninho", "14141414141", "38997001111", LocalDate.of(1981, 12, 2));
         Atendente atendenteNovo  = new Atendente("atendente_thiago", "thiago1234", "Thiago", "12323232323", "38997001111", LocalDate.of(1999, 11, 4));
         Gerente gerenteNovo  = new Gerente("gerente_sebastiao", "sebinho1234", "Sebastiao", "64646464675", "38997001111", LocalDate.of(1994, 5, 5), "12345");
-        
         
         // cadastro de colaboradores e adm (gerente)
         gestaoU.cadastrar(barbeiroNovo);
@@ -116,10 +114,14 @@ public class Sistema {
     }
 
     public void questao08() throws Exception{
-    
+        
+        /*
+              configura todas as informacoes necessarias para se cadastrar 2 novas ordens de servico
+           */        
         gestaoC.limparLista();
         gestaoU.limparLista();
         gestaoA.limparLista();
+        gestaoS.limparLista();
         gestaoOS.limparLista();
         
         Cliente cliente1  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
@@ -183,12 +185,98 @@ public class Sistema {
         gestaoOS.cadastrar(os2, agendamento4);
         gestaoOS.cadastrar(os3, agendamento5);
         
+        /*
+            fim das configuracoes
+           */        
+        
         System.out.println("===== OSs Cliente 01=====");
         gestaoOS.printListaOSCliente(cliente1);
         
         System.out.println("===== OSs Cliente 02=====");        
         gestaoOS.printListaOSCliente(cliente2);
         
+    }
+    
+    public void questao10() throws Exception{
+        
+        /*
+              configura todas as informacoes necessarias para se cadastrar 2 novas ordens de servico
+           */        
+        gestaoC.limparLista();
+        gestaoU.limparLista();
+        gestaoA.limparLista();
+        gestaoS.limparLista();        
+        gestaoOS.limparLista();
+        
+        Cliente cliente1  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
+        Cliente cliente2  = new Cliente("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com"); 
+        
+        Barbeiro usuario1  = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12));
+        Barbeiro usuario2  = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12));        
+        Atendente usuario3 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12));
+
+        Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3  = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
+        Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);  
+        
+        gestaoC.cadastrar(cliente1);
+        gestaoC.cadastrar(cliente2);
+
+        gestaoU.cadastrar(usuario1);
+        gestaoU.cadastrar(usuario2);
+        gestaoU.cadastrar(usuario3);
+
+        gestaoS.cadastrar(servico1);
+        gestaoS.cadastrar(servico2);
+        gestaoS.cadastrar(servico3);
+        gestaoS.cadastrar(servico4);
+        gestaoS.cadastrar(servico5);
+        
+        ArrayList<Servico> servicos1 = new ArrayList<>(List.of(servico1, servico2)); // CORRIQUEIRA
+        ArrayList<Servico> servicos2 = new ArrayList<>(List.of(servico3)); // CORRIQUEIRA
+        ArrayList<Servico> servicos3 = new ArrayList<>(List.of(servico4)); // LAVAGEM
+        ArrayList<Servico> servicos4 = new ArrayList<>(List.of(servico5)); // LAVAGEM
+
+        Agendamento agendamento1 = new Agendamento(cliente1, usuario1, usuario3, gestaoE.getEstacao(1), servicos1,
+                LocalDateTime.of(2026, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+
+        Agendamento agendamento2 = new Agendamento(cliente1, usuario2, usuario3, gestaoE.getEstacao(0), servicos3,
+                LocalDateTime.of(2026, 11, 13, 9, 0), StatusAgendamento.CONFIRMADO, false, null);
+
+        Agendamento agendamento3 = new Agendamento(cliente1, usuario2, usuario3, gestaoE.getEstacao(2), servicos2,
+                LocalDateTime.of(2026, 11, 14, 14, 0), StatusAgendamento.AGUARDANDO_PAGAMENTO, false, null);
+
+        Agendamento agendamento4 = new Agendamento(cliente2, usuario1, usuario3, gestaoE.getEstacao(0), servicos4,
+                LocalDateTime.of(2026, 11, 15, 16, 0), StatusAgendamento.CONFIRMADO, false, null);
+        Agendamento agendamento5 = new Agendamento(cliente1, usuario2, usuario3, gestaoE.getEstacao(0), servicos4, 
+                LocalDateTime.of(2027, 11, 15, 16, 0), StatusAgendamento.PRE_AGENDADO, false, null);
+
+        gestaoA.cadastrar(agendamento1);
+        gestaoA.cadastrar(agendamento2);
+        gestaoA.cadastrar(agendamento3);
+        gestaoA.cadastrar(agendamento4);
+                
+        OrdemServico os1 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19), "Cliente gostou dos atendimentos");
+        OrdemServico os2 = new OrdemServico(cliente2, usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os3 = new OrdemServico(cliente1, usuario1, LocalDate.of(2026, 11, 19));
+        
+        
+        gestaoOS.cadastrar(os1, agendamento1);
+        gestaoOS.adicionarAgendamento(os1, agendamento2);
+        gestaoOS.adicionarAgendamento(os1, agendamento3);
+        gestaoOS.cadastrar(os2, agendamento4);
+        gestaoOS.cadastrar(os3, agendamento5);   
+        
+        /*
+            fim das configuracoes
+           */ 
+                
+        System.out.println("===== Extrato Cliente 01=====");
+        gestaoOS.processarPagamentoFinal(os1);
+        System.out.println(gestaoF.gerarNotaCliente(cliente1));
+           
     }
     
    public void questao11(){
