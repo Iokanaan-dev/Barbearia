@@ -12,7 +12,7 @@ import java.util.Comparator;
  *
  * @author intalo
  */
-public class TempoServicosEmAgendamentoComparator implements Comparator<Agendamento> {
+public class ComparatorTempoServicosEmAgendamento implements Comparator<Agendamento> {
     /**
      * Sobreescreve compare 
      * @param agendamento1

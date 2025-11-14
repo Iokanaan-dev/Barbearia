@@ -12,7 +12,7 @@ import java.util.Comparator;
  * Classe que compara data de nascimento de clientes
  * @author intalo
  */
-public class DataNascimentoIndividuoComparator implements Comparator<Individuo> {
+public class ComparatorDataNascimentoIndividuo implements Comparator<Individuo> {
 
     /**
      * Sobreescreve compare 
@@ -54,5 +54,15 @@ public class DataNascimentoIndividuoComparator implements Comparator<Individuo> 
             
             else
                 System.out.printf("Os individuos %s e %s nasceram no mesmo dia%n", cliente1.getNome(), cliente2.getNome());
+    }
+    
+    /**
+     * Retorna true se os individuos tiverem a mesma data de aniversario
+     * @param individuo1
+     * @param individuo2
+     * @return
+     */
+    public boolean isIgual(Individuo individuo1, Individuo individuo2){
+        return (0 == compare(individuo1, individuo2));
     }
 }

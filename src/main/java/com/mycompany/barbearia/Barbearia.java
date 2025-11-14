@@ -74,6 +74,9 @@ public class Barbearia {
             //16P2 ======================================================== 
             sistema.questao16P2();
             
+            //17P2 ======================================================== 
+            sistema.questao17P2();
+            
             
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());

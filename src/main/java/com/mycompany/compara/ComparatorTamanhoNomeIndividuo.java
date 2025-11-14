@@ -5,15 +5,13 @@
 package com.mycompany.compara;
 
 import com.mycompany.barbearia.modelos.Individuo;
-import com.mycompany.barbearia.modelos.Usuario;
-import java.time.LocalDate;
 import java.util.Comparator;
 
 /**
  *
  * @author intalo
  */
-public class TamanhoNomeIndividuoComparator implements Comparator<Individuo> {
+public class ComparatorTamanhoNomeIndividuo implements Comparator<Individuo> {
         /**
      * Sobreescreve compare 
      * @param usuario1

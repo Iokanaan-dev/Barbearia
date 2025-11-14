@@ -14,9 +14,11 @@ import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Individuo;
 import com.mycompany.barbearia.modelos.OrdemServico;
 import com.mycompany.barbearia.modelos.Servico;
-import com.mycompany.compara.DataNascimentoIndividuoComparator;
-import com.mycompany.compara.TamanhoNomeIndividuoComparator;
-import com.mycompany.compara.TempoServicosEmAgendamentoComparator;
+import com.mycompany.compara.ComparatorTelefoneIndividuo;
+import com.mycompany.compara.ComparatorDataNascimentoIndividuo;
+import com.mycompany.compara.ComparatorTamanhoNomeIndividuo;
+import com.mycompany.compara.ComparatorTempoServicosEmAgendamento;
+import com.mycompany.compara.Find;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -207,7 +209,7 @@ public class Sistema {
         Cliente cliente2  = new Cliente("Robertin", "15151515151", "38997001414", LocalDate.of(1990, 10, 12), "robertao@email.com"); 
         
         // cria o objeto que ira comparar as datas 
-        DataNascimentoIndividuoComparator comparaDataNascimento = new DataNascimentoIndividuoComparator();
+        ComparatorDataNascimentoIndividuo comparaDataNascimento = new ComparatorDataNascimentoIndividuo();
         
         // printa quem nasceu primeiro usando o compare personalizado
         System.out.println("\n===== Comparando data nascimento clientes =====");        
@@ -245,7 +247,7 @@ public class Sistema {
            */
         
         // cria o objeto que ira comparar os tempos 
-        TempoServicosEmAgendamentoComparator comparaTempoAgendamento = new TempoServicosEmAgendamentoComparator();
+        ComparatorTempoServicosEmAgendamento comparaTempoAgendamento = new ComparatorTempoServicosEmAgendamento();
         
         // printa qual dura menos usando o compare personalizado
         System.out.println("\n===== Comparando tempo de atendimento =====");        
@@ -333,8 +335,8 @@ public class Sistema {
         gestaoU.cadastrar(usuario5);
         gestaoU.cadastrar(usuario6);
         
-        TamanhoNomeIndividuoComparator comparaTamanhoNome = new TamanhoNomeIndividuoComparator();
-        DataNascimentoIndividuoComparator comparaDataNascimento = new DataNascimentoIndividuoComparator();
+        ComparatorTamanhoNomeIndividuo comparaTamanhoNome = new ComparatorTamanhoNomeIndividuo();
+        ComparatorDataNascimentoIndividuo comparaDataNascimento = new ComparatorDataNascimentoIndividuo();
         
         // comparacoes de nome
         System.out.println("\n===== Teste: Tamanho de Nome ====="); 
@@ -363,39 +365,69 @@ public class Sistema {
         
         System.out.println("\nJulia x Paulo"); 
         comparaDataNascimento.quemNasceuPrimeiro(usuario3, usuario2); 
+       
+        // impressao da lista desorganizada
+        System.out.println("\nLista desorganizada:");
+        gestaoU.printLista();
+       
+        // organiza por tamanho do nome
+        Collections.sort(gestaoU.getListaReal(), comparaTamanhoNome);
+       
+        // imprime a lista organizada por tamanho do nome
+        System.out.println("Lista organizada por tamanho do nome:");
+        gestaoU.printLista();
         
-//        ArrayList<Individuo> lista = new ArrayList<>();
-//        
-//        lista.add(usuario1);
-//        lista.add(usuario2);
-//        lista.add(usuario3);
-//        lista.add(usuario4);
-//        lista.add(usuario5);
-//        lista.add(usuario6);
-//                
-//        System.out.printf("Lista desorganizada: %n%s", lista);
-//        
-//        Collections.sort(lista, new TamanhoNomeIndividuoComparator());
-//        System.out.printf("Lista organizada: %n%s", lista);
+        // organiza a lista por data de nascimento
+        Collections.sort(gestaoU.getListaReal(), comparaDataNascimento);
 
-       System.out.println("\nLista desorganizada:");
-       gestaoU.printLista();
-       
-       Collections.sort(gestaoU.getListaReal(), comparaTamanhoNome);
-       
-       System.out.println("Lista organizada por tamanho do nome:");
-       gestaoU.printLista();
-       
-       Collections.sort(gestaoU.getListaReal(), comparaDataNascimento);
-       
-       System.out.println("Lista organizada por data de nascimento:");
-       gestaoU.printLista();       
-       
-       
-       
-       
-        
-               
+        // imprime a lista organizada por data de nascimento
+        System.out.println("Lista organizada por data de nascimento:");
+        gestaoU.printLista();                 
     }
+    
+    public void questao17P2() throws Exception{
+        
+        /*
+              configura todas as informacoes necessarias para se cadastrar 10 clientes
+           */
+        gestaoC.limparLista();
+        
+        Cliente cliente1  = new Cliente("Bruno Almeida",   "10110110110", "389972947", LocalDate.of(1990, 3, 15), "bruno.almeida@gmail.com");
+        Cliente cliente2  = new Cliente("Mariana Souza",   "20220220220", "38997000", LocalDate.of(1995, 7, 22), "mariana.souza@gmail.com");
+        Cliente cliente3  = new Cliente("Diego Martins",   "30330330330", "38997000", LocalDate.of(1988, 11, 5), "diego.martins@gmail.com");
+        Cliente cliente4  = new Cliente("Juliana Pereira", "40440440440", "38997000", LocalDate.of(1993, 1, 27), "juliana.pereira@gmail.com");
+        Cliente cliente5  = new Cliente("Rafael Costa",    "50550550550", "38990005", LocalDate.of(2000, 9, 10), "rafael.costa@gmail.com");
+        Cliente cliente6  = new Cliente("Carolina Dias",   "60660660660", "37000006", LocalDate.of(1992, 4, 30), "carolina.dias@gmail.com");
+        Cliente cliente7  = new Cliente("Thiago Ramos",    "70770770770", "38900007", LocalDate.of(1986, 6, 18), "thiago.ramos@gmail.com");
+        Cliente cliente8  = new Cliente("Larissa Prado",   "80880880880", "38990008", LocalDate.of(1998, 12, 9), "larissa.prado@gmail.com");
+        Cliente cliente9  = new Cliente("Eduardo Silva",   "90990990990", "38990009", LocalDate.of(1991, 2, 2), "eduardo.silva@gmail.com");
+        Cliente cliente10 = new Cliente("Gabriela Rocha",  "11211211211", "38990010", LocalDate.of(1994, 8, 14), "gabriela.rocha@gmail.com");
+
+        gestaoC.cadastrar(cliente1);
+        gestaoC.cadastrar(cliente2);
+        gestaoC.cadastrar(cliente3);
+        gestaoC.cadastrar(cliente4);
+        gestaoC.cadastrar(cliente5);
+        gestaoC.cadastrar(cliente6);
+        gestaoC.cadastrar(cliente7);
+        gestaoC.cadastrar(cliente8);
+        gestaoC.cadastrar(cliente9);
+        gestaoC.cadastrar(cliente10); 
+        /*
+            fim das configuracoes
+           */    
+        
+        ComparatorTelefoneIndividuo comparaTelefone = new ComparatorTelefoneIndividuo();
+        
+        comparaTelefone.isTelefoneIgual(cliente1.getTelefone(), cliente2.getTelefone());
+        
+        Find find = new Find();
+                
+        find.printClienteComTelefone(gestaoC.getListaCopia(), "38905");
+        
+
+    }
+    
+    
     
 }
