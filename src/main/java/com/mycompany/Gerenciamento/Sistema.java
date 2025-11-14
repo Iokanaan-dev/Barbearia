@@ -54,7 +54,7 @@ public class Sistema {
         Cliente clienteToString  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
         Barbeiro barbeiroToString  = new Barbeiro("barbeiro_toni", "tonin1234", "Toninho", "14141414141", "38997001111", LocalDate.of(1981, 12, 2));
         Servico servicoToString = new Servico("Corte", 35.00, "Um corte social", 2, TipoEstacao.CORRIQUEIRA);
-        Produto produtoToString = new Produto("Shampoo", 25.00, "Shampoo cheiroso");
+        Produto produtoToString = new Produto("Shampoo",15.00 ,25.00, "Shampoo cheiroso");
         
         System.out.println("===== Alguns Exemplos toString=====");
         System.out.println(clienteToString);

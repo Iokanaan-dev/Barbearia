@@ -7,9 +7,11 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.barbearia.modelos.Despesa;
 import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.Utilidades.TipoDespesa;
+import com.mycompany.barbearia.modelos.Produto;
 import com.mycompany.barbearia.modelos.Usuario;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 /**
  *
@@ -52,6 +54,34 @@ public class GestaoDespesas extends Gestao<Despesa> {
             throw new Exception("Acesso negado");
         }
         return new ArrayList(this.listaModelo);
+    }
+    
+    /**
+     * [MÉTODO NOVO - O QUE VOCÊ PEDIU]
+     * Lança uma despesa de "Custo de Mercadoria Usada" (CMV)
+     * com base em uma lista de produtos consumidos (que o Gerente pegou
+     * do 'getRelatorioProdutosUsados' da GestaoFinanceira).
+     */
+    public void lancarDespesaDeConsumo(ArrayList<Produto> produtosConsumidos, LocalDate data, String observacoes, Usuario ator) throws Exception {
+        
+        if (!(ator instanceof Gerente)) {
+            throw new Exception("Acesso negado.");
+        }
+        
+        if (produtosConsumidos == null || produtosConsumidos.isEmpty()) {
+            throw new Exception("Lista de produtos consumidos está vazia.");
+        }
+
+         //Calcula o custo total 
+        double custoTotal = 0.0;
+        for (Produto p : produtosConsumidos) {
+            custoTotal += p.getCusto(); 
+        }
+        
+        String nomeDespesa = "Custo de Consumíveis - " + data.format(DateTimeFormatter.ofPattern("MM/yyyy"));
+        
+        // chama lançar despesas com o calculo dos produtos já feito 
+        this.lancarDespesas(nomeDespesa, custoTotal, data, TipoDespesa.CONSUMIVEIS, observacoes, ator);
     }
 }
     

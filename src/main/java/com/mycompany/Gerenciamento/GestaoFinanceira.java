@@ -39,6 +39,35 @@ public class GestaoFinanceira {
     public static GestaoFinanceira getInstancia() {
         return instancia;
     }
+    
+    /**
+     * Gera um relatório de todos os produtos usados
+     * em Ordens de Serviço pagas de um mês e ano especifico
+     * O Gerente usa esta lista para fazer o cálculo de despesas
+     *
+     * @return Uma lista de Produtos que foram usados.
+     */
+    public ArrayList<Modelo> getRelatorioProdutosUsados(int mes, int ano, Usuario ator) throws Exception {
+        
+        if (!(ator instanceof Gerente)) {
+            throw new Exception("Acesso negado. Apenas Gerentes podem ver este relatório.");
+        }
+        
+        ArrayList<Modelo> produtosUsados = new ArrayList<>();
+        ArrayList<OrdemServico> ordensDoMes = gestaoOS.getLista(); 
+        
+        for (OrdemServico os : ordensDoMes) {
+            // Apenas de contas pagas naquele mês
+            if (os.getStatus() == StatusAtendimento.PAGO &&
+                os.getDataExecucao().getMonthValue() == mes &&
+                os.getDataExecucao().getYear() == ano) {
+                
+                // Adiciona todos os 'produtosUtilizados' desta OS à lista principal
+                produtosUsados.addAll(os.getProdutosUtilizados());
+            }
+        }
+        return produtosUsados; // Retorna a lista
+    }
 
     public String gerarBalancoMensal(int mes, int ano, Usuario user) throws Exception {
 

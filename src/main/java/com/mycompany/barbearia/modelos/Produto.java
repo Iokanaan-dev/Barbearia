@@ -14,7 +14,8 @@ import java.util.UUID;
  */
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Produto extends Modelo{
-    private double preco;
+    private double custo; //custo para comprar do fornecedor
+    private double preco; //venda para o cliente
     private String descricao;
 
     /**
@@ -22,11 +23,12 @@ public class Produto extends Modelo{
      * @param nome
      * @param preco
      */
-    public Produto(String nome, double preco, String descricao){
+    public Produto(String nome, double custo ,double preco, String descricao){
         super(nome);
-        if(preco <= 0) {
-            throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
+        if(preco <= 0 || custo <= 0) {
+            throw new IllegalArgumentException("Valor e custo devem ser ambos maiores que 0!");
         }
+        this.custo = custo;
         this.preco = preco;
         this.descricao = descricao;
     }
@@ -69,7 +71,14 @@ public class Produto extends Modelo{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
+    public double getCusto() {
+        return custo;
+    }
+
+    public void setCusto(double custo) {
+        this.custo = custo;
+    }
 
     /**
      *

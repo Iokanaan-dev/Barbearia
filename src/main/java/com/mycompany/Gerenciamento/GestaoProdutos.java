@@ -42,10 +42,10 @@ public class GestaoProdutos extends Gestao<Produto>{
      * @param preco
      * @param descricao
      */
-    public void cadastrar(String nome, double preco, String descricao) throws Exception{
+    public void cadastrar(String nome, double custo, double preco, String descricao) throws Exception{
         verificarprodutoExiste(nome);
         
-        Produto novoProduto = construirProduto(nome, preco, descricao);
+        Produto novoProduto = construirProduto(nome,custo ,preco, descricao);
         super.adicionar(novoProduto);
     }
     
@@ -54,8 +54,8 @@ public class GestaoProdutos extends Gestao<Produto>{
         super.adicionar(produto);
     }
     
-    private Produto construirProduto(String nome, double preco, String descricao){
-        return new Produto(nome, preco, descricao);
+    private Produto construirProduto(String nome,double custo ,double preco, String descricao){
+        return new Produto(nome, custo, preco, descricao);
     }
         
     

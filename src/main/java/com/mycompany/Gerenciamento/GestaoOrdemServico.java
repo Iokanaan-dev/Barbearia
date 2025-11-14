@@ -92,7 +92,7 @@ public class GestaoOrdemServico extends Gestao<OrdemServico> {
         super.adicionar(novaOS);
         return novaOS;
     }
-
+    
      
         
     /** 
