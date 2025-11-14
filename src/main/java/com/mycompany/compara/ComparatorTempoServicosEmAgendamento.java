@@ -20,6 +20,7 @@ public class ComparatorTempoServicosEmAgendamento implements Comparator<Agendame
      * @return
      */
     
+    // usa a instancia do singleton para usar os metodos de GestaoAgendamento
     GestaoAgendamentos gestaoA = GestaoAgendamentos.getInstancia();
     
     @Override

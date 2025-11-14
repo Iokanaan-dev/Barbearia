@@ -16,28 +16,41 @@ import java.util.Iterator;
  */
 public class Find {
     
+    // atributo que cria um objeto que compara telefones
     ComparatorTelefoneIndividuo comparaTelefone = new ComparatorTelefoneIndividuo();
     
-    public int findPorTelefone(ArrayList<Cliente> listaClientes, String telefone){
+    
+    /**
+     * Prodcura no ArrayList de cliente passado um certo numero de telefone.Retorna o indice se encontrar e -1 se nao encontrar
+     * @param listaClientes
+     * @param cliente
+     * @return
+     */
+    public int findViaTelefone(ArrayList<Cliente> listaClientes, Cliente cliente){
         int indice = 0;
+        
+        //cria o iterator para um ArrayList de Cliente
         Iterator<Cliente> iterator = listaClientes.iterator();
         
         while(iterator.hasNext()){
-            if(comparaTelefone.isTelefoneIgual(iterator.next().getTelefone(), telefone))
+            if(comparaTelefone.isTelefoneIgual(iterator.next(), cliente))
                 return indice;
             indice++;
         }
-        
-        return -1;
+        return -1; // se nao encontrar
     }
     
-    public void printClienteComTelefone(ArrayList<Cliente> listaClientes, String telefone){
-        int indiceClienteComTelefone = findPorTelefone(listaClientes, telefone);
+    /**
+     * Metodo que imprime o indice do cliente com o numero de cliente especificado
+     * @param listaClientes
+     * @param cliente
+     */
+    public void printClienteEncontrado(ArrayList<Cliente> listaClientes, Cliente cliente){
+        int indiceCliente = findViaTelefone(listaClientes, cliente);
         
-        if(-1 == indiceClienteComTelefone)
-            System.out.printf("Nao existe cliente com telefone %s", telefone);
+        if(-1 == indiceCliente)
+            System.out.printf("Cliente nao existe%n");
         else
-            System.out.printf("Cliente com indice %d possui o telefone %s", indiceClienteComTelefone, telefone);
-    }
-    
+            System.out.printf("Cliente com indice %d%n", indiceCliente);
+    }    
 }

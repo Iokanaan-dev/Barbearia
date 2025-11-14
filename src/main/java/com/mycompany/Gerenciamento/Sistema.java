@@ -13,15 +13,19 @@ import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Individuo;
 import com.mycompany.barbearia.modelos.OrdemServico;
+import com.mycompany.barbearia.modelos.Produto;
 import com.mycompany.barbearia.modelos.Servico;
 import com.mycompany.compara.ComparatorTelefoneIndividuo;
 import com.mycompany.compara.ComparatorDataNascimentoIndividuo;
 import com.mycompany.compara.ComparatorTamanhoNomeIndividuo;
 import com.mycompany.compara.ComparatorTempoServicosEmAgendamento;
 import com.mycompany.compara.Find;
+import com.mycompany.compara.Teste2;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -35,9 +39,30 @@ public class Sistema {
     GestaoClientes gestaoC = GestaoClientes.getInstancia();
     GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
     GestaoServicos gestaoS = GestaoServicos.getInstancia();
+    GestaoProdutos gestaoP = GestaoProdutos.getInstancia();
     GestaoAgendamentos gestaoA = GestaoAgendamentos.getInstancia();
     GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
     GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
+    
+    public void questao03(){
+        gestaoC.limparLista();
+        gestaoU.limparLista();
+        gestaoS.limparLista();
+        gestaoP.limparLista();
+        
+        Cliente clienteToString  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
+        Barbeiro barbeiroToString  = new Barbeiro("barbeiro_toni", "tonin1234", "Toninho", "14141414141", "38997001111", LocalDate.of(1981, 12, 2));
+        Servico servicoToString = new Servico("Corte", 35.00, "Um corte social", 2, TipoEstacao.CORRIQUEIRA);
+        Produto produtoToString = new Produto("Shampoo", 25.00, "Shampoo cheiroso");
+        
+        System.out.println("===== Alguns Exemplos toString=====");
+        System.out.println(clienteToString);
+        System.out.println(barbeiroToString);
+        System.out.println(servicoToString);
+        System.out.println(produtoToString);
+        
+        
+    }
     
     public void questao06(){ 
         
@@ -391,17 +416,37 @@ public class Sistema {
               configura todas as informacoes necessarias para se cadastrar 10 clientes
            */
         gestaoC.limparLista();
-        
-        Cliente cliente1  = new Cliente("Bruno Almeida",   "10110110110", "389972947", LocalDate.of(1990, 3, 15), "bruno.almeida@gmail.com");
-        Cliente cliente2  = new Cliente("Mariana Souza",   "20220220220", "38997000", LocalDate.of(1995, 7, 22), "mariana.souza@gmail.com");
-        Cliente cliente3  = new Cliente("Diego Martins",   "30330330330", "38997000", LocalDate.of(1988, 11, 5), "diego.martins@gmail.com");
-        Cliente cliente4  = new Cliente("Juliana Pereira", "40440440440", "38997000", LocalDate.of(1993, 1, 27), "juliana.pereira@gmail.com");
-        Cliente cliente5  = new Cliente("Rafael Costa",    "50550550550", "38990005", LocalDate.of(2000, 9, 10), "rafael.costa@gmail.com");
-        Cliente cliente6  = new Cliente("Carolina Dias",   "60660660660", "37000006", LocalDate.of(1992, 4, 30), "carolina.dias@gmail.com");
-        Cliente cliente7  = new Cliente("Thiago Ramos",    "70770770770", "38900007", LocalDate.of(1986, 6, 18), "thiago.ramos@gmail.com");
-        Cliente cliente8  = new Cliente("Larissa Prado",   "80880880880", "38990008", LocalDate.of(1998, 12, 9), "larissa.prado@gmail.com");
-        Cliente cliente9  = new Cliente("Eduardo Silva",   "90990990990", "38990009", LocalDate.of(1991, 2, 2), "eduardo.silva@gmail.com");
-        Cliente cliente10 = new Cliente("Gabriela Rocha",  "11211211211", "38990010", LocalDate.of(1994, 8, 14), "gabriela.rocha@gmail.com");
+
+        Cliente cliente1  = new Cliente("Bruno Almeida",     "10110110110", "83451127",   LocalDate.of(1990, 3, 15),  "bruno.almeida@gmail.com");
+        Cliente cliente2  = new Cliente("Mariana Souza",     "20220220220", "72984253",   LocalDate.of(1995, 7, 22),  "mariana.souza@gmail.com");
+        Cliente cliente3  = new Cliente("Diego Martins",     "30330330330", "56490382",   LocalDate.of(1988, 11, 5),  "diego.martins@gmail.com");
+        Cliente cliente4  = new Cliente("Juliana Pereira",   "40440440440", "91524336",   LocalDate.of(1993, 1, 27),  "juliana.pereira@gmail.com");
+        Cliente cliente5  = new Cliente("Rafael Costa",      "50550550550", "48712590",   LocalDate.of(2000, 9, 10),  "rafael.costa@gmail.com");
+        Cliente cliente6  = new Cliente("Carolina Dias",     "60660660660", "30197254",   LocalDate.of(1992, 4, 30),  "carolina.dias@gmail.com");
+        Cliente cliente7  = new Cliente("Thiago Ramos",      "70770770770", "65842217",   LocalDate.of(1986, 6, 18),  "thiago.ramos@gmail.com");
+        Cliente cliente8  = new Cliente("Larissa Prado",     "80880880880", "742551963",  LocalDate.of(1998, 12, 9),  "larissa.prado@gmail.com");
+        Cliente cliente9  = new Cliente("Eduardo Silva",     "90990990990", "95168432",   LocalDate.of(1991, 2, 2),   "eduardo.silva@gmail.com");
+        Cliente cliente10 = new Cliente("Gabriela Rocha",    "11211211211", "38426701",   LocalDate.of(1994, 8, 14),  "gabriela.rocha@gmail.com");
+        Cliente cliente11 = new Cliente("Fernando Azevedo",  "11311311311", "95314750",   LocalDate.of(1987, 5, 19),  "fernando.azevedo@gmail.com");
+        Cliente cliente12 = new Cliente("Isabela Moura",     "11411411411", "62975438",   LocalDate.of(1999, 3, 3),   "isabela.moura@gmail.com");
+        Cliente cliente13 = new Cliente("Lucas Ferreira",    "11511511511", "74563091",   LocalDate.of(1996, 10, 7),  "lucas.ferreira@gmail.com");
+        Cliente cliente14 = new Cliente("Patrícia Duarte",   "11611611611", "59036142",   LocalDate.of(1993, 9, 29),  "patricia.duarte@gmail.com");
+        Cliente cliente15 = new Cliente("Hugo Santana",      "11711711711", "84276913",   LocalDate.of(1985, 11, 21), "hugo.santana@gmail.com");
+        Cliente cliente16 = new Cliente("Bianca Vasconcelos","11811811811", "70392486",   LocalDate.of(2001, 4, 17),  "bianca.vasconcelos@gmail.com");
+        Cliente cliente17 = new Cliente("Marcelo Tavares",   "11911911911", "97682043",   LocalDate.of(1990, 8, 8),   "marcelo.tavares@gmail.com");
+        Cliente cliente18 = new Cliente("Renata Cardoso",    "12012012012", "43679815",   LocalDate.of(1997, 12, 25), "renata.cardoso@gmail.com");
+        Cliente cliente19 = new Cliente("Igor Nascimento",   "12112112112", "51447962",   LocalDate.of(1989, 1, 4),   "igor.nascimento@gmail.com");
+        Cliente cliente20 = new Cliente("Paula Menezes",     "12212212212", "89662054",   LocalDate.of(1994, 6, 12),  "paula.menezes@gmail.com");
+        Cliente cliente21 = new Cliente("André Vinicius",    "12312312312", "24037871",   LocalDate.of(1998, 7, 16),  "andre.vinicius@gmail.com");
+        Cliente cliente22 = new Cliente("Tatiane Pires",     "12412412412", "57384419",   LocalDate.of(1992, 5, 30),  "tatiane.pires@gmail.com");
+        Cliente cliente23 = new Cliente("Rodrigo Lima",      "12512512512", "91846230",   LocalDate.of(1984, 9, 1),   "rodrigo.lima@gmail.com");
+        Cliente cliente24 = new Cliente("Aline Castro",      "12612612612", "35672509",   LocalDate.of(1996, 2, 14),  "aline.castro@gmail.com");
+        Cliente cliente25 = new Cliente("Vinícius Duarte",   "12712712712", "82931746",   LocalDate.of(1991, 3, 19),  "vinicius.duarte@gmail.com");
+        Cliente cliente26 = new Cliente("João Pedro",        "12812812812", "45509127",   LocalDate.of(2002, 10, 22), "joaopedro@gmail.com");
+        Cliente cliente27 = new Cliente("Luana Ribeiro",     "12912912912", "78453390",   LocalDate.of(1995, 4, 5),   "luana.ribeiro@gmail.com");
+        Cliente cliente28 = new Cliente("Cláudio Torres",    "13013013013", "91247585",   LocalDate.of(1983, 8, 13),  "claudio.torres@gmail.com");
+        Cliente cliente29 = new Cliente("Michele Andrade",   "13113113113", "65478331",   LocalDate.of(1997, 3, 11),  "michele.andrade@gmail.com");
+        Cliente cliente30 = new Cliente("Gustavo Correia",   "13213213213", "98791624",   LocalDate.of(1990, 12, 6),  "gustavo.correia@gmail.com");
 
         gestaoC.cadastrar(cliente1);
         gestaoC.cadastrar(cliente2);
@@ -412,22 +457,85 @@ public class Sistema {
         gestaoC.cadastrar(cliente7);
         gestaoC.cadastrar(cliente8);
         gestaoC.cadastrar(cliente9);
-        gestaoC.cadastrar(cliente10); 
+        gestaoC.cadastrar(cliente10);
+        gestaoC.cadastrar(cliente11);
+        gestaoC.cadastrar(cliente12);
+        gestaoC.cadastrar(cliente13);
+        gestaoC.cadastrar(cliente14);
+        gestaoC.cadastrar(cliente15);
+        gestaoC.cadastrar(cliente16);
+        gestaoC.cadastrar(cliente17);
+        gestaoC.cadastrar(cliente18);
+        gestaoC.cadastrar(cliente19);
+        gestaoC.cadastrar(cliente20);
+        gestaoC.cadastrar(cliente21);
+        gestaoC.cadastrar(cliente22);
+        gestaoC.cadastrar(cliente23);
+        gestaoC.cadastrar(cliente24);
+        gestaoC.cadastrar(cliente25);
+        gestaoC.cadastrar(cliente26);
+        gestaoC.cadastrar(cliente27);
+        gestaoC.cadastrar(cliente28);
+        gestaoC.cadastrar(cliente29);
+        gestaoC.cadastrar(cliente30);
+
         /*
             fim das configuracoes
            */    
         
+        // cria um objeto Find         
+        Find find = new Find(); // MUDE O QUE FOR PRECISO PARA QUE SE BUSQUE UM CLIENTE NUMA LISTA E NAO POR UM TELEFONE
+        
+        System.out.println("\n===== Testes Find Telefone =====");         
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente1);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente2);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente5);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente6);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente27);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente28);
+        find.printClienteEncontrado(gestaoC.getListaCopia(), cliente30); 
+        
+        // cria um objeto que ordena a lista pelo numero de telefone
         ComparatorTelefoneIndividuo comparaTelefone = new ComparatorTelefoneIndividuo();
         
-        comparaTelefone.isTelefoneIgual(cliente1.getTelefone(), cliente2.getTelefone());
+        // ordena a lista
+        Collections.sort(gestaoC.getListaReal(), comparaTelefone);
         
-        Find find = new Find();
+        gestaoC.printLista();
+        
+        System.out.println("\n===== Testes Find Telefone x Binary Search=====");         
                 
-        find.printClienteComTelefone(gestaoC.getListaCopia(), "38905");
-        
-
-    }
+        System.out.printf("Busca cliente 5  find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente5));
+        System.out.printf("Busca cliente 5  binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente5, comparaTelefone));
+        System.out.printf("Busca cliente 7  find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente7));
+        System.out.printf("Busca cliente 7  binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente7, comparaTelefone));
+        System.out.printf("Busca cliente 15 find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente15));
+        System.out.printf("Busca cliente 15 binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente15, comparaTelefone));
+        System.out.printf("Busca cliente 25 find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente25));
+        System.out.printf("Busca cliente 25 binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente25, comparaTelefone));
+        System.out.printf("Busca cliente 30 find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente30));
+        System.out.printf("Busca cliente 30 binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente30, comparaTelefone));
+        System.out.printf("Busca cliente 1  find:         %d%n", find.findViaTelefone(gestaoC.getListaReal(), cliente1));
+        System.out.printf("Busca cliente 1  binarySearch: %d%n", Collections.binarySearch(gestaoC.getListaReal(), cliente1, comparaTelefone));             
     
     
-    
+        /*
+            O metodo find eh util quando a lista de clientes nao esta ordenada,
+            e quando as buscas nao sao frequentes. Funciona independentemente da
+            ordem dos elementos e nao exige preparacao na lista. Apenas percorre 
+            todos os itens ate achar o cliente desejado. Ja o binarySearch do 
+            Java so pode ser usado quando a lista esta ordenada pois depende
+            dessa ordenacao para funcionar. Quando a condicao de ordenar a lista
+            eh atendida o binarySearch eh muito mais rapido, ideal para listas
+            muito grandes.
+            Nessa implementaçao o find funciona apenas para o ArrayList<Clientes>
+            devido a como o sistema foi planejado com uso de ArrayLists para todas 
+            as listas, o que eh uma desvantagem dessa implementaçao atual 
+            mas conceitualmente o find poderia funcionar para mais tipos de 
+            coleçoes que o binarySearch pois ele funciona em qualquer coleçao 
+            que possa ser percorrida. Ja o bynarySearch eh utilizavel em Array ou
+            List, desde que ordenadas.
+            
+           */
+    }   
 }

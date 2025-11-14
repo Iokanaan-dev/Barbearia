@@ -58,6 +58,6 @@ public class Estacao extends Modelo{
 
     @Override
     public String toString() {
-        return "Estacao{" + super.toString() + "discricao=" + descricao + '}';
+        return String.format("%nEstacao %s%n%s", getId(), super.toString());
     }
 }

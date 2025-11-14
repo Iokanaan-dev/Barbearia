@@ -122,9 +122,12 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     public void cadastrar(Agendamento agendamento) throws Exception{
+        
         validarPreCondicoes(agendamento.getServicos(), agendamento.getDataHoraInicioAgendamento(), agendamento.getEstacao());
+        
         int duracaoTotalEmMinutos = calcularDuracaoTotal(agendamento.getServicos());
         LocalDateTime dataFim = calcularDataFim(agendamento.getDataHoraInicioAgendamento(), duracaoTotalEmMinutos);
+        
         validarDisponibilidade(agendamento.getBarbeiro(), agendamento.getEstacao(), agendamento.getDataHoraInicioAgendamento(), dataFim);
         
         StatusAgendamento statusInicial = determinarStatusInicial(agendamento.getDataHoraInicioAgendamento());
@@ -155,9 +158,6 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Calcula o horário de término do agendamento com base no início e na duração total.
-     * @param dataInicio
-     * @param duracaoTotalMinutos
-     * @return 
      */
     private LocalDateTime calcularDataFim(LocalDateTime dataInicio, int duracaoTotalMinutos) {
         return dataInicio.plusMinutes(duracaoTotalMinutos);
@@ -240,7 +240,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     **/ 
     private void validarStatusAgendamento(Agendamento agendamento) throws Exception{
         StatusAgendamento statusAtual = agendamento.getStatus(); 
-        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO || statusAtual == StatusAgendamento.EM_ANDAMENTO)
+        if (statusAtual == StatusAgendamento.CANCELADO || statusAtual == StatusAgendamento.FINALIZADO)
             throw new Exception("Esse agendamento já foi finalizado, está em andamento ou já foi cancelado.");
     }
     
@@ -262,99 +262,54 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     /**
-     * Atualiza o status de um agendamento
-     */
-    public void atualizarStatusAgendamento() {
-        LocalDateTime agora = LocalDateTime.now();
-
-        for (Agendamento ag : this.listaModelo) {  
-            StatusAgendamento statusAtual = ag.getStatus();
-            
-            if (statusAtual == StatusAgendamento.PRE_AGENDADO) {
-                long diasDeAntecedencia = ChronoUnit.DAYS.between(agora.toLocalDate(), ag.getDataHoraInicioAgendamento().toLocalDate());
-                if (diasDeAntecedencia < PRE_AGENDAMENTO) {
-                    ag.setStatus(StatusAgendamento.AGUARDANDO_PAGAMENTO);
-                    statusAtual = StatusAgendamento.AGUARDANDO_PAGAMENTO;
-                }
-            }       
-            
-            if (statusAtual == StatusAgendamento.CONFIRMADO) {
-                if (agora.toLocalDate().isEqual(ag.getDataHoraInicioAgendamento().toLocalDate()) && agora.isBefore(ag.getDataHoraInicioAgendamento())) {
-                    ag.setStatus(StatusAgendamento.EM_ESPERA);
-                    statusAtual = StatusAgendamento.EM_ESPERA;
-                }
-            }
-            
-            if (statusAtual == StatusAgendamento.EM_ESPERA) {
-                if (agora.isAfter(ag.getDataHoraInicioAgendamento()) || agora.isEqual(ag.getDataHoraInicioAgendamento())) {
-                    ag.setStatus(StatusAgendamento.EM_ANDAMENTO);
-                    statusAtual = StatusAgendamento.EM_ANDAMENTO;
-                }
-            }
-            
-            if (statusAtual == StatusAgendamento.EM_ANDAMENTO) {
-                if (agora.isAfter(ag.getDataHoraFimAgendamento()) || agora.isEqual(ag.getDataHoraFimAgendamento())) {
-                    ag.setStatus(StatusAgendamento.FINALIZADO);
-                }
-            }
-        }
-    }
-    
-    /**
      * Busca um horario vago na lsita de agendamento
      * @param servicos
      * @param data
      * @return
      */
     public ArrayList<Agenda> buscarHorarioVagoAgendamento(ArrayList<Servico> servicos, LocalDate data) {
-        ArrayList<Agenda> agenda = new ArrayList<>();
-        
-        if (servicos == null || servicos.isEmpty()) return agenda;
-        
+        ArrayList<Agenda> agendas = new ArrayList<>();
 
-        ArrayList<Usuario> todosBarbeiros = this.gestaoUsuarios.getListaBarbeiros(); 
-        Estacao[] todasEstacao = this.gestaoEstacao.getEstacoes();
-        
+        if (servicos == null || servicos.isEmpty()) return null;
+
+        //  Verifica se todos os serviços requerem o mesmo tipo de estação
         TipoEstacao tipoRequerido = servicos.get(0).getTipoEstacaoRequerido();
-        boolean tiposMisturados = false;
-        for (Servico s : servicos) {
-            if (s.getTipoEstacaoRequerido() != tipoRequerido) {
-                tiposMisturados = true;
-                break;
-            }
-        }
-        if (tiposMisturados) {
-            return agenda;
-        }
-        
-        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
-        
-        LocalDateTime slotAtual = data.atTime(HORA_INICIO_ESPEDIENTE);
-        while (slotAtual.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE)) {
-            
-            LocalDateTime inicio = slotAtual;
-            LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
-            
-            if (fim.toLocalTime().isAfter(HORA_FINAL_ESPEDIENTE) || inicio.isBefore(LocalDateTime.now())) {
-                slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
-                continue;
-            }
-            
+        boolean tiposMisturados = servicos.stream()
+                .anyMatch(s -> s.getTipoEstacaoRequerido() != tipoRequerido);
+        if (tiposMisturados) return null;
 
-            for (Usuario barbeiro : todosBarbeiros) { 
-                if (!horarioOcupado(barbeiro, inicio, fim)) {
-                    for (Estacao estacao : todasEstacao) {
-                        if (estacao.getTipo() == tipoRequerido) {
-                            if (!horarioOcupado(estacao, inicio, fim)) {
-                                agenda.add(new Agenda(inicio, (Barbeiro) barbeiro, estacao));
-                            }
-                        }
+        //  Calcula a duração total
+        int duracaoTotalMinutos = servicos.stream()
+                .mapToInt(Servico::getTempoEmMinutos)
+                .sum();
+
+        //  Obtém recursos disponíveis
+        var barbeiros = gestaoUsuarios.getListaBarbeiros();
+        var estacoes = gestaoEstacao.getEstacoes();
+
+        //  Percorre o expediente em intervalos de SLOT_MINUTOS
+        for (LocalDateTime inicio = data.atTime(HORA_INICIO_ESPEDIENTE);
+             inicio.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE);
+             inicio = inicio.plusMinutes(SLOT_MINUTOS)) {
+
+            LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
+
+            // pula horários fora do expediente ou no passado
+            if (fim.toLocalTime().isAfter(HORA_FINAL_ESPEDIENTE) || inicio.isBefore(LocalDateTime.now()))
+                continue;
+
+            //  Busca combinações barbeiro + estação disponíveis
+            for (Usuario usuario : barbeiros) {
+                if (horarioOcupado(usuario, inicio, fim)) continue;
+
+                for (Estacao estacao : estacoes) {
+                    if (estacao.getTipo() == tipoRequerido && !horarioOcupado(estacao, inicio, fim)) {
+                        agendas.add(new Agenda(inicio, (Barbeiro) usuario, estacao));
                     }
                 }
             }
-            slotAtual = slotAtual.plusMinutes(SLOT_MINUTOS);
         }
-        return agenda;
+        return agendas;
     }
     
     /**

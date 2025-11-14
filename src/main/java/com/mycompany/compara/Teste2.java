@@ -11,11 +11,11 @@ import java.util.Comparator;
  *
  * @author intalo
  */
-public class ComparatorTelefoneIndividuo implements Comparator<Individuo>{
+public class Teste2 implements Comparator<Individuo>{
             /**
      * Sobreescreve compare 
-     * @param usuario1
-     * @param usuario2
+     * @param individuo1
+     * @param individuo2
      * @return
      */
     @Override
@@ -24,16 +24,6 @@ public class ComparatorTelefoneIndividuo implements Comparator<Individuo>{
         int comparaTelefone = converterTelefone(individuo1.getTelefone()) - converterTelefone(individuo2.getTelefone());
         
         return comparaTelefone;        
-    }
-    
-    /**
-     * Exibe quem tem menor nome
-     * @param telefone1
-     * @param telefone2
-     * @return 
-     */
-    public boolean isTelefoneIgual(Individuo individuo1, Individuo individuo2){
-        return 0 == compare(individuo1, individuo2);     
     }
     
     /**

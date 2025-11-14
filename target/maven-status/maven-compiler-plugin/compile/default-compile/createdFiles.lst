@@ -4,6 +4,7 @@ com/mycompany/Utilidades/TipoDespesa.class
 com/mycompany/Gerenciamento/GestaoEstacao.class
 com/mycompany/Utilidades/TipoEstacao.class
 com/mycompany/compara/ComparatorTamanhoNomeIndividuo.class
+com/mycompany/compara/Teste2.class
 com/mycompany/barbearia/modelos/RelatorioFinanceiro.class
 com/mycompany/Gerenciamento/GestaoFinanceira.class
 com/mycompany/barbearia/modelos/ParBatida.class

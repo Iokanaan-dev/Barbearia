@@ -112,6 +112,6 @@ public class Servico extends Modelo{
      */
     @Override
     public String toString() {
-        return String.format("%sPreco: %s", super.toString(),preco);
+        return String.format("%n%sPreco: %s", super.toString(),preco);
     }
 }
