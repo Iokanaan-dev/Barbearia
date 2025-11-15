@@ -1,6 +1,5 @@
 package com.mycompany.Gerenciamento;
 
-import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Modelo;
 import com.mycompany.barbearia.modelos.Usuario;
 import java.util.ArrayList;

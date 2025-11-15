@@ -174,6 +174,8 @@ private GestaoUsuarios(Barbearia_date dados) {
      * @param senhaNova
      */
     public void editarUsuarioLogin(String idUsuario, String username, String senha, String usernameNovo ,String senhaNova){
+        
+        
 
         usernameSendoUsado(usernameNovo);
         
@@ -268,15 +270,34 @@ private GestaoUsuarios(Barbearia_date dados) {
      * @return
      */
     @Override
-    public boolean validarLogin(String username, String senha){
+    public boolean validarLogin(String username, String senha) {
         Usuario usuario = buscarUsername(username);
-        
-        return (usuario.verificarUsername(username) && usuario.verificarSenha(senha));
-    }  
+        if (usuario == null) return false;
+        return usuario.verificarSenha(senha);
+    }
+ 
     
     @Override
-    public void remover(String username, String senha, Usuario usuario){
-        validarLogin(username, senha);
-        super.remover(username, senha, usuario);  
+    public void remover(String username, String senha, Usuario usuario) {
+        if (!validarLogin(username, senha)) {
+            throw new IllegalArgumentException("Usuário ou senha inválidos.");
+        }
+
+        super.remover(username, senha, usuario);
+    }
+
+    
+    private void validarPIM(String pin, Usuario user) throws Exception{
+        
+        Gerente gerente = (Gerente) user;
+        if (!gerente.verficarPinADM(pin)) {
+            throw new Exception("PIN incorreto!");
+        }
+    }
+    
+    private void verificarInstancia(String pin, Usuario user) throws Exception{
+        if (!(user instanceof Gerente)) {
+            throw new Exception("Somente gerentes podem gerar balanço mensal");
+        }
     }
 }

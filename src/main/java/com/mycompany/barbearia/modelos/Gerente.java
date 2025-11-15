@@ -65,5 +65,4 @@ public class Gerente extends Usuario{
         return String.format("%nGerente %s%n%s", getId(), super.toString()); 
     }
     
-    
 }

@@ -275,7 +275,7 @@ public class Sistema {
                 
         System.out.println("===== Extrato Cliente 01=====");
         gestaoOS.processarPagamentoFinal(os1);
-        System.out.println(gestaoF.gerarNotaCliente(cliente1));
+        System.out.println(gestaoF.gerarNotaCliente("14141414141"));
            
     }
     

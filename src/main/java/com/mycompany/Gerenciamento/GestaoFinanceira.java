@@ -7,6 +7,7 @@ package com.mycompany.Gerenciamento;
 import com.mycompany.Utilidades.StatusAtendimento;
 import com.mycompany.Utilidades.TipoRelatorio;
 import com.mycompany.barbearia.modelos.*;
+import com.mycompany.Gerenciamento.GestaoClientes;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -47,11 +48,11 @@ public class GestaoFinanceira {
      *
      * @return Uma lista de Produtos que foram usados.
      */
-    public ArrayList<Modelo> getRelatorioProdutosUsados(int mes, int ano, Usuario ator) throws Exception {
+    public ArrayList<Modelo> getRelatorioProdutosUsados(int mes, int ano, Usuario user, String pin) throws Exception {
         
-        if (!(ator instanceof Gerente)) {
-            throw new Exception("Acesso negado. Apenas Gerentes podem ver este relatório.");
-        }
+        this.verificarInstancia(pin, user);
+        
+        this.validarPIM(pin, user);
         
         ArrayList<Modelo> produtosUsados = new ArrayList<>();
         ArrayList<OrdemServico> ordensDoMes = gestaoOS.getLista(); 
@@ -69,11 +70,11 @@ public class GestaoFinanceira {
         return produtosUsados; // Retorna a lista
     }
 
-    public String gerarBalancoMensal(int mes, int ano, Usuario user) throws Exception {
+    public String gerarBalancoMensal(int mes, int ano, Usuario user, String pin) throws Exception {
 
-        if (!(user instanceof Gerente)) {
-            throw new Exception("Somente gerentes podem gerar balanço mensal");
-        }
+        this.verificarInstancia(pin, user);
+        
+        this.validarPIM(pin, user);
 
         double totalReceitas = 0.0;
 
@@ -126,7 +127,8 @@ public class GestaoFinanceira {
         return relatorio;
     }
 
-    public String gerarNotaCliente(Cliente cliente) {
+    public String gerarNotaCliente(String cpf) {
+        Cliente cliente = GestaoClientes.getInstancia().buscarCPF(cpf);
         ArrayList<OrdemServico> ordensCliente = gestaoOS.buscarOSCliente(cliente.getId());
 
         double totalServicos = 0.0;
@@ -162,7 +164,12 @@ public class GestaoFinanceira {
         );
     }
 
-    public String gerarRelatorioVendasDiario(LocalDate dia) {
+    public String gerarRelatorioVendasDiario(LocalDate dia, Usuario user, String pin) throws Exception {
+        
+        this.verificarInstancia(pin, user);
+        
+        this.validarPIM(pin, user);
+        
         ArrayList<OrdemServico> todasOrdens = gestaoOS.getListaCopia();
 
         double totalServicos = 0.0;
@@ -215,7 +222,11 @@ public class GestaoFinanceira {
         return relatorio;
     }
 
-    public String gerarRelatorioVendasMensal(int mes, int ano) {
+    public String gerarRelatorioVendasMensal(int mes, int ano, Usuario user, String pin) throws Exception {
+        
+        this.verificarInstancia(pin, user);
+        this.validarPIM(pin, user);
+        
         ArrayList<OrdemServico> todasOrdens = gestaoOS.getListaCopia();
 
         double totalServicos = 0.0;
@@ -270,4 +281,20 @@ public class GestaoFinanceira {
 
         return relatorio;
     }
+    
+    private void validarPIM(String pin, Usuario user) throws Exception{
+        
+        Gerente gerente = (Gerente) user;
+        
+        if (!gerente.verficarPinADM(pin)) {
+            throw new Exception("PIN incorreto!");
+        }
+    }
+    
+    private void verificarInstancia(String pin, Usuario user) throws Exception{
+        if (!(user instanceof Gerente)) {
+            throw new Exception("Somente gerentes podem gerar balanço mensal");
+        }
+    }
+    
 }

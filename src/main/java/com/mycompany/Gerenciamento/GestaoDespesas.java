@@ -57,10 +57,8 @@ public class GestaoDespesas extends Gestao<Despesa> {
     }
     
     /**
-     * [MÉTODO NOVO - O QUE VOCÊ PEDIU]
-     * Lança uma despesa de "Custo de Mercadoria Usada" (CMV)
-     * com base em uma lista de produtos consumidos (que o Gerente pegou
-     * do 'getRelatorioProdutosUsados' da GestaoFinanceira).
+     * Lança uma despesa de "Custo de Mercadoria Usada" 
+     * com base em uma lista de produtos consumidos gerada em'getRelatorioProdutosUsados' da GestaoFinanceira).
      */
     public void lancarDespesaDeConsumo(ArrayList<Produto> produtosConsumidos, LocalDate data, String observacoes, Usuario ator) throws Exception {
         
