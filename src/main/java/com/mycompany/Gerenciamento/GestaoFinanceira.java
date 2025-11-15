@@ -20,24 +20,23 @@ import com.mycompany.date_Barbearia.*;
 public class GestaoFinanceira {
 
     private static GestaoFinanceira instancia;
-    private final Barbearia_date dados;
+    
+    Barbearia_date dados = Barbearia_date.getInstancia();
 
     private final GestaoOrdemServico gestaoOS;
     private final GestaoDespesas gestaoDespesas;
 
-    private GestaoFinanceira(Barbearia_date dados) {
+    private GestaoFinanceira() {
         this.gestaoDespesas = GestaoDespesas.getInstancia();
         this.gestaoOS = GestaoOrdemServico.getInstancia();
-        this.dados = dados;
-    }
+    
 
-    public static void inicializar(Barbearia_date dados) {
-        if (instancia == null) {
-            instancia = new GestaoFinanceira(dados);
-        }
     }
 
     public static GestaoFinanceira getInstancia() {
+        if (instancia == null) {
+            instancia = new GestaoFinanceira();
+        }
         return instancia;
     }
     
@@ -48,13 +47,13 @@ public class GestaoFinanceira {
      *
      * @return Uma lista de Produtos que foram usados.
      */
-    public ArrayList<Modelo> getRelatorioProdutosUsados(int mes, int ano, Usuario user, String pin) throws Exception {
+    public ArrayList<Produto> getRelatorioProdutosUsados(int mes, int ano, Usuario user, String pin) throws Exception {
         
         this.verificarInstancia(pin, user);
         
         this.validarPIM(pin, user);
         
-        ArrayList<Modelo> produtosUsados = new ArrayList<>();
+        ArrayList<Produto> produtosUsados = new ArrayList<>();
         ArrayList<OrdemServico> ordensDoMes = gestaoOS.getLista(); 
         
         for (OrdemServico os : ordensDoMes) {
@@ -115,15 +114,11 @@ public class GestaoFinanceira {
             balancoFinal
         );
 
-        // 🔹 Salva no JSON
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(
-            TipoRelatorio.BALANÇO_MENSAL,
-            String.format("%02d/%d", mes, ano),
-            relatorio
-        );
+         // Salva no JSON
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL, LocalDate.of(ano, mes, 1), relatorio);
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-
+        
         return relatorio;
     }
 
@@ -138,16 +133,19 @@ public class GestaoFinanceira {
         double totalPagar = 0.0;
 
         for (OrdemServico os : ordensCliente) {
-            if (os.getStatus() == StatusAtendimento.PAGO || os.getStatus() == StatusAtendimento.CANCELADO) {
+            if (os.getStatus() == StatusAtendimento.PAGO    ) {
                 totalServicos += os.getValorTotalServicos();
                 totalProdutos += os.getValorTotalProdutos();
-                totalTaxasCancelamento += os.getValorTaxaCancelamento_35pct();
                 totalEncaixe += os.getValorTaxaEncaixe();
                 totalPagar += os.getValorTotalAPagar() + os.getValorTaxaCancelamento_35pct();
             }
+            else if (os.getStatus() == StatusAtendimento.CANCELADO) {
+                totalTaxasCancelamento += os.getValorTaxaCancelamento_35pct();
+                totalPagar += os.getValorTaxaCancelamento_35pct();
+            }
         }
 
-        return String.format(
+        String nota = String.format(
             "--- Nota cliente: %s ---\n" +
             "Total Serviços (Ordens Pagas):... R$ %.2f \n" +
             "Total Produtos (Custos):........ R$ %.2f \n" +
@@ -162,6 +160,13 @@ public class GestaoFinanceira {
             totalEncaixe,
             totalPagar
         );
+        
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.NOTA_CLIENTE,LocalDate.now(),nota);
+        
+        dados.getListaRelatorios().add(registro);
+        dados.salvar();
+        
+        return nota;
     }
 
     public String gerarRelatorioVendasDiario(LocalDate dia, Usuario user, String pin) throws Exception {
@@ -209,16 +214,12 @@ public class GestaoFinanceira {
             totalTaxasCancelamento,
             receitaLiquida
         );
-
-        // 🔹 Salva no JSON
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(
-            TipoRelatorio.RELATORIO_DIARIO,
-            dia.toString(),
-            relatorio
-        );
+        
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.RELATORIO_DIARIO,dia,relatorio);
+        
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-
+        
         return relatorio;
     }
 
@@ -269,17 +270,12 @@ public class GestaoFinanceira {
             totalTaxasCancelamento,
             receitaLiquida
         );
-
-        // 🔹 Salva no JSON
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(
-            TipoRelatorio.RELATORIO_MENSAL,
-            String.format("%02d/%d", mes, ano),
-            relatorio
-        );
+        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.RELATORIO_MENSAL,LocalDate.of(ano, mes, 1),relatorio);
+        
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-
         return relatorio;
+        
     }
     
     private void validarPIM(String pin, Usuario user) throws Exception{
@@ -297,4 +293,8 @@ public class GestaoFinanceira {
         }
     }
     
+    public RelatorioFinanceiro gerarRegistroBalancoMensal(int mes, int ano, Usuario user, String pin) throws Exception {
+        String conteudo = gerarBalancoMensal(mes, ano, user, pin);
+        return new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL,LocalDate.of(ano, mes, 1), conteudo);
+    }  
 }

@@ -6,6 +6,7 @@ package com.mycompany.Gerenciamento;
 
 import com.mycompany.Utilidades.StatusAgendamento;
 import com.mycompany.Utilidades.TipoEstacao;
+import com.mycompany.Utilidades.TipoRelatorio;
 import com.mycompany.Utilidades.TipoUsuario;
 import com.mycompany.barbearia.modelos.*;
 import com.mycompany.compara.ComparatorTelefoneIndividuo;
@@ -39,6 +40,9 @@ public class Sistema {
     GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
     GestaoFinanceira gestaoF = GestaoFinanceira.getInstancia();
     GestaoEstoque gestaoES = GestaoEstoque.getInstancia();
+    GestaoDespesas gestaoD = GestaoDespesas.getInstancia();
+    GestaoListaEspera gestaoL = GestaoListaEspera.getInstancia();
+    GestaoFinanceira gestaoFI = GestaoFinanceira.getInstancia();
     
     public void questao03(){
         gestaoC.limparLista();
@@ -270,7 +274,7 @@ public class Sistema {
                 
         System.out.println("===== Extrato Cliente 01=====");
         gestaoOS.processarPagamentoFinal(os1);
-        System.out.println(gestaoF.gerarNotaCliente("14141414141"));
+        System.out.println(gestaoF.gerarNotaCliente("14141414141", false));
            
     }
     
@@ -381,19 +385,27 @@ public class Sistema {
         
         ArrayList<Servico> servicos1 = new ArrayList<>(List.of(servico1, servico2)); // CORRIQUEIRA
         ArrayList<Servico> servicos2 = new ArrayList<>(List.of(servico3)); // CORRIQUEIRA
-        ArrayList<Servico> servicos3 = new ArrayList<>(List.of(servico4)); // LAVAGEM
+        ArrayList<Servico> servicos3 = new ArrayList<>(List.of(servico4, servico5)); // LAVAGEM
         ArrayList<Servico> servicos4 = new ArrayList<>(List.of(servico5)); // LAVAGEM 
         
         //cadastrando clientes
         gestaoC.cadastrar("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
         gestaoC.cadastrar("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com");
         
+        Cliente clienteFelipe = gestaoC.buscarCPF("14141414141");
+        Cliente clienteRoberta = gestaoC.buscarCPF("15151515151");
+        
         //cadastrando usuarios
         gestaoU.cadastrar("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
         gestaoU.cadastrar("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
         gestaoU.cadastrar("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12), TipoUsuario.ATENDENTE);
         gestaoU.cadastrar("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2),TipoUsuario.GERENTE ,"1234");
-
+        
+        Barbeiro barbeiroThiago = (Barbeiro) gestaoU.buscarCPF("14141414141");
+        Barbeiro barbeiroMarco = (Barbeiro) gestaoU.buscarCPF("15151515151");
+        Atendente atendenteFabio = (Atendente) gestaoU.buscarCPF("23232323232");
+        Gerente gerenteFernanda = (Gerente) gestaoU.buscarCPF("19191919191");
+        
         //cadastrar os produtos
         gestaoP.cadastrar("Shampoo", 15.00, 25.00, "Shampoo cheiroso");
         gestaoP.cadastrar("Condicionador",15.00 ,25.00, "Shampoo cheiroso");
@@ -409,7 +421,55 @@ public class Sistema {
         gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
         gestaoES.cadastrarProdutoNoEstoque(mascara.getId(), 10);
         
-        // adicionar agendamentos; ordem de serviço; lista de despesas; lista de relatorios; fila de espera;
+        //cadastrando agendamento
+        Agendamento agendamento1 = new Agendamento(clienteFelipe, barbeiroThiago, atendenteFabio, gestaoE.getEstacao(1), servicos1,
+                LocalDateTime.of(2026, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+        
+        Agendamento agendamento2 = new Agendamento(clienteRoberta, barbeiroMarco, atendenteFabio, gestaoE.getEstacao(0), servicos3,
+                LocalDateTime.of(2025, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+        
+        gestaoA.cadastrar(agendamento1);
+        gestaoA.cadastrar(agendamento2);
+        
+        //agendamento ordem serviço
+        OrdemServico os1 = new OrdemServico(clienteFelipe, barbeiroThiago, LocalDate.of(2026, 11, 19));
+        OrdemServico os2 = new OrdemServico(clienteRoberta, barbeiroMarco, LocalDate.of(2026, 11, 19));
+        
+        gestaoOS.cadastrar(os1, agendamento1);
+        gestaoOS.cadastrar(os2, agendamento2);
+        
+        //adicionando produto gasto no serviço OS1
+        gestaoOS.adicionarProdutoUtilizado(os1, condicionador);
+        gestaoOS.adicionarProdutoUtilizado(os1, shampoo);
+        gestaoOS.adicionarProdutoVendido(os1.getId(), mascara.getId(), 1);
+        
+        //processando pagamento da OS1
+        gestaoOS.processarPagamentoAdiantado(os1.getId());
+        gestaoOS.processarPagamentoFinal(os1);
+        
+        //gerendo nota para o cliente Felipe
+        System.out.println(gestaoFI.gerarNotaCliente(clienteFelipe.getCpf(), true));
+        
+        //processando pagamento da OS2
+        gestaoOS.processarPagamentoAdiantado(os2.getId());
+        gestaoOS.processarCancelamentoFinanceiro(os2.getId(), agendamento2);
+        
+        //gerando nota da cliente Roberta
+        System.out.println(gestaoFI.gerarNotaCliente(clienteRoberta.getCpf(), true));
+        
+        //cadastrando lista espera
+        gestaoL.adicionarClienteEspera(clienteFelipe, servicos1, barbeiroThiago);
+        gestaoL.adicionarClienteEspera(clienteRoberta, servicos3, barbeiroMarco);
+        
+        
+        //buscando despesas de produtos na barbearia
+        ArrayList<Produto> relatorioProdutosUsados;
+        relatorioProdutosUsados = gestaoFI.getRelatorioProdutosUsados(11, 2026, gerenteFernanda, "1234");
+        
+        //Lançando essas despesas
+        gestaoD.lancarDespesaDeConsumo(relatorioProdutosUsados, LocalDate.of(2026, 11, 30), "Despesas da barbearia com produtos", gerenteFernanda);
+        
+        gestaoFI.gerarRegistroBalancoMensal(11, 2026, gerenteFernanda, "1234");
         
         //salvando
         Barbearia_date dados = Barbearia_date.getInstancia();

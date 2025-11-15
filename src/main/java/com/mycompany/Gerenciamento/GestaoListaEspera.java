@@ -22,20 +22,20 @@ public class GestaoListaEspera {
     private static GestaoListaEspera instancia;
     private final Barbearia_date dados;
 
-    // 🔹 Construtor privado (Singleton)
+    //  Construtor privado (Singleton)
     private GestaoListaEspera(Barbearia_date dados) {
         this.dados = dados;
-        this.filaEspera = dados.getFilaEspera(); // garante persistência dos dados
+        this.filaEspera = dados.getFilaEspera(); 
     }
 
-    // 🔹 Inicializa o Singleton
+    //  Inicializa o Singleton
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoListaEspera(dados);
         }
     }
 
-    // 🔹 Retorna a instância global
+    //  Retorna a instância global
     public static GestaoListaEspera getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoListaEspera não foi inicializada. Chame inicializar(dados) primeiro.");
@@ -51,7 +51,7 @@ public class GestaoListaEspera {
      * @param preferencia
      * @throws Exception
      */
-    public void adicionarClienteEspera(Cliente cliente, ArrayList<Servico> servicos, Barbeiro preferencia) throws Exception {
+    public void adicionarClienteEspera(Cliente cliente, ArrayList<Servico> servicos, Barbeiro preferencial) throws Exception {
         if (clienteJaNaEspera(cliente.getId())) {
             throw new Exception("O cliente " + cliente.getNome() + " já está na lista de espera.");
         }

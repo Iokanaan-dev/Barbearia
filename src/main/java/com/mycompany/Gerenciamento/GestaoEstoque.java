@@ -23,17 +23,8 @@ public class GestaoEstoque extends Gestao<Produto> {
     
     private GestaoEstoque(Barbearia_date dados) {
         this.dados = dados;
-        this.listaModelo = dados.listaProdutos;
-
-        
-        this.estoque = new Estoque();
-        // Se o arquivo JSON já tem um map, carregue ele no objeto Estoque
-        if (dados.estoque != null) {
-            this.estoque = dados.estoque;
-        } else {
-            this.estoque = new Estoque();
-        }
-
+        this.listaModelo = dados.getListaProdutos();
+        this.estoque = dados.getEstoque();
     }                                                                                   
 
     public static void inicializa(Barbearia_date dados) {

@@ -27,18 +27,17 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
 
-    /**
-     * Construtor privado
-     * @param dados 
-     */
+    //  Construtor privado
     private GestaoAgendamentos(Barbearia_date dados) {
         this.listaModelo = dados.getListaAgendamentos();
         this.gestaoUsuarios = GestaoUsuarios.getInstancia();
         this.gestaoEstacao = GestaoEstacao.getInstancia();
     }
 
+    //  Inicializa o Singleton (chama no main)
+
     /**
-     * Inicializa a gestao agendamentos com os dados
+     *
      * @param dados
      */
     public static void inicializa(Barbearia_date dados) {
@@ -47,8 +46,10 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         }
     }
 
+    //  Acesso global
+
     /**
-     * Metodo para o singleton
+     *
      * @return
      */
     public static GestaoAgendamentos getInstancia() {
@@ -100,7 +101,6 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
      * @param servicos
      * @param dataInicio
      * @param isEncaixe
-     * @param associado_Ordem_Servico
      * @return
      * @throws Exception
      */
@@ -121,11 +121,6 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         return novoAgendamento;
     }
     
-    /**
-     * Cadastra um agendamento
-     * @param agendamento
-     * @throws Exception
-     */
     public void cadastrar(Agendamento agendamento) throws Exception{
         
         validarPreCondicoes(agendamento.getServicos(), agendamento.getDataHoraInicioAgendamento(), agendamento.getEstacao());
@@ -141,30 +136,12 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         super.adicionar(agendamento);
     }
     
-    /**
-     * Chama o construtor de um agendamento
-     * @param cliente
-     * @param barbeiro
-     * @param atendente
-     * @param estacao
-     * @param servicos
-     * @param dataInicio
-     * @param statusInicial
-     * @param isEncaixe
-     * @param associado_Ordem_Servico
-     * @return
-     */
     public Agendamento construirAgendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataInicio, StatusAgendamento statusInicial, boolean isEncaixe, String associado_Ordem_Servico){
         return new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
     }
     
-    
     /**
-     * Chama todos os metodos que validam as condiçoes para um agendamento
-     * @param servicos
-     * @param dataInicio
-     * @param estacao
-     * @throws Exception 
+     * Verifica todas as pré-condições de entrada antes de criar o agendamento.
      */
     private void validarPreCondicoes(ArrayList<Servico> servicos, LocalDateTime dataInicio, Estacao estacao) throws Exception {
         validarListaServicos(servicos);
@@ -174,8 +151,6 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Soma o tempo total de todos os serviços em minutos.
-     * @param servicos
-     * @return 
      */
     public int calcularDuracaoTotal(ArrayList<Servico> servicos) {
         return servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
