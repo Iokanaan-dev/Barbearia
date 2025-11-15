@@ -19,6 +19,13 @@ public abstract class Individuo extends Modelo{
     private String telefone;
     private LocalDate dataNascimento;
 
+    /**
+     * Construitor que inicializa todos os atributos de Individuo
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     */
     public Individuo(String nome, String cpf, String telefone, LocalDate dataNascimento) {
         super(nome); // chama o construtor de Modelo para inicializar a variavel nome
         
@@ -31,64 +38,107 @@ public abstract class Individuo extends Modelo{
         this.dataNascimento = dataNascimento;
     }
     
+    /**
+     * Construtor sem parametros
+     */
     public Individuo() {
         super();
     }
     
-    //@Override //pensa depois se eh necessario existir essa sobreescrita aqui, as subclasses ja nao sobreescrevem por si? precisa disso para fazer a conexao entre MOdelo e subclasses de Individuo?
-    //public abstract String gerarId();
-    
+    /**
+     * Valida o cpf
+     * @param cpf 
+     */
     private static void validarCpf(String cpf) {
         if (cpf == null || cpf.length() != 11) {
             throw new IllegalArgumentException("CPF inválido!");
         }
     }
 
+    /**
+     * Valida o telefone
+     * @param telefone 
+     */
     private static void validarTelefone(String telefone) {
         if (telefone == null || telefone.length() < 8 || telefone.length() > 11) {
             throw new IllegalArgumentException("Telefone inválido!");
         }
     }
 
+    /**
+     * Valida a data de nascimento
+     * @param data 
+     */
     private void validarDataNascimento(LocalDate data) {
         if (data == null || data.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("Data de nascimento inválida!");
         }
     }
     
+    /**
+     * Obtem o cpf
+     * @return
+     */
     public String getCpf() {
         return cpf;
     }
     
+    /**
+     * Obtem o cpt Anonimizado
+     * @return
+     */
     @JsonIgnore 
     public String getCpfAnonimizado() {
         return "*****" + cpf.substring(6); // pseudoanenomizado de forma precaria por hora
     }
     
-
+    /**
+     * Define o cpf 
+     * @param cpf
+     */
     public void setCpf(String cpf) {
         validarCpf(cpf);
         this.cpf = cpf;
     }
 
+    /**
+     * Obtem o telefone
+     * @return
+     */
     public String getTelefone() {
         return telefone;
     }
 
+    /**
+     * Define o telefone
+     * @param telefone
+     */
     public void setTelefone(String telefone) {
         validarTelefone(telefone);
         this.telefone = telefone;
     }
 
+    /**
+     * Obtem a data de nascimento
+     * @return
+     */
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate data_nascimento) {
-        validarDataNascimento(data_nascimento);
-        this.dataNascimento = data_nascimento;
+    /**
+     * Define a data de nascimento
+     * @param dataNascimento
+     */
+    public void setDataNascimento(LocalDate dataNascimento) {
+        validarDataNascimento(dataNascimento);
+        this.dataNascimento = dataNascimento;
     }
-
+    
+    /**
+     * Retorna a representacao em String de um Individuo
+     * @return 
+     */
     @Override
     public String toString() {
         return String.format("%sCPF: %s%nTelefone: %s%nData de Nascimento: %s%n", super.toString(), getCpfAnonimizado(), getTelefone(), getDataNascimento());

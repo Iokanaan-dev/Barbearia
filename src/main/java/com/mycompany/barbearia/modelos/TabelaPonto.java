@@ -11,7 +11,7 @@
     import java.util.Map;
 
     /**
-     * Representa uma tabela de de batidas de ponro.
+     * Representa uma tabela de de batidas de ponto.
      * Cada usuario esta associado a uma lista com 
      * suas batidas de entrada e saida. As entrada e 
      * saidas sao representadas pelo atributos do 
@@ -22,7 +22,9 @@
     public class TabelaPonto {
         private final Map<String, ArrayList<ParBatida>> tabelaPontos = new HashMap(); // A chave é o ID do Usuario (String), e as horas sao um par de objetos de entrada e saida.
 
-
+        /**
+         * Construtor sem parametros
+         */
         public TabelaPonto(){}
 
         /**
