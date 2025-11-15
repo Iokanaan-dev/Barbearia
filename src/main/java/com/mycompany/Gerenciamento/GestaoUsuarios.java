@@ -54,10 +54,10 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     
     public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao) {
         funcaoValida(funcao);
-        usernameSendoUsado(username);
+        //usernameSendoUsado(username);
     
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao);
-        super.adicionar(novoUsuario);
+        this.adicionar(novoUsuario);
         
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }
@@ -161,11 +161,10 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     
     public Usuario buscarUsername(String userName){ 
         for(Usuario usuario : listaModelo){
-            if (usuario == null) continue;
+            if (usuario == null || usuario.getUsername() == null) continue; // proteger contra null
             if (usuario.getUsername().equalsIgnoreCase(userName))
                 return usuario;
         }
-        
         return null;
     }
     
@@ -318,6 +317,8 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         }
         throw new NoSuchElementException("Nenhum item encontrado com o CPF: " + cpf);
     }
+        
+        
 
     private Usuario buscarPorCpfInterno(String cpf) {
         if (cpf == null || cpf.trim().isEmpty()) {

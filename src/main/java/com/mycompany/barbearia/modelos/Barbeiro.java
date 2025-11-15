@@ -32,7 +32,7 @@ public class Barbeiro extends Usuario{
      * Construtor sem parametros
      */
     public Barbeiro(){
-        super();
+    
     }
  
     /**

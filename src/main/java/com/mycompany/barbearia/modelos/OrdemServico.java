@@ -70,7 +70,7 @@ public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao, 
     }
     
     public OrdemServico(){
-        super();
+
         contadorInstancias++;
     }
     

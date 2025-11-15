@@ -42,7 +42,7 @@ public class Cliente extends Individuo{
      * Construtor sem parametros
      */
     public Cliente(){
-        super();
+      
     }
     
    private void validarEmail(String email) {

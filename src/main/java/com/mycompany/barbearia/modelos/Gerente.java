@@ -37,8 +37,9 @@ public class Gerente extends Usuario{
      * Construtor sem parametros de Gerente
      */
     public Gerente(){
-        super();
-    }   
+       
+    }  
+    
     
     /**
      * Valida o PIN
@@ -75,6 +76,8 @@ public class Gerente extends Usuario{
     public String gerarId() {
         return "GE-" + UUID.randomUUID().toString().substring(0, 10);
     }
+    
+    
     
     /**
      * Obtem a representaçao em String do Gerente

@@ -4,6 +4,7 @@
  */
 package com.mycompany.barbearia.modelos;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -15,15 +16,14 @@ import java.time.LocalDate;
  */
 
 @JsonTypeInfo(
-    use = JsonTypeInfo.Id.NAME,
-    include = JsonTypeInfo.As.PROPERTY,
-    property = "tipoUsuario"
+  use = JsonTypeInfo.Id.NAME,
+  include = JsonTypeInfo.As.PROPERTY,
+  property = "tipoUsuario"
 )
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = Gerente.class, name = "Gerente"),
-    @JsonSubTypes.Type(value = Barbeiro.class, name = "Barbeiro"),
-    @JsonSubTypes.Type(value = Cliente.class, name = "Cliente"),
-    @JsonSubTypes.Type(value = Atendente.class, name = "Atendente")
+  @JsonSubTypes.Type(value = Gerente.class, name = "Gerente"),
+  @JsonSubTypes.Type(value = Barbeiro.class, name = "Barbeiro"),
+  @JsonSubTypes.Type(value = Atendente.class, name = "Atendente")
 })
 // isso corrige um erro do jackson não saber qual classe atribuir em um agendamento onde o tipo requerido é "Usuario"
 
@@ -33,10 +33,8 @@ public abstract class Usuario extends Individuo{
     /**
      * Construtor sem parametros
      */
-    public Usuario(){
-        super();
-    }
-    
+    public Usuario(){}
+
     private String username;
     private String senha;
 
@@ -89,7 +87,7 @@ public abstract class Usuario extends Individuo{
 
      // usado na interface
     public void setUsername(String username) {
-        this.verificarUsername(username);
+        this.verificarUsername(username); 
         this.username = username;
     }
    
@@ -101,13 +99,14 @@ public abstract class Usuario extends Individuo{
         this.senha = senha;
     }
     
+    
     /**
      * Verifica o username
      * @param username
      * @return
      */
     public boolean verificarUsername(String username){
-        return username != null && this.username.equals(username);
+        return username != null && this.username != null && this.username.equals(username);
     }
     
     /**

@@ -41,7 +41,7 @@ public abstract class Individuo extends Modelo{
      * Construtor sem parametros
      */
     public Individuo() {
-        super();
+       
     }
     
     /**

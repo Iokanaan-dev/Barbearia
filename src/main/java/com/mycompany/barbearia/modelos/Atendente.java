@@ -29,7 +29,7 @@ public class Atendente extends Usuario{
     }
     
     public Atendente(){
-        super();
+        
     }
     
     /**

@@ -364,18 +364,7 @@ public class Sistema {
     
     public void questao14() throws Exception{
                                                 
-        
 
-        // instancia os clientes 
-        Cliente cliente1  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
-        Cliente cliente2  = new Cliente("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com"); 
-        
-        // instancia Usuario
-        Barbeiro usuario1  = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12));
-        Barbeiro usuario2  = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12));        
-        Atendente usuario3 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12));
-        Gerente usuario4 = new Gerente("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2), "1234");
-        
         //instancia Serviços
         Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
         Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
@@ -383,13 +372,13 @@ public class Sistema {
         Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
         Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);  
         
-        gestaoC.cadastrar(cliente1);
-        gestaoC.cadastrar(cliente2);
+        gestaoC.cadastrar("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
+        gestaoC.cadastrar("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com");
 
-        gestaoU.cadastrar(usuario1);
-        gestaoU.cadastrar(usuario2);
-        gestaoU.cadastrar(usuario3);
-        gestaoU.cadastrar(usuario4);
+        gestaoU.cadastrar("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12), TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2),TipoUsuario.GERENTE ,"1234");
 
         gestaoS.cadastrar(servico1);
         gestaoS.cadastrar(servico2);
@@ -411,11 +400,11 @@ public class Sistema {
         
         
         Produto shampoo = gestaoP.buscarPorId(gestaoP.buscarPorNome("Shampoo").get(0).getId());
-        Produto condicionador = gestaoP.buscarPorId(gestaoP.buscarPorNome("Condicionador").get(0).getId());
+       //Produto condicionador = gestaoP.buscarPorId(gestaoP.buscarPorNome("Condicionador").get(0).getId());
         Produto mascara = gestaoP.buscarPorId(gestaoP.buscarPorNome("Mascara Hidratante").get(0).getId());
         
         gestaoES.cadastrarProdutoNoEstoque(shampoo.getId(), 10);
-        gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
+        //gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
         gestaoES.cadastrarProdutoNoEstoque(mascara.getId(), 10);
         
         

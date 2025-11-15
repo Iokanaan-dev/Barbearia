@@ -32,7 +32,7 @@ public class Despesa extends Modelo{
     }
     
     public Despesa(){
-        super();
+
     }
 
     public double getValor() {

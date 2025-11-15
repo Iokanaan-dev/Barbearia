@@ -23,7 +23,7 @@ public class Estacao extends Modelo{
     }
     
     public Estacao(){
-        super();
+
     }
     
     @Override
