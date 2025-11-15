@@ -11,7 +11,7 @@ import java.util.UUID;
  *
  * @author italo
  */
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class Atendente extends Usuario{
 
     

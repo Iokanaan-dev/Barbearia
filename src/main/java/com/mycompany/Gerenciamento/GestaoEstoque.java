@@ -28,14 +28,12 @@ public class GestaoEstoque extends Gestao<Produto> {
         
         this.estoque = new Estoque();
         // Se o arquivo JSON já tem um map, carregue ele no objeto Estoque
-        if (dados.estoque instanceof Map) {
-            // jackson salvou como LinkedHashMap, então recarregamos os dados
-            Map<String, Integer> mapaCarregado = (Map<String, Integer>) dados.estoque;
-            this.estoque.carregarMapa(mapaCarregado);
-        } else if (dados.estoque instanceof Estoque) {
-            // Caso o objeto seja realmente do tipo Estoque
-            this.estoque = (Estoque) dados.estoque;
+        if (dados.estoque != null) {
+            this.estoque = dados.estoque;
+        } else {
+            this.estoque = new Estoque();
         }
+
     }                                                                                   
 
     public static void inicializa(Barbearia_date dados) {
@@ -48,8 +46,8 @@ public class GestaoEstoque extends Gestao<Produto> {
         return instancia;
     }    
     
-    
-    public void adicionarAoEstoque(String id, int quantidade) {  
+    //Cadastra produto no estoque
+    public void cadastrarProdutoNoEstoque(String id, int quantidade) {  
         if (!existeNoSistema(id)) {
             throw new IllegalArgumentException("Produto não existe no sistema.");
         }
@@ -151,7 +149,7 @@ public class GestaoEstoque extends Gestao<Produto> {
 
         return true;
     }
-    
+    //adiciona mais produtos no estoque
     public void aumentarQuantidade(String id, int quantidade){
 
         if (verificacaoQuantidade(id, quantidade)) {
@@ -159,7 +157,7 @@ public class GestaoEstoque extends Gestao<Produto> {
             estoque.setQuantidade(id, quantidadeAtual + quantidade); 
         }
     }    
-    
+    //dá baixa no estoque
     public void reduzirQuantidade(String id, int quantidade){
         
         if (verificacaoQuantidade(id, quantidade)) {

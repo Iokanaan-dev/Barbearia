@@ -13,6 +13,7 @@ import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -25,18 +26,20 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     private static GestaoUsuarios instancia;
     private Barbearia_date dados;
 
-private GestaoUsuarios(Barbearia_date dados) {
-    this.dados = dados;
-    this.listaModelo = new ArrayList<>();
-    if (dados.getListaGerentes() != null)
-        this.listaModelo.addAll(dados.getListaGerentes().stream().filter(u -> u != null).toList());
+    private GestaoUsuarios(Barbearia_date dados) {
+        this.dados = dados;
+        this.listaModelo = new ArrayList<>();
 
-    if (dados.getListaBarbeiros() != null)
-        this.listaModelo.addAll(dados.getListaBarbeiros().stream().filter(u -> u != null).toList());
+        // Adiciona usuários existentes do Barbearia_date
+        if (dados.getListaGerentes() != null)
+            this.listaModelo.addAll(dados.getListaGerentes());
 
-    if (dados.getListaAtendentes() != null)
-        this.listaModelo.addAll(dados.getListaAtendentes().stream().filter(u -> u != null).toList());
-}
+        if (dados.getListaBarbeiros() != null)
+            this.listaModelo.addAll(dados.getListaBarbeiros());
+
+        if (dados.getListaAtendentes() != null)
+            this.listaModelo.addAll(dados.getListaAtendentes());
+    }
 
 
     public static void inicializar(Barbearia_date dados) {
@@ -64,14 +67,14 @@ private GestaoUsuarios(Barbearia_date dados) {
         usernameSendoUsado(username);
         
         Usuario novoUsuario = construirUsuario(username, senha, nome, cpf, telefone, dataNascimento, funcao , pin);
-        super.adicionar(novoUsuario);
+        this.adicionar(novoUsuario);
         
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }    
     
     public void cadastrar(Usuario usuario){
         usernameSendoUsado(usuario.getUsername());
-        super.adicionar(usuario);
+        this.adicionar(usuario);
     }
 
     /**
@@ -278,15 +281,19 @@ private GestaoUsuarios(Barbearia_date dados) {
     }
  
     
-    @Override
-    public void remover(String username, String senha, Usuario usuario) {
-        if (!validarLogin(username, senha)) {
-            throw new IllegalArgumentException("Usuário ou senha inválidos.");
-        }
+    // Método para remover usuário, se necessário
+    public void remover(Usuario u) {
+        if (u == null) return;
 
-        super.remover(username, senha, usuario);
+        this.listaModelo.remove(u);
+
+        if (u instanceof Gerente && dados.getListaGerentes() != null)
+            dados.getListaGerentes().remove(u);
+        else if (u instanceof Barbeiro && dados.getListaBarbeiros() != null)
+            dados.getListaBarbeiros().remove(u);
+        else if (u instanceof Atendente && dados.getListaAtendentes() != null)
+            dados.getListaAtendentes().remove(u);
     }
-
     
     private void validarPIM(String pin, Usuario user) throws Exception{
         
@@ -325,5 +332,25 @@ private GestaoUsuarios(Barbearia_date dados) {
         }
         return null; 
     }
+    
+     // Sobrescreve método de adicionar usuário
+    @Override
+    public void adicionar(Usuario u) {
+        if (u == null) return;
 
+        this.listaModelo.add(u);
+
+        // Sincroniza com Barbearia_date para persistência
+        if (u instanceof Gerente) {
+            if (dados.getListaGerentes() == null) dados.setListaGerentes(new ArrayList<>());
+            dados.getListaGerentes().add((Gerente) u);
+        } else if (u instanceof Barbeiro) {
+            if (dados.getListaBarbeiros() == null) dados.setListaBarbeiros(new ArrayList<>());
+            dados.getListaBarbeiros().add((Barbeiro) u);
+        } else if (u instanceof Atendente) {
+            if (dados.getListaAtendentes() == null) dados.setListaAtendentes(new ArrayList<>());
+            dados.getListaAtendentes().add((Atendente) u);
+        }
+    }
+    
 }

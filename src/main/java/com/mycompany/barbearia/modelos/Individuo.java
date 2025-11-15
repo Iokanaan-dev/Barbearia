@@ -13,7 +13,6 @@ import java.time.LocalDate;
  * @author italo
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Individuo extends Modelo{
     private String cpf;
     private String telefone;

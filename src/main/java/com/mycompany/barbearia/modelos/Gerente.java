@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  *
  * @author italo
- */@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+ */
 
 public class Gerente extends Usuario{
     
@@ -57,6 +57,14 @@ public class Gerente extends Usuario{
      */
     public boolean verficarPinADM(String pin){
         return this.PIN_SEGURANCA.equals(pin);
+    }
+
+    public String getPIN_SEGURANCA() {
+        return PIN_SEGURANCA;
+    }
+
+    public void setPIN_SEGURANCA(String PIN_SEGURANCA) {
+        this.PIN_SEGURANCA = PIN_SEGURANCA;
     }
    
     /**

@@ -6,21 +6,15 @@ package com.mycompany.Gerenciamento;
 
 import com.mycompany.Utilidades.StatusAgendamento;
 import com.mycompany.Utilidades.TipoEstacao;
-import com.mycompany.barbearia.modelos.Agendamento;
-import com.mycompany.barbearia.modelos.Atendente;
-import com.mycompany.barbearia.modelos.Barbeiro;
-import com.mycompany.barbearia.modelos.Gerente;
-import com.mycompany.barbearia.modelos.Cliente;
-import com.mycompany.barbearia.modelos.Individuo;
-import com.mycompany.barbearia.modelos.OrdemServico;
-import com.mycompany.barbearia.modelos.Produto;
-import com.mycompany.barbearia.modelos.Servico;
+import com.mycompany.Utilidades.TipoUsuario;
+import com.mycompany.barbearia.modelos.*;
 import com.mycompany.compara.ComparatorTelefoneIndividuo;
 import com.mycompany.compara.ComparatorDataNascimentoIndividuo;
 import com.mycompany.compara.ComparatorTamanhoNomeIndividuo;
 import com.mycompany.compara.ComparatorTempoServicosEmAgendamento;
 import com.mycompany.compara.Find;
 import com.mycompany.compara.Teste2;
+import com.mycompany.date_Barbearia.Barbearia_date;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -44,6 +38,7 @@ public class Sistema {
     GestaoOrdemServico gestaoOS = GestaoOrdemServico.getInstancia();
     GestaoEstacao gestaoE = GestaoEstacao.getInstancia();
     GestaoFinanceira gestaoF = GestaoFinanceira.getInstancia();
+    GestaoEstoque gestaoES = GestaoEstoque.getInstancia();
     
     public void questao03(){
         gestaoC.limparLista();
@@ -367,6 +362,70 @@ public class Sistema {
         comparaTempoAgendamento.qualDuraMenos(agendamento1, agendamento2);
     }
     
+    public void questao14() throws Exception{
+                                                
+        
+
+        // instancia os clientes 
+        Cliente cliente1  = new Cliente("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
+        Cliente cliente2  = new Cliente("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com"); 
+        
+        // instancia Usuario
+        Barbeiro usuario1  = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12));
+        Barbeiro usuario2  = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12));        
+        Atendente usuario3 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12));
+        Gerente usuario4 = new Gerente("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2), "1234");
+        
+        //instancia Serviços
+        Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3  = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
+        Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);  
+        
+        gestaoC.cadastrar(cliente1);
+        gestaoC.cadastrar(cliente2);
+
+        gestaoU.cadastrar(usuario1);
+        gestaoU.cadastrar(usuario2);
+        gestaoU.cadastrar(usuario3);
+        gestaoU.cadastrar(usuario4);
+
+        gestaoS.cadastrar(servico1);
+        gestaoS.cadastrar(servico2);
+        gestaoS.cadastrar(servico3);
+        gestaoS.cadastrar(servico4);
+        gestaoS.cadastrar(servico5);
+        
+        ArrayList<Servico> servicos1 = new ArrayList<>(List.of(servico1, servico2)); // CORRIQUEIRA
+        ArrayList<Servico> servicos2 = new ArrayList<>(List.of(servico3)); // CORRIQUEIRA
+        ArrayList<Servico> servicos3 = new ArrayList<>(List.of(servico4)); // LAVAGEM
+        ArrayList<Servico> servicos4 = new ArrayList<>(List.of(servico5)); // LAVAGEM 
+
+
+
+        //cadastrar os produtos
+        gestaoP.cadastrar("Shampoo", 15.00, 25.00, "Shampoo cheiroso");
+        gestaoP.cadastrar("Condicionador",15.00 ,25.00, "Shampoo cheiroso");
+        gestaoP.cadastrar("Mascara Hidratante",20.00 ,30.00, "Hidrada qualquer tipo de cabelo");
+        
+        
+        Produto shampoo = gestaoP.buscarPorId(gestaoP.buscarPorNome("Shampoo").get(0).getId());
+        Produto condicionador = gestaoP.buscarPorId(gestaoP.buscarPorNome("Condicionador").get(0).getId());
+        Produto mascara = gestaoP.buscarPorId(gestaoP.buscarPorNome("Mascara Hidratante").get(0).getId());
+        
+        gestaoES.cadastrarProdutoNoEstoque(shampoo.getId(), 10);
+        gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
+        gestaoES.cadastrarProdutoNoEstoque(mascara.getId(), 10);
+        
+        
+        Barbearia_date dados = Barbearia_date.getInstancia();
+        dados.salvar();
+        
+        
+        
+    }
+    
     public void questao15P2() throws Exception{
         gestaoC.limparLista();
     
@@ -437,7 +496,7 @@ public class Sistema {
         Barbeiro usuario1  = new Barbeiro("barbeiro_ricardo", "ricardo12345", "Ricardo", "16161616161", "38997003333", LocalDate.of(1992, 3, 15));
         Barbeiro usuario2  = new Barbeiro("barbeiro_paulo", "paulo987654", "Paulo", "17171717171", "38997004444", LocalDate.of(1992, 3, 15));
         Atendente usuario3 = new Atendente("atendente_julia", "julia999999", "Julia", "18181818181", "38997005555", LocalDate.of(1995, 9, 8));
-        Gerente usuario4   = new Gerente("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2), "12345");
+        Gerente usuario4   = new Gerente("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2), "1234");
         Barbeiro usuario5  = new Barbeiro("barbeiro_vini", "vini11223", "Vini", "20202020202", "38997007777", LocalDate.of(1994, 7, 11));
         Barbeiro usuario6  = new Barbeiro("barbeiro_leandro", "leandro55667", "Leandro", "21212121212", "38997008888", LocalDate.of(1989, 10, 4));       
         

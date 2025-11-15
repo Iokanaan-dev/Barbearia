@@ -130,7 +130,7 @@ public class TelaTrocarSenha extends javax.swing.JFrame {
 
         try {
             usuario.setSenha(nova); // altera no usuário
-            Barbearia_date.getInstancia().salvar(); //  salva
+            //Barbearia_date.getInstancia().salvar(); //  salva
             
             JOptionPane.showMessageDialog(this, "Senha alterada com sucesso!");
 

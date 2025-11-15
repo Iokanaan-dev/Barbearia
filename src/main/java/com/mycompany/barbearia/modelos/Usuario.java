@@ -28,7 +28,6 @@ import java.time.LocalDate;
 // isso corrige um erro do jackson não saber qual classe atribuir em um agendamento onde o tipo requerido é "Usuario"
 
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Usuario extends Individuo{
     
     /**

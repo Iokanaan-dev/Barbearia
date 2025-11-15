@@ -30,7 +30,7 @@ public class Barbearia_date {
     public ArrayList<Despesa> listaDespesas = new ArrayList<>();
     private ArrayList<RelatorioFinanceiro> listaRelatorios = new ArrayList<>();
     
-    public Map<String, Integer> estoque = new HashMap<>();
+    public Estoque estoque = new Estoque();
     public Queue<ListaEspera> FilaEspera = new LinkedList<>();
     
     public ArrayList<Agendamento> listaAgendamentos = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Barbearia_date {
         this.listaDespesas = new ArrayList<>();
         this.listaAgendamentos = new ArrayList<>();
         this.listaOrdensServico = new ArrayList<>();
-        this.estoque = new HashMap<>();
+        this.estoque = new Estoque();
         this.FilaEspera = new LinkedList();
         this.tabelaPonto = new TabelaPonto();
     }
@@ -129,11 +129,11 @@ public class Barbearia_date {
         this.listaRelatorios = listaRelatorios;
     }
 
-    public Map<String, Integer> getEstoque() {
+    public Estoque getEstoque() {
         return estoque;
     }
 
-    public void setEstoque(Map<String, Integer> estoque) {
+    public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
     }
 

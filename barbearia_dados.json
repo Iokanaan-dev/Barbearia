@@ -1,0 +1,126 @@
+{
+  "listaClientes" : [ {
+    "id" : "CL-8f4b359a-a",
+    "nome" : "Felipe",
+    "cpf" : "14141414141",
+    "telefone" : "38997001313",
+    "dataNascimento" : "1990-08-12",
+    "email" : "felipe@email.com",
+    "contador" : 0
+  }, {
+    "id" : "CL-a6d7826a-6",
+    "nome" : "Roberta",
+    "cpf" : "15151515151",
+    "telefone" : "38997001414",
+    "dataNascimento" : "1978-11-09",
+    "email" : "roberta@email.com",
+    "contador" : 0
+  } ],
+  "listaGerentes" : [ {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-f5393c90-a",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "pin_SEGURANCA" : "1234"
+  } ],
+  "listaBarbeiros" : [ {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-7cd19175-2",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-bb5dd432-3",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  } ],
+  "listaAtendentes" : [ {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-8df066f7-3",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  } ],
+  "listaProdutos" : [ {
+    "id" : "PO-135d53a4-2",
+    "nome" : "Shampoo",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-b4e231e5-1",
+    "nome" : "Condicionador",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-9a49a74f-d",
+    "nome" : "Mascara Hidratante",
+    "custo" : 20.0,
+    "preco" : 30.0,
+    "descricao" : "Hidrada qualquer tipo de cabelo"
+  }, "PO-135d53a4-2", "PO-b4e231e5-1", "PO-9a49a74f-d" ],
+  "listaServicos" : [ {
+    "id" : "SE-2236cfa0-6",
+    "nome" : "Corte Degradê",
+    "preco" : 55.0,
+    "descricao" : "Corte moderno com transição suave de volumes",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-997cc648-7",
+    "nome" : "Barba Italiana",
+    "preco" : 40.0,
+    "descricao" : "Barba feita com toalha quente e navalha",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-313a29e0-d",
+    "nome" : "Corte Infantil",
+    "preco" : 45.0,
+    "descricao" : "Corte especial para crianças, com acabamento suave",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-b6cc62c9-b",
+    "nome" : "Hidratação Capilar",
+    "preco" : 65.0,
+    "descricao" : "Tratamento para revitalizar e hidratar os fios",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-d7039155-2",
+    "nome" : "Relaxamento Capilar",
+    "preco" : 90.0,
+    "descricao" : "Reduz o volume dos fios sem alisar completamente",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 50
+  } ],
+  "listaDespesas" : [ ],
+  "listaRelatorios" : [ ],
+  "estoque" : {
+    "tabelaEstoque" : {
+      "PO-9a49a74f-d" : 10,
+      "PO-b4e231e5-1" : 10,
+      "PO-135d53a4-2" : 10
+    }
+  },
+  "FilaEspera" : [ ],
+  "listaAgendamentos" : [ ],
+  "listaOrdensServico" : [ ],
+  "tabelaPonto" : {
+    "tabelaPontos" : { }
+  },
+  "filaEspera" : [ ]
+}
