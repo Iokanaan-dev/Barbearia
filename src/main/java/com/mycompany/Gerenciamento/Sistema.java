@@ -274,7 +274,7 @@ public class Sistema {
                 
         System.out.println("===== Extrato Cliente 01=====");
         gestaoOS.processarPagamentoFinal(os1);
-        System.out.println(gestaoF.gerarNotaCliente("14141414141"));
+        System.out.println(gestaoF.gerarNotaCliente("14141414141", false));
            
     }
     
@@ -448,14 +448,14 @@ public class Sistema {
         gestaoOS.processarPagamentoFinal(os1);
         
         //gerendo nota para o cliente Felipe
-        System.out.println(gestaoFI.gerarNotaCliente(clienteFelipe.getCpf()));
+        System.out.println(gestaoFI.gerarNotaCliente(clienteFelipe.getCpf(), true));
         
         //processando pagamento da OS2
         gestaoOS.processarPagamentoAdiantado(os2.getId());
         gestaoOS.processarCancelamentoFinanceiro(os2.getId(), agendamento2);
         
         //gerando nota da cliente Roberta
-        System.out.println(gestaoFI.gerarNotaCliente(clienteRoberta.getCpf()));
+        System.out.println(gestaoFI.gerarNotaCliente(clienteRoberta.getCpf(), true));
         
         //cadastrando lista espera
         gestaoL.adicionarClienteEspera(clienteFelipe, servicos1, barbeiroThiago);
