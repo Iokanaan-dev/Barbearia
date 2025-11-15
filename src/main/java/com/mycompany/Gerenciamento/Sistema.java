@@ -394,27 +394,24 @@ public class Sistema {
         gestaoU.cadastrar("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12), TipoUsuario.ATENDENTE);
         gestaoU.cadastrar("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2),TipoUsuario.GERENTE ,"1234");
 
-
-      
-
-
-
-
         //cadastrar os produtos
         gestaoP.cadastrar("Shampoo", 15.00, 25.00, "Shampoo cheiroso");
         gestaoP.cadastrar("Condicionador",15.00 ,25.00, "Shampoo cheiroso");
         gestaoP.cadastrar("Mascara Hidratante",20.00 ,30.00, "Hidrada qualquer tipo de cabelo");
         
-        
         Produto shampoo = gestaoP.buscarPorId(gestaoP.buscarPorNome("Shampoo").get(0).getId());
-       //Produto condicionador = gestaoP.buscarPorId(gestaoP.buscarPorNome("Condicionador").get(0).getId());
+        Produto condicionador = gestaoP.buscarPorId(gestaoP.buscarPorNome("Condicionador").get(0).getId());
         Produto mascara = gestaoP.buscarPorId(gestaoP.buscarPorNome("Mascara Hidratante").get(0).getId());
         
+        
+        //cadastrando no Estoque
         gestaoES.cadastrarProdutoNoEstoque(shampoo.getId(), 10);
-        //gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
+        gestaoES.cadastrarProdutoNoEstoque(condicionador.getId(), 10);
         gestaoES.cadastrarProdutoNoEstoque(mascara.getId(), 10);
         
+        // adicionar agendamentos; ordem de serviço; lista de despesas; lista de relatorios; fila de espera;
         
+        //salvando
         Barbearia_date dados = Barbearia_date.getInstancia();
         dados.salvar();
         
