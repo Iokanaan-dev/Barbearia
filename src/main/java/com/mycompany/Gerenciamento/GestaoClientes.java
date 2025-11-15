@@ -4,7 +4,6 @@
  */
 package com.mycompany.Gerenciamento;
 
-//import java.util.ArrayList;
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
@@ -24,6 +23,10 @@ public class GestaoClientes extends Gestao<Cliente> {
         this.listaModelo = dados.getListaClientes();
     }    
     
+    /**
+     * Inicializa a instancia static
+     * @param dados
+     */
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoClientes(dados);
@@ -45,6 +48,7 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @param telefone
      * @param dataNascimento
      * @param email
+     * @throws java.lang.Exception
      */
     public void cadastrar(String nome, String cpf, String telefone, LocalDate dataNascimento, String email) throws Exception{
         
@@ -54,6 +58,11 @@ public class GestaoClientes extends Gestao<Cliente> {
         super.adicionar(novoCliente);
     }
     
+    /**
+     *
+     * @param cliente
+     * @throws Exception
+     */
     public void cadastrar(Cliente cliente) throws Exception{
         verificarCpfExiste(cliente.getCpf());
         super.adicionar(cliente);
@@ -66,11 +75,24 @@ public class GestaoClientes extends Gestao<Cliente> {
         }
     }
     
+    /**
+     *
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param email
+     * @return
+     */
     public Cliente construirCliente(String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
         return new Cliente(nome, cpf, telefone, dataNascimento, email);
     }
     
-    
+    /**
+     * Busca um cliente pelo seu cpf
+     * @param cpf
+     * @return
+     */
     public Cliente buscarCPF(String cpf) {
         verificarCampoNulo(cpf);
         
@@ -81,6 +103,11 @@ public class GestaoClientes extends Gestao<Cliente> {
         throw new NoSuchElementException("Nenhum item encontrado com o CPF: " + cpf);
     }
 
+    /**
+     * Busca um cliente pelo seu cpf
+     * @param cpf
+     * @return 
+     */
     private Cliente buscarPorCpfInterno(String cpf) {
         if (cpf == null || cpf.trim().isEmpty()) {
             return null; 
@@ -105,9 +132,7 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @param email
      */
     public void editar(String id, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
-      
-        //verifcar id nulo
-        
+              
       Cliente cliente = buscarPorId(id);
         
       cliente.setNome(nome);

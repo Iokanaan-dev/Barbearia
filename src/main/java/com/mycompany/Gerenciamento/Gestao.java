@@ -192,6 +192,10 @@ public abstract class Gestao<M extends Modelo>{
         System.out.println();   
     }
     
+    /**
+     *
+     * @param listaFiltrada
+     */
     protected void printLista(ArrayList<M> listaFiltrada) {
         if (listaFiltrada == null || listaFiltrada.isEmpty()) {
             System.out.println("Nenhum item encontrado.");
@@ -217,6 +221,10 @@ public abstract class Gestao<M extends Modelo>{
         System.out.println(item.toString());        
     } 
     
+    /**
+     *
+     * @param nome
+     */
     public void printPorNome(String nome){
         verificarCampoNulo(nome);
         
@@ -272,12 +280,11 @@ public abstract class Gestao<M extends Modelo>{
     }
     /**
      * Carrega uma lista de dados (vinda do JSON) para dentro
-     * da lista interna 'listaModelo' desta gestão.
-     * * Este método APAGA todos os dados atuais em memória e os SUBSTITUI
-     * pelos dados carregados do arquivo.
-     * (Este é o método que o ServicoDePersistencia chama)
+     * da lista interna 'listaModelo' desta gestão.* Este método APAGA todos os dados atuais em memória e os SUBSTITUI
+ pelos dados carregados do arquivo.(Este é o método que o ServicoDePersistencia chama)
      *
-     * @param listaCarregada A lista de objetos lida do JSON.
+     * @param nome
+     * @return 
      */
     
     public Modelo buscarPorNomeExato(String nome) {
@@ -302,6 +309,9 @@ public abstract class Gestao<M extends Modelo>{
             System.out.println(item);
     }
     
+    /**
+     * Limpa a lista de Modelos
+     */
     public void limparLista(){
         listaModelo.clear();
     }
