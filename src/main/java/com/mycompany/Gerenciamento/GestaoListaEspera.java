@@ -48,7 +48,7 @@ public class GestaoListaEspera {
      * 
      * @param cliente
      * @param servicos
-     * @param preferencia
+     * @param preferencial
      * @throws Exception
      */
     public void adicionarClienteEspera(Cliente cliente, ArrayList<Servico> servicos, Barbeiro preferencial) throws Exception {
@@ -56,7 +56,7 @@ public class GestaoListaEspera {
             throw new Exception("O cliente " + cliente.getNome() + " já está na lista de espera.");
         }
 
-        VagaListaEspera novaEspera = new VagaListaEspera(cliente, servicos, preferencia);
+        VagaListaEspera novaEspera = new VagaListaEspera(cliente, servicos, preferencial);
 
         if (novaEspera.getTipoEstacaoRequerido() == null) {
             throw new Exception("Não é possível adicionar serviços com tipos de estação misturados.");

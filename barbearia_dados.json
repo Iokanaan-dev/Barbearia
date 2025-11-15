@@ -1,0 +1,612 @@
+{
+  "listaClientes" : [ {
+    "id" : "CL-b323dc89-7",
+    "nome" : "Felipe",
+    "cpf" : "14141414141",
+    "telefone" : "38997001313",
+    "dataNascimento" : "1990-08-12",
+    "email" : "felipe@email.com",
+    "contador" : 0
+  }, {
+    "id" : "CL-9aa86cff-7",
+    "nome" : "Roberta",
+    "cpf" : "15151515151",
+    "telefone" : "38997001414",
+    "dataNascimento" : "1978-11-09",
+    "email" : "roberta@email.com",
+    "contador" : 0
+  } ],
+  "listaGerentes" : [ {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-3cb486f0-7",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-31ce71a0-2",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-ba4924eb-1",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-c3abeace-2",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "pin_SEGURANCA" : "1234"
+  } ],
+  "listaBarbeiros" : [ {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-9d077b90-c",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-8e095f4b-4",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-7646bff9-1",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-a9115b42-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-387dfba9-e",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-c351f58a-c",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-5f011530-e",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-a2e3fcbb-6",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-951957c6-0",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-654c7d25-f",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-522dc7a5-d",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-05e6e540-8",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-31929757-2",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-f733a6c3-6",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-2412f3cc-c",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-206637d1-5",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-9e5f8e21-1",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-518c3e3d-d",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-71bd1bb0-d",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-6f44a039-0",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco"
+  } ],
+  "listaAtendentes" : [ {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-20df9c11-1",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-b35a04fc-7",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-fd0ebc26-6",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-b8917b56-8",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-5b007639-a",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-21311e28-8",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-b66ad3a7-c",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-ee5fb3de-d",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-e1aab224-b",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-9163e602-1",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio"
+  } ],
+  "listaProdutos" : [ {
+    "id" : "PO-4c97bdd3-0",
+    "nome" : "Shampoo",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-bebd1ec4-4",
+    "nome" : "Condicionador",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-01ce87e1-7",
+    "nome" : "Mascara Hidratante",
+    "custo" : 20.0,
+    "preco" : 30.0,
+    "descricao" : "Hidrada qualquer tipo de cabelo"
+  }, "PO-4c97bdd3-0", "PO-bebd1ec4-4", "PO-01ce87e1-7" ],
+  "listaServicos" : [ {
+    "id" : "SE-4c067e2f-a",
+    "nome" : "Corte Degradê",
+    "preco" : 55.0,
+    "descricao" : "Corte moderno com transição suave de volumes",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-bb367955-5",
+    "nome" : "Barba Italiana",
+    "preco" : 40.0,
+    "descricao" : "Barba feita com toalha quente e navalha",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-c816c91c-5",
+    "nome" : "Corte Infantil",
+    "preco" : 45.0,
+    "descricao" : "Corte especial para crianças, com acabamento suave",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-71a3aeb1-0",
+    "nome" : "Hidratação Capilar",
+    "preco" : 65.0,
+    "descricao" : "Tratamento para revitalizar e hidratar os fios",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-c9da3b7a-6",
+    "nome" : "Relaxamento Capilar",
+    "preco" : 90.0,
+    "descricao" : "Reduz o volume dos fios sem alisar completamente",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 50
+  } ],
+  "listaDespesas" : [ {
+    "id" : "DESP-4d54add8-1",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-ae36ade7-4",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  } ],
+  "listaRelatorios" : [ {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-15",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-15 18:26:07"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-15",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-15 18:26:07"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-15",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-15 19:29:11"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-15",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-15 19:29:11"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 60.00\n------------------------------------\nBalanço Final:................... R$ 119.25\n",
+    "dataGeracao" : "2025-11-15 19:29:11"
+  } ],
+  "estoque" : {
+    "tabelaEstoque" : {
+      "PO-4c97bdd3-0" : 10,
+      "PO-01ce87e1-7" : 9,
+      "PO-ebc895bc-1" : 9,
+      "PO-6a2e3de0-3" : 10,
+      "PO-a01f4630-0" : 10,
+      "PO-bebd1ec4-4" : 10
+    }
+  },
+  "FilaEspera" : [ {
+    "cliente" : {
+      "id" : "CL-3e98938d-5",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-efc3f5c4-6",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300
+    }, {
+      "id" : "SE-88445ffc-e",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300
+    }, "SE-efc3f5c4-6", "SE-88445ffc-e" ],
+    "barbeiroPreferencial" : "BA-951957c6-0",
+    "dataDaSolicitacao" : "2025-11-15T18:26:07.452512057",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-efc3f5c4-6", "SE-88445ffc-e", "SE-efc3f5c4-6", "SE-88445ffc-e" ],
+    "duracaoTotalMinutos" : 1200
+  }, {
+    "cliente" : {
+      "id" : "CL-4a362cac-0",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-9f7f39e8-b",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 400
+    }, {
+      "id" : "SE-cc304790-4",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 500
+    }, "SE-9f7f39e8-b", "SE-cc304790-4" ],
+    "barbeiroPreferencial" : "BA-654c7d25-f",
+    "dataDaSolicitacao" : "2025-11-15T18:26:07.452748591",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-9f7f39e8-b", "SE-cc304790-4", "SE-9f7f39e8-b", "SE-cc304790-4" ],
+    "duracaoTotalMinutos" : 1800
+  }, {
+    "cliente" : "CL-b323dc89-7",
+    "servicosDesejados" : [ "SE-4c067e2f-a", "SE-bb367955-5" ],
+    "barbeiroPreferencial" : "BA-9e5f8e21-1",
+    "dataDaSolicitacao" : "2025-11-15T19:29:11.250864895",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-4c067e2f-a", "SE-bb367955-5" ],
+    "duracaoTotalMinutos" : 60
+  }, {
+    "cliente" : "CL-9aa86cff-7",
+    "servicosDesejados" : [ "SE-71a3aeb1-0", "SE-c9da3b7a-6" ],
+    "barbeiroPreferencial" : "BA-518c3e3d-d",
+    "dataDaSolicitacao" : "2025-11-15T19:29:11.251132137",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-71a3aeb1-0", "SE-c9da3b7a-6" ],
+    "duracaoTotalMinutos" : 90
+  } ],
+  "listaAgendamentos" : [ {
+    "id" : "AGE-f2e0eb0f-e",
+    "nome" : null,
+    "isEncaixe" : false,
+    "cliente" : "CL-b323dc89-7",
+    "barbeiro" : "BA-9e5f8e21-1",
+    "atendente" : "AT-e1aab224-b",
+    "estacao" : {
+      "id" : "ES-e9d1d332-9",
+      "nome" : "Corriqueira 1",
+      "descricao" : "Estação destinada apenas para atividades corriqueiras da barbearia",
+      "tipo" : "CORRIQUEIRA",
+      "discricao" : "Estação destinada apenas para atividades corriqueiras da barbearia"
+    },
+    "servicos" : [ "SE-4c067e2f-a", "SE-bb367955-5" ],
+    "valorDosServicosCongelado" : 95.0,
+    "dataHoraInicioAgendamento" : "2026-11-19T10:00:00",
+    "dataHoraFimAgendamento" : "2026-11-19T11:00:00",
+    "status" : "FINALIZADO",
+    "associadoOrdemServico" : "OS-c2b92d7e-f",
+    "encaixe" : false,
+    "valorDosServicos" : 95.0
+  }, {
+    "id" : "AGE-8e741867-d",
+    "nome" : null,
+    "isEncaixe" : false,
+    "cliente" : "CL-9aa86cff-7",
+    "barbeiro" : "BA-518c3e3d-d",
+    "atendente" : "AT-e1aab224-b",
+    "estacao" : {
+      "id" : "ES-d171926d-c",
+      "nome" : "Lavar e sacar",
+      "descricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!",
+      "tipo" : "LAVAGEM",
+      "discricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!"
+    },
+    "servicos" : [ "SE-71a3aeb1-0", "SE-c9da3b7a-6" ],
+    "valorDosServicosCongelado" : 155.0,
+    "dataHoraInicioAgendamento" : "2025-11-19T10:00:00",
+    "dataHoraFimAgendamento" : "2025-11-19T11:30:00",
+    "status" : "CONFIRMADO",
+    "associadoOrdemServico" : "OS-e102faf9-d",
+    "encaixe" : false,
+    "valorDosServicos" : 155.0
+  } ],
+  "listaOrdensServico" : [ {
+    "id" : "OS-c2b92d7e-f",
+    "nome" : null,
+    "idCliente" : "CL-b323dc89-7",
+    "idBarbeiro" : "BA-9e5f8e21-1",
+    "status" : "PAGO",
+    "dataExecucao" : "2026-11-19",
+    "observacoes" : "---",
+    "produtosUtilizados" : [ "PO-bebd1ec4-4", "PO-4c97bdd3-0" ],
+    "agendamentos" : [ "AGE-f2e0eb0f-e" ],
+    "produtosVendidos" : {
+      "PO-01ce87e1-7" : 1
+    },
+    "valorTotalProdutos" : 30.0,
+    "valorTotalServicos" : 95.0,
+    "valorTaxaEncaixe" : 0.0,
+    "valorAdiantado_50pct" : 125.0,
+    "valorTaxaCancelamento_35pct" : 0.0,
+    "cliente" : "CL-b323dc89-7",
+    "valorTotalAPagar" : 125.0,
+    "valorPendente" : 0.0
+  }, {
+    "id" : "OS-e102faf9-d",
+    "nome" : null,
+    "idCliente" : "CL-9aa86cff-7",
+    "idBarbeiro" : "BA-518c3e3d-d",
+    "status" : "CANCELADO",
+    "dataExecucao" : "2026-11-19",
+    "observacoes" : "---",
+    "produtosUtilizados" : [ ],
+    "agendamentos" : [ "AGE-8e741867-d" ],
+    "produtosVendidos" : { },
+    "valorTotalProdutos" : 0.0,
+    "valorTotalServicos" : 155.0,
+    "valorTaxaEncaixe" : 0.0,
+    "valorAdiantado_50pct" : 77.5,
+    "valorTaxaCancelamento_35pct" : 54.25,
+    "cliente" : "CL-9aa86cff-7",
+    "valorTotalAPagar" : 155.0,
+    "valorPendente" : 131.75
+  } ],
+  "tabelaPonto" : {
+    "tabelaPontos" : {
+      "BA-951957c6-0" : [ ],
+      "GE-31ce71a0-2" : [ ],
+      "AT-5b007639-a" : [ ],
+      "BA-654c7d25-f" : [ ],
+      "BA-71bd1bb0-d" : [ ],
+      "BA-6f44a039-0" : [ ],
+      "AT-9163e602-1" : [ ],
+      "GE-c3abeace-2" : [ ]
+    }
+  },
+  "filaEspera" : [ {
+    "cliente" : "CL-3e98938d-5",
+    "servicosDesejados" : [ "SE-efc3f5c4-6", "SE-88445ffc-e", "SE-efc3f5c4-6", "SE-88445ffc-e" ],
+    "barbeiroPreferencial" : "BA-951957c6-0",
+    "dataDaSolicitacao" : "2025-11-15T18:26:07.452512057",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-efc3f5c4-6", "SE-88445ffc-e", "SE-efc3f5c4-6", "SE-88445ffc-e" ],
+    "duracaoTotalMinutos" : 1200
+  }, {
+    "cliente" : "CL-4a362cac-0",
+    "servicosDesejados" : [ "SE-9f7f39e8-b", "SE-cc304790-4", "SE-9f7f39e8-b", "SE-cc304790-4" ],
+    "barbeiroPreferencial" : "BA-654c7d25-f",
+    "dataDaSolicitacao" : "2025-11-15T18:26:07.452748591",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-9f7f39e8-b", "SE-cc304790-4", "SE-9f7f39e8-b", "SE-cc304790-4" ],
+    "duracaoTotalMinutos" : 1800
+  }, {
+    "cliente" : "CL-b323dc89-7",
+    "servicosDesejados" : [ "SE-4c067e2f-a", "SE-bb367955-5" ],
+    "barbeiroPreferencial" : "BA-9e5f8e21-1",
+    "dataDaSolicitacao" : "2025-11-15T19:29:11.250864895",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-4c067e2f-a", "SE-bb367955-5" ],
+    "duracaoTotalMinutos" : 60
+  }, {
+    "cliente" : "CL-9aa86cff-7",
+    "servicosDesejados" : [ "SE-71a3aeb1-0", "SE-c9da3b7a-6" ],
+    "barbeiroPreferencial" : "BA-518c3e3d-d",
+    "dataDaSolicitacao" : "2025-11-15T19:29:11.251132137",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-71a3aeb1-0", "SE-c9da3b7a-6" ],
+    "duracaoTotalMinutos" : 90
+  } ]
+}

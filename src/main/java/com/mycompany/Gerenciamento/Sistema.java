@@ -367,7 +367,13 @@ public class Sistema {
     }
     
     public void questao14() throws Exception{
-                                                
+        
+        gestaoS.limparLista();
+        gestaoC.limparLista();
+        gestaoS.limparLista();
+        gestaoP.limparLista();
+        gestaoOS.limparLista();
+        gestaoA.limparLista();                              
 
         //instancia Serviços
         Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
@@ -469,7 +475,7 @@ public class Sistema {
         //Lançando essas despesas
         gestaoD.lancarDespesaDeConsumo(relatorioProdutosUsados, LocalDate.of(2026, 11, 30), "Despesas da barbearia com produtos", gerenteFernanda);
         
-        gestaoFI.gerarRegistroBalancoMensal(11, 2026, gerenteFernanda, "1234");
+        gestaoFI.gerarRegistroBalancoMensal(11, 2026, gerenteFernanda, "1234", true);
         
         //salvando
         Barbearia_date dados = Barbearia_date.getInstancia();

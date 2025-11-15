@@ -69,7 +69,7 @@ public class GestaoFinanceira {
         return produtosUsados; // Retorna a lista
     }
 
-    public String gerarBalancoMensal(int mes, int ano, Usuario user, String pin) throws Exception {
+    public String gerarBalancoMensal(int mes, int ano, Usuario user, String pin, boolean salvar) throws Exception {
 
         this.verificarInstancia(pin, user);
         
@@ -115,14 +115,14 @@ public class GestaoFinanceira {
         );
 
          // Salva no JSON
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL, LocalDate.of(ano, mes, 1), relatorio);
+        if(salvar){RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL, LocalDate.of(ano, mes, 1), relatorio);
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-        
+        }
         return relatorio;
     }
 
-    public String gerarNotaCliente(String cpf) {
+    public String gerarNotaCliente(String cpf, boolean salvar) {
         Cliente cliente = GestaoClientes.getInstancia().buscarCPF(cpf);
         ArrayList<OrdemServico> ordensCliente = gestaoOS.buscarOSCliente(cliente.getId());
 
@@ -161,15 +161,15 @@ public class GestaoFinanceira {
             totalPagar
         );
         
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.NOTA_CLIENTE,LocalDate.now(),nota);
+        if(salvar){RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.NOTA_CLIENTE,LocalDate.now(),nota);
         
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-        
+        }
         return nota;
     }
 
-    public String gerarRelatorioVendasDiario(LocalDate dia, Usuario user, String pin) throws Exception {
+    public String gerarRelatorioVendasDiario(LocalDate dia, Usuario user, String pin, boolean salvar) throws Exception {
         
         this.verificarInstancia(pin, user);
         
@@ -215,15 +215,15 @@ public class GestaoFinanceira {
             receitaLiquida
         );
         
-        RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.RELATORIO_DIARIO,dia,relatorio);
+        if(salvar){RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.RELATORIO_DIARIO,dia,relatorio);
         
         dados.getListaRelatorios().add(registro);
         dados.salvar();
-        
+        }
         return relatorio;
     }
 
-    public String gerarRelatorioVendasMensal(int mes, int ano, Usuario user, String pin) throws Exception {
+    public String gerarRelatorioVendasMensal(int mes, int ano, Usuario user, String pin, boolean salvar) throws Exception {
         
         this.verificarInstancia(pin, user);
         this.validarPIM(pin, user);
@@ -270,10 +270,12 @@ public class GestaoFinanceira {
             totalTaxasCancelamento,
             receitaLiquida
         );
+        
+        if(salvar){
         RelatorioFinanceiro registro = new RelatorioFinanceiro(TipoRelatorio.RELATORIO_MENSAL,LocalDate.of(ano, mes, 1),relatorio);
         
         dados.getListaRelatorios().add(registro);
-        dados.salvar();
+        dados.salvar();}
         return relatorio;
         
     }
@@ -293,8 +295,8 @@ public class GestaoFinanceira {
         }
     }
     
-    public RelatorioFinanceiro gerarRegistroBalancoMensal(int mes, int ano, Usuario user, String pin) throws Exception {
-        String conteudo = gerarBalancoMensal(mes, ano, user, pin);
+    public RelatorioFinanceiro gerarRegistroBalancoMensal(int mes, int ano, Usuario user, String pin, boolean s) throws Exception {
+        String conteudo = gerarBalancoMensal(mes, ano, user, pin, s);
         return new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL,LocalDate.of(ano, mes, 1), conteudo);
     }  
 }
