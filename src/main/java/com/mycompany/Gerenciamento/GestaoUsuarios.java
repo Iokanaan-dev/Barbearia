@@ -13,6 +13,7 @@ import com.mycompany.barbearia.modelos.Gerente;
 import com.mycompany.barbearia.modelos.Atendente;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -300,4 +301,29 @@ private GestaoUsuarios(Barbearia_date dados) {
             throw new Exception("Somente gerentes podem gerar balanço mensal");
         }
     }
+    
+        public Usuario buscarCPF(String cpf) {
+        verificarCampoNulo(cpf);
+        
+        for(Usuario u : this.listaModelo) {
+            if (u.getCpf().equals(cpf)) 
+                return u;
+        }
+        throw new NoSuchElementException("Nenhum item encontrado com o CPF: " + cpf);
+    }
+
+    private Usuario buscarPorCpfInterno(String cpf) {
+        if (cpf == null || cpf.trim().isEmpty()) {
+            return null; 
+        }
+        
+       
+        for (Usuario u : this.listaModelo) { 
+            if (u.getCpf().equals(cpf)) {
+                return u; 
+            }
+        }
+        return null; 
+    }
+
 }

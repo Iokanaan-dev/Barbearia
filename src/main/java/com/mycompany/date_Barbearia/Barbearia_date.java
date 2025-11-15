@@ -19,6 +19,7 @@ import java.util.Queue;
  */
 public class Barbearia_date {
     
+    private static Barbearia_date instancia;
     
     public ArrayList<Cliente> listaClientes = new ArrayList<>();  
     public ArrayList<Gerente> listaGerentes = new ArrayList<>();
@@ -36,6 +37,19 @@ public class Barbearia_date {
     public ArrayList<OrdemServico> listaOrdensServico = new ArrayList<>();
     public TabelaPonto tabelaPonto;
     
+    
+    public static Barbearia_date getInstancia() {
+    if (instancia == null) {
+        instancia = GerenciadorDeArquivos.carregar();
+        if (instancia == null) {
+            instancia = new Barbearia_date();
+        }
+    }
+    return instancia;
+    }
+
+    
+    
     public Barbearia_date(){
         this.listaClientes = new ArrayList<>();
         this.listaGerentes = new ArrayList<>();
@@ -50,7 +64,7 @@ public class Barbearia_date {
         this.FilaEspera = new LinkedList();
         this.tabelaPonto = new TabelaPonto();
     }
-
+    
     public ArrayList<Cliente> getListaClientes() {
         return listaClientes;
     }

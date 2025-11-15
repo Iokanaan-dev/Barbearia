@@ -35,16 +35,13 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         iNomeField1 = new javax.swing.JTextField();
-        iCpfField2 = new javax.swing.JTextField();
-        iTelefoneField3 = new javax.swing.JTextField();
         iUsuarioField4 = new javax.swing.JTextField();
         iDataNascimentoField = new javax.swing.JFormattedTextField();
         iSenhaField5 = new javax.swing.JTextField();
         iConfirmarSenhaField6 = new javax.swing.JTextField();
-        iPINField7 = new javax.swing.JTextField();
-        iConfirmarPINField8 = new javax.swing.JTextField();
         jCadastrar1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -55,29 +52,22 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        iCpfField2 = new javax.swing.JFormattedTextField();
+        iTelefoneField3 = new javax.swing.JFormattedTextField();
+        iPINField7 = new javax.swing.JFormattedTextField();
+        iConfirmarPINField8 = new javax.swing.JFormattedTextField();
+
+        jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Cadastre o Primeiro Gerente");
 
         iNomeField1.setText("jNomeField1");
         iNomeField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iNomeField1ActionPerformed(evt);
-            }
-        });
-
-        iCpfField2.setText("jCpfField2");
-        iCpfField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iCpfField2ActionPerformed(evt);
-            }
-        });
-
-        iTelefoneField3.setText("jTelefoneField3");
-        iTelefoneField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iTelefoneField3ActionPerformed(evt);
             }
         });
 
@@ -113,20 +103,6 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
             }
         });
 
-        iPINField7.setText("jPINField7");
-        iPINField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iPINField7ActionPerformed(evt);
-            }
-        });
-
-        iConfirmarPINField8.setText("jConfirmarPINField8");
-        iConfirmarPINField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iConfirmarPINField8ActionPerformed(evt);
-            }
-        });
-
         jCadastrar1.setText("Cadastrar");
         jCadastrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +128,40 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
 
         jLabel10.setText("Confirmar PIN:");
 
+        try {
+            iCpfField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            iTelefoneField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        iTelefoneField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iTelefoneField3ActionPerformed(evt);
+            }
+        });
+
+        try {
+            iPINField7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        iPINField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iPINField7ActionPerformed(evt);
+            }
+        });
+
+        try {
+            iConfirmarPINField8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,17 +179,17 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
+                                .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(iTelefoneField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(iNomeField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(64, 64, 64)
+                                    .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iTelefoneField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(141, 141, 141)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,27 +218,11 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iTelefoneField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(iUsuarioField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,11 +236,27 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
                                 .addComponent(jLabel9)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iPINField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iConfirmarPINField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                            .addComponent(jLabel8)
+                            .addComponent(iPINField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iConfirmarPINField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(iTelefoneField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -261,15 +271,7 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
     private void iNomeField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iNomeField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iNomeField1ActionPerformed
-
-    private void iTelefoneField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iTelefoneField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iTelefoneField3ActionPerformed
-
-    private void iCpfField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCpfField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iCpfField2ActionPerformed
-
+    
     private void iUsuarioField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iUsuarioField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iUsuarioField4ActionPerformed
@@ -277,14 +279,6 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
     private void iSenhaField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iSenhaField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iSenhaField5ActionPerformed
-
-    private void iPINField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPINField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iPINField7ActionPerformed
-
-    private void iConfirmarPINField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iConfirmarPINField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iConfirmarPINField8ActionPerformed
 
     private void jCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadastrar1ActionPerformed
                                              
@@ -353,6 +347,14 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_iConfirmarSenhaField6ActionPerformed
 
+    private void iTelefoneField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iTelefoneField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iTelefoneField3ActionPerformed
+
+    private void iPINField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPINField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iPINField7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -379,16 +381,17 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField iConfirmarPINField8;
+    private javax.swing.JFormattedTextField iConfirmarPINField8;
     private javax.swing.JTextField iConfirmarSenhaField6;
-    private javax.swing.JTextField iCpfField2;
+    private javax.swing.JFormattedTextField iCpfField2;
     private javax.swing.JFormattedTextField iDataNascimentoField;
     private javax.swing.JTextField iNomeField1;
-    private javax.swing.JTextField iPINField7;
+    private javax.swing.JFormattedTextField iPINField7;
     private javax.swing.JTextField iSenhaField5;
-    private javax.swing.JTextField iTelefoneField3;
+    private javax.swing.JFormattedTextField iTelefoneField3;
     private javax.swing.JTextField iUsuarioField4;
     private javax.swing.JButton jCadastrar1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

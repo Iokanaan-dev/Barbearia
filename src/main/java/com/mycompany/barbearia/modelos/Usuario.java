@@ -84,13 +84,15 @@ public abstract class Usuario extends Individuo{
         return username;
     }
    
-   // private para nao ser acessivel fora dessa classe
-   private void setUsername(String username) {
+     // usado na interface
+    public void setUsername(String username) {
+        this.verificarUsername(username);
         this.username = username;
     }
    
-   // private para nao ser acessivel fora dessa classe
-   private void setSenha(String senha) {
+    // usando na interface
+    public void setSenha(String senha) {
+        this.verificarSenha(senha);
         this.senha = senha;
     }
     
@@ -137,6 +139,8 @@ public abstract class Usuario extends Individuo{
         validarSenha(senhaNova);
         setSenha(senhaNova);
     }
+     
+    
     
     /**
      *
