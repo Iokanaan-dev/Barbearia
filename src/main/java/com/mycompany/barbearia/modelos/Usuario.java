@@ -87,22 +87,10 @@ public abstract class Usuario extends Individuo{
         return username;
     }
    
-<<<<<<< HEAD
+
      // usado na interface
     public void setUsername(String username) {
         this.verificarUsername(username);
-        this.username = username;
-    }
-   
-    // usando na interface
-    public void setSenha(String senha) {
-        this.verificarSenha(senha);
-=======
-   /**
-    * Define o username. Apenas acessivel dentro de Usuario
-    * @param username 
-    */
-   private void setUsername(String username) {
         this.username = username;
     }
    
@@ -110,8 +98,7 @@ public abstract class Usuario extends Individuo{
     * Define a senha
     * @param senha 
     */
-   private void setSenha(String senha) {
->>>>>>> 56dafd238e2b63d7572371387ef6e336de483eb2
+    public void setSenha(String senha) {
         this.senha = senha;
     }
     

@@ -328,8 +328,7 @@ public class PrimeiroLoginSistema extends javax.swing.JFrame {
 
         GestaoUsuarios.getInstancia().adicionar(gerente);
 
-        Barbearia_date dados = null;
-        dados.listaGerentes.add(gerente);
+        Barbearia_date.getInstancia().salvar();
 
         JOptionPane.showMessageDialog(this, "Gerente cadastrado com sucesso!");
 

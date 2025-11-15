@@ -20,7 +20,6 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class TelaTrocarSenha extends javax.swing.JFrame {
     
-    private javax.swing.JLabel lblUsuario;
     private Usuario usuario;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaTrocarSenha.class.getName());
 
@@ -31,8 +30,7 @@ public class TelaTrocarSenha extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
         setLocationRelativeTo(null);
-        lblUsuario = new javax.swing.JLabel();
-        lblUsuario.setText("Alterando senha");
+
     }
 
     /**
@@ -132,8 +130,7 @@ public class TelaTrocarSenha extends javax.swing.JFrame {
 
         try {
             usuario.setSenha(nova); // altera no usuário
-            Barbearia_date dados = Barbearia_date.getInstancia();
-            dados.salvar(); //  salva
+            Barbearia_date.getInstancia().salvar(); //  salva
             
             JOptionPane.showMessageDialog(this, "Senha alterada com sucesso!");
 
@@ -144,31 +141,6 @@ public class TelaTrocarSenha extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao alterar senha: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaTrocarSenha().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ConfirmarSenhaField;
