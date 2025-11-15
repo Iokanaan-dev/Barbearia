@@ -43,19 +43,19 @@ public class Barbearia {
 
             //03 ===========================================================
             //System.out.println("\nQUESTAO 03");
-             sistema.questao03();            
+             //sistema.questao03();            
             
             //06 ===========================================================
             //System.out.println("\nQUESTAO 06");
-             sistema.questao06();
+             //sistema.questao06();
 
             //07 ===========================================================
            // System.out.println("\nQUESTAO 07");
-            sistema.questao07();
+            //sistema.questao07();
 
             //08 ===========================================================
            // System.out.println("\nQUESTAO 08");
-             sistema.questao08();  
+             //sistema.questao08();  
             
             //10 ===========================================================
             //System.out.println("\nQUESTAO 10");
@@ -63,31 +63,31 @@ public class Barbearia {
 
             //11 ===========================================================
            // System.out.println("\nQUESTAO 11");
-            sistema.questao11();
+              sistema.questao11();
 
             //12 ===========================================================
             //System.out.println("\nQUESTAO 12");
-            sistema.questao12();
+             sistema.questao12();  
             
             //13 ==========================================================
            // System.out.println("\nQUESTAO 13");
-            sistema.questao13();
+            //sistema.questao13();
             
             //14 ==========================================================
-              System.out.println("\nQUESTAO 14");
-              sistema.questao14();
+             //System.out.println("\nQUESTAO 14");
+            //sistema.questao14();
             
             //15P2 ========================================================
            // System.out.println("\nQUESTAO 15P2");
-            sistema.questao15P2();
+            //sistema.questao15P2();
             
             //16P2 ======================================================== 
             //System.out.println("\nQUESTAO 16P2");
-            sistema.questao16P2();
+            //sistema.questao16P2();
             
             //17P2 ======================================================== 
             //System.out.println("\nQUESTAO 17P2");
-            sistema.questao17P2();
+            //sistema.questao17P2();
             
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());

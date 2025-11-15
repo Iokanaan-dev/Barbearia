@@ -58,6 +58,8 @@ public class GestaoServicos extends Gestao <Servico>{
        
         Servico servico = construirServico(nome, preco, descricao, temp, tipoRequerido);
         super.adicionar(servico);
+        ++contadorPrivate;
+        ++contadorProtected;
     }
     
     public void cadastrar(Servico servico) throws Exception{
@@ -65,8 +67,8 @@ public class GestaoServicos extends Gestao <Servico>{
         verificarServicoDuracao(servico.getTempoEmMinutos());
         
         super.adicionar(servico);
-        contadorPrivate++;
-        contadorProtected++;
+        ++contadorPrivate;
+        ++contadorProtected;
     }
     
     private Servico construirServico(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido){
