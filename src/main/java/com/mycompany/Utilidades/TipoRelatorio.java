@@ -11,5 +11,6 @@ package com.mycompany.Utilidades;
 public enum TipoRelatorio {
     BALANÇO_MENSAL,
     RELATORIO_DIARIO,
+    NOTA_CLIENTE,
     RELATORIO_MENSAL
 }

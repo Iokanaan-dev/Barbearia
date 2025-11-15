@@ -19,7 +19,7 @@ public class GestaoServicos extends Gestao <Servico>{
     
     GestaoServicos(Barbearia_date dados){
         this.dados = dados;
-        listaModelo = dados.listaServicos;
+        listaModelo = dados.getListaServicos();
     }
     
     public static void inicializa(Barbearia_date dados) {

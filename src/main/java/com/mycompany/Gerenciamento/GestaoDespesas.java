@@ -24,7 +24,7 @@ public class GestaoDespesas extends Gestao<Despesa> {
     
     GestaoDespesas(Barbearia_date dados){
         this.dados = dados;
-        listaModelo = dados.listaDespesas;
+        listaModelo = dados.getListaDespesas();
     }
     
     public static void inicializa(Barbearia_date dados) {

@@ -4,7 +4,9 @@
  */
 package com.mycompany.barbearia.modelos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mycompany.Utilidades.TipoRelatorio;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -14,13 +16,15 @@ import java.time.LocalDateTime;
 public class RelatorioFinanceiro {
 
     private TipoRelatorio tipo; 
-    private String periodo; // Ex: "11/2025" ou "12/11/2025"
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate periodo; // data do relatorio
     private String conteudo; // O texto formatado do relatório
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dataGeracao; // quando foi gerado
 
     public RelatorioFinanceiro() {}
 
-    public RelatorioFinanceiro(TipoRelatorio tipo, String periodo, String conteudo) {
+    public RelatorioFinanceiro(TipoRelatorio tipo, LocalDate periodo, String conteudo) {
         this.tipo = tipo;
         this.periodo = periodo;
         this.conteudo = conteudo;
@@ -31,7 +35,7 @@ public class RelatorioFinanceiro {
         return tipo; 
     }
     
-    public String getPeriodo() { 
+    public LocalDate getPeriodo() { 
         return periodo; 
     }
     
@@ -47,7 +51,7 @@ public class RelatorioFinanceiro {
         this.tipo = tipo; 
     }
     
-    public void setPeriodo(String periodo) { 
+    public void setPeriodo(LocalDate periodo) { 
         this.periodo = periodo; 
     }
     

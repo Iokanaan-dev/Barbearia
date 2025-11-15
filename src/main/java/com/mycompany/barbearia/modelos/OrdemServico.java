@@ -31,7 +31,7 @@ public class OrdemServico extends Modelo{
     private LocalDate dataExecucao;
     private String observacoes;   
     
-    private final ArrayList<Modelo> produtosUtilizados = new ArrayList();
+    private final ArrayList<Produto> produtosUtilizados = new ArrayList();
     private final ArrayList<Agendamento> agendamentos = new ArrayList();
     private final Map<String, Integer> produtosVendidos = new HashMap();
     
@@ -92,7 +92,6 @@ public class OrdemServico extends Modelo{
      *
      */
     public OrdemServico(){
-
         contadorInstancias++;
     }
     
@@ -255,7 +254,7 @@ public class OrdemServico extends Modelo{
      *
      * @return
      */
-    public ArrayList<Modelo> getProdutosUtilizados() {
+    public ArrayList<Produto> getProdutosUtilizados() {
         return produtosUtilizados;
     }
 

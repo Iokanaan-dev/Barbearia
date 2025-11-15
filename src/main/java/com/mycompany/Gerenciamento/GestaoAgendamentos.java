@@ -27,14 +27,14 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     private static final LocalTime HORA_FINAL_ESPEDIENTE = LocalTime.of(18, 30);
     private static final int SLOT_MINUTOS = 10;
 
-    // 🔹 Construtor privado
+    //  Construtor privado
     private GestaoAgendamentos(Barbearia_date dados) {
         this.listaModelo = dados.getListaAgendamentos();
         this.gestaoUsuarios = GestaoUsuarios.getInstancia();
         this.gestaoEstacao = GestaoEstacao.getInstancia();
     }
 
-    // 🔹 Inicializa o Singleton (chama no main)
+    //  Inicializa o Singleton (chama no main)
 
     /**
      *
@@ -46,7 +46,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         }
     }
 
-    // 🔹 Acesso global
+    //  Acesso global
 
     /**
      *

@@ -28,8 +28,8 @@ public class GestaoPonto extends Gestao<Usuario>{
     private GestaoPonto(Barbearia_date dados) {
         this.dados = dados;
         this.tabelaPontos = dados.tabelaPonto;
-        this.listaModelo = new ArrayList<>();
-        this.listaModelo.addAll(GestaoUsuarios.getInstancia().getListaCopia());
+       // this.listaModelo = new ArrayList<>();
+       // this.listaModelo.addAll(GestaoUsuarios.getInstancia().getListaCopia());
     }
 
     public static void inicializar(Barbearia_date dados) {
