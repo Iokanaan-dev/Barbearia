@@ -19,7 +19,7 @@ public class ParBatida {
     private LocalDateTime saida;
 
     /**
-     * Construtor sem parametros. Nao utilizado,
+     * Construtor sem parametros. Nao utilizado
      */
     public ParBatida() {}
 

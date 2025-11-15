@@ -1,5 +1,20 @@
+<<<<<<< HEAD
 com\mycompany\compara\ComparatorTamanhoNomeIndividuo.class
 com\mycompany\compara\ComparatorTelefoneIndividuo.class
 com\mycompany\Utilidades\IdGerador.class
 com\mycompany\Utilidades\StatusAgendamento.class
 com\mycompany\Utilidades\StatusAtendimento.class
+=======
+InterfaceG/PrimeiroLoginSistema$3.class
+InterfaceG/PrimeiroLoginSistema$6.class
+InterfaceG/PrimeiroLoginSistema$2.class
+InterfaceG/PrimeiroLoginSistema.class
+InterfaceG/PrimeiroLoginSistema$5.class
+InterfaceG/PrimeiroLoginSistema$10.class
+InterfaceG/PrimeiroLoginSistema$8.class
+InterfaceG/PrimeiroLoginSistema$1.class
+InterfaceG/TelaDeLogin.class
+InterfaceG/PrimeiroLoginSistema$9.class
+InterfaceG/PrimeiroLoginSistema$4.class
+InterfaceG/PrimeiroLoginSistema$7.class
+>>>>>>> 56dafd238e2b63d7572371387ef6e336de483eb2

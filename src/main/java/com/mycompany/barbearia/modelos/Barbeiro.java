@@ -16,7 +16,7 @@ public class Barbeiro extends Usuario{
 
      
     /**
-     *
+     * Construtor completo de Barbeiro
      * @param username
      * @param senha
      * @param nome
@@ -28,12 +28,15 @@ public class Barbeiro extends Usuario{
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
     
+    /**
+     * Construtor sem parametros
+     */
     public Barbeiro(){
         super();
     }
  
     /**
-     *
+     * Gera o ID
      * @return
      */
     @Override
@@ -41,9 +44,12 @@ public class Barbeiro extends Usuario{
         return "BA-" + UUID.randomUUID().toString().substring(0, 10);
     }
     
+    /**
+     * Obtem a representaçao de String de um Barbeiro
+     * @return
+     */
     @Override
     public String toString(){
         return String.format("%nBarbeiro %s%n%s", getId(), super.toString()); 
     }
-    
 }

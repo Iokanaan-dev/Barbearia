@@ -3,14 +3,6 @@ package com.mycompany.barbearia;
 import com.mycompany.date_Barbearia.GerenciadorDeArquivos;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import com.mycompany.Gerenciamento.*;
-import com.mycompany.Utilidades.*;
-import com.mycompany.barbearia.modelos.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import com.mycompany.Gerenciamento.Sistema;
 /**
  * Classe principal para testes de integração de todo o sistema.

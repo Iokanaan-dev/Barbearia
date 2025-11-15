@@ -17,13 +17,14 @@ public class Gerente extends Usuario{
     private String PIN_SEGURANCA; //usar depois no cadastro de novos usuarios
     
     /**
-     *
+     * Construtor com todos os atributos de gerente
      * @param username
      * @param senha
      * @param nome
      * @param cpf
      * @param telefone
      * @param dataNascimento
+     * @param pinSeguranca
      */
     public Gerente(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, String pinSeguranca) {
         super(username,senha, nome, cpf, telefone, dataNascimento);
@@ -32,10 +33,17 @@ public class Gerente extends Usuario{
         this.PIN_SEGURANCA = pinSeguranca;
     }
     
+    /**
+     * Construtor sem parametros de Gerente
+     */
     public Gerente(){
         super();
     }   
     
+    /**
+     * Valida o PIN
+     * @param pin_seguranca 
+     */
      private void validarPIN(String pin_seguranca){
         if(pin_seguranca == null || pin_seguranca.trim().length() < 4){
             throw new IllegalArgumentException("A senha não pode ser vazia, ou com menos de 8 caracteres!");
@@ -43,7 +51,7 @@ public class Gerente extends Usuario{
     }
      
     /**
-     *
+     * Verifica o PIN. Eh usaod em outras classes para questoes de seguranca
      * @param pin
      * @return
      */
@@ -52,7 +60,7 @@ public class Gerente extends Usuario{
     }
    
     /**
-     *
+     * Gera o ID
      * @return
      */
     @Override
@@ -60,7 +68,11 @@ public class Gerente extends Usuario{
         return "GE-" + UUID.randomUUID().toString().substring(0, 10);
     }
     
-        @Override
+    /**
+     * Obtem a representaçao em String do Gerente
+     * @return 
+     */
+    @Override
     public String toString(){
         return String.format("%nGerente %s%n%s", getId(), super.toString()); 
     }

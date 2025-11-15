@@ -8,22 +8,22 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.UUID;
 
 /**
- *
+ * Classe que representa um Cliente
  * @author italo
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Cliente extends Individuo{
+    
     private String email;
     protected static int contadorInstancia; 
     private static int contador = 0;
     
     /**
-     *
+     * Construtor de cliente que inicializa todas as variaveis
      * @param nome
      * @param cpf
      * @param telefone
@@ -38,6 +38,9 @@ public class Cliente extends Individuo{
         Cliente.contadorInstancia++;
     }
     
+    /**
+     * Construtor sem parametros
+     */
     public Cliente(){
         super();
     }
@@ -47,27 +50,40 @@ public class Cliente extends Individuo{
             throw new IllegalArgumentException("Email inválido!");
     }
 
+    /**
+     * Obtem o email
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Define o email
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
     
-    
-
+    /**
+     * Obtem o contador da classe
+     * @param contador
+     */
     public static void setContador(int contador) {
         Cliente.contador = contador;
     }
    
-
+    /**
+     * Obtem o contador da classe
+     * @return
+     */
     public int getContador() {
         return contador;
     }
       
     /**
-     *
+     * Gera o Id de um cliente
      * @return
      */
     @Override
@@ -75,11 +91,14 @@ public class Cliente extends Individuo{
         return "CL-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
+    /**
+     * Obtem a representaçao em String de um Cliente
+     * @return
+     */
     @Override
     public String toString() {
         return String.format("%nCliente %s%n%sE-mail: %s", getId(), super.toString(), getEmail());
     }
-   
 }
 
 /*

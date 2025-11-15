@@ -31,6 +31,9 @@ import java.time.LocalDate;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class Usuario extends Individuo{
     
+    /**
+     * Construtor sem parametros
+     */
     public Usuario(){
         super();
     }
@@ -39,7 +42,7 @@ public abstract class Usuario extends Individuo{
     private String senha;
 
     /**
-     *
+     * Construtor com todos os parametros de Usuario
      * @param username
      * @param senha
      * @param nome
@@ -57,7 +60,7 @@ public abstract class Usuario extends Individuo{
     }
     
     /**
-     *
+     * Valida o username
      * @param userName
      */
     private static void validarUsername(String userName){
@@ -67,7 +70,7 @@ public abstract class Usuario extends Individuo{
     }
     
     /**
-     *
+     * Valida a senha
      * @param senha
      */
     private static void validarSenha(String senha){
@@ -77,13 +80,14 @@ public abstract class Usuario extends Individuo{
     }
 
     /**
-     *
+     * Obtem o username
      * @return
      */
     public String getUsername() {
         return username;
     }
    
+<<<<<<< HEAD
      // usado na interface
     public void setUsername(String username) {
         this.verificarUsername(username);
@@ -93,11 +97,26 @@ public abstract class Usuario extends Individuo{
     // usando na interface
     public void setSenha(String senha) {
         this.verificarSenha(senha);
+=======
+   /**
+    * Define o username. Apenas acessivel dentro de Usuario
+    * @param username 
+    */
+   private void setUsername(String username) {
+        this.username = username;
+    }
+   
+   /**
+    * Define a senha
+    * @param senha 
+    */
+   private void setSenha(String senha) {
+>>>>>>> 56dafd238e2b63d7572371387ef6e336de483eb2
         this.senha = senha;
     }
     
     /**
-     *
+     * Verifica o username
      * @param username
      * @return
      */
@@ -106,7 +125,7 @@ public abstract class Usuario extends Individuo{
     }
     
     /**
-     *
+     * Verifica a senha
      * @param senha
      * @return
      */
@@ -115,7 +134,7 @@ public abstract class Usuario extends Individuo{
     }
     
     /**
-     *
+     * Muda o username
      * @param usernameAtual
      * @param usernameNovo
      */
@@ -128,7 +147,7 @@ public abstract class Usuario extends Individuo{
     }
     
     /**
-     *
+     * Muda a senha
      * @param senhaAtual
      * @param senhaNova
      */
@@ -143,7 +162,7 @@ public abstract class Usuario extends Individuo{
     
     
     /**
-     *
+     * Obtem a representaçao em String de um Usuario
      * @return
      */
     @Override
