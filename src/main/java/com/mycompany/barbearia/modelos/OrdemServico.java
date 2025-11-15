@@ -63,7 +63,7 @@ public class OrdemServico extends Modelo{
         this.valorAdiantado_50pct = 0.0;
         this.valorTaxaCancelamento_35pct = 0.0;
         
-        contadorInstancias++;
+        ++contadorInstancias;
     }
     
     /**
@@ -74,7 +74,7 @@ public class OrdemServico extends Modelo{
      */
     public OrdemServico(Cliente cliente, Barbeiro barbeiro, LocalDate dataExecucao) {
             this(cliente, barbeiro, dataExecucao, "---");
-            contadorInstancias++;    
+            ++contadorInstancias;    
     }
     
     /**
@@ -85,14 +85,14 @@ public class OrdemServico extends Modelo{
     public OrdemServico(Cliente cliente, LocalDate dataCompra) {
         this.idCliente = cliente.getId();
         this.dataExecucao = dataCompra;
-        contadorInstancias++;    
+        ++contadorInstancias;    
     }
     
     /**
      *
      */
     public OrdemServico(){
-        contadorInstancias++;
+        ++contadorInstancias;
     }
     
     /**
