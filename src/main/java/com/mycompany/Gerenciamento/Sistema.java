@@ -370,16 +370,9 @@ public class Sistema {
         Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
         Servico servico3  = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
         Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
-        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);  
+        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);
         
-        gestaoC.cadastrar("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
-        gestaoC.cadastrar("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com");
-
-        gestaoU.cadastrar("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
-        gestaoU.cadastrar("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12), TipoUsuario.ATENDENTE);
-        gestaoU.cadastrar("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2),TipoUsuario.GERENTE ,"1234");
-
+        //cadastrando serviços
         gestaoS.cadastrar(servico1);
         gestaoS.cadastrar(servico2);
         gestaoS.cadastrar(servico3);
@@ -390,6 +383,20 @@ public class Sistema {
         ArrayList<Servico> servicos2 = new ArrayList<>(List.of(servico3)); // CORRIQUEIRA
         ArrayList<Servico> servicos3 = new ArrayList<>(List.of(servico4)); // LAVAGEM
         ArrayList<Servico> servicos4 = new ArrayList<>(List.of(servico5)); // LAVAGEM 
+        
+        //cadastrando clientes
+        gestaoC.cadastrar("Felipe", "14141414141", "38997001313", LocalDate.of(1990, 8, 12), "felipe@email.com");
+        gestaoC.cadastrar("Roberta", "15151515151", "38997001414", LocalDate.of(1978, 11, 9), "roberta@email.com");
+        
+        //cadastrando usuarios
+        gestaoU.cadastrar("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12), TipoUsuario.BARBEIRO);
+        gestaoU.cadastrar("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12), TipoUsuario.ATENDENTE);
+        gestaoU.cadastrar("gerente_fernanda", "fernanda3210", "Fernanda", "19191919191", "38997006666", LocalDate.of(1995, 12, 2),TipoUsuario.GERENTE ,"1234");
+
+
+      
+
 
 
 

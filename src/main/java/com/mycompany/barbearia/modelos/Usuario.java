@@ -106,7 +106,7 @@ public abstract class Usuario extends Individuo{
      * @return
      */
     public boolean verificarUsername(String username){
-        return username != null && this.username != null && this.username.equals(username);
+        return username != null && this.username != null && this.username.equals(username); //tem que fazer essa verificação para o json serealizar legal
     }
     
     /**
