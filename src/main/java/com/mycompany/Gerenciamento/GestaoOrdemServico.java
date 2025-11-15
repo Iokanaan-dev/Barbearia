@@ -121,7 +121,7 @@
         */
         private void vincularAgendamentoAOrdem(OrdemServico os, Agendamento agendamento) {
             os.adicionarAgendamento(agendamento);
-            agendamento.setAssociado_Ordem_Servico(os.getId());
+            agendamento.setAssociadoOrdemServico(os.getId());
         }        
 
         private void recalcularValoresTotais(OrdemServico os) {
