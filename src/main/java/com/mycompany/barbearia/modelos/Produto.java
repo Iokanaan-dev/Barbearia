@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.UUID;
 
 /**
- *
+ * Representa um Produto no Sistema
  * @author italo
  */
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -19,9 +19,11 @@ public class Produto extends Modelo{
     private String descricao;
 
     /**
-     *
+     * Construtor completo de Produto
      * @param nome
+     * @param custo
      * @param preco
+     * @param descricao
      */
     public Produto(String nome, double custo ,double preco, String descricao){
         super(nome);
@@ -33,10 +35,13 @@ public class Produto extends Modelo{
         this.descricao = descricao;
     }
     
+    /**
+     * Construtor sem parametros
+     */
     public Produto(){}
     
     /**
-     *
+     * Gera o ID
      * @return
      */
     @Override
@@ -46,7 +51,7 @@ public class Produto extends Modelo{
    
 
     /**
-     *
+     * Obtem o preco do produto
      * @return
      */
     public double getPreco() {
@@ -54,7 +59,7 @@ public class Produto extends Modelo{
     }
    
     /**
-     *
+     * Define o preco do produto
      * @param preco
      */
     public void setPreco(double preco){
@@ -64,24 +69,40 @@ public class Produto extends Modelo{
         this.preco = preco;
     }
 
+    /**
+     * Obtem a descricao do produto
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }
 
+    /**
+     * Define a descricao do produto
+     * @param descricao
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+    /**
+     * Obtem o custo do produto
+     * @return
+     */
     public double getCusto() {
         return custo;
     }
 
+    /**
+     * Define o custo
+     * @param custo
+     */
     public void setCusto(double custo) {
         this.custo = custo;
     }
 
     /**
-     *
+     * Obtem a representacao em String de um Produto
      * @return
      */
     

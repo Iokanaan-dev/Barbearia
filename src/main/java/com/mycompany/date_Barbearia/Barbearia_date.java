@@ -31,7 +31,7 @@ public class Barbearia_date {
     private ArrayList<RelatorioFinanceiro> listaRelatorios = new ArrayList<>();
     
     public Estoque estoque = new Estoque();
-    public Queue<ListaEspera> FilaEspera = new LinkedList<>();
+    public Queue<VagaListaEspera> FilaEspera = new LinkedList<>();
     
     public ArrayList<Agendamento> listaAgendamentos = new ArrayList<>();
     public ArrayList<OrdemServico> listaOrdensServico = new ArrayList<>();
@@ -137,11 +137,11 @@ public class Barbearia_date {
         this.estoque = estoque;
     }
 
-    public Queue<ListaEspera> getFilaEspera() {
+    public Queue<VagaListaEspera> getFilaEspera() {
         return FilaEspera;
     }
 
-    public void setFilaEspera(Queue<ListaEspera> FilaEspera) {
+    public void setFilaEspera(Queue<VagaListaEspera> FilaEspera) {
         this.FilaEspera = FilaEspera;
     }
 

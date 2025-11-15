@@ -18,7 +18,7 @@ import java.util.Queue;
  */
 public class GestaoListaEspera {
 
-    private Queue<ListaEspera> filaEspera = new LinkedList<>();
+    private Queue<VagaListaEspera> filaEspera = new LinkedList<>();
     private static GestaoListaEspera instancia;
     private final Barbearia_date dados;
 
@@ -56,7 +56,7 @@ public class GestaoListaEspera {
             throw new Exception("O cliente " + cliente.getNome() + " já está na lista de espera.");
         }
 
-        ListaEspera novaEspera = new ListaEspera(cliente, servicos, preferencia);
+        VagaListaEspera novaEspera = new VagaListaEspera(cliente, servicos, preferencia);
 
         if (novaEspera.getTipoEstacaoRequerido() == null) {
             throw new Exception("Não é possível adicionar serviços com tipos de estação misturados.");
@@ -69,32 +69,32 @@ public class GestaoListaEspera {
     /**
      * Consulta o próximo cliente da fila (sem removê-lo)
      * 
-     * @return ListaEspera do próximo cliente ou null se vazia
+     * @return VagaListaEspera do próximo cliente ou null se vazia
      */
-    public ListaEspera consultarProximoFila() {
+    public VagaListaEspera consultarProximoFila() {
         return filaEspera.peek(); // retorna o primeiro da fila sem remover
     }
 
     /**
      * Remove e retorna o próximo cliente da fila
      * 
-     * @return ListaEspera removido ou null se a fila estiver vazia
+     * @return VagaListaEspera removido ou null se a fila estiver vazia
      */
-    public ListaEspera removerProximoFila() {
+    public VagaListaEspera removerProximoFila() {
         return filaEspera.poll(); // remove o primeiro da fila
     }
 
     /**
      * Retorna uma cópia da fila atual
      */
-    public Queue<ListaEspera> getFilaEspera() {
+    public Queue<VagaListaEspera> getFilaEspera() {
         return new LinkedList<>(this.filaEspera);
     }
 
     /**
      * Recarrega a fila (usado para persistência)
      */
-    public void carregarFila(Queue<ListaEspera> filaCarregada) {
+    public void carregarFila(Queue<VagaListaEspera> filaCarregada) {
         if (filaCarregada != null) {
             this.filaEspera.clear();
             this.filaEspera.addAll(filaCarregada);
@@ -106,7 +106,7 @@ public class GestaoListaEspera {
     }
 
     private boolean clienteJaNaEspera(String idCliente) {
-        for (ListaEspera espera : filaEspera) {
+        for (VagaListaEspera espera : filaEspera) {
             if (espera.getCliente().getId().equals(idCliente)) {
                 return true;
             }

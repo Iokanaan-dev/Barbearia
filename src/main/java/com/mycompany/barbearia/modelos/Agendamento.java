@@ -37,7 +37,7 @@ public class Agendamento extends Modelo{
     private LocalDateTime dataHoraFimAgendamento;
     private StatusAgendamento status;
     
-    private String associado_Ordem_Servico = null;
+    private String associadoOrdemServico = null; // indica se o Agendamento esta associado a uma OS
     
     /**
      * Construtor de agendamento que inicizaliza todos os atributos necessarios
@@ -50,6 +50,7 @@ public class Agendamento extends Modelo{
      * @param dataHoraInicioAgendamento
      * @param status
      * @param isEncaixe
+     * @param associado_Ordem_Servico
      */
     public Agendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataHoraInicioAgendamento, StatusAgendamento status, boolean isEncaixe, String associado_Ordem_Servico) {
         super();
@@ -192,22 +193,38 @@ public class Agendamento extends Modelo{
         return this.valorDosServicosCongelado;
     }
 
+    /**
+     * Obtem o valor dos servicos
+     * @return
+     */
     public double getValorDosServicosCongelado() {
         return valorDosServicosCongelado;
     }
 
+    /**
+     * Obtem o 
+     * @return
+     */
     public String getAssociadoOrdemServico() {
-        return associado_Ordem_Servico;
+        return associadoOrdemServico;
     }
 
-    public void setAssociado_Ordem_Servico(String associado_Ordem_Servico) {
-        this.associado_Ordem_Servico = associado_Ordem_Servico;
+    /**
+     * Define se o atendimento esta associado a uma ordem de servico
+     * @param associadoOrdemServico
+     */
+    public void setAssociadoOrdemServico(String associadoOrdemServico) {
+        this.associadoOrdemServico = associadoOrdemServico;
     }
     
+    /**
+     * Printa se o Agendamento eh ou nao um encaixe na agenda
+     * @return
+     */
     public String isEncaixeString(){
         if(isEncaixe)
             return "Sim";
-        
+
         return "Nao";
     }
     
@@ -220,6 +237,10 @@ public class Agendamento extends Modelo{
         return "AGE-" + UUID.randomUUID().toString().substring(0, 10);
     }
 
+    /**
+     * Obtem a representaçao em String de um Agendamento
+     * @return
+     */
     @Override
     public String toString() {
         
