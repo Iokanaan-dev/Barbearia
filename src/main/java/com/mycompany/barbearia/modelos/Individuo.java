@@ -49,7 +49,7 @@ public abstract class Individuo extends Modelo{
      * @param cpf 
      */
     private static void validarCpf(String cpf) {
-        if (cpf == null || cpf.length() != 11) {
+        if (cpf == null || cpf.length() != 14) {
             throw new IllegalArgumentException("CPF inválido!");
         }
     }

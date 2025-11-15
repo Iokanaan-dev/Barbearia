@@ -202,7 +202,7 @@ public class TelaEsqueciMinhaSenha extends javax.swing.JFrame {
         }
 
         //  Tudo ok → ir para tela de troca de senha
-        new TelaTrocarSenha(u).setVisible(true);
+        new TelaTrocarSenhaEsquecida(u).setVisible(true);
         this.dispose();
 
     } catch (Exception ex) {

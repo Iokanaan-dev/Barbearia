@@ -4,6 +4,7 @@ import com.mycompany.date_Barbearia.GerenciadorDeArquivos;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import com.mycompany.Gerenciamento.*;
 import com.mycompany.Gerenciamento.Sistema;
+import InterfaceG.*;
 /**
  * Classe principal para testes de integração de todo o sistema.
  * @author italo
@@ -17,7 +18,7 @@ public class Barbearia {
         
         //14 - parte I ======================================================
 
-        // 🔹 Carrega dados existentes ou cria novos
+        //  Carrega dados existentes ou cria novos
         try {
             Barbearia_date dados = Barbearia_date.getInstancia();
 
@@ -59,15 +60,15 @@ public class Barbearia {
             
             //10 ===========================================================
             //System.out.println("\nQUESTAO 10");
-             sistema.questao10();            
+            // sistema.questao10();            
 
             //11 ===========================================================
            // System.out.println("\nQUESTAO 11");
-              sistema.questao11();
+             //sistema.questao11();
 
             //12 ===========================================================
             //System.out.println("\nQUESTAO 12");
-             sistema.questao12();  
+             //sistema.questao12();  
             
             //13 ==========================================================
            // System.out.println("\nQUESTAO 13");
@@ -88,6 +89,9 @@ public class Barbearia {
             //17P2 ======================================================== 
             //System.out.println("\nQUESTAO 17P2");
             //sistema.questao17P2();
+            
+            PrimeiroLoginSistema login = new PrimeiroLoginSistema();
+            login.setVisible(true);
             
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());

@@ -294,7 +294,7 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
             dados.getListaAtendentes().remove(u);
     }
     
-    private void validarPIM(String pin, Usuario user) throws Exception{
+    private void validarPIM(String pin, Usuario user) throws Exception{ //tenho que usar depois nas verificações de usuario
         
         Gerente gerente = (Gerente) user;
         if (!gerente.verficarPinADM(pin)) {

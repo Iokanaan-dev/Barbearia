@@ -18,15 +18,15 @@ import static javax.swing.JOptionPane.showMessageDialog;
  *
  * @author italo
  */
-public class TelaTrocarSenha extends javax.swing.JFrame {
+public class TelaTrocarSenhaEsquecida extends javax.swing.JFrame {
     
     private Usuario usuario;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaTrocarSenha.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaTrocarSenhaEsquecida.class.getName());
 
     /**
      * Creates new form TelaTrocarSenha
      */
-    public TelaTrocarSenha(Usuario usuario) {
+    public TelaTrocarSenhaEsquecida(Usuario usuario) {
         this.usuario = usuario;
         initComponents();
         setLocationRelativeTo(null);
@@ -130,7 +130,7 @@ public class TelaTrocarSenha extends javax.swing.JFrame {
 
         try {
             usuario.setSenha(nova); // altera no usuário
-            //Barbearia_date.getInstancia().salvar(); //  salva
+            Barbearia_date.getInstancia().salvar(); //  salva
             
             JOptionPane.showMessageDialog(this, "Senha alterada com sucesso!");
 

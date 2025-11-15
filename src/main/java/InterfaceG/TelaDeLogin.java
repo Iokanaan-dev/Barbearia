@@ -147,7 +147,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "Login realizado!");
 
-        // Abrir o menu principal com o usuário logado
+        //Abrir o menu principal com o usuário logado
         //MenuPrincipal menu = new MenuPrincipal(user);
         //menu.setVisible(true);
 
