@@ -37,7 +37,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     //  Inicializa o Singleton (chama no main)
 
     /**
-     *
+     * Inicializa com os dados
      * @param dados
      */
     public static void inicializa(Barbearia_date dados) {
@@ -46,10 +46,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         }
     }
 
-    //  Acesso global
-
     /**
-     *
+     * Retorna a instancia
      * @return
      */
     public static GestaoAgendamentos getInstancia() {
@@ -101,6 +99,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
      * @param servicos
      * @param dataInicio
      * @param isEncaixe
+     * @param associado_Ordem_Servico
      * @return
      * @throws Exception
      */
@@ -121,6 +120,11 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         return novoAgendamento;
     }
     
+    /**
+     *
+     * @param agendamento
+     * @throws Exception
+     */
     public void cadastrar(Agendamento agendamento) throws Exception{
         
         validarPreCondicoes(agendamento.getServicos(), agendamento.getDataHoraInicioAgendamento(), agendamento.getEstacao());
@@ -136,6 +140,19 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         super.adicionar(agendamento);
     }
     
+    /**
+     * Chama o construtor de Agendamento
+     * @param cliente
+     * @param barbeiro
+     * @param atendente
+     * @param estacao
+     * @param servicos
+     * @param dataInicio
+     * @param statusInicial
+     * @param isEncaixe
+     * @param associado_Ordem_Servico
+     * @return
+     */
     public Agendamento construirAgendamento(Cliente cliente, Barbeiro barbeiro, Usuario atendente, Estacao estacao, ArrayList<Servico> servicos, LocalDateTime dataInicio, StatusAgendamento statusInicial, boolean isEncaixe, String associado_Ordem_Servico){
         return new Agendamento(cliente, barbeiro, atendente, estacao, servicos, dataInicio, statusInicial, isEncaixe, associado_Ordem_Servico);
     }
@@ -151,6 +168,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Soma o tempo total de todos os serviços em minutos.
+     * @param servicos
+     * @return 
      */
     public int calcularDuracaoTotal(ArrayList<Servico> servicos) {
         return servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();

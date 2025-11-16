@@ -8,7 +8,6 @@
     import java.time.LocalDateTime;
     import java.time.temporal.ChronoUnit;
     import java.util.ArrayList;
-    import java.util.Map;
 
     /**
      * SERVIÇO FINANCEIRO. Gerencia as "Contas" (Ordens de Serviço).
@@ -35,22 +34,28 @@
             this.listaModelo = dados.getListaOrdensServico(); 
         }
 
-
+        /**
+         * Inicializa os dados
+         * @param dados
+         */
         public static void inicializar(Barbearia_date dados) {
-            if (instancia == null) {
-                instancia = new GestaoOrdemServico(dados);
+                if (instancia == null) {
+                    instancia = new GestaoOrdemServico(dados);
+                }
             }
-        }
-
-
-        public static GestaoOrdemServico getInstancia() {
-            if (instancia == null) {
-                throw new IllegalStateException("GestaoOrdemServico ainda não foi inicializada");
-            }
-            return instancia;
-        }
 
         /**
+         * Obem a instancia singleton
+         * @return
+         */
+        public static GestaoOrdemServico getInstancia() {
+                if (instancia == null) {
+                    throw new IllegalStateException("GestaoOrdemServico ainda não foi inicializada");
+                }
+                return instancia;
+            }
+
+       /**
          * Retorna uma CÓPIA segura
          * @return 
          */
@@ -58,14 +63,12 @@
             return new ArrayList<>(listaModelo);
         }
 
-        /**
-         * Cria uma nova Ordem de Serviço (conta) para um cliente e
-         * anexa o primeiro agendamento a ela.
-         * @param cliente
-         * @param barbeiro
-         * @param data
-         * @param agendamentoInicial
-         * @return 
+            /**
+             * Cria uma nova Ordem de Serviço (conta) para um cliente e
+             * anexa o primeiro agendamento a ela.
+            * @param ordemServico
+            * @param agendamento 
+            * @throws java.lang.Exception 
          */
         public void cadastrar(OrdemServico ordemServico, Agendamento agendamento) throws Exception{
             validarAgendamentoParaCadastro(agendamento);
@@ -75,24 +78,33 @@
             super.adicionar(ordemServico);
         }
 
+        /**
+         * Cadastra uma ordem de servico pelos seus dados
+         * @param cliente
+         * @param barbeiro
+         * @param data
+         * @param agendamentoInicial
+         * @return
+         * @throws Exception
+         */
         public OrdemServico cadastrar(Cliente cliente, Barbeiro barbeiro, LocalDate data, Agendamento agendamentoInicial) throws Exception {
 
-            validarAgendamentoParaCadastro(agendamentoInicial);
+                validarAgendamentoParaCadastro(agendamentoInicial);
 
-            OrdemServico novaOS = construirOrdemServicoBasica(cliente, barbeiro, data);
+                OrdemServico novaOS = construirOrdemServicoBasica(cliente, barbeiro, data);
 
-            vincularAgendamentoAOrdem(novaOS, agendamentoInicial);
-            recalcularValoresTotais(novaOS);
+                vincularAgendamentoAOrdem(novaOS, agendamentoInicial);
+                recalcularValoresTotais(novaOS);
 
-            super.adicionar(novaOS);
-            return novaOS;
-        }
+                super.adicionar(novaOS);
+                return novaOS;
+            }
 
-
-
-        /** 
-        * Verifica se o agendamento já está associado a uma OS
-        */
+        /**
+         * Verifica se o agendamento já está associado a uma OS
+         * @param agendamento
+         * @throws Exception 
+         */
         private void validarAgendamentoParaCadastro(Agendamento agendamento) throws Exception {
             if (agendamento.getAssociadoOrdemServico() != null) {
                 throw new Exception(
@@ -102,28 +114,43 @@
             }
         }
 
-
+        /**
+         * Valida se o cliente associado a OS eh o mesmo dos agendamentos
+         * @param idClienteOS
+         * @param clienteAgendamento
+         * @throws Exception 
+         */
         private void validarCliente(String idClienteOS, Cliente clienteAgendamento) throws Exception{
             Cliente clienteOS = GestaoClientes.getInstancia().buscarPorId(idClienteOS);
             if(!clienteOS.getId().equals(clienteAgendamento.getId()))
                   throw new Exception("Cliente da OS difere do cliente do Agendamento;");  
         }
 
-        /** 
-        * Cria uma nova ordem de serviço com os dados básicos 
-        */
+       /** 
+         * Chama o construtor de OrdemServico
+         * @param cliente
+         * @param barbeiro
+         * @param data
+         * @return 
+         */
         private OrdemServico construirOrdemServicoBasica(Cliente cliente, Barbeiro barbeiro, LocalDate data) {
             return new OrdemServico(cliente, barbeiro, data);
         }
 
         /**
-        * Vincula o agendamento à ordem e define o relacionamento entre ambos 
-        */
+         * Vincula o agendamento a ordem de servico
+         * @param os
+         * @param agendamento 
+         */
         private void vincularAgendamentoAOrdem(OrdemServico os, Agendamento agendamento) {
             os.adicionarAgendamento(agendamento);
             agendamento.setAssociadoOrdemServico(os.getId());
         }        
-
+        
+        /**
+         * Recalcula os valores de uma OS
+         * @param os 
+         */
         private void recalcularValoresTotais(OrdemServico os) {
             if (os == null) return;
 
@@ -135,21 +162,36 @@
             os.setValorTotalProdutos(totalProdutos);
             os.setValorTaxaEncaixe(taxaEncaixe);
         }
-
+        
+        /**
+         * Calcula o valor total dos servicos em uma ordem de servico
+         * @param os
+         * @return 
+         */
         private double calcularTotalServicos(OrdemServico os) {
         return os.getAgendamentos().stream()
             .filter(ag -> ag.getStatus() != StatusAgendamento.CANCELADO)
             .mapToDouble(Agendamento::getValorDosServicos)
             .sum();
         }
-
+        
+        /**
+         * Calcula a caixa de encaixe
+         * @param os
+         * @return 
+         */
         private double calcularTaxaEncaixe(OrdemServico os) {
             return os.getAgendamentos().stream()
                 .filter(Agendamento::isEncaixe)
                 .mapToDouble(ag -> ag.getValorDosServicos() * TAXA_ENCAIXE_PERCENTUAL)
                 .sum();
         }
-
+        
+        /**
+         * Calcula o total dos produtos em uma OS
+         * @param os
+         * @return 
+         */
         private double calcularTotalProdutos(OrdemServico os) {
             return os.getProdutosVendidos().entrySet().stream()
                 .mapToDouble(item -> {
@@ -161,7 +203,7 @@
 
 
         /**
-         *
+         * Adiciona mais um produto a lista de produtos vendidos em uma OS
          * @param osID
          * @param produtoID
          * @param quantidade
@@ -205,13 +247,23 @@
             });
         }
 
-
+         /**
+            *
+            * @param os
+            * @throws Exception
+            */
         public void processarPagamentoFinal(OrdemServico os) throws Exception {
-            os.setValorAdiantado_50pct(os.getValorTotalAPagar());
-            os.setStatus(StatusAtendimento.PAGO);
-            os.getAgendamentos().forEach(ag -> ag.setStatus(StatusAgendamento.FINALIZADO));
-        }
-
+                os.setValorAdiantado_50pct(os.getValorTotalAPagar());
+                os.setStatus(StatusAtendimento.PAGO);
+                os.getAgendamentos().forEach(ag -> ag.setStatus(StatusAgendamento.FINALIZADO));
+            }
+        
+        /**
+         * Busca uma OS pelo Id
+         * @param id
+         * @return
+         * @throws Exception 
+         */
         private OrdemServico buscarOSValida(String id) throws Exception {
             OrdemServico os = buscarPorId(id);
                 if (os == null) throw new Exception("Ordem de serviço não encontrada.");
@@ -237,12 +289,23 @@
             os.setStatus(StatusAtendimento.CANCELADO);
             recalcularValoresTotais(os);
         }
-
+        
+        /**
+         *  Verifica pelo numero de dias restantes se um agendamento deve cobrar
+         * taxa de cancelamento
+         * @param ag
+         * @return 
+         */
         private boolean deveCobrarTaxa(Agendamento ag) {
             long diasRestantes = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), ag.getDataHoraInicioAgendamento().toLocalDate());
             return ag.getStatus() != StatusAgendamento.PRE_AGENDADO && diasRestantes < CANCELAMENTO_SEM_TAXA;
         }
-
+        
+        /**
+         * Calcula a taxa de cancelamento
+         * @param ag
+         * @return 
+         */
         private double calcularTaxaCancelamento(Agendamento ag) {
             double valorBase = ag.getValorDosServicos();
             if (ag.isEncaixe()) valorBase += valorBase * TAXA_ENCAIXE_PERCENTUAL;
@@ -255,6 +318,7 @@
          * @param id
          * @return 
          */
+        @Override
         public OrdemServico buscarPorId(String id) {
             return super.buscarPorId(id);
         }
@@ -277,8 +341,8 @@
 
         /**
          * Adiciona um produto usado ao histórico da OS.
-         * @param idOrdem
-         * @param idProduto
+        * @param ordemSelecionada
+        * @param produtoAdicionado
          * @throws java.lang.Exception
          */
         public void adicionarProdutoUtilizado(OrdemServico ordemSelecionada, Produto produtoAdicionado) throws Exception {
@@ -302,9 +366,14 @@
             return new ArrayList<>(listaModelo.stream().filter(os -> os.getIdCliente().equals(idCliente)).toList());
         }
 
+        /**
+         * Obtem todas as OS associadas a um dado cliente
+         * @param cliente
+         * @return
+         */
         public ArrayList<OrdemServico> buscarOSCliente(Cliente cliente) {
-            return buscarOSCliente(cliente.getId());
-        }
+                return buscarOSCliente(cliente.getId());
+            }
 
 
         /**
@@ -325,12 +394,22 @@
             super.printLista(lista);
         } 
 
+        /**
+         *
+         * @param ordemServico
+         * @param agendamento
+         * @throws Exception
+         */
         public void adicionarAgendamento(OrdemServico ordemServico, Agendamento agendamento) throws Exception{
-            validarCliente(ordemServico.getIdCliente(), agendamento.getCliente());
-            ordemServico.adicionarAgendamento(agendamento);
+                validarCliente(ordemServico.getIdCliente(), agendamento.getCliente());
+                ordemServico.adicionarAgendamento(agendamento);
         }
 
-        public int getNumeroOS(){
+    /**
+     * Retorna o numero de OS instanciadas
+     * @return
+     */
+    public int getNumeroOS(){
             return OrdemServico.getContador();
         }
 }

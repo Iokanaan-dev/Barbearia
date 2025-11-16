@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 /**
- *
+ * Classe que gerencia as despesas
  * @author italo
  */
 public class GestaoDespesas extends Gestao<Despesa> {
@@ -27,18 +27,39 @@ public class GestaoDespesas extends Gestao<Despesa> {
         listaModelo = dados.getListaDespesas();
     }
     
+    /**
+     * Inicializa os dados
+     * @param dados
+     */
     public static void inicializa(Barbearia_date dados) {
             if (instancia == null) {
             instancia = new GestaoDespesas(dados);
         }
     }
    
+    /**
+     * Obtem a instancia singleton
+     * @return
+     */
     public static GestaoDespesas getInstancia(){
         return instancia;
     }
     
+    /**
+     * Construtor privado
+     */
      private GestaoDespesas(){}
     
+    /**
+     *
+     * @param nome
+     * @param valor
+     * @param data
+     * @param tipo
+     * @param obs
+     * @param user
+     * @throws Exception
+     */
     public void lancarDespesas(String nome, Double valor, LocalDate data, TipoDespesa tipo, String obs, Usuario user) throws Exception {
        
         if (!(user instanceof Gerente)) {
@@ -49,6 +70,12 @@ public class GestaoDespesas extends Gestao<Despesa> {
         super.adicionar(novaDespesa);
     }
     
+    /**
+     * Retorna a lista de despesas. Funcao ADM.
+     * @param user
+     * @return
+     * @throws Exception
+     */
     public ArrayList<Despesa> getList(Usuario user) throws Exception {
         if(!(user instanceof Gerente)) {
             throw new Exception("Acesso negado");
@@ -59,6 +86,11 @@ public class GestaoDespesas extends Gestao<Despesa> {
     /**
      * Lança uma despesa de "Custo de Mercadoria Usada" 
      * com base em uma lista de produtos consumidos gerada em'getRelatorioProdutosUsados' da GestaoFinanceira).
+     * @param produtosConsumidos
+     * @param data
+     * @param observacoes
+     * @param ator
+     * @throws java.lang.Exception
      */
     public void lancarDespesaDeConsumo(ArrayList<Produto> produtosConsumidos, LocalDate data, String observacoes, Usuario ator) throws Exception {
         

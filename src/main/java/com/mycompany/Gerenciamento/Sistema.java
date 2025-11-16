@@ -367,7 +367,13 @@ public class Sistema {
     }
     
     public void questao14() throws Exception{
-                                                
+        
+        gestaoS.limparLista();
+        gestaoC.limparLista();
+        gestaoS.limparLista();
+        gestaoP.limparLista();
+        gestaoOS.limparLista();
+        gestaoA.limparLista();                              
 
         //instancia Serviços
         Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);

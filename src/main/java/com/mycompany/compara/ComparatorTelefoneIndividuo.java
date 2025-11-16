@@ -8,14 +8,14 @@ import com.mycompany.barbearia.modelos.Individuo;
 import java.util.Comparator;
 
 /**
- *
+ * Classe que implementa o Comparator para o telefone de um individuo
  * @author intalo
  */
 public class ComparatorTelefoneIndividuo implements Comparator<Individuo>{
             /**
      * Sobreescreve compare 
-     * @param usuario1
-     * @param usuario2
+     * @param individuo1
+     * @param individuo2
      * @return
      */
     @Override
@@ -28,8 +28,8 @@ public class ComparatorTelefoneIndividuo implements Comparator<Individuo>{
     
     /**
      * Exibe quem tem menor nome
-     * @param telefone1
-     * @param telefone2
+     * @param individuo1
+     * @param individuo2
      * @return 
      */
     public boolean isTelefoneIgual(Individuo individuo1, Individuo individuo2){

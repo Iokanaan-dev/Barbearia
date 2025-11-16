@@ -23,6 +23,12 @@ public class ComparatorTempoServicosEmAgendamento implements Comparator<Agendame
     // usa a instancia do singleton para usar os metodos de GestaoAgendamento
     GestaoAgendamentos gestaoA = GestaoAgendamentos.getInstancia();
     
+    /**
+     * Sobreescre o compare usando o tempo de dois agendamentos
+     * @param agendamento1
+     * @param agendamento2
+     * @return
+     */
     @Override
     public int compare(Agendamento agendamento1, Agendamento agendamento2){
         int comparaTempo = gestaoA.calcularDuracaoTotal(agendamento1.getServicos()) - gestaoA.calcularDuracaoTotal(agendamento2.getServicos());

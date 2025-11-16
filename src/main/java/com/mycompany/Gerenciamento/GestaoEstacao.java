@@ -29,16 +29,28 @@ public class GestaoEstacao extends Gestao<Estacao>{
         return instancia;
     }
     
+    /**
+     * Construtor que inicializa o array de estacoes
+     */
     public GestaoEstacao(){
         estacoes[0] = new Estacao("Lavar e sacar", "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!", TipoEstacao.LAVAGEM);
         estacoes[1] = new Estacao("Corriqueira 1", "Estação destinada apenas para atividades corriqueiras da barbearia", TipoEstacao.CORRIQUEIRA);
         estacoes[2] = new Estacao("Corriqueira 2", "Estação destinada apenas para atividades corriqueiras da barbearia", TipoEstacao.CORRIQUEIRA);
     }
     
+    /**
+     * Obtem o Array de estacoes
+     * @return
+     */
     public Estacao[] getEstacoes() {
         return estacoes.clone();
     }
     
+    /**
+     * Obtem o indice
+     * @param indice
+     * @return
+     */
     public Estacao getEstacao(int indice){
         if (indice < 0 || indice >= NUM){
             System.out.println("O indice não pode ser menor que 0, ou maior que " + NUM + "!");
