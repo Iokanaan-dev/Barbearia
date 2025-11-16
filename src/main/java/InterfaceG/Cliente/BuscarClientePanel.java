@@ -214,7 +214,7 @@ public class BuscarClientePanel extends javax.swing.JPanel {
 
     } catch (Exception ex) {
         JOptionPane.showMessageDialog(this, "Erro ao buscar cliente: " + ex.getMessage());
-    } 
+    }    
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
 
