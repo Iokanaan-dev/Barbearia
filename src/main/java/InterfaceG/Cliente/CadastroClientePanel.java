@@ -4,13 +4,14 @@
  */
 package InterfaceG.Cliente;
 
+import InterfaceG.Cliente.BuscarClientePanel;
+import InterfaceG.Cliente.ClientesPanel;
 import com.mycompany.Gerenciamento.GestaoClientes;
 import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
@@ -35,42 +36,28 @@ public class CadastroClientePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        formPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        iNomeField1 = new javax.swing.JTextField();
         iCpfField2 = new javax.swing.JTextField();
         iTelefoneField3 = new javax.swing.JTextField();
-        jEmailField4 = new javax.swing.JTextField();
-        iDataNascimentoField = new javax.swing.JTextField();
-        buttonsPanel = new javax.swing.JPanel();
-        btnSalvar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-
-        setLayout(new java.awt.BorderLayout());
-
-        jLabel1.setText("Nome:");
+        btnSalvar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jEmailField4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        iNomeField1 = new javax.swing.JTextField();
+        iDataNascimentoField = new javax.swing.JTextField();
 
         jLabel2.setText("Cpf:");
 
         jLabel3.setText("telefone:");
 
-        jLabel4.setText("Email:");
-
-        jLabel5.setText("Data de nascimento:");
-
-        iCpfField2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iCpfField2ActionPerformed(evt);
-            }
-        });
-
-        iDataNascimentoField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iDataNascimentoFieldActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -81,160 +68,156 @@ public class CadastroClientePanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
+        jLabel4.setText("Email:");
 
-        javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
-        buttonsPanel.setLayout(buttonsPanelLayout);
-        buttonsPanelLayout.setHorizontalGroup(
-            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonsPanelLayout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(btnSalvar)
-                .addGap(5, 5, 5)
-                .addComponent(btnCancelar))
-        );
-        buttonsPanelLayout.setVerticalGroup(
-            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonsPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(iTelefoneField3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(btnCancelar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalvar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addComponent(jEmailField4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        javax.swing.GroupLayout formPanelLayout = new javax.swing.GroupLayout(formPanel);
-        formPanel.setLayout(formPanelLayout);
-        formPanelLayout.setHorizontalGroup(
-            formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(formPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iTelefoneField3))
-                    .addGroup(formPanelLayout.createSequentialGroup()
-                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(iNomeField1)
-                            .addComponent(iCpfField2, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))))
-                .addGap(32, 32, 32)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(formPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(formPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jEmailField4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
-            .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        formPanelLayout.setVerticalGroup(
-            formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jEmailField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(iCpfField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(iTelefoneField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnSalvar))
+                .addGap(91, 91, 91))
         );
 
-        add(formPanel, java.awt.BorderLayout.CENTER);
+        jLabel1.setText("Nome:");
+
+        jLabel5.setText("Data de nascimento:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
+                .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 161, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5)
+                    .addComponent(iNomeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iDataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+                // validação simples
+        if (iNomeField1.getText().isBlank() ||
+            iCpfField2.getText().isBlank() ||
+            iTelefoneField3.getText().isBlank() ||
+            jEmailField4.getText().isBlank() ||
+            iDataNascimentoField.getText().isBlank()) {
 
-    if (iNomeField1.getText().isBlank() ||
-        iCpfField2.getText().isBlank() ||
-        iTelefoneField3.getText().isBlank() ||
-        iDataNascimentoField.getText().isBlank() ||
-        jEmailField4.getText().isBlank()) {
-
-        JOptionPane.showMessageDialog(this, "Preencha todos os campos.");
-        return;
-    }
-
-
-    LocalDate dataNascimento;
-    try {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        dataNascimento = LocalDate.parse(iDataNascimentoField.getText(), fmt);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Data inválida! Use o formato dd/MM/yyyy");
-        return;
-    }
-
-
-    try {
-        Cliente cliente = new Cliente(
-            iNomeField1.getText(),
-            iCpfField2.getText(),
-            iTelefoneField3.getText(),
-            dataNascimento,
-            jEmailField4.getText()
-        );
-
-    
-        GestaoClientes.getInstancia().cadastrar(cliente);
-
-        Barbearia_date dados = Barbearia_date.getInstancia();
-        dados.salvar();
-        
-        ClientesPanel parent = (ClientesPanel) SwingUtilities.getAncestorOfClass(ClientesPanel.class, this);
-        if (parent != null) {
-            parent.setSubPainel(new BuscarClientePanel()); // volta para a tela base de clientes
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos.");
+            return;
         }
 
+        // valida data
+        LocalDate dataNascimento;
+        try {
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            dataNascimento = LocalDate.parse(iDataNascimentoField.getText(), fmt);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Data inválida! Use o formato dd/MM/yyyy");
+            return;
+        }
 
-        JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");
-    } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "Erro ao cadastrar cliente: " + ex.getMessage());
-    }
+        try {
+            Cliente cliente = new Cliente(
+                iNomeField1.getText(),
+                iCpfField2.getText(),
+                iTelefoneField3.getText(),
+                dataNascimento,
+                jEmailField4.getText()
+            );
+
+            GestaoClientes.getInstancia().cadastrar(cliente);
+
+            Barbearia_date.getInstancia().salvar();
+
+            // voltar para tela principal de clientes
+            ClientesPanel parent = (ClientesPanel)
+                SwingUtilities.getAncestorOfClass(ClientesPanel.class, this);
+
+            if (parent != null) {
+                parent.setSubPainel(new BuscarClientePanel());
+            }
+
+            JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                "Erro ao cadastrar cliente: " + ex.getMessage());
+        }
+  
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        ClientesPanel parent = (ClientesPanel) this.getParent();
-        parent.setSubPainel(new JPanel()); 
+
+        ClientesPanel parent = (ClientesPanel)
+            SwingUtilities.getAncestorOfClass(ClientesPanel.class, this);
+
+        if (parent != null) {
+            parent.setSubPainel(new BuscarClientePanel());
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void iCpfField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCpfField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iCpfField2ActionPerformed
-
-    private void iDataNascimentoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iDataNascimentoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iDataNascimentoFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JPanel buttonsPanel;
-    private javax.swing.JPanel formPanel;
     private javax.swing.JTextField iCpfField2;
     private javax.swing.JTextField iDataNascimentoField;
     private javax.swing.JTextField iNomeField1;
@@ -245,5 +228,6 @@ public class CadastroClientePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

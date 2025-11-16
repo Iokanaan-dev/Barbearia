@@ -5,17 +5,16 @@ InterfaceG\MenuPrincipalTela$1.class
 InterfaceG\OrdemServicoPanel.class
 InterfaceG\GestaoDespesasPanel.class
 InterfaceG\TelaEsqueciMinhaSenha$1.class
-InterfaceG\Cliente\CadastroClientePanel$3.class
 InterfaceG\Cliente\ClientesPanel.class
 InterfaceG\Cliente\BuscarClientePanel.class
 InterfaceG\GestaoUsuariosPanel.class
 InterfaceG\Cliente\ExcluirClientePanel$1.class
 InterfaceG\Cliente\ClientesPanel$1.class
-InterfaceG\Cliente\CadastroClientePanel$4.class
 InterfaceG\Cliente\BuscarClientePanel$4.class
 InterfaceG\Cliente\EditarClientePanel$1.class
 InterfaceG\TelaTrocarSenhaEsquecida$1.class
 InterfaceG\PerfilPanel.class
+InterfaceG\Cliente\ExcluirClientePanel$2.class
 InterfaceG\TelaTrocarSenhaEsquecida.class
 InterfaceG\Cliente\CadastroClientePanel.class
 InterfaceG\TelaDeLogin$2.class
@@ -34,6 +33,7 @@ InterfaceG\Agendamento\AgendamentosPanel.class
 InterfaceG\AgendaPanel.class
 InterfaceG\Cliente\EditarClientePanel.class
 InterfaceG\Cliente\ExcluirClientePanel.class
+InterfaceG\Cliente\ExcluirClientePanel$3.class
 InterfaceG\Cliente\BuscarClientePanel$1.class
 InterfaceG\TelaEsqueciMinhaSenha.class
 InterfaceG\GestaoEstoquePanel.class

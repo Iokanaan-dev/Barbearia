@@ -4,10 +4,14 @@
  */
 package InterfaceG.Cliente;
 
+import com.mycompany.Gerenciamento.GestaoClientes;
 import com.mycompany.barbearia.modelos.Cliente;
 import java.awt.BorderLayout;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -28,12 +32,13 @@ public class EditarClientePanel extends javax.swing.JPanel {
     public void setCliente(Cliente cliente) {
     this.clienteAtual = cliente;
 
-    jTextField1.setText(clienteAtual.getNome());
-    jTextField2.setText(clienteAtual.getCpf());
-    jTextField3.setText(clienteAtual.getTelefone());
-    jTextField4.setText(clienteAtual.getEmail());
-    jTextField5.setText(clienteAtual.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+    jNome.setText(cliente.getNome());
+    jCPF.setText(cliente.getCpf());
+    jTelefone.setText(cliente.getTelefone());
+    jEmail.setText(cliente.getEmail());
+    jDataDeNascimento.setText(cliente.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
+    
     
 
     /**
@@ -49,14 +54,14 @@ public class EditarClientePanel extends javax.swing.JPanel {
         formPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jCPF = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jTelefone = new javax.swing.JTextField();
+        jNome = new javax.swing.JTextField();
+        jEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jDataDeNascimento = new javax.swing.JTextField();
         buttonsPanel = new javax.swing.JPanel();
         btnEditar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -69,9 +74,9 @@ public class EditarClientePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Nome:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jCPFActionPerformed(evt);
             }
         });
 
@@ -126,25 +131,25 @@ public class EditarClientePanel extends javax.swing.JPanel {
                     .addGroup(formPanelLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3))
+                        .addComponent(jTelefone))
                     .addGroup(formPanelLayout.createSequentialGroup()
                         .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jNome)
+                            .addComponent(jCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formPanelLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(formPanelLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(buttonsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -154,19 +159,19 @@ public class EditarClientePanel extends javax.swing.JPanel {
                 .addGap(70, 70, 70)
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -174,17 +179,45 @@ public class EditarClientePanel extends javax.swing.JPanel {
         add(formPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jCPFActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        ClientesPanel parent = (ClientesPanel) this.getParent();
-        parent.setSubPainel(new JPanel()); 
+        ClientesPanel parent = (ClientesPanel) SwingUtilities.getAncestorOfClass(ClientesPanel.class, this);
+        if (parent != null) {
+        parent.setSubPainel(new BuscarClientePanel()); // volta para a tela base de clientes
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
+        try {
+
+                String nome = jNome.getText().trim();
+                String cpf = jCPF.getText().trim();
+                String telefone = jTelefone.getText().trim();
+                String email = jEmail.getText().trim();
+
+                LocalDate dataNascimento = LocalDate.parse(
+                    jDataDeNascimento.getText().trim(),
+                    DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                );
+
+                GestaoClientes gestaoC = GestaoClientes.getInstancia();
+
+                gestaoC.editar(clienteAtual, nome, cpf, telefone, dataNascimento, email);
+
+                JOptionPane.showMessageDialog(this, "Cliente atualizado!");
+                
+               ClientesPanel parent = (ClientesPanel) SwingUtilities.getAncestorOfClass(ClientesPanel.class, this);
+               if (parent != null) {
+                parent.setSubPainel(new BuscarClientePanel()); // volta para a tela base de clientes
+                }
+
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao editar: " + e.getMessage());
+            }
     }//GEN-LAST:event_btnEditarActionPerformed
 
 
@@ -193,16 +226,16 @@ public class EditarClientePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEditar;
     private javax.swing.JPanel buttonsPanel;
     private javax.swing.JPanel formPanel;
+    private javax.swing.JTextField jCPF;
+    private javax.swing.JTextField jDataDeNascimento;
+    private javax.swing.JTextField jEmail;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jNome;
+    private javax.swing.JTextField jTelefone;
     // End of variables declaration//GEN-END:variables
 }
