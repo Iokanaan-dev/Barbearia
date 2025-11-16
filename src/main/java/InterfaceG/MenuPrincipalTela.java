@@ -1,5 +1,6 @@
 package InterfaceG;
 
+import InterfaceG.Cliente.ClientesPanel;
 import com.mycompany.barbearia.modelos.Atendente;
 import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
@@ -31,6 +32,7 @@ public class MenuPrincipalTela extends JFrame {
         this.usuarioLogado = user;
         initComponents();
         configurarMenuPorPerfil();
+        
     }
 
     private void initComponents() {
@@ -40,6 +42,10 @@ public class MenuPrincipalTela extends JFrame {
         setSize(950, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        
+        mainPainel = new JPanel();
+        mainPainel.setLayout(new BorderLayout());
+        add(mainPainel, BorderLayout.CENTER);
 
         // Sidebar
         sidebar = new JPanel();
@@ -113,7 +119,7 @@ public class MenuPrincipalTela extends JFrame {
         });
         
         btnClientes.addActionListener((java.awt.event.ActionEvent evt) -> {
-            //setView(new ClientesPanel());
+            setView(new ClientesPanel());
         });
 
         btnAgenda.addActionListener((java.awt.event.ActionEvent evt) -> {

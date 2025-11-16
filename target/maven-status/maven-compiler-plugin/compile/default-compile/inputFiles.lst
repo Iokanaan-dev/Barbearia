@@ -1,6 +1,7 @@
-C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\ClientesPanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\ExcluirClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\ComparatorTelefoneIndividuo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoEstoque.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\CadastroClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\RelatorioFinanceiro.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoUsuarios.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\OrdemServicoPanel.java
@@ -33,11 +34,15 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Model
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Individuo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestaoUsuariosPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\BaterPontoPanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Agendamento\AgendamentosPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agenda.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\ParBatida.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\EditarClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoClientes.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\ClientesPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoDespesas.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\TelaEsqueciMinhaSenha.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\BuscarClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Produto.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoProdutos.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\date_Barbearia\GerenciadorDeArquivos.java
@@ -61,4 +66,4 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Barbe
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\OrdemServico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\VagaListaEspera.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\TipoDespesa.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\AgendamentosPanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\PerfilPanel.java

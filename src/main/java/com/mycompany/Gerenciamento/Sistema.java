@@ -77,7 +77,7 @@ public class Sistema {
         
         //edicao de colaborador (funcao ADM)
         gestaoU.editar("gerente_sebastiao", "sebinho1234", atendenteNovo.getId(), "Thiago", "12323232323", "559292019", LocalDate.of(1999, 9, 3));
-        gestaoU.editarUsuarioLogin(atendenteNovo.getId(), "atendente_thiago", "thiago1234", "thiagin_do_mel", "thiagin123");
+        gestaoU.editarUsuarioLogin(atendenteNovo, "12323232323", "thiagin_do_mel", "thiago1234");
         
         // remocao de colaborador (funcao ADM)
         Barbeiro barbeiroApagavel = new Barbeiro("barneiro_apagavel", "apagavel123", "Apagavel", "00000000000", "000000000", LocalDate.of(1900, 1, 1));
@@ -99,7 +99,7 @@ public class Sistema {
         gestaoC.cadastrar(clienteNovo);
         
         //edicao de cliente
-        gestaoC.editar(clienteNovo.getId(), "Isaquinho", "55555555555", "99749529", LocalDate.of(2012, 12, 12), "frescoball@gmail.com");
+        gestaoC.editar(clienteNovo, "Isaquinho", "55555555555", "99749529", LocalDate.of(2012, 12, 12), "frescoball@gmail.com");
         
         // remocao de cliente
         Cliente clienteApagavel  = new Cliente("Apagavel", "00000000000", "00000000", LocalDate.of(1900, 1, 1), "apagavel@delete.com");

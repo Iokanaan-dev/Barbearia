@@ -104,18 +104,26 @@ public class GestaoClientes extends Gestao<Cliente> {
      * @param dataNascimento
      * @param email
      */
-    public void editar(String id, String nome, String cpf, String telefone, LocalDate dataNascimento, String email){
-      
-        //verifcar id nulo
-        
-      Cliente cliente = buscarPorId(id);
-        
-      cliente.setNome(nome);
-      cliente.setCpf(cpf);
-      cliente.setTelefone(telefone);
-      cliente.setDataNascimento(dataNascimento);
-      cliente.setEmail(email);
-      
+    public void editar(Cliente cliente, String nome, String cpf, String telefone, LocalDate dataNascimento, String email) {
+        if (cliente == null) {
+            throw new IllegalArgumentException("Cliente não pode ser nulo!");
+        }
+
+        if (nome != null) {
+            cliente.setNome(nome);
+        }
+        if (cpf != null) {
+            cliente.setCpf(cpf);
+        }
+        if (telefone != null) {
+            cliente.setTelefone(telefone);
+        }
+        if (dataNascimento != null) {
+            cliente.setDataNascimento(dataNascimento);
+        }
+        if (email != null) {
+            cliente.setEmail(email);
+        }
     }
 }
 

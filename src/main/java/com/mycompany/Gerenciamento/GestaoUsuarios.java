@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 
 /**
  *
- * @author italo
+ * @author italos
  */
 public class GestaoUsuarios extends Gestao<Usuario> implements Login {
  //   private final ArrayList<Usuario> listaUsuarios = new ArrayList();
@@ -127,32 +127,31 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @param telefone
      * @param dataNascimento
      */
-    public void editar(String nameuserGerente, String senhaGerente, String id, String nome, String cpf, String telefone, LocalDate dataNascimento){
-        
-        if(validarLogin(nameuserGerente, senhaGerente)){
-            Usuario gerente = buscarUsername(nameuserGerente);
-            
-            if(gerente instanceof Gerente){
-        /*
-                // POR HORA ESTAMOS SEM VALIDACAO POR PIN, APENAS POR USERNAME, SENHA E O USUARIO DEVE SER ADM
-                Scanner entrada = new Scanner(System.in);
-                System.out.println("Digite o pin: ");
-                String pin = entrada.nextLine();
-        
-            if(!gerente.verficarPinADM(pin))
-                throw new IllegalArgumentException("PIN incorreto!"); 
-           */
-            Usuario usuario = this.buscarPorId(id);
-            usuario.setNome(nome);
-            usuario.setCpf(cpf);
-            usuario.setTelefone(telefone);
-            usuario.setDataNascimento(dataNascimento);
-            }
+    public void editar(String nameuser, String senha, String id, String nome, String cpf, String telefone, LocalDate dataNascimento) {
+        if (!validarLogin(nameuser, senha)) {
+            throw new IllegalArgumentException("ACesso negado!");
         }
-        else
-            throw new IllegalArgumentException("Usuario sem acesso suficiente!");  
-    }    
-    
+
+        Usuario usuario = this.buscarPorId(id);
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuário não encontrado!");
+        }
+
+        // Atualiza apenas os campos que foram fornecidos
+        if (nome != null && !nome.isBlank()) {
+            usuario.setNome(nome);
+        }
+        if (cpf != null && !cpf.isBlank()) {
+            usuario.setCpf(cpf);
+        }
+        if (telefone != null && !telefone.isBlank()) {
+            usuario.setTelefone(telefone);
+        }
+        if (dataNascimento != null) {
+            usuario.setDataNascimento(dataNascimento);
+        }
+    }
+
     /*
      *
      * @param userName
@@ -176,16 +175,28 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
      * @param usernameNovo
      * @param senhaNova
      */
-    public void editarUsuarioLogin(String idUsuario, String username, String senha, String usernameNovo ,String senhaNova){
-        
-        
+    public void editarUsuarioLogin(Usuario usuario, String cpf, String usernameNovo, String senhaNova) {
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuário não pode ser nulo!");
+        }
 
-        usernameSendoUsado(usernameNovo);
-        
-        Usuario usuario = buscarUsername(username);
-        usuario.mudarUsername(username, usernameNovo);
-        usuario.mudarSenha(senha, senhaNova);
-    }  
+        // Verifica se o CPF fornecido confere com o do usuário
+        if (!usuario.getCpf().equals(cpf)) {
+            throw new IllegalArgumentException("CPF incorreto! Acesso negado.");
+        }
+
+        // Atualiza username se fornecido e diferente do atual
+        if (usernameNovo != null && !usernameNovo.isBlank() && !usernameNovo.equals(usuario.getUsername())) {
+            usernameSendoUsado(usernameNovo); 
+            usuario.mudarUsername(usuario.getUsername(), usernameNovo);
+        }
+
+        // Atualiza senha se fornecida e diferente da atual
+        if (senhaNova != null && !senhaNova.isBlank() && !senhaNova.equals(usuario.getSenha())) {
+            usuario.mudarSenha(usuario.getSenha(), senhaNova);
+        }
+    }
+
     
     /**
      *
