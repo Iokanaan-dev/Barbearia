@@ -6,11 +6,9 @@ package InterfaceG.Cliente;
 
 import com.mycompany.Gerenciamento.GestaoClientes;
 import com.mycompany.barbearia.modelos.Cliente;
-import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**

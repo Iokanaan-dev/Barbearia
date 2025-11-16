@@ -1,6 +1,7 @@
 package InterfaceG;
 
 import InterfaceG.Cliente.ClientesPanel;
+import InterfaceG.Serviços.ServicoPanel;
 import com.mycompany.barbearia.modelos.Atendente;
 import com.mycompany.barbearia.modelos.Barbeiro;
 import com.mycompany.barbearia.modelos.Gerente;
@@ -20,7 +21,7 @@ public class MenuPrincipalTela extends JFrame {
 
     // Botões do menu
     private JToggleButton btnClientes   , btnAgenda, btnAgendamentos,
-            btnOrdemServico, btnBaterPonto, btnFinanceiro, btnGestaoUsuarios,
+            btnOrdemServico, btnBaterPonto,btnServicos ,btnFinanceiro, btnGestaoUsuarios,
             btnGestaoEstoque, btnGestaoDespesas, btnEncerrarSessao;
 
     // Grupo de botões para manter apenas um selecionado
@@ -58,6 +59,7 @@ public class MenuPrincipalTela extends JFrame {
         btnAgendamentos = criarBotao("Agendamentos");
         btnOrdemServico = criarBotao("Ordem de Serviço");
         btnBaterPonto = criarBotao("Bater Ponto");
+        btnServicos =criarBotao("Serviços");
         btnFinanceiro = criarBotao("Financeiro");
         btnGestaoUsuarios = criarBotao("Gestão Usuários");
         btnGestaoEstoque = criarBotao("Gestão Estoque");
@@ -70,6 +72,7 @@ public class MenuPrincipalTela extends JFrame {
         sidebar.add(btnAgendamentos);
         sidebar.add(btnOrdemServico);
         sidebar.add(btnBaterPonto);
+        sidebar.add(btnServicos);
         sidebar.add(btnFinanceiro);
         sidebar.add(btnGestaoUsuarios);
         sidebar.add(btnGestaoEstoque);
@@ -83,6 +86,7 @@ public class MenuPrincipalTela extends JFrame {
         grupoMenu.add(btnAgendamentos);
         grupoMenu.add(btnOrdemServico);
         grupoMenu.add(btnBaterPonto);
+        grupoMenu.add(btnServicos);
         grupoMenu.add(btnFinanceiro);
         grupoMenu.add(btnGestaoUsuarios);
         grupoMenu.add(btnGestaoEstoque);
@@ -136,6 +140,10 @@ public class MenuPrincipalTela extends JFrame {
 
         btnBaterPonto.addActionListener((java.awt.event.ActionEvent evt) -> {
             //setView(new BaterPontoPanel());
+        });
+        
+        btnServicos.addActionListener((java.awt.event.ActionEvent evt) -> {
+            setView(new ServicoPanel());
         });
 
         btnFinanceiro.addActionListener((java.awt.event.ActionEvent evt) -> {

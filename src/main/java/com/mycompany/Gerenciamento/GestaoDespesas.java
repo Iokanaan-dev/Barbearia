@@ -51,13 +51,13 @@ public class GestaoDespesas extends Gestao<Despesa> {
      private GestaoDespesas(){}
     
     /**
-     *
-     * @param nome
-     * @param valor
-     * @param data
-     * @param tipo
-     * @param obs
-     * @param user
+     * Adiciona a despesa na lista de despesas
+     * @param nome da despesa
+     * @param valor da despesa
+     * @param data da despesa
+     * @param tipo da despesa
+     * @param obs a respeito da despesa
+     * @param user que sera validado para lancar a despesa
      * @throws Exception
      */
     public void lancarDespesas(String nome, Double valor, LocalDate data, TipoDespesa tipo, String obs, Usuario user) throws Exception {
@@ -72,8 +72,8 @@ public class GestaoDespesas extends Gestao<Despesa> {
     
     /**
      * Retorna a lista de despesas. Funcao ADM.
-     * @param user
-     * @return
+     * @param user que sera validado para lancar a despesa
+     * @return uma copia da lista de despesas
      * @throws Exception
      */
     public ArrayList<Despesa> getList(Usuario user) throws Exception {
@@ -85,11 +85,12 @@ public class GestaoDespesas extends Gestao<Despesa> {
     
     /**
      * Lança uma despesa de "Custo de Mercadoria Usada" 
-     * com base em uma lista de produtos consumidos gerada em'getRelatorioProdutosUsados' da GestaoFinanceira).
-     * @param produtosConsumidos
-     * @param data
+     * com base em uma lista de produtos consumidos gerada 
+     * em'getRelatorioProdutosUsados' da GestaoFinanceira). Funçao ADM
+     * @param produtosConsumidos por um barbeiro
+     * @param data 
      * @param observacoes
-     * @param ator
+     * @param ator 
      * @throws java.lang.Exception
      */
     public void lancarDespesaDeConsumo(ArrayList<Produto> produtosConsumidos, LocalDate data, String observacoes, Usuario ator) throws Exception {
@@ -114,4 +115,3 @@ public class GestaoDespesas extends Gestao<Despesa> {
         this.lancarDespesas(nomeDespesa, custoTotal, data, TipoDespesa.CONSUMIVEIS, observacoes, ator);
     }
 }
-    

@@ -122,7 +122,7 @@
                 throw new IllegalArgumentException("O valor não pode ser 0 ou negativo");
             }
             this.preco = preco;
-        }
+        }       
 
        /**
          * Gera o ID

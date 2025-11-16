@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- *
+ * Gerencia o estoque
  * @author italo
  */
 public class GestaoEstoque extends Gestao<Produto> {
@@ -28,7 +28,7 @@ public class GestaoEstoque extends Gestao<Produto> {
     }                                                                                   
 
     /**
-     *
+     * Inicializa com os dados
      * @param dados
      */
     public static void inicializa(Barbearia_date dados) {
@@ -38,17 +38,16 @@ public class GestaoEstoque extends Gestao<Produto> {
     }
    
     /**
-     *
+     * Obtem a instancia
      * @return
      */
     public static GestaoEstoque getInstancia(){
         return instancia;
     }    
     
-    //Cadastra produto no estoque
 
     /**
-     *
+     * Cadastra um produto no estoque
      * @param id
      * @param quantidade
      */
@@ -67,8 +66,8 @@ public class GestaoEstoque extends Gestao<Produto> {
 
     /**
      * Verifica se o produto já foi cadastrado no sistema.
-     * @param id
-     * @return 
+     * @param id do produto
+     * @return booleano que indica se ja foi cadastrado no sistema ou nao
      */
     public boolean existeNoSistema(String id) {
         return GestaoProdutos.getInstancia().buscarPorId(id) != null;      
@@ -76,8 +75,8 @@ public class GestaoEstoque extends Gestao<Produto> {
 
     /**
      * Verifica se o produto já foi cadastrado no estoque.
-     * @param id
-     * @return 
+     * @param id do produto
+     * @return booleano que indica se ja foi cadastrado no estoque ou nao
      */
     public boolean existeEmEstoque(String id) {
         return estoque.contemProduto(id);      
@@ -93,15 +92,15 @@ public class GestaoEstoque extends Gestao<Produto> {
     } 
 
     /**
-     *
-     * @return
+     * Obtem a tabela de  estoque
+     * @return a tabela de estoque atual
      */
     public Map<String, Integer> getEstoque() {
         return estoque.getTabelaEstoque();
     }
     
     /**
-     *
+     * Carrega o estoque do JSON
      * @param mapaCarregado
      */
     public void carregarEstoque(Map<String, Integer> mapaCarregado) {
@@ -110,8 +109,8 @@ public class GestaoEstoque extends Gestao<Produto> {
     
     /**
      * Busca produtos na lista de produtos do estoque usando o nome
-     * @param nome
-     * @return ArrayList<>
+     * @param nome do produto
+     * @return ArrayList<> com todos os itens com aquele nome
     */
     public ArrayList<Produto> buscarPorNome(String nome){
        return super.buscarPorNome(nome);
@@ -152,10 +151,10 @@ public class GestaoEstoque extends Gestao<Produto> {
     }
             
     /**
-     *
-     * @param id
-     * @param quantidade
-     * @return
+     * Verifica se a quantidade eh valida de um item no estoque
+     * @param id do produto 
+     * @param quantidade a ser verificada
+     * @return um booleano que indica se a quantidade eh valida 
      */
     public boolean verificacaoQuantidade(String id, int quantidade) {
         if (!estoque.contemProduto(id)) {
@@ -171,9 +170,9 @@ public class GestaoEstoque extends Gestao<Produto> {
     //adiciona mais produtos no estoque
 
     /**
-     *
-     * @param id
-     * @param quantidade
+     * Aumenta a quantidade em estoque de um item
+     * @param id do produto 
+     * @param quantidade a ser acrescentada
      */
     public void aumentarQuantidade(String id, int quantidade){
 
@@ -186,8 +185,8 @@ public class GestaoEstoque extends Gestao<Produto> {
 
     /**
      * Reduz a quantidade de um item no estoque
-     * @param id
-     * @param quantidade
+     * @param id do produto
+     * @param quantidade a ser reduzida do estoque 
      */
     public void reduzirQuantidade(String id, int quantidade){
         
@@ -205,8 +204,8 @@ public class GestaoEstoque extends Gestao<Produto> {
     
     /**
      * Obtem a quantidade de um item no estoque
-     * @param id
-     * @return
+     * @param id do produto
+     * @return a quantidade do item no estoque
      */
     public int getQuantidade(String id) {
         return this.estoque.getQuantidade(id);
@@ -214,7 +213,7 @@ public class GestaoEstoque extends Gestao<Produto> {
     
     /**
      * Obtem a quantidade de todos os itens no estoque
-     * @return
+     * @return a tabela com todos os itens e suas quantidades
      */
     public Map<Produto, Integer> getListaQuantidades(){
         Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
@@ -243,7 +242,7 @@ public class GestaoEstoque extends Gestao<Produto> {
     }
     
     /**
-     * Printa a lista de todos os itens e suas quantidades
+     * Imprime a tabela estoque completa com nome do item e sua quantidade
      */
     public void printListaQuantidade() {
         Map<Produto, Integer> mapa = getListaQuantidades(); // pega o mapa produto→quantidade
