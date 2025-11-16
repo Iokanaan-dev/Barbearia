@@ -27,17 +27,31 @@ public class GestaoEstoque extends Gestao<Produto> {
         this.estoque = dados.getEstoque();
     }                                                                                   
 
+    /**
+     *
+     * @param dados
+     */
     public static void inicializa(Barbearia_date dados) {
             if (instancia == null) {
             instancia = new GestaoEstoque(dados);
         }
     }
    
+    /**
+     *
+     * @return
+     */
     public static GestaoEstoque getInstancia(){
         return instancia;
     }    
     
     //Cadastra produto no estoque
+
+    /**
+     *
+     * @param id
+     * @param quantidade
+     */
     public void cadastrarProdutoNoEstoque(String id, int quantidade) {  
         if (!existeNoSistema(id)) {
             throw new IllegalArgumentException("Produto não existe no sistema.");
@@ -78,10 +92,18 @@ public class GestaoEstoque extends Gestao<Produto> {
         return new ArrayList(listaModelo);
     } 
 
+    /**
+     *
+     * @return
+     */
     public Map<String, Integer> getEstoque() {
         return estoque.getTabelaEstoque();
     }
     
+    /**
+     *
+     * @param mapaCarregado
+     */
     public void carregarEstoque(Map<String, Integer> mapaCarregado) {
         this.estoque.carregarMapa(mapaCarregado);
     }
@@ -129,6 +151,12 @@ public class GestaoEstoque extends Gestao<Produto> {
         super.remover(id);
     }
             
+    /**
+     *
+     * @param id
+     * @param quantidade
+     * @return
+     */
     public boolean verificacaoQuantidade(String id, int quantidade) {
         if (!estoque.contemProduto(id)) {
             throw new IllegalArgumentException("O produto com o ID " + id + " não existe no estoque.");
@@ -141,6 +169,12 @@ public class GestaoEstoque extends Gestao<Produto> {
         return true;
     }
     //adiciona mais produtos no estoque
+
+    /**
+     *
+     * @param id
+     * @param quantidade
+     */
     public void aumentarQuantidade(String id, int quantidade){
 
         if (verificacaoQuantidade(id, quantidade)) {
@@ -149,6 +183,12 @@ public class GestaoEstoque extends Gestao<Produto> {
         }
     }    
     //dá baixa no estoque
+
+    /**
+     * Reduz a quantidade de um item no estoque
+     * @param id
+     * @param quantidade
+     */
     public void reduzirQuantidade(String id, int quantidade){
         
         if (verificacaoQuantidade(id, quantidade)) {
@@ -163,10 +203,19 @@ public class GestaoEstoque extends Gestao<Produto> {
         }
     }
     
+    /**
+     * Obtem a quantidade de um item no estoque
+     * @param id
+     * @return
+     */
     public int getQuantidade(String id) {
         return this.estoque.getQuantidade(id);
     }
     
+    /**
+     * Obtem a quantidade de todos os itens no estoque
+     * @return
+     */
     public Map<Produto, Integer> getListaQuantidades(){
         Map<Produto, Integer> mapa = new LinkedHashMap<>(); //Ainda é um mapa, mas contem uma listaligada dentro da sua estrutura que armazena a sequencia de itens adicionados (nesse caso), assim os itens irão ficar na sequencia que foram adicionados
         Map<String, Integer> itens = estoque.getTabelaEstoque();
@@ -193,6 +242,9 @@ public class GestaoEstoque extends Gestao<Produto> {
         return mapa;
     }
     
+    /**
+     * Printa a lista de todos os itens e suas quantidades
+     */
     public void printListaQuantidade() {
         Map<Produto, Integer> mapa = getListaQuantidades(); // pega o mapa produto→quantidade
 

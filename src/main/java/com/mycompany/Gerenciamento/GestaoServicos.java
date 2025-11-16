@@ -9,7 +9,7 @@ import com.mycompany.date_Barbearia.Barbearia_date;
 
         
 /**
- *
+ * Gerencia os servicos
  * @author italo
  */
 public class GestaoServicos extends Gestao <Servico>{
@@ -22,20 +22,33 @@ public class GestaoServicos extends Gestao <Servico>{
         listaModelo = dados.getListaServicos();
     }
     
+    /**
+     * Inicaliza com os dados salvos
+     * @param dados
+     */
     public static void inicializa(Barbearia_date dados) {
         if (instancia == null) {
         instancia = new GestaoServicos(dados);
         }
     }
     
+    /**
+     * Contador private para a questao
+     */
     private static int contadorPrivate = 0;
+
+    /**
+     * Contador protected para questao
+     */
     protected static int contadorProtected = 0;
 
+    /**
+     * Retorna o contador private
+     * @return
+     */
     public static int getContadorPrivate() {
         return contadorPrivate;
     }
-    
-    
     
     /**
      * Permite o uso do padrao singleton para permitir o acesso da lista dessa classe em outras classes
@@ -51,6 +64,8 @@ public class GestaoServicos extends Gestao <Servico>{
      * @param preco
      * @param descricao
      * @param temp
+     * @param tipoRequerido
+     * @throws java.lang.Exception
      */
     public void cadastrar(String nome, double preco, String descricao, int temp, TipoEstacao tipoRequerido) throws Exception{
         verificarServicoExiste(nome);
@@ -62,6 +77,11 @@ public class GestaoServicos extends Gestao <Servico>{
         ++contadorProtected;
     }
     
+    /**
+     * Cadastra um novo servico diretamente
+     * @param servico
+     * @throws Exception
+     */
     public void cadastrar(Servico servico) throws Exception{
         verificarServicoExiste(servico.getNome());
         verificarServicoDuracao(servico.getTempoEmMinutos());

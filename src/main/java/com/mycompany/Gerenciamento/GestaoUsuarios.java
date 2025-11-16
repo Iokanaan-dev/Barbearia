@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- *
+ * Gerencia os usuarios
  * @author italo
  */
 public class GestaoUsuarios extends Gestao<Usuario> implements Login {
@@ -41,17 +41,34 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
             this.listaModelo.addAll(dados.getListaAtendentes());
     }
 
-
+    /**
+     * Inicializa com os dados salvos
+     * @param dados
+     */
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoUsuarios(dados);
         }
     }
 
+    /**
+     * Obtem a instancia
+     * @return
+     */
     public static GestaoUsuarios getInstancia() {
         return instancia;
     }
     
+    /**
+     * Cadastra um novo usuario nao ADM
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param funcao
+     */
     public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao) {
         funcaoValida(funcao);
         //usernameSendoUsado(username);
@@ -62,6 +79,17 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }
     
+    /**
+     * Cadastra um novo usuario ADM
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param funcao
+     * @param pin
+     */
     public void cadastrar(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao, String pin) {
         funcaoValida(funcao);
         usernameSendoUsado(username);
@@ -72,14 +100,26 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         GestaoPonto.getInstancia().adicionarATabelaPonto(novoUsuario.getId());
     }    
     
+    /**
+     * Cadastra um usuario diretamente
+     * @param usuario
+     */
     public void cadastrar(Usuario usuario){
         usernameSendoUsado(usuario.getUsername());
         this.adicionar(usuario);
     }
 
     /**
-    * Cria o objeto Usuario de acordo com a função.
-    */
+     * Chama o construtor de um usuario nao adm baseado na funçao
+     * @param username
+     * @param senha
+     * @param nome
+     * @param cpf
+     * @param telefone
+     * @param dataNascimento
+     * @param funcao
+     * @return 
+     */
     private Usuario construirUsuario(String username, String senha, String nome, String cpf, String telefone, LocalDate dataNascimento, TipoUsuario funcao) {
         Usuario novoUsuario;
         switch (funcao) {
@@ -152,13 +192,12 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         else
             throw new IllegalArgumentException("Usuario sem acesso suficiente!");  
     }    
-    
-    /*
-     *
+
+    /**
+     * Busca um usuario pelo nome
      * @param userName
-     * @return
+     * @return 
      */
-    
     public Usuario buscarUsername(String userName){ 
         for(Usuario usuario : listaModelo){
             if (usuario == null || usuario.getUsername() == null) continue; // proteger contra null
@@ -169,8 +208,8 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     }
     
     /**
-     *
-     * @param objeto
+     * Edita is dados de login de um  usuario. Funcao ADM.
+     * @param idUsuario
      * @param username
      * @param senha
      * @param usernameNovo
@@ -188,7 +227,10 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     }  
     
     /**
-     *
+     * Retrona a lista de usuarios baseado na opcao int
+     * 0: Gerente
+     * 1: Barbeiro
+     * 2: Atendente
      * @return
      */
     private ArrayList<Usuario> getListaUsuarios(int opcao){ // private pois so sera usado aqui dentro da classe
@@ -281,6 +323,11 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
  
     
     // Método para remover usuário, se necessário
+
+    /**
+     * metodo que remove um usuario
+     * @param u 
+     */
     public void remover(Usuario u) {
         if (u == null) return;
 
@@ -294,6 +341,13 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
             dados.getListaAtendentes().remove(u);
     }
     
+    
+    /**
+     * Valida o PIN de um ADM
+     * @param pin
+     * @param user
+     * @throws Exception 
+     */
     private void validarPIM(String pin, Usuario user) throws Exception{
         
         Gerente gerente = (Gerente) user;
@@ -308,7 +362,12 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
         }
     }
     
-        public Usuario buscarCPF(String cpf) {
+    /**
+     * Busca um usuario pelo CPF
+     * @param cpf
+     * @return
+     */
+    public Usuario buscarCPF(String cpf) {
         verificarCampoNulo(cpf);
         
         for(Usuario u : this.listaModelo) {
@@ -319,7 +378,11 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     }
         
         
-
+    /**
+     * Busca um usuario pelo CPF
+     * @param cpf
+     * @return 
+     */
     private Usuario buscarPorCpfInterno(String cpf) {
         if (cpf == null || cpf.trim().isEmpty()) {
             return null; 
@@ -335,6 +398,11 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     }
     
      // Sobrescreve método de adicionar usuário
+
+    /**
+     * Adiciona um usuario
+     * @param u
+     */
     @Override
     public void adicionar(Usuario u) {
         if (u == null) return;

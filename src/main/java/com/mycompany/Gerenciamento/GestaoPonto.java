@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.time.LocalDateTime;
 
 /**
- *
+ * Classe que gerencia o ponto dos usuarios
  * @author intalo
  */
 public class GestaoPonto extends Gestao<Usuario>{
@@ -32,12 +32,20 @@ public class GestaoPonto extends Gestao<Usuario>{
        // this.listaModelo.addAll(GestaoUsuarios.getInstancia().getListaCopia());
     }
 
+    /**
+     *
+     * @param dados
+     */
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoPonto(dados);
         }
     }
 
+    /**
+     *Retorna a Instancia
+     * @return
+     */
     public static GestaoPonto getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoPonto ainda não foi inicializada");
@@ -105,10 +113,7 @@ public class GestaoPonto extends Gestao<Usuario>{
         if(!existeNaTabelaPonto(idUsuario))
             throw new IllegalArgumentException("Usuario não existe na tabela de ponto."); 
         
-        this.tabelaPontos.getListaParBatida(idUsuario).get(this.tabelaPontos.getListaParBatida(idUsuario).size()-1).setSaida(pegarHorarioAtual()); //Pega a lista de batidas do usuário, acessa o último `ParBatida` e atualiza seu campo de saída com o horário atual.
-
-        
-        
+        this.tabelaPontos.getListaParBatida(idUsuario).get(this.tabelaPontos.getListaParBatida(idUsuario).size()-1).setSaida(pegarHorarioAtual()); //Pega a lista de batidas do usuário, acessa o último `ParBatida` e atualiza seu campo de saída com o horário atual.       
     }     
     
     /**
@@ -167,10 +172,18 @@ public class GestaoPonto extends Gestao<Usuario>{
         return horasUsuario / 3600;
     }
     
+    /**
+     * Obtem a tabela ponto
+     * @return
+     */
     public TabelaPonto getTabela() {
         return this.tabelaPontos;
     }
     
+    /**
+     *
+     * @param tabelaCarregada
+     */
     public void carregarTabela(TabelaPonto tabelaCarregada) {
         if (tabelaCarregada != null) {
             this.tabelaPontos = tabelaCarregada;

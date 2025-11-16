@@ -33,6 +33,10 @@ public class GestaoFinanceira {
 
     }
 
+    /**
+     * obtem a instancia
+     * @return
+     */
     public static GestaoFinanceira getInstancia() {
         if (instancia == null) {
             instancia = new GestaoFinanceira();
@@ -45,7 +49,12 @@ public class GestaoFinanceira {
      * em Ordens de Serviço pagas de um mês e ano especifico
      * O Gerente usa esta lista para fazer o cálculo de despesas
      *
+     * @param mes
+     * @param ano
+     * @param user
+     * @param pin
      * @return Uma lista de Produtos que foram usados.
+     * @throws java.lang.Exception
      */
     public ArrayList<Produto> getRelatorioProdutosUsados(int mes, int ano, Usuario user, String pin) throws Exception {
         
@@ -69,6 +78,16 @@ public class GestaoFinanceira {
         return produtosUsados; // Retorna a lista
     }
 
+    /**
+     * Gera o Balanco Mensal. Funçao Adm.
+     * @param mes
+     * @param ano
+     * @param user
+     * @param pin
+     * @param salvar
+     * @return
+     * @throws Exception
+     */
     public String gerarBalancoMensal(int mes, int ano, Usuario user, String pin, boolean salvar) throws Exception {
 
         this.verificarInstancia(pin, user);
@@ -122,6 +141,13 @@ public class GestaoFinanceira {
         return relatorio;
     }
 
+    /**
+     * Gera a nota fiscal do cliente baseado em seu cpf. Pode ou nao ser salva
+     * no JSON
+     * @param cpf
+     * @param salvar
+     * @return
+     */
     public String gerarNotaCliente(String cpf, boolean salvar) {
         Cliente cliente = GestaoClientes.getInstancia().buscarCPF(cpf);
         ArrayList<OrdemServico> ordensCliente = gestaoOS.buscarOSCliente(cliente.getId());
@@ -169,6 +195,16 @@ public class GestaoFinanceira {
         return nota;
     }
 
+    /**
+     * Gera o relatorio de vendas para um dado dia. Funcao ADM. POde ou nao ser 
+     * salvo no JSON
+     * @param dia
+     * @param user
+     * @param pin
+     * @param salvar
+     * @return
+     * @throws Exception
+     */
     public String gerarRelatorioVendasDiario(LocalDate dia, Usuario user, String pin, boolean salvar) throws Exception {
         
         this.verificarInstancia(pin, user);
@@ -223,6 +259,16 @@ public class GestaoFinanceira {
         return relatorio;
     }
 
+    /**
+     * Gera o relatorio de vendas mensal. Funcao ADM. Pode ou nao ser salvo.
+     * @param mes
+     * @param ano
+     * @param user
+     * @param pin
+     * @param salvar
+     * @return
+     * @throws Exception
+     */
     public String gerarRelatorioVendasMensal(int mes, int ano, Usuario user, String pin, boolean salvar) throws Exception {
         
         this.verificarInstancia(pin, user);
@@ -295,6 +341,17 @@ public class GestaoFinanceira {
         }
     }
     
+    /**
+     * Gera o registro de balanço mensal. Funçao ADM. POde ou nao ser salvo 
+     * no JSON
+     * @param mes
+     * @param ano
+     * @param user
+     * @param pin
+     * @param s
+     * @return
+     * @throws Exception
+     */
     public RelatorioFinanceiro gerarRegistroBalancoMensal(int mes, int ano, Usuario user, String pin, boolean s) throws Exception {
         String conteudo = gerarBalancoMensal(mes, ano, user, pin, s);
         return new RelatorioFinanceiro(TipoRelatorio.BALANÇO_MENSAL,LocalDate.of(ano, mes, 1), conteudo);

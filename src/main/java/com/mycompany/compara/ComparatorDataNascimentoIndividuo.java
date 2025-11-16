@@ -4,12 +4,11 @@
  */
 package com.mycompany.compara;
 
-import com.mycompany.barbearia.modelos.Cliente;
 import com.mycompany.barbearia.modelos.Individuo;
 import java.util.Comparator;
 
 /**
- * Classe que compara data de nascimento de clientes
+ * Classe que compara data de nascimento de individuos
  * @author intalo
  */
 public class ComparatorDataNascimentoIndividuo implements Comparator<Individuo> {

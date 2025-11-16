@@ -22,6 +22,10 @@ public class GestaoProdutos extends Gestao<Produto>{
         listaModelo = dados.getListaProdutos();
     }
     
+    /**
+     * Iniciaçiza com os dados
+     * @param dados
+     */
     public static void inicializa(Barbearia_date dados) {
             if (instancia == null) {
             instancia = new GestaoProdutos(dados);
@@ -39,8 +43,10 @@ public class GestaoProdutos extends Gestao<Produto>{
     /**
      * Cadastra um novo produto na lista de produtos
      * @param nome
+     * @param custo
      * @param preco
      * @param descricao
+     * @throws java.lang.Exception
      */
     public void cadastrar(String nome, double custo, double preco, String descricao) throws Exception{
         verificarprodutoExiste(nome);
@@ -49,6 +55,11 @@ public class GestaoProdutos extends Gestao<Produto>{
         super.adicionar(novoProduto);
     }
     
+    /**
+     * Cadsstra um produto diretamente
+     * @param produto
+     * @throws Exception
+     */
     public void cadastrar(Produto produto) throws Exception{
         verificarprodutoExiste(produto.getNome());
         super.adicionar(produto);
@@ -58,7 +69,11 @@ public class GestaoProdutos extends Gestao<Produto>{
         return new Produto(nome, custo, preco, descricao);
     }
         
-    
+    /**
+     * Verifica s eum produto existe
+     * @param nome
+     * @throws Exception 
+     */
     private void verificarprodutoExiste(String nome) throws Exception{
         if (buscarPorNomeExato(nome) != null)
             throw new Exception("Já existe um produto cadastrado com o nome: " + nome);       

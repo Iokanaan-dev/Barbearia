@@ -29,6 +29,11 @@ public class GestaoListaEspera {
     }
 
     //  Inicializa o Singleton
+
+    /**
+     * Incializa com os dados
+     * @param dados
+     */
     public static void inicializar(Barbearia_date dados) {
         if (instancia == null) {
             instancia = new GestaoListaEspera(dados);
@@ -36,6 +41,11 @@ public class GestaoListaEspera {
     }
 
     //  Retorna a instância global
+
+    /**
+     * Obtem a instancia
+     * @return
+     */
     public static GestaoListaEspera getInstancia() {
         if (instancia == null) {
             throw new IllegalStateException("GestaoListaEspera não foi inicializada. Chame inicializar(dados) primeiro.");
@@ -86,6 +96,7 @@ public class GestaoListaEspera {
 
     /**
      * Retorna uma cópia da fila atual
+     * @return 
      */
     public Queue<VagaListaEspera> getFilaEspera() {
         return new LinkedList<>(this.filaEspera);
@@ -93,6 +104,7 @@ public class GestaoListaEspera {
 
     /**
      * Recarrega a fila (usado para persistência)
+     * @param filaCarregada
      */
     public void carregarFila(Queue<VagaListaEspera> filaCarregada) {
         if (filaCarregada != null) {
@@ -101,6 +113,10 @@ public class GestaoListaEspera {
         }
     }
 
+    /**
+     * Verifica se a lista de espera esta vazia
+     * @return
+     */
     public boolean isVazia() {
         return filaEspera.isEmpty();
     }
