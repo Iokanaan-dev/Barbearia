@@ -58,8 +58,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     /**
-     * Verifica se um horario esta ocupado
-     * @return
+     * Verifica se um horario esta ocupado. Usado em validas disponibilidade
+     * @return boolean indicando se ha ocupacao ou nao do horario
      */    
     private boolean horarioOcupado(Modelo recurso, LocalDateTime inicio, LocalDateTime fim) {
         
@@ -92,15 +92,17 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     
     /**
      * Cria agendamentos
-     * @param cliente
-     * @param barbeiro
-     * @param estacao
-     * @param atendente
-     * @param servicos
-     * @param dataInicio
-     * @param isEncaixe
-     * @param associado_Ordem_Servico
-     * @return
+     * @param cliente que agendou
+     * @param barbeiro que ira cuidar dos servicos
+     * @param estacao que seja utilizada
+     * @param atendente que cadstrou o agendamento
+     * @param servicos escolhidos pelo cliente
+     * @param dataInicio horario do inicio do atendimento
+     * @param isEncaixe verifica se eh ou nao encaixe para calculo de taxa
+     * @param associado_Ordem_Servico indica se o agendamento esta associado a 
+     * uma OS
+     * @return o Agendamento cadastrado. Pode ser usado para inicializar 
+     * diretamente uma variavel
      * @throws Exception
      */
     public Agendamento cadastrar(Cliente cliente, Barbeiro barbeiro, Estacao estacao, Usuario atendente, ArrayList<Servico> servicos, LocalDateTime dataInicio, boolean isEncaixe, String associado_Ordem_Servico) throws Exception {
@@ -121,7 +123,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     /**
-     *
+     * Cadastra o agendamento diretamente apos valida-lo
      * @param agendamento
      * @throws Exception
      */
@@ -168,22 +170,32 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Soma o tempo total de todos os serviços em minutos.
-     * @param servicos
-     * @return 
+     * @param servicos a terem o tempo somado
+     * @return o total de tempo dos servicos
      */
     public int calcularDuracaoTotal(ArrayList<Servico> servicos) {
         return servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
     }
 
     /**
-     * Calcula o horário de término do agendamento com base no início e na duração total.
+     * Calcula o horario de termino baseado no horario de inicio e o tempo
+     * total gasto para os servicos
+     * @param dataInicio horario de inicio dos servicos
+     * @param duracaoTotalMinutos duracao total dos servicos associados ao
+     * agendamento
+     * @return 
      */
     private LocalDateTime calcularDataFim(LocalDateTime dataInicio, int duracaoTotalMinutos) {
         return dataInicio.plusMinutes(duracaoTotalMinutos);
     }
 
     /**
-     * Verifica se barbeiro e estação estão disponíveis no intervalo solicitado.
+     * Valida a disponibilidade de um barbeiro e uma estacao para um dado horario
+     * @param barbeiro que tera agenda avaliada
+     * @param estacao que tera agenda avaliada
+     * @param inicio horario de inicio do atendimento
+     * @param fim horario de fim do atendimento
+     * @throws Exception 
      */
     private void validarDisponibilidade(Barbeiro barbeiro, Estacao estacao, LocalDateTime inicio, LocalDateTime fim) throws Exception {
         if (horarioOcupado(barbeiro, inicio, fim))
@@ -195,6 +207,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Determina o status inicial de um agendamento com base na antecedência.
+     * @param dataInicio
+     * @return 
      */
     private StatusAgendamento determinarStatusInicial(LocalDateTime dataInicio) {
         long diasDeAntecedencia = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), dataInicio.toLocalDate());
@@ -206,8 +220,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     
     /**
      * Valida uma lista de Servicos
-     * @param Agendamento
-     * @return
+     * @param Agendamento a ter os servicos validados
+     * @return 
      * @throws Exception
     **/     
     private void validarListaServicos(ArrayList<Servico> servicos) throws Exception{
@@ -216,7 +230,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
 
     /**
-     * Valida um agendamento
+     * Valida um horario de agendamento
      * @param Agendamento
      * @return
      * @throws Exception
@@ -227,11 +241,11 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     /**
-     * Valida um agendamento
-     * @param Agendamento
-     * @return
-     * @throws Exception
-    **/     
+     * Valida se os servicos de um agendamento sao condizentes com a estacao
+     * @param servicos do agendamento
+     * @param estacao do agendamento
+     * @throws Exception 
+     */     
     private void validarEstacao(ArrayList<Servico> servicos, Estacao estacao) throws Exception{
         for (Servico s : servicos) {
             if (s.getTipoEstacaoRequerido() != estacao.getTipo())
@@ -240,8 +254,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     }
     
     /**
-     * Valida um agendamento
-     * @param Agendamento
+     * Valida um agendamento impedindo que ele seja null
+     * @param Agendamento a ser avaliado
      * @return
      * @throws Exception
     **/ 
@@ -266,7 +280,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     /**
      * Cancela um agendamento
      * @param ID
-     * @return
+     * @return Agendamento
      * @throws Exception
     **/ 
     public Agendamento cancelarAgendamento(String ID) throws Exception {
@@ -284,7 +298,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
      * Busca um horario vago na lsita de agendamento
      * @param servicos
      * @param data
-     * @return
+     * @return Lista de horarios vagos
      */
     public ArrayList<Agenda> buscarHorarioVagoAgendamento(ArrayList<Servico> servicos, LocalDate data) {
         ArrayList<Agenda> agendas = new ArrayList<>();
@@ -333,7 +347,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     
     /**
      * Obtem os agendamentos
-     * @return
+     * @return Lista de agendamentos
      */
     public ArrayList<Agendamento> getAgendamentos() {
         return new ArrayList<>(this.listaModelo); 
@@ -343,7 +357,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
      * Obtem todos os agendamentos associados a um certo Barbeiro
      * @param barbeiro
      * @param data
-     * @return
+     * @return Todos os agendamentos de um certo barbeiro
      */
     public ArrayList<Agendamento> buscarAgendamentoBarbeiro(Barbeiro barbeiro, LocalDate data) {
         ArrayList<Agendamento> resultados = new ArrayList<>();
@@ -358,7 +372,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     /**
      * Obtem todos os agendamentos associados a um certo Cliente
      * @param cliente
-     * @return
+     * @return Todos os agendamentos de um certo cliente
      */
     public ArrayList<Agendamento> buscarAgendamentoPorCliente(Cliente cliente) {
         ArrayList<Agendamento> resultados = new ArrayList<>();

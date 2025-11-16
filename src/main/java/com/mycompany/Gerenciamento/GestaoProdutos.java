@@ -42,10 +42,10 @@ public class GestaoProdutos extends Gestao<Produto>{
     
     /**
      * Cadastra um novo produto na lista de produtos
-     * @param nome
-     * @param custo
-     * @param preco
-     * @param descricao
+     * @param nome do produto
+     * @param custo de compra
+     * @param preco de venda
+     * @param descricao do produto
      * @throws java.lang.Exception
      */
     public void cadastrar(String nome, double custo, double preco, String descricao) throws Exception{
@@ -71,7 +71,7 @@ public class GestaoProdutos extends Gestao<Produto>{
         
     /**
      * Verifica s eum produto existe
-     * @param nome
+     * @param nome do produto a ser verificado
      * @throws Exception 
      */
     private void verificarprodutoExiste(String nome) throws Exception{
@@ -81,17 +81,20 @@ public class GestaoProdutos extends Gestao<Produto>{
     
     /**
      * Permite a edicao de informacoes do produto
-     * @param id
-     * @param nome
-     * @param preco
-     * @param descricao
+     * @param produto a ser editado
+     * @param nome novo
+     * @param preco novo
+     * @param descricao nova
      */
-    public void editar(String id, String nome, double preco, String descricao){
+    public void editar(Produto produto, String nome, double preco, String descricao){
 
-        Produto produto = this.buscarPorId(id);
+        if(nome!= null)
+            produto.setNome(nome);
         
-        produto.setNome(nome);
-        produto.setPreco(preco);
-        produto.setDescricao(descricao);
+        if(preco > 0)
+            produto.setPreco(preco);
+        
+        if(descricao != null)
+            produto.setDescricao(descricao);
     }    
 }
