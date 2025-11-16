@@ -98,7 +98,11 @@ public abstract class Usuario extends Individuo{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public String getSenha() {
+        return senha;
+    }
+   
     
     /**
      * Verifica o username
@@ -115,7 +119,7 @@ public abstract class Usuario extends Individuo{
      * @return
      */
     public boolean verificarSenha(String senha){
-        return senha != null && this.senha.equals(senha);
+        return senha != null && this.senha != null && this.senha.equals(senha);
     }
     
     /**

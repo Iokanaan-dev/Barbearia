@@ -31,8 +31,24 @@ public class Barbearia {
             GestaoAgendamentos.inicializa(dados);
             GestaoOrdemServico.inicializar(dados);
             GestaoListaEspera.inicializar(dados);
-            GestaoPonto.inicializar(dados);       
+            GestaoPonto.inicializar(dados);
             
+            GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
+            
+            boolean existeGerente = !gestaoU.getListaGerentes().isEmpty();
+            
+            if (!existeGerente) {
+                // PRIMEIRA VEZ – não existe gerente salvo
+                java.awt.EventQueue.invokeLater(() ->
+                    new PrimeiroLoginSistema().setVisible(true)
+                );
+            } else {
+                // já existe gerente → ir direto para tela de login
+                java.awt.EventQueue.invokeLater(() ->
+                    new TelaDeLogin().setVisible(true)
+                );
+            }
+
         } catch (Exception e) {
             System.out.println("Erro ao inicializar os dados: " + e.getMessage());
             e.printStackTrace();
@@ -90,9 +106,7 @@ public class Barbearia {
             //System.out.println("\nQUESTAO 17P2");
             //sistema.questao17P2();
             
-            PrimeiroLoginSistema login = new PrimeiroLoginSistema();
-            login.setVisible(true);
-            
+
         } catch (Exception e) {
             System.out.println("Erro ao executar o sistema: " + e.getMessage());
             e.printStackTrace();

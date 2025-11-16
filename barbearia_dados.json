@@ -1,0 +1,283 @@
+{
+  "listaClientes" : [ {
+    "id" : "CL-c9c5b4c6-0",
+    "nome" : "Felipe",
+    "cpf" : "14141414141",
+    "telefone" : "38997001313",
+    "dataNascimento" : "1990-08-12",
+    "email" : "felipe@email.com",
+    "contador" : 0
+  }, {
+    "id" : "CL-fb066b3c-6",
+    "nome" : "Roberta",
+    "cpf" : "15151515151",
+    "telefone" : "38997001414",
+    "dataNascimento" : "1978-11-09",
+    "email" : "roberta@email.com",
+    "contador" : 0
+  } ],
+  "listaGerentes" : [ {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-a5906a76-9",
+    "nome" : "Italo felipe santos rocha",
+    "cpf" : "12755050667",
+    "telefone" : "38998060657",
+    "dataNascimento" : "2002-04-11",
+    "username" : "italod3ad",
+    "senha" : "jovem123",
+    "pin_SEGURANCA" : "9090"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-b19ee1e2-6",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  } ],
+  "listaBarbeiros" : [ {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-25a273d7-f",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-38a8317b-f",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  } ],
+  "listaAtendentes" : [ {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-9749f629-4",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  } ],
+  "listaProdutos" : [ {
+    "id" : "PO-fe40bd3e-e",
+    "nome" : "Shampoo",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-79aced87-f",
+    "nome" : "Condicionador",
+    "custo" : 15.0,
+    "preco" : 25.0,
+    "descricao" : "Shampoo cheiroso"
+  }, {
+    "id" : "PO-f7714e98-1",
+    "nome" : "Mascara Hidratante",
+    "custo" : 20.0,
+    "preco" : 30.0,
+    "descricao" : "Hidrada qualquer tipo de cabelo"
+  }, "PO-fe40bd3e-e", "PO-79aced87-f", "PO-f7714e98-1" ],
+  "listaServicos" : [ {
+    "id" : "SE-5d296176-3",
+    "nome" : "Corte Degradê",
+    "preco" : 55.0,
+    "descricao" : "Corte moderno com transição suave de volumes",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-3d832d6d-9",
+    "nome" : "Barba Italiana",
+    "preco" : 40.0,
+    "descricao" : "Barba feita com toalha quente e navalha",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 30
+  }, {
+    "id" : "SE-ac31ec28-a",
+    "nome" : "Corte Infantil",
+    "preco" : 45.0,
+    "descricao" : "Corte especial para crianças, com acabamento suave",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-aa4d8ae5-6",
+    "nome" : "Hidratação Capilar",
+    "preco" : 65.0,
+    "descricao" : "Tratamento para revitalizar e hidratar os fios",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 40
+  }, {
+    "id" : "SE-a0a4d434-6",
+    "nome" : "Relaxamento Capilar",
+    "preco" : 90.0,
+    "descricao" : "Reduz o volume dos fios sem alisar completamente",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "tempoEmMinutos" : 50
+  } ],
+  "listaDespesas" : [ {
+    "id" : "DESP-61232470-f",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  } ],
+  "listaRelatorios" : [ {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95,00 \nTotal Produtos (Custos):........ R$ 30,00 \nTotal taxa de cancelamento:..... R$ 0,00 \nTotal encaixe:.................. R$ 0,00 \n------------------------------------\nTotal a pagar:.................. R$ 125,00 \n",
+    "dataGeracao" : "2025-11-16 00:47:09"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0,00 \nTotal Produtos (Custos):........ R$ 0,00 \nTotal taxa de cancelamento:..... R$ 54,25 \nTotal encaixe:.................. R$ 0,00 \n------------------------------------\nTotal a pagar:.................. R$ 54,25 \n",
+    "dataGeracao" : "2025-11-16 00:47:09"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\r\n--- BALANÇO MENSAL: 11/2026 ---\r\nReceita Total (Ordens Pagas):... R$ 179,25\r\nDespesa Total (Custos):........ R$ 30,00\r\n------------------------------------\r\nBalanço Final:................... R$ 149,25\r\n",
+    "dataGeracao" : "2025-11-16 00:47:09"
+  } ],
+  "estoque" : {
+    "tabelaEstoque" : {
+      "PO-fe40bd3e-e" : 10,
+      "PO-79aced87-f" : 10,
+      "PO-f7714e98-1" : 9
+    }
+  },
+  "FilaEspera" : [ {
+    "cliente" : "CL-c9c5b4c6-0",
+    "servicosDesejados" : [ "SE-5d296176-3", "SE-3d832d6d-9" ],
+    "barbeiroPreferencial" : "BA-25a273d7-f",
+    "dataDaSolicitacao" : "2025-11-16T00:47:09.2130353",
+    "duracaoTotalMinutos" : 60,
+    "servicos" : [ "SE-5d296176-3", "SE-3d832d6d-9" ],
+    "tipoEstacaoRequerido" : "CORRIQUEIRA"
+  }, {
+    "cliente" : "CL-fb066b3c-6",
+    "servicosDesejados" : [ "SE-aa4d8ae5-6", "SE-a0a4d434-6" ],
+    "barbeiroPreferencial" : "BA-38a8317b-f",
+    "dataDaSolicitacao" : "2025-11-16T00:47:09.2140363",
+    "duracaoTotalMinutos" : 90,
+    "servicos" : [ "SE-aa4d8ae5-6", "SE-a0a4d434-6" ],
+    "tipoEstacaoRequerido" : "LAVAGEM"
+  } ],
+  "listaAgendamentos" : [ {
+    "id" : "AGE-6ec1dbad-0",
+    "nome" : null,
+    "isEncaixe" : false,
+    "cliente" : "CL-c9c5b4c6-0",
+    "barbeiro" : "BA-25a273d7-f",
+    "atendente" : "AT-9749f629-4",
+    "estacao" : {
+      "id" : "ES-5935b53c-8",
+      "nome" : "Corriqueira 1",
+      "descricao" : "Estação destinada apenas para atividades corriqueiras da barbearia",
+      "tipo" : "CORRIQUEIRA",
+      "discricao" : "Estação destinada apenas para atividades corriqueiras da barbearia"
+    },
+    "servicos" : [ "SE-5d296176-3", "SE-3d832d6d-9" ],
+    "valorDosServicosCongelado" : 95.0,
+    "dataHoraInicioAgendamento" : "2026-11-19T10:00:00",
+    "dataHoraFimAgendamento" : "2026-11-19T11:00:00",
+    "status" : "FINALIZADO",
+    "associadoOrdemServico" : "OS-4256aec2-7",
+    "encaixe" : false,
+    "valorDosServicos" : 95.0
+  }, {
+    "id" : "AGE-de002238-c",
+    "nome" : null,
+    "isEncaixe" : false,
+    "cliente" : "CL-fb066b3c-6",
+    "barbeiro" : "BA-38a8317b-f",
+    "atendente" : "AT-9749f629-4",
+    "estacao" : {
+      "id" : "ES-0b3e3fee-7",
+      "nome" : "Lavar e sacar",
+      "descricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!",
+      "tipo" : "LAVAGEM",
+      "discricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!"
+    },
+    "servicos" : [ "SE-aa4d8ae5-6", "SE-a0a4d434-6" ],
+    "valorDosServicosCongelado" : 155.0,
+    "dataHoraInicioAgendamento" : "2025-11-19T10:00:00",
+    "dataHoraFimAgendamento" : "2025-11-19T11:30:00",
+    "status" : "CONFIRMADO",
+    "associadoOrdemServico" : "OS-e243b349-b",
+    "encaixe" : false,
+    "valorDosServicos" : 155.0
+  } ],
+  "listaOrdensServico" : [ {
+    "id" : "OS-4256aec2-7",
+    "nome" : null,
+    "idCliente" : "CL-c9c5b4c6-0",
+    "idBarbeiro" : "BA-25a273d7-f",
+    "status" : "PAGO",
+    "dataExecucao" : "2026-11-19",
+    "observacoes" : "---",
+    "produtosUtilizados" : [ "PO-79aced87-f", "PO-fe40bd3e-e" ],
+    "agendamentos" : [ "AGE-6ec1dbad-0" ],
+    "produtosVendidos" : {
+      "PO-f7714e98-1" : 1
+    },
+    "valorTotalProdutos" : 30.0,
+    "valorTotalServicos" : 95.0,
+    "valorTaxaEncaixe" : 0.0,
+    "valorAdiantado_50pct" : 125.0,
+    "valorTaxaCancelamento_35pct" : 0.0,
+    "cliente" : "CL-c9c5b4c6-0",
+    "valorTotalAPagar" : 125.0,
+    "valorPendente" : 0.0
+  }, {
+    "id" : "OS-e243b349-b",
+    "nome" : null,
+    "idCliente" : "CL-fb066b3c-6",
+    "idBarbeiro" : "BA-38a8317b-f",
+    "status" : "CANCELADO",
+    "dataExecucao" : "2026-11-19",
+    "observacoes" : "---",
+    "produtosUtilizados" : [ ],
+    "agendamentos" : [ "AGE-de002238-c" ],
+    "produtosVendidos" : { },
+    "valorTotalProdutos" : 0.0,
+    "valorTotalServicos" : 155.0,
+    "valorTaxaEncaixe" : 0.0,
+    "valorAdiantado_50pct" : 77.5,
+    "valorTaxaCancelamento_35pct" : 54.25,
+    "cliente" : "CL-fb066b3c-6",
+    "valorTotalAPagar" : 155.0,
+    "valorPendente" : 131.75
+  } ],
+  "tabelaPonto" : {
+    "tabelaPontos" : {
+      "BA-25a273d7-f" : [ ],
+      "BA-38a8317b-f" : [ ],
+      "AT-9749f629-4" : [ ],
+      "GE-b19ee1e2-6" : [ ]
+    }
+  },
+  "filaEspera" : [ {
+    "cliente" : "CL-c9c5b4c6-0",
+    "servicosDesejados" : [ "SE-5d296176-3", "SE-3d832d6d-9" ],
+    "barbeiroPreferencial" : "BA-25a273d7-f",
+    "dataDaSolicitacao" : "2025-11-16T00:47:09.2130353",
+    "duracaoTotalMinutos" : 60,
+    "servicos" : [ "SE-5d296176-3", "SE-3d832d6d-9" ],
+    "tipoEstacaoRequerido" : "CORRIQUEIRA"
+  }, {
+    "cliente" : "CL-fb066b3c-6",
+    "servicosDesejados" : [ "SE-aa4d8ae5-6", "SE-a0a4d434-6" ],
+    "barbeiroPreferencial" : "BA-38a8317b-f",
+    "dataDaSolicitacao" : "2025-11-16T00:47:09.2140363",
+    "duracaoTotalMinutos" : 90,
+    "servicos" : [ "SE-aa4d8ae5-6", "SE-a0a4d434-6" ],
+    "tipoEstacaoRequerido" : "LAVAGEM"
+  } ]
+}
