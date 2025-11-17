@@ -9,7 +9,7 @@ import com.mycompany.barbearia.modelos.Agendamento;
 import java.util.Comparator;
 
 /**
- *
+ * Classe que compara agendamentos pela quantidade de tempo 
  * @author intalo
  */
 public class ComparatorTempoServicosEmAgendamento implements Comparator<Agendamento> {

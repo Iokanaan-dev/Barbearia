@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enumera os status possiveis de atendimento
  * @author italo
  */
 public enum StatusAtendimento {

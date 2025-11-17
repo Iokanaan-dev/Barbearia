@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- *
+ * Implementa o find usando telefone para individuos
  * @author intalo
  */
 public class Find {

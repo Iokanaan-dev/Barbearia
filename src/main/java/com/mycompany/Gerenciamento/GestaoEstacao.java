@@ -8,7 +8,7 @@ import com.mycompany.Utilidades.TipoEstacao;
 
 
 /**
- *
+ * Gerencia a estacao
  * @author italo
  */
 public class GestaoEstacao extends Gestao<Estacao>{

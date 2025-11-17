@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enumera os tipos de despesa
  * @author italo
  */
 public enum TipoDespesa {

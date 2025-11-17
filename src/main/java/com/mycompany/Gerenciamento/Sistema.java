@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
+ * Representa o sistema e implementa as questoes
  * @author intalo
  */
 public class Sistema {
@@ -278,7 +278,23 @@ public class Sistema {
            
     }
     
-   public void questao11(){
+   public void questao11() throws Exception{
+       
+        gestaoS.limparLista();
+        
+        Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3  = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
+        Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM); 
+        
+        gestaoS.cadastrar(servico1);
+        gestaoS.cadastrar(servico2);
+        gestaoS.cadastrar(servico3);
+        gestaoS.cadastrar(servico4);
+        gestaoS.cadastrar(servico5);
+        
+        
         System.out.println("===== Print Contador Private =====");
         System.out.printf("Numero de intancias de serviço: %d%n", GestaoServicos.getContadorPrivate());  
         

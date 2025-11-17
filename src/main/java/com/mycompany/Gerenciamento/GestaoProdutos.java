@@ -9,7 +9,7 @@ import com.mycompany.date_Barbearia.Barbearia_date;
 
 
 /**
- *
+ * Gerencia os produtos
  * @author intalo
  */
 public class GestaoProdutos extends Gestao<Produto>{

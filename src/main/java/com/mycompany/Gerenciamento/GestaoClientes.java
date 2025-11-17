@@ -97,7 +97,7 @@ public class GestaoClientes extends Gestao<Cliente> {
 
     /**
      * Permite a edicao de informacoes do cliente
-     * @param id
+     * @param cliente
      * @param nome
      * @param cpf
      * @param telefone

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 /**
- *
+ * Representa um individuo
  * @author italo
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

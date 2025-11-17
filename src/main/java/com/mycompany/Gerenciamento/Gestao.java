@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Essa classe serve para representar todos os métodos genéricos de gestão.
  * @author intalo
- * @param <M>
+ * @param <M> Qualquer modelo
  */
 public abstract class Gestao<M extends Modelo>{
     

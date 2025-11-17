@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enumera os tipos de relatorio
  * @author italo
  */
 public enum TipoRelatorio {

@@ -8,7 +8,7 @@ import com.mycompany.Utilidades.TipoEstacao;
 import java.util.UUID;
 
 /**
- *
+ * Modela uma estacao de atendimento
  * @author italo
  */
 public class Estacao extends Modelo{

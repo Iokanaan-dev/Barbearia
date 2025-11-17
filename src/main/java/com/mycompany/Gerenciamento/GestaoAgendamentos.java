@@ -48,7 +48,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
 
     /**
      * Retorna a instancia
-     * @return
+     * @return instancia de GestaoAgendamentos
      */
     public static GestaoAgendamentos getInstancia() {
         if (instancia == null) {
@@ -208,7 +208,7 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
     /**
      * Determina o status inicial de um agendamento com base na antecedência.
      * @param dataInicio
-     * @return 
+     * @return Status incial
      */
     private StatusAgendamento determinarStatusInicial(LocalDateTime dataInicio) {
         long diasDeAntecedencia = ChronoUnit.DAYS.between(LocalDateTime.now().toLocalDate(), dataInicio.toLocalDate());

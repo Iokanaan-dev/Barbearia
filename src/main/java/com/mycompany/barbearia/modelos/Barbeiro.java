@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 import java.util.UUID;
 /**
- *
+ * Representa um barbeiro
  * @author italo
  */
 

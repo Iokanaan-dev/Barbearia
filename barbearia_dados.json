@@ -1,6 +1,6 @@
 {
   "listaClientes" : [ {
-    "id" : "CL-895b84ce-a",
+    "id" : "CL-74cb5570-6",
     "nome" : "Felipe",
     "cpf" : "14141414141",
     "telefone" : "38997001313",
@@ -8,7 +8,7 @@
     "email" : "felipe@email.com",
     "contador" : 0
   }, {
-    "id" : "CL-fb356ee7-4",
+    "id" : "CL-2febc0d8-a",
     "nome" : "Roberta",
     "cpf" : "15151515151",
     "telefone" : "38997001414",
@@ -36,6 +36,146 @@
     "username" : "gerente_fernanda",
     "senha" : "fernanda3210",
     "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-5b122cae-7",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-e0ffa96e-e",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-809bad9e-2",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-7e31eb97-5",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-c6cbd816-c",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-7662153e-c",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-defdf7f1-3",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-be32ed9c-f",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-5d52d0b7-f",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-643eb9c5-8",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-bbb8b252-4",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-a27c4875-f",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-ef266e5e-5",
+    "nome" : "Sebastiao",
+    "cpf" : "64646464675",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1994-05-05",
+    "username" : "gerente_sebastiao",
+    "senha" : "sebinho1234",
+    "pin_SEGURANCA" : "12345"
+  }, {
+    "tipoUsuario" : "Gerente",
+    "id" : "GE-e681dd45-b",
+    "nome" : "Fernanda",
+    "cpf" : "19191919191",
+    "telefone" : "38997006666",
+    "dataNascimento" : "1995-12-02",
+    "username" : "gerente_fernanda",
+    "senha" : "fernanda3210",
+    "pin_SEGURANCA" : "1234"
   } ],
   "listaBarbeiros" : [ {
     "tipoUsuario" : "Barbeiro",
@@ -55,6 +195,636 @@
     "dataNascimento" : "1990-08-12",
     "username" : "barbeiro_marco",
     "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-94aad0be-6",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-47f8ce38-6",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-32d1fc5e-c",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-f3299b6b-7",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-7abc82bb-1",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-2579114d-a",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-e4e47d63-b",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-dfe47f49-a",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-a98cc290-2",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-48d919fe-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-36b15537-f",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-8212a85b-4",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-41cd8965-9",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-95ee1e70-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-726ffd0e-7",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-b19e76c9-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-1a5b7efa-d",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-89b93ff9-7",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-e418e099-2",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-b4a8b87d-b",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-c15b59ed-f",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-285ad420-3",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-6e968e67-5",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-bbf14daf-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-d462c848-c",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-c04959e8-4",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-55a36a9c-d",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-08c22062-5",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-826f68f8-a",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-3080cd4b-e",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-3273ddb1-2",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-55a15465-7",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-6b53e158-5",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-f4fdbc6d-5",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-2d43d12d-0",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-b4de82e9-c",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-8ceb036a-1",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-d333781f-0",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-74ec588a-f",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-867820ce-e",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-a1f55387-6",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-9f795722-9",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-05d3c899-3",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-896d0518-3",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-59d743cb-0",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-6554fa52-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-0af4972d-7",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-54d6d3f7-0",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-a3dcb7f0-7",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-6ef93f74-d",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-0447f07d-4",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-0c805e67-4",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-141b32da-7",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-29e71952-1",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-2b7715b3-f",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-50914960-7",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-fba1fef3-3",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-118dcb43-1",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-2f01acc8-9",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-393e9ea6-3",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-bd4c33b1-0",
+    "nome" : "Toninho",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1981-12-02",
+    "username" : "barbeiro_toni",
+    "senha" : "tonin1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-d9ffe15b-3",
+    "nome" : "Apagavel",
+    "cpf" : "00000000000",
+    "telefone" : "000000000",
+    "dataNascimento" : "1900-01-01",
+    "username" : "barneiro_apagavel",
+    "senha" : "apagavel123"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-aa3df258-4",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-e2e46dd0-b",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-7a644d80-5",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-9bf68e49-0",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-93e2ed2e-3",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-899abecb-2",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-d84fc4b2-9",
+    "nome" : "Thiago",
+    "cpf" : "14141414141",
+    "telefone" : "38997001111",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_thiago",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Barbeiro",
+    "id" : "BA-0fbee449-9",
+    "nome" : "Marcos",
+    "cpf" : "15151515151",
+    "telefone" : "38997002222",
+    "dataNascimento" : "1990-08-12",
+    "username" : "barbeiro_marco",
+    "senha" : "marcos5678"
   } ],
   "listaAtendentes" : [ {
     "tipoUsuario" : "Atendente",
@@ -65,56 +835,371 @@
     "dataNascimento" : "1990-08-12",
     "username" : "atendente_fabio",
     "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-d4f82714-7",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-1c32fd2b-4",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-60bd387a-6",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-ee378600-a",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-5d8f7e88-9",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-e880967e-3",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-0a3a77ce-1",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-85223e40-3",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-1f70acb4-3",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-1c591e3b-9",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-9934bf24-4",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-ae9ffdd9-2",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-0a52a47b-7",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-26dd2565-d",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-b9a5770d-e",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-3c8d8fcc-2",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-5a72671c-7",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-577fe724-4",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-17e7d98e-b",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-ecb0d187-2",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-86bb557d-1",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-cce0c369-a",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-1e5af245-b",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-3ec234d9-5",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-f29053e7-5",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-874754fb-6",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-db779d6f-0",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-51db6c93-e",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-1d46fb84-2",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-6ff41ed5-a",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-f1078044-0",
+    "nome" : "Thiago",
+    "cpf" : "12323232323",
+    "telefone" : "559292019",
+    "dataNascimento" : "1999-09-03",
+    "username" : "thiagin_do_mel",
+    "senha" : "thiago1234"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-adda5137-4",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-37b68431-6",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-c3c79216-3",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
+  }, {
+    "tipoUsuario" : "Atendente",
+    "id" : "AT-611bc66c-b",
+    "nome" : "Fabio",
+    "cpf" : "23232323232",
+    "telefone" : "38997001010",
+    "dataNascimento" : "1990-08-12",
+    "username" : "atendente_fabio",
+    "senha" : "fabio8080"
   } ],
   "listaProdutos" : [ {
-    "id" : "PO-0d270504-7",
+    "id" : "PO-6b08f2c9-b",
     "nome" : "Shampoo",
     "custo" : 15.0,
     "preco" : 25.0,
     "descricao" : "Shampoo cheiroso"
   }, {
-    "id" : "PO-ede3a4d7-c",
+    "id" : "PO-9972f164-4",
     "nome" : "Condicionador",
     "custo" : 15.0,
     "preco" : 25.0,
     "descricao" : "Shampoo cheiroso"
   }, {
-    "id" : "PO-16f905b4-3",
+    "id" : "PO-addf84b8-4",
     "nome" : "Mascara Hidratante",
     "custo" : 20.0,
     "preco" : 30.0,
     "descricao" : "Hidrada qualquer tipo de cabelo"
-  }, "PO-0d270504-7", "PO-ede3a4d7-c", "PO-16f905b4-3" ],
+  }, "PO-6b08f2c9-b", "PO-9972f164-4", "PO-addf84b8-4" ],
   "listaServicos" : [ {
-    "id" : "SE-35cb0782-5",
+    "id" : "SE-9a1bd3a0-4",
     "nome" : "Corte Degradê",
     "preco" : 55.0,
     "descricao" : "Corte moderno com transição suave de volumes",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
     "tempoEmMinutos" : 30
   }, {
-    "id" : "SE-77c081e1-8",
+    "id" : "SE-fd3d55a1-f",
     "nome" : "Barba Italiana",
     "preco" : 40.0,
     "descricao" : "Barba feita com toalha quente e navalha",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
     "tempoEmMinutos" : 30
   }, {
-    "id" : "SE-78e501b5-4",
+    "id" : "SE-0dbd40bc-0",
     "nome" : "Corte Infantil",
     "preco" : 45.0,
     "descricao" : "Corte especial para crianças, com acabamento suave",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
     "tempoEmMinutos" : 40
   }, {
-    "id" : "SE-581e522a-d",
+    "id" : "SE-6ed16a40-8",
     "nome" : "Hidratação Capilar",
     "preco" : 65.0,
     "descricao" : "Tratamento para revitalizar e hidratar os fios",
     "tipoEstacaoRequerido" : "LAVAGEM",
     "tempoEmMinutos" : 40
   }, {
-    "id" : "SE-b0849c9f-d",
+    "id" : "SE-f694347e-1",
     "nome" : "Relaxamento Capilar",
     "preco" : 90.0,
     "descricao" : "Reduz o volume dos fios sem alisar completamente",
@@ -123,6 +1208,55 @@
   } ],
   "listaDespesas" : [ {
     "id" : "DESP-b7f7839c-f",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-39d8bb62-6",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-bcd690f3-4",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-4506ad39-6",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-1b56e1cd-3",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-2a07c7bf-3",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-84c6b95d-1",
+    "nome" : "Custo de Consumíveis - 11/2026",
+    "valor" : 30.0,
+    "dataPagamento" : "2026-11-30",
+    "tipo" : "CONSUMIVEIS",
+    "observacoes" : "Despesas da barbearia com produtos"
+  }, {
+    "id" : "DESP-476932c0-5",
     "nome" : "Custo de Consumíveis - 11/2026",
     "valor" : 30.0,
     "dataPagamento" : "2026-11-30",
@@ -144,114 +1278,660 @@
     "periodo" : "2026-11-01",
     "conteudo" : "\r\n--- BALANÇO MENSAL: 11/2026 ---\r\nReceita Total (Ordens Pagas):... R$ 179,25\r\nDespesa Total (Custos):........ R$ 30,00\r\n------------------------------------\r\nBalanço Final:................... R$ 149,25\r\n",
     "dataGeracao" : "2025-11-16 20:38:31"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 22:17:35"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 22:17:35"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 60.00\n------------------------------------\nBalanço Final:................... R$ 119.25\n",
+    "dataGeracao" : "2025-11-16 22:17:35"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 22:18:53"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 22:18:53"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 90.00\n------------------------------------\nBalanço Final:................... R$ 89.25\n",
+    "dataGeracao" : "2025-11-16 22:18:53"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 22:56:16"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 22:56:16"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 120.00\n------------------------------------\nBalanço Final:................... R$ 59.25\n",
+    "dataGeracao" : "2025-11-16 22:56:16"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 22:59:15"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 22:59:15"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 150.00\n------------------------------------\nBalanço Final:................... R$ 29.25\n",
+    "dataGeracao" : "2025-11-16 22:59:15"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 23:06:24"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 23:06:24"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 180.00\n------------------------------------\nBalanço Final:................... R$ -0.75\n",
+    "dataGeracao" : "2025-11-16 23:06:24"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 23:06:39"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 23:06:39"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 210.00\n------------------------------------\nBalanço Final:................... R$ -30.75\n",
+    "dataGeracao" : "2025-11-16 23:06:39"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Felipe ---\nTotal Serviços (Ordens Pagas):... R$ 95.00 \nTotal Produtos (Custos):........ R$ 30.00 \nTotal taxa de cancelamento:..... R$ 0.00 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 125.00 \n",
+    "dataGeracao" : "2025-11-16 23:10:31"
+  }, {
+    "tipo" : "NOTA_CLIENTE",
+    "periodo" : "2025-11-16",
+    "conteudo" : "--- Nota cliente: Roberta ---\nTotal Serviços (Ordens Pagas):... R$ 0.00 \nTotal Produtos (Custos):........ R$ 0.00 \nTotal taxa de cancelamento:..... R$ 54.25 \nTotal encaixe:.................. R$ 0.00 \n------------------------------------\nTotal a pagar:.................. R$ 54.25 \n",
+    "dataGeracao" : "2025-11-16 23:10:31"
+  }, {
+    "tipo" : "BALANÇO_MENSAL",
+    "periodo" : "2026-11-01",
+    "conteudo" : "\n--- BALANÇO MENSAL: 11/2026 ---\nReceita Total (Ordens Pagas):... R$ 179.25\nDespesa Total (Custos):........ R$ 240.00\n------------------------------------\nBalanço Final:................... R$ -60.75\n",
+    "dataGeracao" : "2025-11-16 23:10:31"
   } ],
   "estoque" : {
     "tabelaEstoque" : {
-      "PO-0d270504-7" : 10,
+      "PO-8c790fe6-b" : 10,
+      "PO-05b4619e-3" : 10,
+      "PO-6b08f2c9-b" : 10,
+      "PO-e6904d17-d" : 9,
       "PO-ede3a4d7-c" : 10,
-      "PO-16f905b4-3" : 9
+      "PO-877eac64-4" : 10,
+      "PO-aba76702-3" : 9,
+      "PO-21da783d-5" : 9,
+      "PO-0d270504-7" : 10,
+      "PO-85f7e39d-f" : 10,
+      "PO-b17a508e-3" : 10,
+      "PO-ff9d323d-d" : 10,
+      "PO-16f905b4-3" : 9,
+      "PO-9cf354e1-f" : 9,
+      "PO-b8690177-6" : 10,
+      "PO-3ec7386a-5" : 10,
+      "PO-9af43bc8-2" : 10,
+      "PO-9972f164-4" : 10,
+      "PO-e8a54a54-7" : 9,
+      "PO-5d5dc22a-d" : 10,
+      "PO-9b6aae2d-f" : 10,
+      "PO-30b9481b-f" : 9,
+      "PO-addf84b8-4" : 9,
+      "PO-8390bdae-c" : 10
     }
   },
   "FilaEspera" : [ {
-    "cliente" : "CL-895b84ce-a",
-    "servicosDesejados" : [ "SE-35cb0782-5", "SE-77c081e1-8" ],
+    "cliente" : {
+      "id" : "CL-895b84ce-a",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-35cb0782-5",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300000000
+    }, {
+      "id" : "SE-77c081e1-8",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300000000
+    }, "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8" ],
     "barbeiroPreferencial" : "BA-006e35cb-f",
     "dataDaSolicitacao" : "2025-11-16T20:38:31.4702709",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
-    "servicos" : [ "SE-35cb0782-5", "SE-77c081e1-8" ],
-    "duracaoTotalMinutos" : 60
+    "servicos" : [ "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8" ],
+    "duracaoTotalMinutos" : -509411328
   }, {
-    "cliente" : "CL-fb356ee7-4",
-    "servicosDesejados" : [ "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "cliente" : {
+      "id" : "CL-fb356ee7-4",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-581e522a-d",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 400000000
+    }, {
+      "id" : "SE-b0849c9f-d",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 500000000
+    }, "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d" ],
     "barbeiroPreferencial" : "BA-ccd4ecbd-6",
     "dataDaSolicitacao" : "2025-11-16T20:38:31.4712719",
     "tipoEstacaoRequerido" : "LAVAGEM",
-    "servicos" : [ "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "servicos" : [ "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "duracaoTotalMinutos" : -764116992
+  }, {
+    "cliente" : {
+      "id" : "CL-e8c11d98-8",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-eb92dc9b-5",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 30000000
+    }, {
+      "id" : "SE-4254e2b7-c",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 30000000
+    }, "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c" ],
+    "barbeiroPreferencial" : "BA-e4e47d63-b",
+    "dataDaSolicitacao" : "2025-11-16T22:17:35.455343221",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c" ],
+    "duracaoTotalMinutos" : -454967296
+  }, {
+    "cliente" : {
+      "id" : "CL-556d1ea7-0",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-08a97104-9",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 40000000
+    }, {
+      "id" : "SE-514dd3e7-6",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 50000000
+    }, "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6" ],
+    "barbeiroPreferencial" : "BA-dfe47f49-a",
+    "dataDaSolicitacao" : "2025-11-16T22:17:35.455537346",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6" ],
+    "duracaoTotalMinutos" : 1465032704
+  }, {
+    "cliente" : {
+      "id" : "CL-b210f3f2-2",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-12799e71-5",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 3000000
+    }, {
+      "id" : "SE-13ae3b95-7",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 3000000
+    }, "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7" ],
+    "barbeiroPreferencial" : "BA-1a5b7efa-d",
+    "dataDaSolicitacao" : "2025-11-16T22:18:53.322756076",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7" ],
+    "duracaoTotalMinutos" : 192000000
+  }, {
+    "cliente" : {
+      "id" : "CL-337544f1-6",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-3819877b-1",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 4000000
+    }, {
+      "id" : "SE-40edfda8-e",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 5000000
+    }, "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e" ],
+    "barbeiroPreferencial" : "BA-89b93ff9-7",
+    "dataDaSolicitacao" : "2025-11-16T22:18:53.323062442",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e" ],
+    "duracaoTotalMinutos" : 288000000
+  }, {
+    "cliente" : {
+      "id" : "CL-fe9b9cbf-c",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-f0252433-0",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300000
+    }, {
+      "id" : "SE-314c86ff-6",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300000
+    }, "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6" ],
+    "barbeiroPreferencial" : "BA-55a36a9c-d",
+    "dataDaSolicitacao" : "2025-11-16T22:56:16.222137132",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6" ],
+    "duracaoTotalMinutos" : 9600000
+  }, {
+    "cliente" : {
+      "id" : "CL-54b75670-2",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-f402379d-1",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 400000
+    }, {
+      "id" : "SE-40aa7884-a",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 500000
+    }, "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a" ],
+    "barbeiroPreferencial" : "BA-08c22062-5",
+    "dataDaSolicitacao" : "2025-11-16T22:56:16.22239373",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a" ],
+    "duracaoTotalMinutos" : 14400000
+  }, {
+    "cliente" : {
+      "id" : "CL-f3927b2d-9",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-8de17f5d-c",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 30000
+    }, {
+      "id" : "SE-1d7e3168-5",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 30000
+    }, "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5" ],
+    "barbeiroPreferencial" : "BA-8ceb036a-1",
+    "dataDaSolicitacao" : "2025-11-16T22:59:15.689901585",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5" ],
+    "duracaoTotalMinutos" : 480000
+  }, {
+    "cliente" : {
+      "id" : "CL-0bfa8f0e-9",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-de8eb98b-2",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 40000
+    }, {
+      "id" : "SE-d2a94047-0",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 50000
+    }, "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0" ],
+    "barbeiroPreferencial" : "BA-d333781f-0",
+    "dataDaSolicitacao" : "2025-11-16T22:59:15.690175875",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0" ],
+    "duracaoTotalMinutos" : 720000
+  }, {
+    "cliente" : {
+      "id" : "CL-a5b32a74-e",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-91206158-2",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 3000
+    }, {
+      "id" : "SE-e13c4a3f-8",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 3000
+    }, "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8" ],
+    "barbeiroPreferencial" : "BA-0af4972d-7",
+    "dataDaSolicitacao" : "2025-11-16T23:06:24.487134575",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8" ],
+    "duracaoTotalMinutos" : 24000
+  }, {
+    "cliente" : {
+      "id" : "CL-4cf3bc7e-5",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-1c02ff1e-5",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 4000
+    }, {
+      "id" : "SE-507d96f6-2",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 5000
+    }, "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2" ],
+    "barbeiroPreferencial" : "BA-54d6d3f7-0",
+    "dataDaSolicitacao" : "2025-11-16T23:06:24.487359714",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2" ],
+    "duracaoTotalMinutos" : 36000
+  }, {
+    "cliente" : {
+      "id" : "CL-846f61ac-2",
+      "nome" : "Felipe",
+      "cpf" : "14141414141",
+      "telefone" : "38997001313",
+      "dataNascimento" : "1990-08-12",
+      "email" : "felipe@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-42266744-8",
+      "nome" : "Corte Degradê",
+      "preco" : 55.0,
+      "descricao" : "Corte moderno com transição suave de volumes",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300
+    }, {
+      "id" : "SE-8615a219-7",
+      "nome" : "Barba Italiana",
+      "preco" : 40.0,
+      "descricao" : "Barba feita com toalha quente e navalha",
+      "tipoEstacaoRequerido" : "CORRIQUEIRA",
+      "tempoEmMinutos" : 300
+    }, "SE-42266744-8", "SE-8615a219-7" ],
+    "barbeiroPreferencial" : "BA-fba1fef3-3",
+    "dataDaSolicitacao" : "2025-11-16T23:06:39.741473277",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-42266744-8", "SE-8615a219-7", "SE-42266744-8", "SE-8615a219-7" ],
+    "duracaoTotalMinutos" : 1200
+  }, {
+    "cliente" : {
+      "id" : "CL-7c419b12-5",
+      "nome" : "Roberta",
+      "cpf" : "15151515151",
+      "telefone" : "38997001414",
+      "dataNascimento" : "1978-11-09",
+      "email" : "roberta@email.com",
+      "contador" : 0
+    },
+    "servicosDesejados" : [ {
+      "id" : "SE-7b0d4cdd-4",
+      "nome" : "Hidratação Capilar",
+      "preco" : 65.0,
+      "descricao" : "Tratamento para revitalizar e hidratar os fios",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 400
+    }, {
+      "id" : "SE-c5b91194-7",
+      "nome" : "Relaxamento Capilar",
+      "preco" : 90.0,
+      "descricao" : "Reduz o volume dos fios sem alisar completamente",
+      "tipoEstacaoRequerido" : "LAVAGEM",
+      "tempoEmMinutos" : 500
+    }, "SE-7b0d4cdd-4", "SE-c5b91194-7" ],
+    "barbeiroPreferencial" : "BA-118dcb43-1",
+    "dataDaSolicitacao" : "2025-11-16T23:06:39.741740511",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-7b0d4cdd-4", "SE-c5b91194-7", "SE-7b0d4cdd-4", "SE-c5b91194-7" ],
+    "duracaoTotalMinutos" : 1800
+  }, {
+    "cliente" : "CL-74cb5570-6",
+    "servicosDesejados" : [ "SE-9a1bd3a0-4", "SE-fd3d55a1-f" ],
+    "barbeiroPreferencial" : "BA-93e2ed2e-3",
+    "dataDaSolicitacao" : "2025-11-16T23:10:31.583815507",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-9a1bd3a0-4", "SE-fd3d55a1-f" ],
+    "duracaoTotalMinutos" : 60
+  }, {
+    "cliente" : "CL-2febc0d8-a",
+    "servicosDesejados" : [ "SE-6ed16a40-8", "SE-f694347e-1" ],
+    "barbeiroPreferencial" : "BA-899abecb-2",
+    "dataDaSolicitacao" : "2025-11-16T23:10:31.584041661",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-6ed16a40-8", "SE-f694347e-1" ],
     "duracaoTotalMinutos" : 90
   } ],
   "listaAgendamentos" : [ {
-    "id" : "AGE-dc0679f6-3",
+    "id" : "AGE-9998472a-a",
     "nome" : null,
     "isEncaixe" : false,
-    "cliente" : "CL-895b84ce-a",
-    "barbeiro" : "BA-006e35cb-f",
-    "atendente" : "AT-973ca9da-5",
+    "cliente" : "CL-74cb5570-6",
+    "barbeiro" : "BA-93e2ed2e-3",
+    "atendente" : "AT-c3c79216-3",
     "estacao" : {
-      "id" : "ES-da0bb039-1",
+      "id" : "ES-ce1a686e-0",
       "nome" : "Corriqueira 1",
       "descricao" : "Estação destinada apenas para atividades corriqueiras da barbearia",
       "tipo" : "CORRIQUEIRA",
       "discricao" : "Estação destinada apenas para atividades corriqueiras da barbearia"
     },
-    "servicos" : [ "SE-35cb0782-5", "SE-77c081e1-8" ],
+    "servicos" : [ "SE-9a1bd3a0-4", "SE-fd3d55a1-f" ],
     "valorDosServicosCongelado" : 95.0,
     "dataHoraInicioAgendamento" : "2026-11-19T10:00:00",
     "dataHoraFimAgendamento" : "2026-11-19T11:00:00",
     "status" : "FINALIZADO",
-    "associadoOrdemServico" : "OS-dd70c523-a",
+    "associadoOrdemServico" : "OS-87c8ab08-0",
     "encaixe" : false,
     "valorDosServicos" : 95.0
   }, {
-    "id" : "AGE-0213a918-2",
+    "id" : "AGE-c4c0cebb-2",
     "nome" : null,
     "isEncaixe" : false,
-    "cliente" : "CL-fb356ee7-4",
-    "barbeiro" : "BA-ccd4ecbd-6",
-    "atendente" : "AT-973ca9da-5",
+    "cliente" : "CL-2febc0d8-a",
+    "barbeiro" : "BA-899abecb-2",
+    "atendente" : "AT-c3c79216-3",
     "estacao" : {
-      "id" : "ES-3c419dcb-5",
+      "id" : "ES-34564096-8",
       "nome" : "Lavar e sacar",
       "descricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!",
       "tipo" : "LAVAGEM",
       "discricao" : "Estação destinada apenas para lavar e secar o cabelo de nossos clientes!"
     },
-    "servicos" : [ "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "servicos" : [ "SE-6ed16a40-8", "SE-f694347e-1" ],
     "valorDosServicosCongelado" : 155.0,
     "dataHoraInicioAgendamento" : "2025-11-19T10:00:00",
     "dataHoraFimAgendamento" : "2025-11-19T11:30:00",
     "status" : "CONFIRMADO",
-    "associadoOrdemServico" : "OS-f947f02a-d",
+    "associadoOrdemServico" : "OS-459ca047-0",
     "encaixe" : false,
     "valorDosServicos" : 155.0
   } ],
   "listaOrdensServico" : [ {
-    "id" : "OS-dd70c523-a",
+    "id" : "OS-87c8ab08-0",
     "nome" : null,
-    "idCliente" : "CL-895b84ce-a",
-    "idBarbeiro" : "BA-006e35cb-f",
+    "idCliente" : "CL-74cb5570-6",
+    "idBarbeiro" : "BA-93e2ed2e-3",
     "status" : "PAGO",
     "dataExecucao" : "2026-11-19",
     "observacoes" : "---",
-    "produtosUtilizados" : [ "PO-ede3a4d7-c", "PO-0d270504-7" ],
-    "agendamentos" : [ "AGE-dc0679f6-3" ],
+    "produtosUtilizados" : [ "PO-9972f164-4", "PO-6b08f2c9-b" ],
+    "agendamentos" : [ "AGE-9998472a-a" ],
     "produtosVendidos" : {
-      "PO-16f905b4-3" : 1
+      "PO-addf84b8-4" : 1
     },
     "valorTotalProdutos" : 30.0,
     "valorTotalServicos" : 95.0,
     "valorTaxaEncaixe" : 0.0,
     "valorAdiantado_50pct" : 125.0,
     "valorTaxaCancelamento_35pct" : 0.0,
-    "cliente" : "CL-895b84ce-a",
+    "cliente" : "CL-74cb5570-6",
     "valorTotalAPagar" : 125.0,
     "valorPendente" : 0.0
   }, {
-    "id" : "OS-f947f02a-d",
+    "id" : "OS-459ca047-0",
     "nome" : null,
-    "idCliente" : "CL-fb356ee7-4",
-    "idBarbeiro" : "BA-ccd4ecbd-6",
+    "idCliente" : "CL-2febc0d8-a",
+    "idBarbeiro" : "BA-899abecb-2",
     "status" : "CANCELADO",
     "dataExecucao" : "2026-11-19",
     "observacoes" : "---",
     "produtosUtilizados" : [ ],
-    "agendamentos" : [ "AGE-0213a918-2" ],
+    "agendamentos" : [ "AGE-c4c0cebb-2" ],
     "produtosVendidos" : { },
     "valorTotalProdutos" : 0.0,
     "valorTotalServicos" : 155.0,
     "valorTaxaEncaixe" : 0.0,
     "valorAdiantado_50pct" : 77.5,
     "valorTaxaCancelamento_35pct" : 54.25,
-    "cliente" : "CL-fb356ee7-4",
+    "cliente" : "CL-2febc0d8-a",
     "valorTotalAPagar" : 155.0,
     "valorPendente" : 131.75
   } ],
@@ -260,24 +1940,164 @@
       "BA-006e35cb-f" : [ ],
       "BA-ccd4ecbd-6" : [ ],
       "AT-973ca9da-5" : [ ],
-      "GE-d6655430-8" : [ ]
+      "GE-d6655430-8" : [ ],
+      "BA-a98cc290-2" : [ ],
+      "BA-48d919fe-2" : [ ],
+      "AT-5d8f7e88-9" : [ ],
+      "GE-e0ffa96e-e" : [ ],
+      "BA-e418e099-2" : [ ],
+      "BA-b4a8b87d-b" : [ ],
+      "AT-1c591e3b-9" : [ ],
+      "GE-7e31eb97-5" : [ ],
+      "BA-826f68f8-a" : [ ],
+      "BA-3080cd4b-e" : [ ],
+      "AT-b9a5770d-e" : [ ],
+      "GE-7662153e-c" : [ ],
+      "BA-74ec588a-f" : [ ],
+      "BA-867820ce-e" : [ ],
+      "AT-ecb0d187-2" : [ ],
+      "GE-be32ed9c-f" : [ ],
+      "BA-a3dcb7f0-7" : [ ],
+      "BA-6ef93f74-d" : [ ],
+      "AT-f29053e7-5" : [ ],
+      "GE-643eb9c5-8" : [ ],
+      "BA-2f01acc8-9" : [ ],
+      "BA-393e9ea6-3" : [ ],
+      "AT-6ff41ed5-a" : [ ],
+      "GE-a27c4875-f" : [ ],
+      "BA-d84fc4b2-9" : [ ],
+      "BA-0fbee449-9" : [ ],
+      "AT-611bc66c-b" : [ ],
+      "GE-e681dd45-b" : [ ]
     }
   },
   "filaEspera" : [ {
     "cliente" : "CL-895b84ce-a",
-    "servicosDesejados" : [ "SE-35cb0782-5", "SE-77c081e1-8" ],
+    "servicosDesejados" : [ "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8" ],
     "barbeiroPreferencial" : "BA-006e35cb-f",
     "dataDaSolicitacao" : "2025-11-16T20:38:31.4702709",
     "tipoEstacaoRequerido" : "CORRIQUEIRA",
-    "servicos" : [ "SE-35cb0782-5", "SE-77c081e1-8" ],
-    "duracaoTotalMinutos" : 60
+    "servicos" : [ "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8", "SE-35cb0782-5", "SE-77c081e1-8" ],
+    "duracaoTotalMinutos" : -509411328
   }, {
     "cliente" : "CL-fb356ee7-4",
-    "servicosDesejados" : [ "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "servicosDesejados" : [ "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d" ],
     "barbeiroPreferencial" : "BA-ccd4ecbd-6",
     "dataDaSolicitacao" : "2025-11-16T20:38:31.4712719",
     "tipoEstacaoRequerido" : "LAVAGEM",
-    "servicos" : [ "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "servicos" : [ "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d", "SE-581e522a-d", "SE-b0849c9f-d" ],
+    "duracaoTotalMinutos" : -764116992
+  }, {
+    "cliente" : "CL-e8c11d98-8",
+    "servicosDesejados" : [ "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c" ],
+    "barbeiroPreferencial" : "BA-e4e47d63-b",
+    "dataDaSolicitacao" : "2025-11-16T22:17:35.455343221",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c", "SE-eb92dc9b-5", "SE-4254e2b7-c" ],
+    "duracaoTotalMinutos" : -454967296
+  }, {
+    "cliente" : "CL-556d1ea7-0",
+    "servicosDesejados" : [ "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6" ],
+    "barbeiroPreferencial" : "BA-dfe47f49-a",
+    "dataDaSolicitacao" : "2025-11-16T22:17:35.455537346",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6", "SE-08a97104-9", "SE-514dd3e7-6" ],
+    "duracaoTotalMinutos" : 1465032704
+  }, {
+    "cliente" : "CL-b210f3f2-2",
+    "servicosDesejados" : [ "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7" ],
+    "barbeiroPreferencial" : "BA-1a5b7efa-d",
+    "dataDaSolicitacao" : "2025-11-16T22:18:53.322756076",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7", "SE-12799e71-5", "SE-13ae3b95-7" ],
+    "duracaoTotalMinutos" : 192000000
+  }, {
+    "cliente" : "CL-337544f1-6",
+    "servicosDesejados" : [ "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e" ],
+    "barbeiroPreferencial" : "BA-89b93ff9-7",
+    "dataDaSolicitacao" : "2025-11-16T22:18:53.323062442",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e", "SE-3819877b-1", "SE-40edfda8-e" ],
+    "duracaoTotalMinutos" : 288000000
+  }, {
+    "cliente" : "CL-fe9b9cbf-c",
+    "servicosDesejados" : [ "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6" ],
+    "barbeiroPreferencial" : "BA-55a36a9c-d",
+    "dataDaSolicitacao" : "2025-11-16T22:56:16.222137132",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6", "SE-f0252433-0", "SE-314c86ff-6" ],
+    "duracaoTotalMinutos" : 9600000
+  }, {
+    "cliente" : "CL-54b75670-2",
+    "servicosDesejados" : [ "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a" ],
+    "barbeiroPreferencial" : "BA-08c22062-5",
+    "dataDaSolicitacao" : "2025-11-16T22:56:16.22239373",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a", "SE-f402379d-1", "SE-40aa7884-a" ],
+    "duracaoTotalMinutos" : 14400000
+  }, {
+    "cliente" : "CL-f3927b2d-9",
+    "servicosDesejados" : [ "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5" ],
+    "barbeiroPreferencial" : "BA-8ceb036a-1",
+    "dataDaSolicitacao" : "2025-11-16T22:59:15.689901585",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5", "SE-8de17f5d-c", "SE-1d7e3168-5" ],
+    "duracaoTotalMinutos" : 480000
+  }, {
+    "cliente" : "CL-0bfa8f0e-9",
+    "servicosDesejados" : [ "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0" ],
+    "barbeiroPreferencial" : "BA-d333781f-0",
+    "dataDaSolicitacao" : "2025-11-16T22:59:15.690175875",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0", "SE-de8eb98b-2", "SE-d2a94047-0" ],
+    "duracaoTotalMinutos" : 720000
+  }, {
+    "cliente" : "CL-a5b32a74-e",
+    "servicosDesejados" : [ "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8" ],
+    "barbeiroPreferencial" : "BA-0af4972d-7",
+    "dataDaSolicitacao" : "2025-11-16T23:06:24.487134575",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8", "SE-91206158-2", "SE-e13c4a3f-8" ],
+    "duracaoTotalMinutos" : 24000
+  }, {
+    "cliente" : "CL-4cf3bc7e-5",
+    "servicosDesejados" : [ "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2" ],
+    "barbeiroPreferencial" : "BA-54d6d3f7-0",
+    "dataDaSolicitacao" : "2025-11-16T23:06:24.487359714",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2", "SE-1c02ff1e-5", "SE-507d96f6-2" ],
+    "duracaoTotalMinutos" : 36000
+  }, {
+    "cliente" : "CL-846f61ac-2",
+    "servicosDesejados" : [ "SE-42266744-8", "SE-8615a219-7", "SE-42266744-8", "SE-8615a219-7" ],
+    "barbeiroPreferencial" : "BA-fba1fef3-3",
+    "dataDaSolicitacao" : "2025-11-16T23:06:39.741473277",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-42266744-8", "SE-8615a219-7", "SE-42266744-8", "SE-8615a219-7" ],
+    "duracaoTotalMinutos" : 1200
+  }, {
+    "cliente" : "CL-7c419b12-5",
+    "servicosDesejados" : [ "SE-7b0d4cdd-4", "SE-c5b91194-7", "SE-7b0d4cdd-4", "SE-c5b91194-7" ],
+    "barbeiroPreferencial" : "BA-118dcb43-1",
+    "dataDaSolicitacao" : "2025-11-16T23:06:39.741740511",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-7b0d4cdd-4", "SE-c5b91194-7", "SE-7b0d4cdd-4", "SE-c5b91194-7" ],
+    "duracaoTotalMinutos" : 1800
+  }, {
+    "cliente" : "CL-74cb5570-6",
+    "servicosDesejados" : [ "SE-9a1bd3a0-4", "SE-fd3d55a1-f" ],
+    "barbeiroPreferencial" : "BA-93e2ed2e-3",
+    "dataDaSolicitacao" : "2025-11-16T23:10:31.583815507",
+    "tipoEstacaoRequerido" : "CORRIQUEIRA",
+    "servicos" : [ "SE-9a1bd3a0-4", "SE-fd3d55a1-f" ],
+    "duracaoTotalMinutos" : 60
+  }, {
+    "cliente" : "CL-2febc0d8-a",
+    "servicosDesejados" : [ "SE-6ed16a40-8", "SE-f694347e-1" ],
+    "barbeiroPreferencial" : "BA-899abecb-2",
+    "dataDaSolicitacao" : "2025-11-16T23:10:31.584041661",
+    "tipoEstacaoRequerido" : "LAVAGEM",
+    "servicos" : [ "SE-6ed16a40-8", "SE-f694347e-1" ],
     "duracaoTotalMinutos" : 90
   } ]
 }

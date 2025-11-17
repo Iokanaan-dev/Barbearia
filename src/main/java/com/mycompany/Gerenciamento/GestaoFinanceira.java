@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import com.mycompany.date_Barbearia.*;
 
 /**
- *
+ * Gerencia as financas
  * @author italo
  */
 public class GestaoFinanceira {

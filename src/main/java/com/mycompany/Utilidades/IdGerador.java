@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Obriga a gerar ID
  * @author intalo
  */
 public interface IdGerador {

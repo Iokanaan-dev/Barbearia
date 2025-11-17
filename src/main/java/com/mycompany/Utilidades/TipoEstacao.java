@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enuma os tipos de estacao
  * @author italo
  */
 public enum TipoEstacao {

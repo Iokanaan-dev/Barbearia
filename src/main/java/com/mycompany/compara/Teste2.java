@@ -8,7 +8,7 @@ import com.mycompany.barbearia.modelos.Individuo;
 import java.util.Comparator;
 
 /**
- *
+ * Classe de teste
  * @author intalo
  */
 public class Teste2 implements Comparator<Individuo>{

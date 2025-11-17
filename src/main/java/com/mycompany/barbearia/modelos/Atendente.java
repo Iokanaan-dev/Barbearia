@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDate;
 import java.util.UUID;
 /**
- *
+ * Representa um usuario atendente
  * @author italo
  */
 
@@ -16,7 +16,7 @@ public class Atendente extends Usuario{
 
     
     /**
-     *
+     * Construtor completo
      * @param username
      * @param senha
      * @param nome
@@ -28,12 +28,15 @@ public class Atendente extends Usuario{
         super(username, senha, nome, cpf, telefone, data_nascimento);
     }
     
+    /**
+     * Construtor sem parametros
+     */
     public Atendente(){
         
     }
     
     /**
-     *
+     * Gera o ID
      * @return
      */
     @Override
@@ -41,6 +44,10 @@ public class Atendente extends Usuario{
         return "AT-" + UUID.randomUUID().toString().substring(0, 10);
     }
     
+    /**
+     * Obtem a representaçao em string
+     * @return 
+     */
     @Override
     public String toString(){
         return String.format("%nAtendente %s%n%s", getId(), super.toString()); 

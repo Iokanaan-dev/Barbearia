@@ -8,7 +8,7 @@ import com.mycompany.barbearia.modelos.Individuo;
 import java.util.Comparator;
 
 /**
- *
+ * Classe que compara individuos pelo tamanho do nome
  * @author intalo
  */
 public class ComparatorTamanhoNomeIndividuo implements Comparator<Individuo> {

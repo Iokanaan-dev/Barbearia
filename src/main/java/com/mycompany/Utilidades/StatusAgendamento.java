@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enumema os statis possiveis de agendamento
  * @author italo
  */
 public enum StatusAgendamento {

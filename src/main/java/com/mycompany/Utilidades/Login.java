@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Obriga a implementar login
  * @author intalo
  */
 public interface Login {

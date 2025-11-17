@@ -5,7 +5,7 @@
 package com.mycompany.Utilidades;
 
 /**
- *
+ * Enumera os tipos de usuario do sistema
  * @author italo
  */
 public enum TipoUsuario {

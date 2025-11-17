@@ -85,7 +85,7 @@ public class GestaoEstoque extends Gestao<Produto> {
     
     /**
      * Torna possivel a busca por id em outras classes, como as de gestao
-     * @return ArrayList<>
+     * @return ArrayList de produtos
      */
     public ArrayList<Produto> getListaCopia() {
         return new ArrayList(listaModelo);
@@ -110,7 +110,7 @@ public class GestaoEstoque extends Gestao<Produto> {
     /**
      * Busca produtos na lista de produtos do estoque usando o nome
      * @param nome do produto
-     * @return ArrayList<> com todos os itens com aquele nome
+     * @return ArrayList com todos os itens com aquele nome
     */
     public ArrayList<Produto> buscarPorNome(String nome){
        return super.buscarPorNome(nome);

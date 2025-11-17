@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- *
+ * Gerencia os usuarios
  * @author italos
  */
 public class GestaoUsuarios extends Gestao<Usuario> implements Login {
@@ -119,8 +119,8 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     
     /**
      * Permite ao gerente editar as informacoes de um usuario
-     * @param nameuserGerente
-     * @param senhaGerente
+     * @param nameuser
+     * @param senha
      * @param id
      * @param nome
      * @param cpf
@@ -169,9 +169,8 @@ public class GestaoUsuarios extends Gestao<Usuario> implements Login {
     
     /**
      *
-     * @param objeto
-     * @param username
-     * @param senha
+     * @param usuario
+     * @param cpf
      * @param usernameNovo
      * @param senhaNova
      */
