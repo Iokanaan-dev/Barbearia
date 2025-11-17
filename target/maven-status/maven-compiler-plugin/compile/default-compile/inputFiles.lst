@@ -1,10 +1,11 @@
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\ExcluirClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\ComparatorTelefoneIndividuo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoEstoque.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestãoUsuario\BuscarUsuarioPanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestãoUsuario\EditarUsuarioPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Cliente\CadastroClientePanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\RelatorioFinanceiro.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoUsuarios.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\OrdemServicoPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\TipoUsuario.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoPonto.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\Login.java
@@ -12,12 +13,14 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoFin
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Servico.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Agendamento.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Utilidades\IdGerador.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\OrdemServico\OrdemServicoPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Estacao.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\Teste2.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\date_Barbearia\Barbearia_date.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Serviços\BuscarServicosPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\compara\ComparatorDataNascimentoIndividuo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestaoEstoquePanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestãoUsuario\GestaoUsuariosPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\GestaoServicos.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Serviços\CadastroServicoPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Gerente.java
@@ -35,7 +38,7 @@ C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Serviços\EditarServicoPan
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\Gerenciamento\Sistema.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Modelo.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\com\mycompany\barbearia\modelos\Individuo.java
-C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestaoUsuariosPanel.java
+C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\GestãoUsuario\CadastrarUsuarioPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\BaterPontoPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Agendamento\AgendamentosPanel.java
 C:\Iokanaan.Studio\Barbearia\src\main\java\InterfaceG\Serviços\ServicoPanel.java
