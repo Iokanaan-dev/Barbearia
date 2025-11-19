@@ -10,8 +10,7 @@ import InterfaceG.*;
  * @author italo
  */
 public class Barbearia {
-    
-    // (Seu método totalOrdensServico() está ótimo)
+   
     
     public static void main(String[] args) throws Exception {
         //  QUESTOES=========================================================   

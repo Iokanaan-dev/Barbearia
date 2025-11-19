@@ -1,7 +1,6 @@
 package InterfaceG;
 
 import InterfaceG.Cliente.ClientesPanel;
-import InterfaceG.GestãoUsuario.GestaoUsuariosPanel;
 import InterfaceG.Serviços.ServicoPanel;
 import com.mycompany.barbearia.modelos.Atendente;
 import com.mycompany.barbearia.modelos.Barbeiro;
@@ -152,7 +151,7 @@ public class MenuPrincipalTela extends JFrame {
         });
 
         btnGestaoUsuarios.addActionListener((java.awt.event.ActionEvent evt) -> {
-            setView(new GestaoUsuariosPanel());
+            //setView(new GestaoUsuariosPanel());
         });
 
         btnGestaoEstoque.addActionListener((java.awt.event.ActionEvent evt) -> {
