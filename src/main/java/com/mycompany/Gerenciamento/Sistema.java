@@ -429,10 +429,10 @@ public class Sistema {
         
         //cadastrando agendamento
         Agendamento agendamento1 = new Agendamento(clienteFelipe, barbeiroThiago, atendenteFabio, gestaoE.getEstacao(1), servicos1,
-                LocalDateTime.of(2026, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+                LocalDateTime.of(2026, 11, 12, 1, 0), StatusAgendamento.CONFIRMADO, false, null);
         
         Agendamento agendamento2 = new Agendamento(clienteRoberta, barbeiroMarco, atendenteFabio, gestaoE.getEstacao(0), servicos3,
-                LocalDateTime.of(2025, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
+                LocalDateTime.of(2025, 11, 24, 10, 0), StatusAgendamento.CONFIRMADO, false, null);
         
         gestaoA.cadastrar(agendamento1);
         gestaoA.cadastrar(agendamento2);

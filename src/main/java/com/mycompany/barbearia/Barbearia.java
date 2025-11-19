@@ -1,6 +1,5 @@
 package com.mycompany.barbearia;
 
-import com.mycompany.date_Barbearia.GerenciadorDeArquivos;
 import com.mycompany.date_Barbearia.Barbearia_date;
 import com.mycompany.Gerenciamento.*;
 import com.mycompany.Gerenciamento.Sistema;
@@ -18,7 +17,8 @@ public class Barbearia {
         //14 - parte I ======================================================
 
         //  Carrega dados existentes ou cria novos
-        try {
+        
+        //try {
             Barbearia_date dados = Barbearia_date.getInstancia();
 
             GestaoClientes.inicializar(dados);
@@ -32,7 +32,10 @@ public class Barbearia {
             GestaoListaEspera.inicializar(dados);
             GestaoPonto.inicializar(dados);
             
+            /*
             GestaoUsuarios gestaoU = GestaoUsuarios.getInstancia();
+            
+            
             
             boolean existeGerente = !gestaoU.getListaGerentes().isEmpty();
             
@@ -52,7 +55,7 @@ public class Barbearia {
             System.out.println("Erro ao inicializar os dados: " + e.getMessage());
             e.printStackTrace();
         }
-     
+        */
 
         try {
             Sistema sistema = new Sistema();
@@ -75,7 +78,7 @@ public class Barbearia {
             
             //10 ===========================================================
             //System.out.println("\nQUESTAO 10");
-            // sistema.questao10();            
+             //sistema.questao10();            
 
             //11 ===========================================================
            // System.out.println("\nQUESTAO 11");
@@ -91,7 +94,8 @@ public class Barbearia {
             
             //14 ==========================================================
              //System.out.println("\nQUESTAO 14");
-            //sistema.questao14();
+            
+             sistema.questao14();
             
             //15P2 ========================================================
            // System.out.println("\nQUESTAO 15P2");
@@ -104,6 +108,9 @@ public class Barbearia {
             //17P2 ======================================================== 
             //System.out.println("\nQUESTAO 17P2");
             //sistema.questao17P2();
+            
+            
+            
             
 
         } catch (Exception e) {

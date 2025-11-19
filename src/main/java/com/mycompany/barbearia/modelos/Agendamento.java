@@ -129,13 +129,6 @@ public class Agendamento extends Modelo{
         return isEncaixe;
     }
 
-    /**
-     * Obtem a resposta de ha encaixe
-     * @return booleano que indica se eh possivel encaixar
-     */
-    public boolean isIsEncaixe() {
-        return isEncaixe;
-    }
     
     /**
      * Obtem a Estacao que sera utilizada para os serviços
