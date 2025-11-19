@@ -94,8 +94,7 @@ public class Barbearia {
             
             //14 ==========================================================
              //System.out.println("\nQUESTAO 14");
-            
-             sistema.questao14();
+            //sistema.questao14();
             
             //15P2 ========================================================
            // System.out.println("\nQUESTAO 15P2");

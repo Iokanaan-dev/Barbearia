@@ -11,13 +11,13 @@ public class GerenciadorDeArquivos {
 
     private static final String CAMINHO_ARQUIVO = "barbearia_dados.json";
 
-    // ✅ Configuração do Jackson
+    //  Configuração do Jackson
     private static final ObjectMapper mapper = new ObjectMapper()
             .registerModule(new JavaTimeModule()) // Suporte a LocalDate / LocalDateTime
             .enable(SerializationFeature.INDENT_OUTPUT) // JSON bonito
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // Datas legíveis (ex: "2025-11-10")
 
-    // 🔹 Salva (com merge automático)
+    //  Salva (com merge automático)
     public static void salvar(Barbearia_date dados) {
         try { 
             File arquivo = new File(CAMINHO_ARQUIVO);
@@ -28,7 +28,7 @@ public class GerenciadorDeArquivos {
         }
     }
 
-    // 🔹 Carrega os dados do arquivo e retorna a instância
+    //  Carrega os dados do arquivo e retorna a instância
     public static Barbearia_date carregar() {
         try {
             File arquivo = new File(CAMINHO_ARQUIVO);

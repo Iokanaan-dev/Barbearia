@@ -83,8 +83,8 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
                 LocalDateTime fimExistente = agendamentoExistente.getDataHoraFimAgendamento();
                 
                 // verifica se os horarios da utilizaçao recurso vao bater com horarios ja agendados  
-                if (inicio.isBefore(fimExistente) && fim.isAfter(inicioExistente)) 
-                    return true;
+                if (inicio.isBefore(fimExistente) && fim.isAfter(inicioExistente)) //  intervalos [A,B) e [C,D)                 
+                    return true;                                                   //   A < D  E  B > C
             }
         }
         return false; // indica que ha horarios livres e sem colisoes de recursos
@@ -312,18 +312,14 @@ public class GestaoAgendamentos extends Gestao<Agendamento> {
         if (tiposMisturados) return null;
 
         //  Calcula a duração total
-        int duracaoTotalMinutos = servicos.stream()
-                .mapToInt(Servico::getTempoEmMinutos)
-                .sum();
+        int duracaoTotalMinutos = servicos.stream().mapToInt(Servico::getTempoEmMinutos).sum();
 
         //  Obtém recursos disponíveis
         var barbeiros = gestaoUsuarios.getListaBarbeiros();
         var estacoes = gestaoEstacao.getEstacoes();
 
         //  Percorre o expediente em intervalos de SLOT_MINUTOS
-        for (LocalDateTime inicio = data.atTime(HORA_INICIO_ESPEDIENTE);
-             inicio.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE);
-             inicio = inicio.plusMinutes(SLOT_MINUTOS)) {
+        for (LocalDateTime inicio = data.atTime(HORA_INICIO_ESPEDIENTE);inicio.toLocalTime().isBefore(HORA_FINAL_ESPEDIENTE);inicio = inicio.plusMinutes(SLOT_MINUTOS)) {
 
             LocalDateTime fim = inicio.plusMinutes(duracaoTotalMinutos);
 
