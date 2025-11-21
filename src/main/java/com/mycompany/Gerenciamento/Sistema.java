@@ -743,5 +743,225 @@ public class Sistema {
             List, desde que ordenadas.
             
            */
-    }   
+    }
+    
+     public void questao18P2() throws Exception{
+        
+        /*
+              configura todas as informacoes necessarias para se cadastrar 10 clientes
+           */
+        
+        gestaoC.limparLista();
+        gestaoA.limparLista();
+        gestaoP.limparLista();
+        gestaoOS.limparLista();
+        gestaoU.limparLista();
+        gestaoD.limparLista();
+        gestaoES.limparLista();
+        gestaoES.limparLista();
+        gestaoS.limparLista();
+        
+        // cria os 10 clientes
+        Cliente cliente1  = new Cliente("Bruno Almeida",     "10110110110", "83451127",   LocalDate.of(1990, 3, 15),  "bruno.almeida@gmail.com");
+        Cliente cliente2  = new Cliente("Mariana Souza",     "20220220220", "72984253",   LocalDate.of(1995, 7, 22),  "mariana.souza@gmail.com");
+        Cliente cliente3  = new Cliente("Diego Martins",     "30330330330", "56490382",   LocalDate.of(1988, 11, 5),  "diego.martins@gmail.com");
+        Cliente cliente4  = new Cliente("Juliana Pereira",   "40440440440", "91524336",   LocalDate.of(1993, 1, 27),  "juliana.pereira@gmail.com");
+        Cliente cliente5  = new Cliente("Rafael Costa",      "50550550550", "48712590",   LocalDate.of(2000, 9, 10),  "rafael.costa@gmail.com");
+        Cliente cliente6  = new Cliente("Carolina Dias",     "60660660660", "30197254",   LocalDate.of(1992, 4, 30),  "carolina.dias@gmail.com");
+        Cliente cliente7  = new Cliente("Thiago Ramos",      "70770770770", "65842217",   LocalDate.of(1986, 6, 18),  "thiago.ramos@gmail.com");
+        Cliente cliente8  = new Cliente("Larissa Prado",     "80880880880", "742551963",  LocalDate.of(1998, 12, 9),  "larissa.prado@gmail.com");
+        Cliente cliente9  = new Cliente("Eduardo Silva",     "90990990990", "95168432",   LocalDate.of(1991, 2, 2),   "eduardo.silva@gmail.com");
+        Cliente cliente10 = new Cliente("Gabriela Rocha",    "11211211211", "38426701",   LocalDate.of(1994, 8, 14),  "gabriela.rocha@gmail.com");      
+        
+        // cadastra os 10 clientes
+        gestaoC.cadastrar(cliente1);
+        gestaoC.cadastrar(cliente2);
+        gestaoC.cadastrar(cliente3);
+        gestaoC.cadastrar(cliente4);
+        gestaoC.cadastrar(cliente5);
+        gestaoC.cadastrar(cliente6);
+        gestaoC.cadastrar(cliente7);
+        gestaoC.cadastrar(cliente8);
+        gestaoC.cadastrar(cliente9);
+        gestaoC.cadastrar(cliente10);
+        
+        // cria alguns serviços
+        Servico servico1  = new Servico("Corte Degradê", 55.0, "Corte moderno com transição suave de volumes", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico2  = new Servico("Barba Italiana", 40.0, "Barba feita com toalha quente e navalha", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico3  = new Servico("Corte Infantil", 45.0, "Corte especial para crianças, com acabamento suave", 4, TipoEstacao.CORRIQUEIRA);
+        Servico servico4  = new Servico("Hidratação Capilar", 65.0, "Tratamento para revitalizar e hidratar os fios", 4, TipoEstacao.LAVAGEM);
+        Servico servico5  = new Servico("Relaxamento Capilar", 90.0, "Reduz o volume dos fios sem alisar completamente", 5, TipoEstacao.LAVAGEM);
+        Servico servico6  = new Servico("Corte Navalhado", 60.0, "Corte com acabamento na navalha para maior precisão", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico7  = new Servico("Acabamento Máquina", 25.0, "Aparação rápida nas laterais e nuca com máquina", 2, TipoEstacao.CORRIQUEIRA);
+        Servico servico8  = new Servico("Barba Modelada", 50.0, "Barba alinhada e modelada conforme o formato do rosto", 3, TipoEstacao.CORRIQUEIRA);
+        Servico servico9  = new Servico("Sobrancelha Navalha", 20.0, "Design rápido utilizando navalha", 1, TipoEstacao.CORRIQUEIRA);
+        Servico servico10 = new Servico("Platinado Curto", 120.0, "Descoloração total para efeito platinado", 5, TipoEstacao.LAVAGEM);
+        Servico servico11 = new Servico("Tonificação Capilar", 70.0, "Aplicação de tonalizante para ajuste de cor", 4, TipoEstacao.LAVAGEM);
+        Servico servico12 = new Servico("Lavagem Premium", 35.0, "Lavagem com massagem capilar e produtos especiais", 2, TipoEstacao.LAVAGEM);
+        Servico servico13 = new Servico("Máscara Revitalizante", 55.0, "Aplicação de máscara nutritiva para fortalecimento", 3, TipoEstacao.LAVAGEM);
+        Servico servico14 = new Servico("Esfoliação de Couro Cabeludo", 75.0, "Remoção de impurezas e ativação da circulação", 4, TipoEstacao.LAVAGEM);
+        Servico servico15 = new Servico("Corte Social Masculino", 50.0, "Corte clássico com finalização tradicional", 3, TipoEstacao.CORRIQUEIRA);
+        
+        //cadastra os servicos
+        gestaoS.cadastrar(servico1);
+        gestaoS.cadastrar(servico2);
+        gestaoS.cadastrar(servico3);
+        gestaoS.cadastrar(servico4);
+        gestaoS.cadastrar(servico5);
+        gestaoS.cadastrar(servico6);
+        gestaoS.cadastrar(servico7);
+        gestaoS.cadastrar(servico8);
+        gestaoS.cadastrar(servico9);
+        gestaoS.cadastrar(servico10);
+        gestaoS.cadastrar(servico11);
+        gestaoS.cadastrar(servico12);
+        gestaoS.cadastrar(servico13);
+        gestaoS.cadastrar(servico14);
+        gestaoS.cadastrar(servico15);
+        
+        
+        Barbeiro usuario1  = new Barbeiro("barbeiro_thiago", "thiago1234", "Thiago", "14141414141", "38997001111", LocalDate.of(1990, 8, 12));
+        Barbeiro usuario2  = new Barbeiro("barbeiro_marco", "marcos5678", "Marcos", "15151515151", "38997002222", LocalDate.of(1990, 8, 12));        
+        Atendente usuario3 = new Atendente("atendente_fabio", "fabio8080", "Fabio", "23232323232", "38997001010", LocalDate.of(1990, 8, 12));
+        
+        gestaoU.cadastrar(usuario1);
+        gestaoU.cadastrar(usuario2);
+        gestaoU.cadastrar(usuario3);
+        
+        Produto produto1 = new Produto("Shampoo", 15.00, 25.00, "Shampoo cheiroso");
+        Produto produto2 = new Produto("Condicionador",15.00 ,25.00, "Shampoo cheiroso");
+        Produto produto3 = new Produto("Mascara Hidratante",20.00 ,30.00, "Hidrada qualquer tipo de cabelo");
+        
+        
+        gestaoP.cadastrar(produto1);
+        gestaoP.cadastrar(produto2);
+        gestaoP.cadastrar(produto3);
+        
+        gestaoES.cadastrarProdutoNoEstoque(produto1.getId(), 10);
+        gestaoES.cadastrarProdutoNoEstoque(produto2.getId(), 10);
+        gestaoES.cadastrarProdutoNoEstoque(produto3.getId(), 10);
+        
+        
+        ArrayList<Servico> servicos1  = new ArrayList<>(List.of(servico1, servico2));    // CORRIQUEIRA
+        ArrayList<Servico> servicos2  = new ArrayList<>(List.of(servico3, servico7));    // CORRIQUEIRA
+        ArrayList<Servico> servicos3  = new ArrayList<>(List.of(servico6, servico8));    // CORRIQUEIRA
+        ArrayList<Servico> servicos4  = new ArrayList<>(List.of(servico9, servico15));   // CORRIQUEIRA
+        ArrayList<Servico> servicos5  = new ArrayList<>(List.of(servico1, servico6));    // CORRIQUEIRA
+        ArrayList<Servico> servicos6  = new ArrayList<>(List.of(servico2, servico8));    // CORRIQUEIRA
+        ArrayList<Servico> servicos7  = new ArrayList<>(List.of(servico3, servico9));    // CORRIQUEIRA
+        ArrayList<Servico> servicos8  = new ArrayList<>(List.of(servico15, servico1));   // CORRIQUEIRA
+
+        ArrayList<Servico> servicos9  = new ArrayList<>(List.of(servico4, servico5));    // LAVAGEM
+        ArrayList<Servico> servicos10 = new ArrayList<>(List.of(servico10, servico11));  // LAVAGEM
+        ArrayList<Servico> servicos11 = new ArrayList<>(List.of(servico12, servico13));  // LAVAGEM
+        ArrayList<Servico> servicos12 = new ArrayList<>(List.of(servico14, servico4));   // LAVAGEM
+        ArrayList<Servico> servicos13 = new ArrayList<>(List.of(servico5, servico10));   // LAVAGEM
+        ArrayList<Servico> servicos14 = new ArrayList<>(List.of(servico11, servico12));  // LAVAGEM
+
+        
+        // cria agendamentos 
+        Agendamento agendamento1  = new Agendamento(cliente1,  usuario1, usuario3, gestaoE.getEstacao(1), servicos1, LocalDateTime.of(2026, 11, 19,  8, 0), StatusAgendamento.CONFIRMADO, false, null); // cliente 1
+        Agendamento agendamento2  = new Agendamento(cliente2,  usuario1, usuario3, gestaoE.getEstacao(1), servicos2, LocalDateTime.of(2026, 11, 19,  9, 0), StatusAgendamento.CONFIRMADO, false, null); // 2
+        Agendamento agendamento3  = new Agendamento(cliente3,  usuario1, usuario3, gestaoE.getEstacao(1), servicos3, LocalDateTime.of(2026, 11, 19, 10, 0), StatusAgendamento.CONFIRMADO, false, null); // 3
+        Agendamento agendamento4  = new Agendamento(cliente4,  usuario1, usuario3, gestaoE.getEstacao(1), servicos4, LocalDateTime.of(2026, 11, 19, 11, 0), StatusAgendamento.CONFIRMADO, false, null); // 4
+        Agendamento agendamento5  = new Agendamento(cliente5,  usuario1, usuario3, gestaoE.getEstacao(1), servicos5, LocalDateTime.of(2026, 11, 19, 13, 0), StatusAgendamento.CONFIRMADO, false, null); // 5
+        Agendamento agendamento6  = new Agendamento(cliente6,  usuario1, usuario3, gestaoE.getEstacao(1), servicos6, LocalDateTime.of(2026, 11, 19, 14, 0), StatusAgendamento.CONFIRMADO, false, null); // 6
+        Agendamento agendamento7  = new Agendamento(cliente7,  usuario1, usuario3, gestaoE.getEstacao(1), servicos7, LocalDateTime.of(2026, 11, 19, 15, 0), StatusAgendamento.CONFIRMADO, false, null); //7
+        Agendamento agendamento8  = new Agendamento(cliente8,  usuario1, usuario3, gestaoE.getEstacao(1), servicos8, LocalDateTime.of(2026, 11, 19, 16, 0), StatusAgendamento.CONFIRMADO, false, null); // 8
+        Agendamento agendamento9  = new Agendamento(cliente9,  usuario1, usuario3, gestaoE.getEstacao(1), servicos9, LocalDateTime.of(2026, 11, 20,  8, 0), StatusAgendamento.CONFIRMADO, false, null); //9
+        Agendamento agendamento10 = new Agendamento(cliente10, usuario1, usuario3, gestaoE.getEstacao(1), servicos10, LocalDateTime.of(2026, 11, 20,  9, 0), StatusAgendamento.CONFIRMADO, true, null); //10
+        Agendamento agendamento11 = new Agendamento(cliente1,  usuario1, usuario3, gestaoE.getEstacao(1), servicos11, LocalDateTime.of(2026, 11, 20, 10, 0), StatusAgendamento.CONFIRMADO, false, null); //11
+        Agendamento agendamento12 = new Agendamento(cliente2,  usuario1, usuario3, gestaoE.getEstacao(1), servicos12, LocalDateTime.of(2026, 11, 20, 11, 0), StatusAgendamento.CONFIRMADO, false, null); //12
+        Agendamento agendamento13 = new Agendamento(cliente3,  usuario1, usuario3, gestaoE.getEstacao(1), servicos13, LocalDateTime.of(2026, 11, 20, 13, 0), StatusAgendamento.CONFIRMADO, false, null); //13
+        Agendamento agendamento14 = new Agendamento(cliente4,  usuario1, usuario3, gestaoE.getEstacao(1), servicos14, LocalDateTime.of(2026, 11, 20, 14, 0), StatusAgendamento.CONFIRMADO, false, null); //14
+
+        // cria ordens de servicos
+        OrdemServico os1  = new OrdemServico(cliente1,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os2  = new OrdemServico(cliente2,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os3  = new OrdemServico(cliente3,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os4  = new OrdemServico(cliente4,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os5  = new OrdemServico(cliente5,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os6  = new OrdemServico(cliente6,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os7  = new OrdemServico(cliente7,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os8  = new OrdemServico(cliente8,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os9  = new OrdemServico(cliente9,  usuario1, LocalDate.of(2026, 11, 19));
+        OrdemServico os10 = new OrdemServico(cliente10, usuario1, LocalDate.of(2026, 11, 19));
+        
+        
+        // cadastra as OSs
+        gestaoOS.cadastrar(os1,  agendamento1);
+        gestaoOS.cadastrar(os2,  agendamento2);
+        gestaoOS.cadastrar(os3,  agendamento3);
+        gestaoOS.cadastrar(os4,  agendamento4);
+        gestaoOS.cadastrar(os5,  agendamento5);
+        gestaoOS.cadastrar(os6,  agendamento6);
+        gestaoOS.cadastrar(os7,  agendamento7);
+        gestaoOS.cadastrar(os8,  agendamento8);
+        gestaoOS.cadastrar(os9,  agendamento9);
+        gestaoOS.cadastrar(os10, agendamento10);
+        
+        // adiciona Agendamentos nas OSs
+        gestaoOS.adicionarAgendamento(os1, agendamento11);
+        gestaoOS.adicionarAgendamento(os2, agendamento12);
+        gestaoOS.adicionarAgendamento(os3, agendamento13);
+        gestaoOS.adicionarAgendamento(os4, agendamento14);
+        
+        // adiciona produtos nas OSs
+        gestaoOS.adicionarProdutoVendido(os1.getId(), produto1.getId(), 1);
+        gestaoOS.adicionarProdutoVendido(os2.getId(), produto2.getId(), 5);
+        
+        // imprime as OSs
+        gestaoOS.printLista();
+        
+        //imprime o estoque
+        //System.out.println(gestaoES.getEstoque());
+        
+        gestaoOS.processarPagamentoFinal(os1);
+        gestaoOS.processarPagamentoFinal(os2);
+        gestaoOS.processarPagamentoFinal(os3);
+        gestaoOS.processarPagamentoFinal(os4);
+        gestaoOS.processarPagamentoFinal(os5);
+        gestaoOS.processarPagamentoFinal(os6);
+        gestaoOS.processarPagamentoFinal(os7);
+        gestaoOS.processarPagamentoFinal(os8);
+        gestaoOS.processarPagamentoFinal(os9);
+        gestaoOS.processarPagamentoFinal(os10);
+        
+        
+        // gera as notas fiscais
+        String notaFiscal1  = gestaoF.gerarNotaCliente(os1.getCliente().getCpf(),  false);
+        String notaFiscal2  = gestaoF.gerarNotaCliente(os2.getCliente().getCpf(),  false);
+        String notaFiscal3  = gestaoF.gerarNotaCliente(os3.getCliente().getCpf(),  false);
+        String notaFiscal4  = gestaoF.gerarNotaCliente(os4.getCliente().getCpf(),  false);
+        String notaFiscal5  = gestaoF.gerarNotaCliente(os5.getCliente().getCpf(),  false);
+        String notaFiscal6  = gestaoF.gerarNotaCliente(os6.getCliente().getCpf(),  false);
+        String notaFiscal7  = gestaoF.gerarNotaCliente(os7.getCliente().getCpf(),  false);
+        String notaFiscal8  = gestaoF.gerarNotaCliente(os8.getCliente().getCpf(),  false);
+        String notaFiscal9  = gestaoF.gerarNotaCliente(os9.getCliente().getCpf(),  false);
+        String notaFiscal10 = gestaoF.gerarNotaCliente(os10.getCliente().getCpf(), false);
+        
+        // cria as 10 notas ficais
+        String notasFiscais =
+            notaFiscal1 + "\n" +
+            notaFiscal2 + "\n" +
+            notaFiscal3 + "\n" +
+            notaFiscal4 + "\n" +
+            notaFiscal5 + "\n" +
+            notaFiscal6 + "\n" +
+            notaFiscal7 + "\n" +
+            notaFiscal8 + "\n" +
+            notaFiscal9 + "\n" +
+            notaFiscal10;
+        
+        System.out.println("\n===== NFs 10 clientes =====");         
+        System.out.println(notasFiscais);
+        
+        
+        // X cadastrar um cliente
+        // cadastrar produtos e servicos
+        // cria agendamentos
+        // baixa no estoque 
+        // denota serviços realizados
+        // finaliza com NF
+    }
 }
